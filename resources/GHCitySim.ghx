@@ -48,10 +48,10 @@
             <chunk name="Projection">
               <items count="2">
                 <item name="Target" type_name="gh_drawing_point" type_code="30">
-                  <X>824</X>
-                  <Y>-853</Y>
+                  <X>737</X>
+                  <Y>-314</Y>
                 </item>
-                <item name="Zoom" type_name="gh_single" type_code="5">0.7999999</item>
+                <item name="Zoom" type_name="gh_single" type_code="5">0.511999965</item>
               </items>
             </chunk>
             <chunk name="Views">
@@ -83,9 +83,9 @@
         </chunk>
         <chunk name="DefinitionObjects">
           <items count="1">
-            <item name="ObjectCount" type_name="gh_int32" type_code="3">23</item>
+            <item name="ObjectCount" type_name="gh_int32" type_code="3">27</item>
           </items>
-          <chunks count="23">
+          <chunks count="27">
             <chunk name="Object" index="0">
               <items count="3">
                 <item name="GUID" type_name="gh_guid" type_code="9">410755b1-224a-4c1e-a407-bf32fb45ea7e</item>
@@ -6670,7 +6670,7 @@ Provided by Ladybug 0.0.63</item>
                     <item name="HideOutput" type_name="gh_bool" type_code="1">false</item>
                     <item name="IconDisplay" type_name="gh_int32" type_code="3">2</item>
                     <item name="IconOverride" type_name="gh_drawing_bitmap" type_code="37">
-                      <bitmap length="1383">iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOvQAADr0BR/uQrQAABQlJREFUSEvFVX9oVWUY/s73fefcc+89d3PX7uacSmqyNL2bpoLOzcw5wR8oSMIE/0hMC3Iz02mGtmEqihUphuiEiEQWmTg1I4nFakazjaWwTefuHc6xZjaU5o8M79Nz7h3o0OGiP3rh49xzzn2f932e5/2+I/6XuHr1akZtbe0UAGbvI9HV1eVUHK9cVl1dHWq73pb+6Lt/HYWFhd+lhoI4fODA2rNVVfkvL57fnP3ipG6/xw/DNGElB5CSMRpbSnccaWxsHN+b9vTo6OjwRaPRZ8PhqTd4C3dJroVCYqewsN8QOKQEPhIGXuHzYPy9QuHy5Q3Ms+Mg/UVDQ8PEcDh8Izd3BsaND8NL0HWmFy1GEqB9gGEBUvLqQY/04L4UOGd6MNyQ8UamTp/uXvuP05WViyUB+BOCnS7VFs5oP74QJuosBSgD94XGFhlEqvbiXctATCVhuVKYZkn4mJczI5fWQCUQnxAv5eREDcPAHp2ClcqCpWwWdDCKII3SZSGxgBIJ00KeqePMuqWJJjMF23RavLk1a9Z/m0B7QuTNnNm6xJVBJuM1aUFIBaHJinIckAYeUJpa5cc+Pmv1OHHZeth9ORmN5LvpZKttPy7U1U3uhewb6amp+NHV2xQ4yw6HkY2gLM8oE63axj0aeleyczL5gdd9LPwbGTTwv++R8RnTD4ssVqxYXdML+TAmTs7rnsGXd9jJXcOHOpmE44YX33PN89jYY5kEVrhFiaJkOJgFha3xqUXzlReglH+ZEnOIMWTsuMcNtzNGYg3NvaU1CiSTCTaCYJ9Tpus0cx4l20Up/ub1MkEXSi/GsmiNNlBONm/RLygOAQvolNDDAk2Rpszt20s/0IHB2Emd9zJB0FSTMijep2mBy2QTYXIuzS2zTdw2DfxuaFwiux5jEN6QfhRwqm5Tpp30xfb5sWPr1kSRn8/Xo2RtMazAIGxhYhk7F4YN2/BDk0mABc8RCNLB1zKAsZTlEOUBzf2T7x5ohSvaxHWL3rCh98lA+QIoXr+ur0x2+jCU0MQIN9ZQj8nJ8bKQgdXs9CaN30aALO6N53nNpOZHCRajnBto9BEya6OMV4QXb3MovMHUxz2YkpOPqax+j102mknYzsSD1PuOCrBDH0bTHyF83AMCG5WDJfThEzJbxO4n8H8j3KUkQjxGXsie8HiB3bv3fuah9q9S44M8ItxRdE27xn1xkzKso5HCEkjj9UvtoIqah1nkJKVbwe7dvaLcPcMmizYW30ugPhLd3d3Js2YVQJN2vulwHP1odceSUrhnUAen5BgBf1IpnCiToBK/UqoC+rCKco7iKaspsZ3kx/ma84W9sH2jpaXluaysLLxuBXHachCi6cc4mnc441mc8V0eiQdGEBX04jTZwnBQw022VAewmJNECBQVFd1MoPUTp06cWjV8yBAs49mziWfMRZ6Yt6jrDjLaTaD98XPJ3c1cbhEWW0lWTMX8/Dlob28fk0DqJ3gaWh/u+7jccRwsInA1JeuhB9foyyTXB8qWQf0vcf6rOD1zmeKmLZ09F9FL0ezOWMyfQHpKnPzqmzdHjMmMJ+dR29lcikvww+M+y+QyuLzBEEpKNv7R2dk5MhaLeeLJAw33O3z0aMWGafMXIDl9KHwpSXACPqSmhTApK4zNmzd3nPvlAj9u/zHcj0iER0rpttITZZve6brY3Jzjas2uBybHQCMSiWTW19fP670dQAjxD4n7fFuW/tITAAAAAElFTkSuQmCC</bitmap>
+                      <bitmap length="1383">iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOvAAADrwBlbxySQAABQlJREFUSEvFVX9oVWUY/s73fefcc+89d3PX7uacSmqyNL2bpoLOzcw5wR8oSMIE/0hMC3Iz02mGtmEqihUphuiEiEQWmTg1I4nFakazjaWwTefuHc6xZjaU5o8M79Nz7h3o0OGiP3rh49xzzn2f932e5/2+I/6XuHr1akZtbe0UAGbvI9HV1eVUHK9cVl1dHWq73pb+6Lt/HYWFhd+lhoI4fODA2rNVVfkvL57fnP3ipG6/xw/DNGElB5CSMRpbSnccaWxsHN+b9vTo6OjwRaPRZ8PhqTd4C3dJroVCYqewsN8QOKQEPhIGXuHzYPy9QuHy5Q3Ms+Mg/UVDQ8PEcDh8Izd3BsaND8NL0HWmFy1GEqB9gGEBUvLqQY/04L4UOGd6MNyQ8UamTp/uXvuP05WViyUB+BOCnS7VFs5oP74QJuosBSgD94XGFhlEqvbiXctATCVhuVKYZkn4mJczI5fWQCUQnxAv5eREDcPAHp2ClcqCpWwWdDCKII3SZSGxgBIJ00KeqePMuqWJJjMF23RavLk1a9Z/m0B7QuTNnNm6xJVBJuM1aUFIBaHJinIckAYeUJpa5cc+Pmv1OHHZeth9ORmN5LvpZKttPy7U1U3uhewb6amp+NHV2xQ4yw6HkY2gLM8oE63axj0aeleyczL5gdd9LPwbGTTwv++R8RnTD4ssVqxYXdML+TAmTs7rnsGXd9jJXcOHOpmE44YX33PN89jYY5kEVrhFiaJkOJgFha3xqUXzlReglH+ZEnOIMWTsuMcNtzNGYg3NvaU1CiSTCTaCYJ9Tpus0cx4l20Up/ub1MkEXSi/GsmiNNlBONm/RLygOAQvolNDDAk2Rpszt20s/0IHB2Emd9zJB0FSTMijep2mBy2QTYXIuzS2zTdw2DfxuaFwiux5jEN6QfhRwqm5Tpp30xfb5sWPr1kSRn8/Xo2RtMazAIGxhYhk7F4YN2/BDk0mABc8RCNLB1zKAsZTlEOUBzf2T7x5ohSvaxHWL3rCh98lA+QIoXr+ur0x2+jCU0MQIN9ZQj8nJ8bKQgdXs9CaN30aALO6N53nNpOZHCRajnBto9BEya6OMV4QXb3MovMHUxz2YkpOPqax+j102mknYzsSD1PuOCrBDH0bTHyF83AMCG5WDJfThEzJbxO4n8H8j3KUkQjxGXsie8HiB3bv3fuah9q9S44M8ItxRdE27xn1xkzKso5HCEkjj9UvtoIqah1nkJKVbwe7dvaLcPcMmizYW30ugPhLd3d3Js2YVQJN2vulwHP1odceSUrhnUAen5BgBf1IpnCiToBK/UqoC+rCKco7iKaspsZ3kx/ma84W9sH2jpaXluaysLLxuBXHachCi6cc4mnc441mc8V0eiQdGEBX04jTZwnBQw022VAewmJNECBQVFd1MoPUTp06cWjV8yBAs49mziWfMRZ6Yt6jrDjLaTaD98XPJ3c1cbhEWW0lWTMX8/Dlob28fk0DqJ3gaWh/u+7jccRwsInA1JeuhB9foyyTXB8qWQf0vcf6rOD1zmeKmLZ09F9FL0ezOWMyfQHpKnPzqmzdHjMmMJ+dR29lcikvww+M+y+QyuLzBEEpKNv7R2dk5MhaLeeLJAw33O3z0aMWGafMXIDl9KHwpSXACPqSmhTApK4zNmzd3nPvlAj9u/zHcj0iER0rpttITZZve6brY3Jzjas2uBybHQCMSiWTW19fP670dQAjxD4n7fFuW/tITAAAAAElFTkSuQmCC</bitmap>
                     </item>
                     <item name="InstanceGuid" type_name="gh_guid" type_code="9">abaced6b-b49d-4aa4-89fb-6cccc4769399</item>
                     <item name="Name" type_name="gh_string" type_code="10">Ladybug_Ladybug</item>
@@ -7039,8 +7039,10 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
         geometry: Tree of BReps (buildings;surfaces)
         path: Directory
         name: name of the project
+        Run: Boolean
+        climatefile: name of climate file (with extension)
     Returns:
-
+        Out: nothing
 """
 
 ghenv.Component.Name = "Honeybee_CitySim-RunSimulation"
@@ -7182,7 +7184,7 @@ CSpath = path
 if Run:
 
     xmlpath = path+name+'.xml'
-    command = "CitySim.exe " + '-I ' + xmlpath + " pause" #Runs only irradiation simulation with -I
+    command = "CitySim.exe " + '-I ' + xmlpath #Runs only irradiation simulation with -I
 
     import os
     os.chdir(CSpath)
@@ -7212,9 +7214,9 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                     <chunk name="Attributes">
                       <items count="2">
                         <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                          <X>743</X>
+                          <X>767</X>
                           <Y>1415</Y>
-                          <W>142</W>
+                          <W>118</W>
                           <H>164</H>
                         </item>
                         <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
@@ -7224,18 +7226,17 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                       </items>
                     </chunk>
                     <chunk name="ParameterData">
-                      <items count="9">
-                        <item name="InputCount" type_name="gh_int32" type_code="3">6</item>
+                      <items count="8">
+                        <item name="InputCount" type_name="gh_int32" type_code="3">5</item>
                         <item name="InputId" index="0" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
                         <item name="InputId" index="1" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
                         <item name="InputId" index="2" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
                         <item name="InputId" index="3" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
                         <item name="InputId" index="4" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
-                        <item name="InputId" index="5" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
                         <item name="OutputCount" type_name="gh_int32" type_code="3">1</item>
                         <item name="OutputId" index="0" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
                       </items>
-                      <chunks count="7">
+                      <chunks count="6">
                         <chunk name="InputParam" index="0">
                           <items count="12">
                             <item name="Access" type_name="gh_int32" type_code="3">2</item>
@@ -7255,14 +7256,14 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>745</X>
+                                  <X>769</X>
                                   <Y>1417</Y>
-                                  <W>80</W>
-                                  <H>26</H>
+                                  <W>56</W>
+                                  <H>32</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>786.5</X>
-                                  <Y>1430.333</Y>
+                                  <X>798.5</X>
+                                  <Y>1433</Y>
                                 </item>
                               </items>
                             </chunk>
@@ -7286,14 +7287,14 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>745</X>
-                                  <Y>1443</Y>
-                                  <W>80</W>
-                                  <H>27</H>
+                                  <X>769</X>
+                                  <Y>1449</Y>
+                                  <W>56</W>
+                                  <H>32</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>786.5</X>
-                                  <Y>1457</Y>
+                                  <X>798.5</X>
+                                  <Y>1465</Y>
                                 </item>
                               </items>
                             </chunk>
@@ -7317,14 +7318,14 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>745</X>
-                                  <Y>1470</Y>
-                                  <W>80</W>
-                                  <H>27</H>
+                                  <X>769</X>
+                                  <Y>1481</Y>
+                                  <W>56</W>
+                                  <H>32</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>786.5</X>
-                                  <Y>1483.667</Y>
+                                  <X>798.5</X>
+                                  <Y>1497</Y>
                                 </item>
                               </items>
                             </chunk>
@@ -7333,7 +7334,7 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                         <chunk name="InputParam" index="3">
                           <items count="11">
                             <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
-                            <item name="Description" type_name="gh_string" type_code="10">Script variable CitySim-RunSimulation</item>
+                            <item name="Description" type_name="gh_string" type_code="10">Boolean</item>
                             <item name="InstanceGuid" type_name="gh_guid" type_code="9">8bab3564-235e-4752-b5ab-0b40d1be52c8</item>
                             <item name="Name" type_name="gh_string" type_code="10">Run</item>
                             <item name="NickName" type_name="gh_string" type_code="10">Run</item>
@@ -7348,60 +7349,30 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>745</X>
-                                  <Y>1497</Y>
-                                  <W>80</W>
-                                  <H>26</H>
+                                  <X>769</X>
+                                  <Y>1513</Y>
+                                  <W>56</W>
+                                  <H>32</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>786.5</X>
-                                  <Y>1510.333</Y>
+                                  <X>798.5</X>
+                                  <Y>1529</Y>
                                 </item>
                               </items>
                             </chunk>
                           </chunks>
                         </chunk>
                         <chunk name="InputParam" index="4">
-                          <items count="10">
-                            <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
-                            <item name="Description" type_name="gh_string" type_code="10">Script variable CitySim-RunSimulation</item>
-                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">b814cfa3-00d6-4be1-8a29-5bfdfea10e73</item>
-                            <item name="Name" type_name="gh_string" type_code="10">_analysisPeriod</item>
-                            <item name="NickName" type_name="gh_string" type_code="10">_analysisPeriod</item>
-                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
-                            <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">0</item>
-                            <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
-                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
-                            <item name="TypeHintID" type_name="gh_guid" type_code="9">87f87f55-5b71-41f4-8aea-21d494016f81</item>
-                          </items>
-                          <chunks count="1">
-                            <chunk name="Attributes">
-                              <items count="2">
-                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>745</X>
-                                  <Y>1523</Y>
-                                  <W>80</W>
-                                  <H>27</H>
-                                </item>
-                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>786.5</X>
-                                  <Y>1537</Y>
-                                </item>
-                              </items>
-                            </chunk>
-                          </chunks>
-                        </chunk>
-                        <chunk name="InputParam" index="5">
                           <items count="11">
                             <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
-                            <item name="Description" type_name="gh_string" type_code="10">Script variable CitySim-RunSimulation</item>
+                            <item name="Description" type_name="gh_string" type_code="10">name of climate file (with extension)</item>
                             <item name="InstanceGuid" type_name="gh_guid" type_code="9">8b0b8826-a1b5-467f-80ad-4c07a67e403f</item>
-                            <item name="Name" type_name="gh_string" type_code="10">x</item>
+                            <item name="Name" type_name="gh_string" type_code="10">climatefile</item>
                             <item name="NickName" type_name="gh_string" type_code="10">climatefile</item>
                             <item name="Optional" type_name="gh_bool" type_code="1">true</item>
                             <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">0</item>
                             <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
-                            <item name="Source" index="0" type_name="gh_guid" type_code="9">d4bc84a8-691d-40a0-b10b-2298b93f0717</item>
+                            <item name="Source" index="0" type_name="gh_guid" type_code="9">7e3ac59d-f86e-4267-a42d-5bb1a37dfb24</item>
                             <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                             <item name="TypeHintID" type_name="gh_guid" type_code="9">37261734-eec7-4f50-b6a8-b8d1f3c4396b</item>
                           </items>
@@ -7409,14 +7380,14 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>745</X>
-                                  <Y>1550</Y>
-                                  <W>80</W>
-                                  <H>27</H>
+                                  <X>769</X>
+                                  <Y>1545</Y>
+                                  <W>56</W>
+                                  <H>32</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>786.5</X>
-                                  <Y>1563.667</Y>
+                                  <X>798.5</X>
+                                  <Y>1561</Y>
                                 </item>
                               </items>
                             </chunk>
@@ -7424,7 +7395,7 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                         </chunk>
                         <chunk name="OutputParam" index="0">
                           <items count="6">
-                            <item name="Description" type_name="gh_string" type_code="10">Script variable RunSimulation</item>
+                            <item name="Description" type_name="gh_string" type_code="10">nothing</item>
                             <item name="InstanceGuid" type_name="gh_guid" type_code="9">feb18ccd-b34e-415c-84ba-88720a00969b</item>
                             <item name="Name" type_name="gh_string" type_code="10">Out</item>
                             <item name="NickName" type_name="gh_string" type_code="10">Out</item>
@@ -7475,8 +7446,8 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                     <chunk name="Attributes">
                       <items count="5">
                         <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                          <X>484</X>
-                          <Y>1464</Y>
+                          <X>-206</X>
+                          <Y>1479</Y>
                           <W>170</W>
                           <H>40</H>
                         </item>
@@ -7484,8 +7455,8 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                         <item name="MarginRight" type_name="gh_int32" type_code="3">0</item>
                         <item name="MarginTop" type_name="gh_int32" type_code="3">0</item>
                         <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                          <X>484.024</X>
-                          <Y>1464.837</Y>
+                          <X>-205.976</X>
+                          <Y>1479.837</Y>
                         </item>
                       </items>
                     </chunk>
@@ -7526,8 +7497,8 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                     <chunk name="Attributes">
                       <items count="5">
                         <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                          <X>488</X>
-                          <Y>1517</Y>
+                          <X>455</X>
+                          <Y>1478</Y>
                           <W>160</W>
                           <H>20</H>
                         </item>
@@ -7535,8 +7506,8 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                         <item name="MarginRight" type_name="gh_int32" type_code="3">0</item>
                         <item name="MarginTop" type_name="gh_int32" type_code="3">0</item>
                         <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                          <X>488.714</X>
-                          <Y>1517.333</Y>
+                          <X>455.714</X>
+                          <Y>1478.333</Y>
                         </item>
                       </items>
                     </chunk>
@@ -7588,7 +7559,7 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
         path: Directory
         name: name of the project
     Returns:
-        Irr = Tree of results
+        SW = Tree of results for shortwave radiation
 """
 
 ghenv.Component.Name = "Honeybee_CitySim-LoadResults"
@@ -7722,14 +7693,14 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                     <chunk name="Attributes">
                       <items count="2">
                         <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                          <X>781</X>
-                          <Y>1652</Y>
+                          <X>782</X>
+                          <Y>1659</Y>
                           <W>94</W>
                           <H>146</H>
                         </item>
                         <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                          <X>832</X>
-                          <Y>1725</Y>
+                          <X>833</X>
+                          <Y>1732</Y>
                         </item>
                       </items>
                     </chunk>
@@ -7760,14 +7731,14 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>783</X>
-                                  <Y>1654</Y>
+                                  <X>784</X>
+                                  <Y>1661</Y>
                                   <W>34</W>
                                   <H>71</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>801.5</X>
-                                  <Y>1689.5</Y>
+                                  <X>802.5</X>
+                                  <Y>1696.5</Y>
                                 </item>
                               </items>
                             </chunk>
@@ -7791,14 +7762,14 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>783</X>
-                                  <Y>1725</Y>
+                                  <X>784</X>
+                                  <Y>1732</Y>
                                   <W>34</W>
                                   <H>71</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>801.5</X>
-                                  <Y>1760.5</Y>
+                                  <X>802.5</X>
+                                  <Y>1767.5</Y>
                                 </item>
                               </items>
                             </chunk>
@@ -7817,14 +7788,14 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>847</X>
-                                  <Y>1654</Y>
+                                  <X>848</X>
+                                  <Y>1661</Y>
                                   <W>26</W>
                                   <H>142</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>860</X>
-                                  <Y>1725</Y>
+                                  <X>861</X>
+                                  <Y>1732</Y>
                                 </item>
                               </items>
                             </chunk>
@@ -16621,7 +16592,7 @@ Provided by Honeybee 0.0.59</item>
                     <item name="HideOutput" type_name="gh_bool" type_code="1">false</item>
                     <item name="IconDisplay" type_name="gh_int32" type_code="3">2</item>
                     <item name="IconOverride" type_name="gh_drawing_bitmap" type_code="37">
-                      <bitmap length="1356">iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOvQAADr0BR/uQrQAABO5JREFUSEvNVXtM01cULhTa0tJSaC1vLN0QGEjHoBkFUZ5KlSFPKVgBFUiVGedgwzkWApgALiYY9nIzY3HqMiJsouCDmDFxCgGXOR9sOsJCskg2JkuYIAr5du6PUiSwJXv8sS85Ob9zeu537z33nFPe30F+fn5MYWFhtMX87xEeHl6i0+mKLOa/g9FoDLF88kpLSyXJycl6kVjS5uDoeCwt0xhHGzWujV5xNSrM47Zeq+4PCvL73Nc/tMo3cFWCZdmfo6ysrIAUAoOD2zT+oW/T9ySzmYiFNnC04+HukQjg0gbgShqmzyZh+Hg0Ouq0yNbLIFe493R2dioofiGqq6v9ExMTt6enp79K5jQJxDY8lG5So+v9GAx9th5By6UQ2tsCX6YD17IxcWoDHnW8AHRuBPqygZFtyHneDjwHtyMc6ZOQy+UjpCAUCu+Tntpn8gcuZwC/FgH3tmFzjCd3CyZaXxlwPQe4kYuZsymYOJ3MbYbRYtTlOoMn8XmP4hYiLy+vltRjEpx4LQwYzJsl6cnCmiAXK3lHrR6VBYGICnBG56HVeHCBTn8lE7iZi676IMjEto+bm8+4UexCtLS0qEg92pPiDfyYD/Rm0bU3IfqZefLmCh2AXcBXGbCh9DGfSiZAbJgKeu0yKFxUHRXV9X7kXwxPdcgJe1qELsrvrc3cySP85Fby0zX0sNMlGG4xQCkVcD4Jvce1pgTcaYrn7JTMfCPpxWhqahKRmjQnqYCxYu7K+hXz5G37ifwxkbeuh4uYHpF8TiI+Bj9ZB0ztxL1mA0R8HmQKjxv022JQ9fiSwtDReGC4AFqqFmYzOV8fCcy8iLtEJhXwOZ+zgx2GTxqAhzvwzQdxsOfbcH6ZVML0Qmg0mr2kLjqK7DD0cSIMK5VW8gsHooi8BAPH1nLpYL5ljvZcmjC5A33vxsDWEstEJORS16pWq+c7vry8fHVsbGyVPd+Wq3FycdJ1cBX3oIxcYDN7QkY+wsqR0tL7Tow1di0VQnPFc7Ch74R163Y3NDToyD+PmpoaLkVzMvAhpQov4To9oIg2Zj4fFxHuMfIHZnRTec7FBrpLuLSe3BfM7BmSxYhKSK2vzXXFwLkUJDyrxMZId3TTJnYWEk+5EGPUUHi4E5cPRVvJAzwkmOqmZhwtgkbBg0Di3sP4lsLV/kZ6TOpY3NmCDVTX5OPEV+mA+7QxJsy4SGmb87NCmPwiDfilELffmr1RVrapmPRiSJzc24/u8ePmCzdnvs2Bk8Qers5CjLNOpQc9VxdpJQ/xkWL6EsX9QN3+tRFPuwngIHEeorzSMywBT//IanOCI/DdFozTUMOACVV5ATDoXGnNbpzZr7eS655yAq7SaGC3pQOlRbhxfi9v73bGtSS27npjjb+Kurg3E4/aaTrS1W8diUNunBdaqYMphBNTPI2Rnws58n76PUwz3y9KpfIm6b+CYLT/oJZOZQRYWroy4C6bXczEUynCqTo93iwNhlY9OypIRmkKfy8Wi8eZ3djYuJL00giJStkb6kq3+GkrnXI7zlezsuMP+mj8umiE/z433Eh+49nKug2GlJKsrCw+W1tZWSkwmUyJT/4TLgmxfHnf66kKtBzQQiEUjh0+fFzJ/ElJSUKpVPqpSqX6aI70H4FOYitVqF/x8AosKy5+mSOfg9lsjk5NTdVbzP8DeLw/AHPNsvu5DMP1AAAAAElFTkSuQmCC</bitmap>
+                      <bitmap length="1356">iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOvAAADrwBlbxySQAABO5JREFUSEvNVXtM01cULhTa0tJSaC1vLN0QGEjHoBkFUZ5KlSFPKVgBFUiVGedgwzkWApgALiYY9nIzY3HqMiJsouCDmDFxCgGXOR9sOsJCskg2JkuYIAr5du6PUiSwJXv8sS85Ob9zeu537z33nFPe30F+fn5MYWFhtMX87xEeHl6i0+mKLOa/g9FoDLF88kpLSyXJycl6kVjS5uDoeCwt0xhHGzWujV5xNSrM47Zeq+4PCvL73Nc/tMo3cFWCZdmfo6ysrIAUAoOD2zT+oW/T9ySzmYiFNnC04+HukQjg0gbgShqmzyZh+Hg0Ouq0yNbLIFe493R2dioofiGqq6v9ExMTt6enp79K5jQJxDY8lG5So+v9GAx9th5By6UQ2tsCX6YD17IxcWoDHnW8AHRuBPqygZFtyHneDjwHtyMc6ZOQy+UjpCAUCu+Tntpn8gcuZwC/FgH3tmFzjCd3CyZaXxlwPQe4kYuZsymYOJ3MbYbRYtTlOoMn8XmP4hYiLy+vltRjEpx4LQwYzJsl6cnCmiAXK3lHrR6VBYGICnBG56HVeHCBTn8lE7iZi676IMjEto+bm8+4UexCtLS0qEg92pPiDfyYD/Rm0bU3IfqZefLmCh2AXcBXGbCh9DGfSiZAbJgKeu0yKFxUHRXV9X7kXwxPdcgJe1qELsrvrc3cySP85Fby0zX0sNMlGG4xQCkVcD4Jvce1pgTcaYrn7JTMfCPpxWhqahKRmjQnqYCxYu7K+hXz5G37ifwxkbeuh4uYHpF8TiI+Bj9ZB0ztxL1mA0R8HmQKjxv022JQ9fiSwtDReGC4AFqqFmYzOV8fCcy8iLtEJhXwOZ+zgx2GTxqAhzvwzQdxsOfbcH6ZVML0Qmg0mr2kLjqK7DD0cSIMK5VW8gsHooi8BAPH1nLpYL5ljvZcmjC5A33vxsDWEstEJORS16pWq+c7vry8fHVsbGyVPd+Wq3FycdJ1cBX3oIxcYDN7QkY+wsqR0tL7Tow1di0VQnPFc7Ch74R163Y3NDToyD+PmpoaLkVzMvAhpQov4To9oIg2Zj4fFxHuMfIHZnRTec7FBrpLuLSe3BfM7BmSxYhKSK2vzXXFwLkUJDyrxMZId3TTJnYWEk+5EGPUUHi4E5cPRVvJAzwkmOqmZhwtgkbBg0Di3sP4lsLV/kZ6TOpY3NmCDVTX5OPEV+mA+7QxJsy4SGmb87NCmPwiDfilELffmr1RVrapmPRiSJzc24/u8ePmCzdnvs2Bk8Qers5CjLNOpQc9VxdpJQ/xkWL6EsX9QN3+tRFPuwngIHEeorzSMywBT//IanOCI/DdFozTUMOACVV5ATDoXGnNbpzZr7eS655yAq7SaGC3pQOlRbhxfi9v73bGtSS27npjjb+Kurg3E4/aaTrS1W8diUNunBdaqYMphBNTPI2Rnws58n76PUwz3y9KpfIm6b+CYLT/oJZOZQRYWroy4C6bXczEUynCqTo93iwNhlY9OypIRmkKfy8Wi8eZ3djYuJL00giJStkb6kq3+GkrnXI7zlezsuMP+mj8umiE/z433Eh+49nKug2GlJKsrCw+W1tZWSkwmUyJT/4TLgmxfHnf66kKtBzQQiEUjh0+fFzJ/ElJSUKpVPqpSqX6aI70H4FOYitVqF/x8AosKy5+mSOfg9lsjk5NTdVbzP8DeLw/AHPNsvu5DMP1AAAAAElFTkSuQmCC</bitmap>
                     </item>
                     <item name="InstanceGuid" type_name="gh_guid" type_code="9">eaa53a60-ef68-450e-a84f-ffbf6e31310e</item>
                     <item name="Name" type_name="gh_string" type_code="10">Honeybee_Honeybee</item>
@@ -17103,7 +17074,7 @@ Provided by Ladybug 0.0.63</item>
                     <item name="HideOutput" type_name="gh_bool" type_code="1">false</item>
                     <item name="IconDisplay" type_name="gh_int32" type_code="3">2</item>
                     <item name="IconOverride" type_name="gh_drawing_bitmap" type_code="37">
-                      <bitmap length="1035">iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOvwAADr8BOAVTJAAAA61JREFUSEutlFlIlFEUx79Wc5tJnclcZhp1nMkpJ7UsjDaitJqixYqiKGjDklYzQZN6iBaIMiYtyJAeRCoqMHqQClpeDKMgqgdfyiCpXBpatNxO///XfOKYY0X94fct9557zr3nnnuVv9QQ71upMpoSKiOixlcMANvLI0zRXtO/UgAfPXHjd0h8skicwz+JqVfUEX40DZwGRhAC8sFNcPv4aEMtHbTEWKUldmBaQbcl6Rrs/aoKCPjifascBRIaKRIYLj0jdPLZECtN4+z+AlRijI9GglJwGZwDmuMKnU5nvTA709q9r1DqC4rl3u58uVp0SGrmu3q+hkVLa0zCHwVIAr2zBe+BHaiqrq427HSXFiRkZ58e53ItP5yTW/Hc4ej6Eh7j43ywAKOAG9D5C5AFnCAU2ADVWxmdw/T1bUazmqJms00+GU3iGWuRZlOi3wBUIWAAs/qnKOsAV0aN5mNjsH6PJ97R1mGySTMcMUC7PlI+RsVJoy1ZPkbH+w0QBOj8nvr3858sBdlscBui0row23bQ5HX+LUAvnfZJcv1ESePL1OktTJkHwboDIn6pog2AAVLAMJAIUgHTlHYqzLDaY3O0fcPMP2BTNeeC96kjx27ll5dHv3NOae0I0EkXNr5p266LGOejS4ABNA0FDKSUBeknt1uSxIP89qYFZSrJU6XyZMkD2jidzmBJnymC9if5B94U1dTEsZ2iI+b5MfgOFoNFgIctaaIubLXAqUSY5D1TA+cdQeEiWMnZosMNoRkZtJ8zdlRQkSSnS93GrWJxuSqVkBAeUvVq0QI8Ap2A1TMbpAPrFJdrU537vEikRT7rxshXHDLBap7duf/QnJUVBRumNH3zwoVbGtyXPhnS0nrwz1PPEu+9u6gy0DdFlGowNy9v890zpSLDQ0XMdikpLPY4Vq3iwaRiQOC8ea7EjJUr1+CbAc6wo7+YFgZYAnj/WIABsGQnzsrJyWu9fENuHzlar9jt7OMMWQA8I7MAJ6P5yAQDip1vgXprQsFgPaBDZUFOboExJYXVRjHHKwDTqekl6J8FH/HWpAGdUvuB6hyKBMz3BGAFYYCnnAE5obWAY/eCQfUE0LAYjGEDxFQxJayYGYDB6FzTPsAxT9W/34hOaUy2sKGPlgGuoq+0mbcApnRQBYJYwM1j2XLgK5ALuJnMN1fD/oPgNaBNLdCD34ond/jPT1U7gAdoK+oP+7aDfxZPNTf8Orjh/Z4K/ru4Op/T+b/Fa4X8oRTlB2JjmCSvIlMdAAAAAElFTkSuQmCC</bitmap>
+                      <bitmap length="1035">iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOvQAADr0BR/uQrQAAA61JREFUSEutlFlIlFEUx79Wc5tJnclcZhp1nMkpJ7UsjDaitJqixYqiKGjDklYzQZN6iBaIMiYtyJAeRCoqMHqQClpeDKMgqgdfyiCpXBpatNxO///XfOKYY0X94fct9557zr3nnnuVv9QQ71upMpoSKiOixlcMANvLI0zRXtO/UgAfPXHjd0h8skicwz+JqVfUEX40DZwGRhAC8sFNcPv4aEMtHbTEWKUldmBaQbcl6Rrs/aoKCPjifascBRIaKRIYLj0jdPLZECtN4+z+AlRijI9GglJwGZwDmuMKnU5nvTA709q9r1DqC4rl3u58uVp0SGrmu3q+hkVLa0zCHwVIAr2zBe+BHaiqrq427HSXFiRkZ58e53ItP5yTW/Hc4ej6Eh7j43ywAKOAG9D5C5AFnCAU2ADVWxmdw/T1bUazmqJms00+GU3iGWuRZlOi3wBUIWAAs/qnKOsAV0aN5mNjsH6PJ97R1mGySTMcMUC7PlI+RsVJoy1ZPkbH+w0QBOj8nvr3858sBdlscBui0row23bQ5HX+LUAvnfZJcv1ESePL1OktTJkHwboDIn6pog2AAVLAMJAIUgHTlHYqzLDaY3O0fcPMP2BTNeeC96kjx27ll5dHv3NOae0I0EkXNr5p266LGOejS4ABNA0FDKSUBeknt1uSxIP89qYFZSrJU6XyZMkD2jidzmBJnymC9if5B94U1dTEsZ2iI+b5MfgOFoNFgIctaaIubLXAqUSY5D1TA+cdQeEiWMnZosMNoRkZtJ8zdlRQkSSnS93GrWJxuSqVkBAeUvVq0QI8Ap2A1TMbpAPrFJdrU537vEikRT7rxshXHDLBap7duf/QnJUVBRumNH3zwoVbGtyXPhnS0nrwz1PPEu+9u6gy0DdFlGowNy9v890zpSLDQ0XMdikpLPY4Vq3iwaRiQOC8ea7EjJUr1+CbAc6wo7+YFgZYAnj/WIABsGQnzsrJyWu9fENuHzlar9jt7OMMWQA8I7MAJ6P5yAQDip1vgXprQsFgPaBDZUFOboExJYXVRjHHKwDTqekl6J8FH/HWpAGdUvuB6hyKBMz3BGAFYYCnnAE5obWAY/eCQfUE0LAYjGEDxFQxJayYGYDB6FzTPsAxT9W/34hOaUy2sKGPlgGuoq+0mbcApnRQBYJYwM1j2XLgK5ALuJnMN1fD/oPgNaBNLdCD34ond/jPT1U7gAdoK+oP+7aDfxZPNTf8Orjh/Z4K/ru4Op/T+b/Fa4X8oRTlB2JjmCSvIlMdAAAAAElFTkSuQmCC</bitmap>
                     </item>
                     <item name="InstanceGuid" type_name="gh_guid" type_code="9">297eaaae-bad5-449a-8020-28a433b12d93</item>
                     <item name="Name" type_name="gh_string" type_code="10">Ladybug_Export Ladybug</item>
@@ -17414,7 +17385,7 @@ Provided by Ladybug 0.0.63</item>
                       <items count="1">
                         <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
                           <X>497</X>
-                          <Y>1551</Y>
+                          <Y>1541</Y>
                           <W>104</W>
                           <H>22</H>
                         </item>
@@ -17425,50 +17396,1151 @@ Provided by Ladybug 0.0.63</item>
               </chunks>
             </chunk>
             <chunk name="Object" index="22">
+              <items count="3">
+                <item name="GUID" type_name="gh_guid" type_code="9">410755b1-224a-4c1e-a407-bf32fb45ea7e</item>
+                <item name="Lib" type_name="gh_guid" type_code="9">16cf80bc-9018-cbdb-2238-976eb17fd30d</item>
+                <item name="Name" type_name="gh_string" type_code="10">Ladybug_Import epw</item>
+              </items>
+              <chunks count="1">
+                <chunk name="Container">
+                  <items count="11">
+                    <item name="CodeInput" type_name="gh_string" type_code="10"># import .epw file data
+#
+# Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipour Roudsari
+# 
+# This file is part of Ladybug.
+# 
+# Copyright (c) 2013-2016, Mostapha Sadeghipour Roudsari &lt;Sadeghipour@gmail.com&gt; 
+# Ladybug is free software; you can redistribute it and/or modify 
+# it under the terms of the GNU General Public License as published 
+# by the Free Software Foundation; either version 3 of the License, 
+# or (at your option) any later version. 
+# 
+# Ladybug is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of 
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the 
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with Ladybug; If not, see &lt;http://www.gnu.org/licenses/&gt;.
+# 
+# @license GPL-3.0+ &lt;http://spdx.org/licenses/GPL-3.0+&gt;
+
+
+"""
+Use this component to import lists of weather data into Grasshopper from a standard .epw file.
+For detailed information about the structure of an epw file, you may want to read the
+"Weather Converter Program" section in "Auxiliary EnergyPlus Programs" document.
+All descriptions of importaed data are borrowed from this document.
+The document is available online at this address:
+"http://apps1.eere.energy.gov/buildings/energyplus/pdfs/auxiliaryprograms.pdf"
+-
+Provided by Ladybug 0.0.63
+    
+    Args:
+        _epwFile: An .epw file path on your system as a string.
+        
+    Returns:
+        readMe!: ...
+        latitude: The latitude of the weather file location.
+        location: A list of text summarizing the location data in the weather file (use this to construct the sun path).
+        dryBulbTemperature: "This is the houlry dry bulb temperature, in C. Note that this is a full numeric field (i.e. 23.6) and not an integer representation with tenths. Valid values range from 70 C to 70 C. Missing value for this field is 99.9."
+        dewPointTemperature: "This is the hourly dew point temperature, in C. Note that this is a full numeric field (i.e. 23.6) and not an integer representation with tenths. Valid values range from 70 C to 70 C. Missing value for this field is 99.9."
+        relativeHumidity: "This is the hourly Relative Humidity in percent. Valid values range from 0% to 110%. Missing value for this field is 999."
+        windSpeed: "This is the hourly wind speed in m/sec. Values can range from 0 to 40. Missing value is 999."
+        windDirection: "This is the hourly Wind Direction in degrees where the convention is that North=0.0, East=90.0, South=180.0, West=270.0. (If wind is calm for the given hour, the direction equals zero.) Values can range from 0 to 360. Missing value is 999."
+        directNormalRadiation: "This is the hourly Direct Normal Radiation in Wh/m2. (Amount of solar radiation in Wh/m2 received directly from the solar disk on a surface perpendicular to the sun's rays, during the number of minutes preceding the time indicated.) If the field is missing ( 9999) or invalid (&lt;0), it is set to 0. Counts of such missing values are totaled and presented at the end of the runperiod."
+        diffuseHorizontalRadiation: "This is the hourly Diffuse Horizontal Radiation in Wh/m2. (Amount of solar radiation in Wh/m2 received from the sky (excluding the solar disk) on a horizontal surface during the number of minutes preceding the time indicated.) If the field is missing ( 9999) or invalid (&lt;0), it is set to 0. Counts of such missing values are totaled and presented at the end of the runperiod."
+        globalHorizontalRadiation: "This is the hourly Global Horizontal Radiation in Wh/m2. (Total amount of direct and diffuse solar radiation in Wh/m2 received on a horizontal surface during the number of minutes preceding the time indicated.) It is not currently used in EnergyPlus calculations. It should have a minimum value of 0; missing value for this field is 9999."
+        directNormalIlluminance: "This is the hourly Direct Normal Illuminance in lux. (Average amount of illuminance in hundreds of lux received directly from the solar disk on a surface perpendicular to the sun's rays, during the number of minutes preceding the time indicated.) It is not currently used in EnergyPlus calculations. It should have a minimum value of 0; missing value for this field is 999999 and will be considered missing of &gt;= 999900."
+        diffuseHorizontalIlluminance: "This is the hourly Diffuse Horizontal Illuminance in lux. (Average amount of illuminance in hundreds of lux received from the sky (excluding the solar disk) on a horizontal surface during the number of minutes preceding the time indicated.) It is not currently used in EnergyPlus calculations. It should have a minimum value of 0; missing value for this field is 999999 and will be considered missing of &gt;= 999900."
+        globalHorizontalIlluminance: "This is the hourly Global Horizontal Illuminance in lux. (Average total amount of direct and diffuse illuminance in hundreds of lux received on a horizontal surface during the number of minutes preceding the time indicated.) It is not currently used in EnergyPlus calculations. It should have a minimum value of 0; missing value for this field is 999999 and will be considered missing of &gt;= 999900."
+        totalSkyCover: "This is the fraction for total sky cover (tenths of coverage). (i.e. 1 is 1/10 covered. 10 is total coverage). (Amount of sky dome in tenths covered by clouds or obscuring phenomena at the hour indicated at the time indicated.) Minimum value is 0; maximum value is 10; missing value is 99."
+        liquidPrecipitationDepth: "The amount of liquid precipitation(mm) observed at the indicated hour for the period indicated in the liquid precipitation quantity field. If this value is not missing, then it is used and overrides the precipitation flag as rainfall.  Conversely, if the precipitation flag shows rain and this field is missing or zero, it is set to 1.5 (mm)."
+        barometricPressure: "This is the hourly weather station pressure in Pa. Valid values range from 31,000 to 120,000... Missing value for this field is 999999."
+        modelYear: The year from which the hourly data has been extracted. EPW files are synthesized from real recorded data from different years in a given climate. This is done to ensure that, for each month, the selected data is statistically representative of the average monthly conditions over the 18+ years of recording the data. Different EPW files will be synthesized from different years depeding on whether they are TMY (Typical Meteorological Year), TMY2, TMY3, AMY (Actual Meteorological Year) or other.
+"""
+ghenv.Component.Name = "Ladybug_Import epw"
+ghenv.Component.NickName = 'importEPW'
+ghenv.Component.Message = 'VER 0.0.63\nAUG_10_2016'
+ghenv.Component.IconDisplayMode = ghenv.Component.IconDisplayMode.application
+ghenv.Component.Category = "Ladybug"
+ghenv.Component.SubCategory = "0 | Ladybug"
+#compatibleLBVersion = VER 0.0.59\nJUN_07_2015
+try: ghenv.Component.AdditionalHelpFromDocStrings = "2"
+except: pass
+
+
+import scriptcontext as sc
+import os
+from clr import AddReference
+AddReference('Grasshopper')
+import Grasshopper.Kernel as gh
+
+def main(_epw_file):
+    # import the classes
+    if sc.sticky.has_key('ladybug_release'):
+        try:
+            if not sc.sticky['ladybug_release'].isCompatible(ghenv.Component): return -1
+            if sc.sticky['ladybug_release'].isInputMissing(ghenv.Component): return -1
+        except:
+            warning = "You need a newer version of Ladybug to use this compoent." + \
+            "Use updateLadybug component to update userObjects.\n" + \
+            "If you have already updated userObjects drag Ladybug_Ladybug component " + \
+            "into canvas and try again."
+            w = gh.GH_RuntimeMessageLevel.Warning
+            ghenv.Component.AddRuntimeMessage(w, warning)
+            return -1
+        lb_preparation = sc.sticky["ladybug_Preparation"]()
+        
+        if not os.path.isfile(_epw_file):
+            warningM = "Failed to find the file: " + str(_epw_file)
+            print warningM
+            w = gh.GH_RuntimeMessageLevel.Warning
+            ghenv.Component.AddRuntimeMessage(w, warningM)
+            return -1
+        
+        locationData = lb_preparation.epwLocation(_epw_file)
+        weatherData = lb_preparation.epwDataReader(_epw_file, locationData[0])
+        
+        return locationData, weatherData
+    
+    else:
+        warningM = "First please let the Ladybug fly..."
+        print warningM
+        w = gh.GH_RuntimeMessageLevel.Warning
+        ghenv.Component.AddRuntimeMessage(w, warningM)
+        return -1
+    
+
+result = main(_epwFile)
+if result!= -1:
+    location, locName, latitude = result[0][-1], result[0][0], result[0][1]
+    dryBulbTemperature, dewPointTemperature, relativeHumidity, windSpeed, windDirection, directNormalRadiation, diffuseHorizontalRadiation, globalHorizontalRadiation, directNormalIlluminance, diffuseHorizontalIlluminance, globalHorizontalIlluminance, totalSkyCover, horizontalInfraredRadiation, barometricPressure, modelYear = result[1][:]
+    print 'Hourly weather data for ' + locName + ' is imported successfully!'
+</item>
+                    <item name="Description" type_name="gh_string" type_code="10">Use this component to import lists of weather data into Grasshopper from a standard .epw file.
+For detailed information about the structure of an epw file, you may want to read the
+"Weather Converter Program" section in "Auxiliary EnergyPlus Programs" document.
+All descriptions of importaed data are borrowed from this document.
+The document is available online at this address:
+"http://apps1.eere.energy.gov/buildings/energyplus/pdfs/auxiliaryprograms.pdf"
+-
+Provided by Ladybug 0.0.63</item>
+                    <item name="EditorLocation" type_name="gh_drawing_point" type_code="30">
+                      <X>338</X>
+                      <Y>338</Y>
+                    </item>
+                    <item name="EditorSize" type_name="gh_drawing_size" type_code="32">
+                      <W>1328</W>
+                      <H>989</H>
+                    </item>
+                    <item name="Hidden" type_name="gh_bool" type_code="1">true</item>
+                    <item name="HideInput" type_name="gh_bool" type_code="1">true</item>
+                    <item name="HideOutput" type_name="gh_bool" type_code="1">false</item>
+                    <item name="IconOverride" type_name="gh_drawing_bitmap" type_code="37">
+                      <bitmap length="1242">iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwAAADsABataJCQAABHxJREFUSEvtlVtMXFUUho+Jb5WWy1zODMPMnLm0+qqJ+mL0wZD4oDEmGivQKdDYmKa2QGC4TOUilI44UG6GO0I7mNpyE8oALQGEkJRYo7Y1xgdjYypRhNpKubQ2v/+azCQTA+mziZN82evsvc76915r7TPK/79H/paWlgz+QF2Zv7q6pq+9Pa+opKS58sSJpuqysvpQd/f75bR9pNDna7rQ1XWsqrIqUMxnb1FJc29Li7extvZDL98RGuvqKnpaWwtzvd7mxuYW7/LycpxyNDf3TPET8ZhNMOJKkgln4w0oidejirTqTPAn6DHOuZE9Bq6bEYo34gvaQ2Q+0YSpBBXDtIfpM7UrEXNxOozz+diuPaipr/9AKc/JOXvDaMUDiwvryS6spbhxXHPCZLPDYbXDZbfjE7sTsLixxvV74hfhL7IWfVY1bLyUivVnXwBMGkYTVRzPL+hW/F5vxzXViq2I86ZAkRyKWChiJyaKBChyn/O3ub4S4U+yQURoJdGMB4tfYfNMEHfjDFgwpqCvvTNPSUtLu5SqmvGOVcPbEdLJWzYNLgZ3Eo2oURGeRETukl9TXBizufCtlZtLSsbf313H1uf9uLfbgDGdGVIv5WB6+oReNcHMILHI7iV4FBGJnkR2LcFftzug59w+u4YxfTIwOIyNwGmsx5swwHoWFJW0KocPHR60UCA22E6ISAIDXuSuLxEdbZnXkWyKbWlPYdW2DxusVT8F8gqL2pXCgoJO1ajCRqdYJPf/FjCQLM2BP7j7b6xuODUNes7tJqfsLmyZHVhJdoZrOWuwoKOpyaccyMiYfJIneIZOT0cQ+/mYGggSKJvBb7PQ0e4Z5ikymLKT5DeKStGl+NJpU3oL5F4oWR7P+EV20S1O/kR+Jst0ruCOrEyBY5vg0S6S9txk0aXzosEFqZGkiBeuTXk3K2tsgQLiFN4Zg8hxJdcSWMbtgkdZ3WZOBKTI+d7iNqWrsrL2Oi+avHyf3GSgWqsTzSmOMK207/BEcmwh9h7shPhNsqsCfn+1cigzMzTHE4jAOHN6jT19kwX80u7GtM2N3yk4z3GZ4zTnblHsUSJSn3leNPlWhWuwSIHTTMt+914ccLlR53Aj2+nGp5zzOVzIdLqQxzGda7/EFHMnojUIt6mHN/kKBWo0Vzj4UdKv7cURBmzQ3OilSDHXnnM6UcpRvlnbBY1FBAYp4C32tShtFRX1NyiwwhSMMD0zZICp8HDXs0yNpO4Hpux72j9yvBMTaCeku0b4qSgtLW9QjmRnj15lvsDbBzO/mhy/ZhqCKU6s8tI8pPNDWSNykTZl5Jw0xDr95VlsYYP+6wS0r/KiBdva8pWTrPTBRD16VAsuWDSc0hnRoFPRaTBjlCI1tAN6NTyOsKMaOP8xbT/9xL+D78naR6TXbMVnyTbUJhmwn+udweB7CoDHRyYnXxsIjb45PTf3cte5c56e8+c9waGhtIXFxRfFjiLPMi+2+In/cCj0htjC2OXLr07MzLzS0tfnmZifT2XsxyJ/nP/Zn6L8Az9lg5n1R9KhAAAAAElFTkSuQmCC</bitmap>
+                    </item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">19d2fce7-43b0-494b-bb05-cc0d4d48083c</item>
+                    <item name="Name" type_name="gh_string" type_code="10">Ladybug_Import epw</item>
+                    <item name="NickName" type_name="gh_string" type_code="10">importEPW</item>
+                  </items>
+                  <chunks count="2">
+                    <chunk name="Attributes">
+                      <items count="2">
+                        <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                          <X>-628</X>
+                          <Y>1097</Y>
+                          <W>230</W>
+                          <H>364</H>
+                        </item>
+                        <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                          <X>-563</X>
+                          <Y>1279</Y>
+                        </item>
+                      </items>
+                    </chunk>
+                    <chunk name="ParameterData">
+                      <items count="21">
+                        <item name="InputCount" type_name="gh_int32" type_code="3">1</item>
+                        <item name="InputId" index="0" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
+                        <item name="OutputCount" type_name="gh_int32" type_code="3">18</item>
+                        <item name="OutputId" index="0" type_name="gh_guid" type_code="9">3ede854e-c753-40eb-84cb-b48008f14fd4</item>
+                        <item name="OutputId" index="1" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
+                        <item name="OutputId" index="2" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
+                        <item name="OutputId" index="3" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
+                        <item name="OutputId" index="4" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
+                        <item name="OutputId" index="5" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
+                        <item name="OutputId" index="6" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
+                        <item name="OutputId" index="7" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
+                        <item name="OutputId" index="8" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
+                        <item name="OutputId" index="9" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
+                        <item name="OutputId" index="10" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
+                        <item name="OutputId" index="11" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
+                        <item name="OutputId" index="12" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
+                        <item name="OutputId" index="13" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
+                        <item name="OutputId" index="14" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
+                        <item name="OutputId" index="15" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
+                        <item name="OutputId" index="16" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
+                        <item name="OutputId" index="17" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
+                      </items>
+                      <chunks count="19">
+                        <chunk name="InputParam" index="0">
+                          <items count="10">
+                            <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Description" type_name="gh_string" type_code="10">An .epw file path on your system as a string.</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">9bf2fcf5-bfe8-4097-926d-62dcccf7310d</item>
+                            <item name="Name" type_name="gh_string" type_code="10">_epwFile</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">_epwFile</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
+                            <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">0</item>
+                            <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                            <item name="TypeHintID" type_name="gh_guid" type_code="9">37261734-eec7-4f50-b6a8-b8d1f3c4396b</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>-626</X>
+                                  <Y>1099</Y>
+                                  <W>48</W>
+                                  <H>360</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>-600.5</X>
+                                  <Y>1279</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="OutputParam" index="0">
+                          <items count="6">
+                            <item name="Description" type_name="gh_string" type_code="10">...</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">0281578b-1b8f-40f2-a47d-d8e4e9c6b703</item>
+                            <item name="Name" type_name="gh_string" type_code="10">Output</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">readMe!</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>-548</X>
+                                  <Y>1099</Y>
+                                  <W>148</W>
+                                  <H>20</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>-474</X>
+                                  <Y>1109</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="OutputParam" index="1">
+                          <items count="6">
+                            <item name="Description" type_name="gh_string" type_code="10">The latitude of the weather file location.</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">432a86a6-ca2a-4528-8af7-f4190df324d9</item>
+                            <item name="Name" type_name="gh_string" type_code="10">latitude</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">latitude</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>-548</X>
+                                  <Y>1119</Y>
+                                  <W>148</W>
+                                  <H>20</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>-474</X>
+                                  <Y>1129</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="OutputParam" index="2">
+                          <items count="6">
+                            <item name="Description" type_name="gh_string" type_code="10">A list of text summarizing the location data in the weather file (use this to construct the sun path).</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">ce8fc5bc-01f4-43c5-9a0d-cd2c1dd41130</item>
+                            <item name="Name" type_name="gh_string" type_code="10">location</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">location</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>-548</X>
+                                  <Y>1139</Y>
+                                  <W>148</W>
+                                  <H>20</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>-474</X>
+                                  <Y>1149</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="OutputParam" index="3">
+                          <items count="6">
+                            <item name="Description" type_name="gh_string" type_code="10">"This is the houlry dry bulb temperature, in C. Note that this is a full numeric field (i.e. 23.6) and not an integer representation with tenths. Valid values range from 70 C to 70 C. Missing value for this field is 99.9."</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">ee97b212-44d6-458c-96de-a4f2940d09d3</item>
+                            <item name="Name" type_name="gh_string" type_code="10">dryBulbTemperature</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">dryBulbTemperature</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>-548</X>
+                                  <Y>1159</Y>
+                                  <W>148</W>
+                                  <H>20</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>-474</X>
+                                  <Y>1169</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="OutputParam" index="4">
+                          <items count="6">
+                            <item name="Description" type_name="gh_string" type_code="10">"This is the hourly dew point temperature, in C. Note that this is a full numeric field (i.e. 23.6) and not an integer representation with tenths. Valid values range from 70 C to 70 C. Missing value for this field is 99.9."</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">bf752042-c2f1-4d66-95f2-a30742a5db00</item>
+                            <item name="Name" type_name="gh_string" type_code="10">dewPointTemperature</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">dewPointTemperature</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>-548</X>
+                                  <Y>1179</Y>
+                                  <W>148</W>
+                                  <H>20</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>-474</X>
+                                  <Y>1189</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="OutputParam" index="5">
+                          <items count="6">
+                            <item name="Description" type_name="gh_string" type_code="10">"This is the hourly Relative Humidity in percent. Valid values range from 0% to 110%. Missing value for this field is 999."</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">30269c89-e0f6-4ada-8a6e-c614f2a1706a</item>
+                            <item name="Name" type_name="gh_string" type_code="10">relativeHumidity</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">relativeHumidity</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>-548</X>
+                                  <Y>1199</Y>
+                                  <W>148</W>
+                                  <H>20</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>-474</X>
+                                  <Y>1209</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="OutputParam" index="6">
+                          <items count="6">
+                            <item name="Description" type_name="gh_string" type_code="10">"This is the hourly wind speed in m/sec. Values can range from 0 to 40. Missing value is 999."</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">9d85fb02-3b35-4370-8fd3-0983fe588326</item>
+                            <item name="Name" type_name="gh_string" type_code="10">windSpeed</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">windSpeed</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>-548</X>
+                                  <Y>1219</Y>
+                                  <W>148</W>
+                                  <H>20</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>-474</X>
+                                  <Y>1229</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="OutputParam" index="7">
+                          <items count="6">
+                            <item name="Description" type_name="gh_string" type_code="10">"This is the hourly Wind Direction in degrees where the convention is that North=0.0, East=90.0, South=180.0, West=270.0. (If wind is calm for the given hour, the direction equals zero.) Values can range from 0 to 360. Missing value is 999."</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">1ec0b5e4-0497-4d1b-92c8-8e011e886554</item>
+                            <item name="Name" type_name="gh_string" type_code="10">windDirection</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">windDirection</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>-548</X>
+                                  <Y>1239</Y>
+                                  <W>148</W>
+                                  <H>20</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>-474</X>
+                                  <Y>1249</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="OutputParam" index="8">
+                          <items count="6">
+                            <item name="Description" type_name="gh_string" type_code="10">"This is the hourly Direct Normal Radiation in Wh/m2. (Amount of solar radiation in Wh/m2 received directly from the solar disk on a surface perpendicular to the sun's rays, during the number of minutes preceding the time indicated.) If the field is missing ( 9999) or invalid (&lt;0), it is set to 0. Counts of such missing values are totaled and presented at the end of the runperiod."</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">e936cf67-3904-4d24-b061-ce0bc8abdd3b</item>
+                            <item name="Name" type_name="gh_string" type_code="10">directNormalRadiation</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">directNormalRadiation</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>-548</X>
+                                  <Y>1259</Y>
+                                  <W>148</W>
+                                  <H>20</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>-474</X>
+                                  <Y>1269</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="OutputParam" index="9">
+                          <items count="6">
+                            <item name="Description" type_name="gh_string" type_code="10">"This is the hourly Diffuse Horizontal Radiation in Wh/m2. (Amount of solar radiation in Wh/m2 received from the sky (excluding the solar disk) on a horizontal surface during the number of minutes preceding the time indicated.) If the field is missing ( 9999) or invalid (&lt;0), it is set to 0. Counts of such missing values are totaled and presented at the end of the runperiod."</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">ecfdf467-53b1-4cca-9693-79ee018120ff</item>
+                            <item name="Name" type_name="gh_string" type_code="10">diffuseHorizontalRadiation</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">diffuseHorizontalRadiation</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>-548</X>
+                                  <Y>1279</Y>
+                                  <W>148</W>
+                                  <H>20</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>-474</X>
+                                  <Y>1289</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="OutputParam" index="10">
+                          <items count="6">
+                            <item name="Description" type_name="gh_string" type_code="10">"This is the hourly Global Horizontal Radiation in Wh/m2. (Total amount of direct and diffuse solar radiation in Wh/m2 received on a horizontal surface during the number of minutes preceding the time indicated.) It is not currently used in EnergyPlus calculations. It should have a minimum value of 0; missing value for this field is 9999."</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">331bcdc9-0c28-43d4-9ad4-66e8a5b6986d</item>
+                            <item name="Name" type_name="gh_string" type_code="10">globalHorizontalRadiation</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">globalHorizontalRadiation</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>-548</X>
+                                  <Y>1299</Y>
+                                  <W>148</W>
+                                  <H>20</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>-474</X>
+                                  <Y>1309</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="OutputParam" index="11">
+                          <items count="6">
+                            <item name="Description" type_name="gh_string" type_code="10">Script variable importEPW</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">d3ae2491-25c5-4a5d-8a23-2ca5a54631bc</item>
+                            <item name="Name" type_name="gh_string" type_code="10">horizontalInfraredRadiation</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">horizontalInfraredRadiation</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>-548</X>
+                                  <Y>1319</Y>
+                                  <W>148</W>
+                                  <H>20</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>-474</X>
+                                  <Y>1329</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="OutputParam" index="12">
+                          <items count="6">
+                            <item name="Description" type_name="gh_string" type_code="10">"This is the hourly Direct Normal Illuminance in lux. (Average amount of illuminance in hundreds of lux received directly from the solar disk on a surface perpendicular to the sun's rays, during the number of minutes preceding the time indicated.) It is not currently used in EnergyPlus calculations. It should have a minimum value of 0; missing value for this field is 999999 and will be considered missing of &gt;= 999900."</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">ba617100-9904-43a4-83d0-334153eec1ad</item>
+                            <item name="Name" type_name="gh_string" type_code="10">directNormalIlluminance</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">directNormalIlluminance</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>-548</X>
+                                  <Y>1339</Y>
+                                  <W>148</W>
+                                  <H>20</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>-474</X>
+                                  <Y>1349</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="OutputParam" index="13">
+                          <items count="6">
+                            <item name="Description" type_name="gh_string" type_code="10">"This is the hourly Diffuse Horizontal Illuminance in lux. (Average amount of illuminance in hundreds of lux received from the sky (excluding the solar disk) on a horizontal surface during the number of minutes preceding the time indicated.) It is not currently used in EnergyPlus calculations. It should have a minimum value of 0; missing value for this field is 999999 and will be considered missing of &gt;= 999900."</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">c9234739-206a-41ef-a53a-693cb9dc9051</item>
+                            <item name="Name" type_name="gh_string" type_code="10">diffuseHorizontalIlluminance</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">diffuseHorizontalIlluminance</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>-548</X>
+                                  <Y>1359</Y>
+                                  <W>148</W>
+                                  <H>20</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>-474</X>
+                                  <Y>1369</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="OutputParam" index="14">
+                          <items count="6">
+                            <item name="Description" type_name="gh_string" type_code="10">"This is the hourly Global Horizontal Illuminance in lux. (Average total amount of direct and diffuse illuminance in hundreds of lux received on a horizontal surface during the number of minutes preceding the time indicated.) It is not currently used in EnergyPlus calculations. It should have a minimum value of 0; missing value for this field is 999999 and will be considered missing of &gt;= 999900."</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">fbcd85ec-6464-4f84-970a-d135b920a657</item>
+                            <item name="Name" type_name="gh_string" type_code="10">globalHorizontalIlluminance</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">globalHorizontalIlluminance</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>-548</X>
+                                  <Y>1379</Y>
+                                  <W>148</W>
+                                  <H>20</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>-474</X>
+                                  <Y>1389</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="OutputParam" index="15">
+                          <items count="6">
+                            <item name="Description" type_name="gh_string" type_code="10">"This is the fraction for total sky cover (tenths of coverage). (i.e. 1 is 1/10 covered. 10 is total coverage). (Amount of sky dome in tenths covered by clouds or obscuring phenomena at the hour indicated at the time indicated.) Minimum value is 0; maximum value is 10; missing value is 99."</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">7f0ed2d4-90f4-4b4f-84c7-d10f7ca9c830</item>
+                            <item name="Name" type_name="gh_string" type_code="10">totalSkyCover</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">totalSkyCover</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>-548</X>
+                                  <Y>1399</Y>
+                                  <W>148</W>
+                                  <H>20</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>-474</X>
+                                  <Y>1409</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="OutputParam" index="16">
+                          <items count="6">
+                            <item name="Description" type_name="gh_string" type_code="10">"This is the hourly weather station pressure in Pa. Valid values range from 31,000 to 120,000... Missing value for this field is 999999."</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">dbc1a16b-1b8f-4ada-b2d7-81f2d23a98a1</item>
+                            <item name="Name" type_name="gh_string" type_code="10">barometricPressure</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">barometricPressure</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>-548</X>
+                                  <Y>1419</Y>
+                                  <W>148</W>
+                                  <H>20</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>-474</X>
+                                  <Y>1429</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="OutputParam" index="17">
+                          <items count="6">
+                            <item name="Description" type_name="gh_string" type_code="10">The year from which the hourly data has been extracted. EPW files are synthesized from real recorded data from different years in a given climate. This is done to ensure that, for each month, the selected data is statistically representative of the average monthly conditions over the 18+ years of recording the data. Different EPW files will be synthesized from different years depeding on whether they are TMY (Typical Meteorological Year), TMY2, TMY3, AMY (Actual Meteorological Year) or other.</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">17da65fa-6517-4fc2-bd8e-2b0b5ceccebb</item>
+                            <item name="Name" type_name="gh_string" type_code="10">modelYear</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">modelYear</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>-548</X>
+                                  <Y>1439</Y>
+                                  <W>148</W>
+                                  <H>20</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>-474</X>
+                                  <Y>1449</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                      </chunks>
+                    </chunk>
+                  </chunks>
+                </chunk>
+              </chunks>
+            </chunk>
+            <chunk name="Object" index="23">
+              <items count="3">
+                <item name="GUID" type_name="gh_guid" type_code="9">410755b1-224a-4c1e-a407-bf32fb45ea7e</item>
+                <item name="Lib" type_name="gh_guid" type_code="9">16cf80bc-9018-cbdb-2238-976eb17fd30d</item>
+                <item name="Name" type_name="gh_string" type_code="10">Ladybug_Epw to Clim</item>
+              </items>
+              <chunks count="1">
+                <chunk name="Container">
+                  <items count="9">
+                    <item name="CodeInput" type_name="gh_string" type_code="10"># Interface to CitySim Solver
+# http://citysim.epfl.ch/
+#
+# GH-Python component initiated by
+# Giuseppe Peronato &lt;giuseppe.peronato@epfl.ch&gt; 
+# 
+
+"""
+This component converts an EPW file into a CLI file.
+
+-
+This component will hopefully be part of
+Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipour Roudsari
+
+@license GPL-3.0+ &lt;http://spdx.org/licenses/GPL-3.0+&gt;
+
+-
+
+    
+    Args:
+        _epwFile: EPW file
+        path: Directory
+        Run: Boolean
+    Returns:
+        climatefile: name of climate file (with extension)
+
+"""
+
+
+
+
+import scriptcontext as sc
+import os
+from clr import AddReference
+AddReference('Grasshopper')
+import Grasshopper.Kernel as gh
+
+ghenv.Component.Name = "Ladybug_Epw to Clim"
+ghenv.Component.NickName = 'EPW-to-Clim'
+ghenv.Component.Message = 'VER 0.0.1\nNOV_10_2016'
+#compatibleLBVersion = VER 0.0.59\nJUN_07_2015
+ghenv.Component.IconDisplayMode = ghenv.Component.IconDisplayMode.application
+ghenv.Component.Category = "Ladybug"
+ghenv.Component.SubCategory = "0 | Ladybug"
+
+try: ghenv.Component.AdditionalHelpFromDocStrings = "2"
+except: pass
+
+
+def main(_epw_file):
+    # import the classes
+    if sc.sticky.has_key('ladybug_release'):
+        try:
+            if not sc.sticky['ladybug_release'].isCompatible(ghenv.Component): return -1
+            if sc.sticky['ladybug_release'].isInputMissing(ghenv.Component): return -1
+        except:
+            warning = "You need a newer version of Ladybug to use this compoent." + \
+            "Use updateLadybug component to update userObjects.\n" + \
+            "If you have already updated userObjects drag Ladybug_Ladybug component " + \
+            "into canvas and try again."
+            w = gh.GH_RuntimeMessageLevel.Warning
+            ghenv.Component.AddRuntimeMessage(w, warning)
+            return -1
+        lb_preparation = sc.sticky["ladybug_Preparation"]()
+        
+        if not os.path.isfile(_epw_file):
+            warningM = "Failed to find the file: " + str(_epw_file)
+            print warningM
+            w = gh.GH_RuntimeMessageLevel.Warning
+            ghenv.Component.AddRuntimeMessage(w, warningM)
+            return -1
+        
+        locationData = lb_preparation.epwLocation(_epw_file)
+        weatherData = lb_preparation.epwDataReader(_epw_file, locationData[0])
+        
+        return locationData, weatherData
+    
+    else:
+        warningM = "First please let the Ladybug fly..."
+        print warningM
+        w = gh.GH_RuntimeMessageLevel.Warning
+        ghenv.Component.AddRuntimeMessage(w, warningM)
+        return -1
+    
+
+result = main(_epwFile)
+
+if result!= -1:
+    location, locName, latitude = result[0][-1], result[0][0], result[0][1]
+    dryBulbTemperature, dewPointTemperature, relativeHumidity, windSpeed, windDirection, directNormalRadiation, diffuseHorizontalRadiation, globalHorizontalRadiation, directNormalIlluminance, diffuseHorizontalIlluminance, globalHorizontalIlluminance, totalSkyCover, horizontalInfraredRadiation, barometricPressure, modelYear = result[1][:]
+    print 'Hourly weather data for ' + locName + ' is imported successfully!'
+
+header = locName
+header += "\n\n" + latitude + ",1,1,1" "\n\n\n\n" #Data missing here, substituted with "1+
+header += "dm\tm\th\tG_Dh\tG_Bn\tTa\tFF\tDD\tRH\tRR\tN\n\n"
+
+
+
+
+def datetime_range(start, end, delta):
+    current = start
+    if not isinstance(delta, timedelta):
+        delta = timedelta(**delta)
+    while current &lt; end:
+        yield current
+        current += delta
+
+
+start = datetime(2010,1,1)
+end = datetime(2011,1,1)
+count = 0
+dates = []
+for dt in datetime_range(start,end,{'hours':1}):
+    dates.append((dt.day, dt.month, dt.hour))
+
+if Run:
+
+    data = ""
+    for h in xrange(7,len(diffuseHorizontalRadiation)):
+        data += "{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n\n".format(1,1,1,int(diffuseHorizontalRadiation[h]),int(directNormalRadiation[h]),dryBulbTemperature[h],windSpeed[h],int(windDirection[h]),int(relativeHumidity[h]),0,8)
+
+
+    #Write CLI file
+    clipath = path+locName+".cli"
+    print clipath
+    out_file = open(clipath,"w")
+    out_file.write(header + data)
+    out_file.close()
+    
+climatefile = locName.lower()+".cli"
+
+ 
+</item>
+                    <item name="Description" type_name="gh_string" type_code="10">This component converts an EPW file into a CLI file.
+-
+This component will hopefully be part of
+Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipour Roudsari
+@license GPL-3.0+ &lt;http://spdx.org/licenses/GPL-3.0+&gt;
+-</item>
+                    <item name="EditorLocation" type_name="gh_drawing_point" type_code="30">
+                      <X>461</X>
+                      <Y>115</Y>
+                    </item>
+                    <item name="EditorSize" type_name="gh_drawing_size" type_code="32">
+                      <W>1995</W>
+                      <H>1232</H>
+                    </item>
+                    <item name="HideInput" type_name="gh_bool" type_code="1">true</item>
+                    <item name="HideOutput" type_name="gh_bool" type_code="1">false</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">d71713c6-f7e2-47d9-839d-9d585e6387a2</item>
+                    <item name="Name" type_name="gh_string" type_code="10">Ladybug_Epw to Clim</item>
+                    <item name="NickName" type_name="gh_string" type_code="10">EPW-to-Clim</item>
+                  </items>
+                  <chunks count="2">
+                    <chunk name="Attributes">
+                      <items count="2">
+                        <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                          <X>200</X>
+                          <Y>1735</Y>
+                          <W>141</W>
+                          <H>97</H>
+                        </item>
+                        <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                          <X>265</X>
+                          <Y>1784</Y>
+                        </item>
+                      </items>
+                    </chunk>
+                    <chunk name="ParameterData">
+                      <items count="7">
+                        <item name="InputCount" type_name="gh_int32" type_code="3">3</item>
+                        <item name="InputId" index="0" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
+                        <item name="InputId" index="1" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
+                        <item name="InputId" index="2" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
+                        <item name="OutputCount" type_name="gh_int32" type_code="3">2</item>
+                        <item name="OutputId" index="0" type_name="gh_guid" type_code="9">3ede854e-c753-40eb-84cb-b48008f14fd4</item>
+                        <item name="OutputId" index="1" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
+                      </items>
+                      <chunks count="5">
+                        <chunk name="InputParam" index="0">
+                          <items count="11">
+                            <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Description" type_name="gh_string" type_code="10">EPW file</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">dc860350-dcda-4e7d-824d-5c6394234736</item>
+                            <item name="Name" type_name="gh_string" type_code="10">_epwFile</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">_epwFile</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
+                            <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">0</item>
+                            <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Source" index="0" type_name="gh_guid" type_code="9">c12bf14d-acf5-44fd-8a84-fe157aab5e68</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
+                            <item name="TypeHintID" type_name="gh_guid" type_code="9">37261734-eec7-4f50-b6a8-b8d1f3c4396b</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>202</X>
+                                  <Y>1737</Y>
+                                  <W>48</W>
+                                  <H>31</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>227.5</X>
+                                  <Y>1752.5</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="InputParam" index="1">
+                          <items count="11">
+                            <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Description" type_name="gh_string" type_code="10">Directory</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">c38d5b2d-6ee9-417e-9335-cede53d3daa2</item>
+                            <item name="Name" type_name="gh_string" type_code="10">path</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">path</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
+                            <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">0</item>
+                            <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Source" index="0" type_name="gh_guid" type_code="9">e8fcb59b-5b81-4201-ab3a-716443ffcd10</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
+                            <item name="TypeHintID" type_name="gh_guid" type_code="9">37261734-eec7-4f50-b6a8-b8d1f3c4396b</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>202</X>
+                                  <Y>1768</Y>
+                                  <W>48</W>
+                                  <H>31</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>227.5</X>
+                                  <Y>1783.5</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="InputParam" index="2">
+                          <items count="11">
+                            <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Description" type_name="gh_string" type_code="10">Boolean</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">567b5f18-0410-4aa8-b752-a1f3d38ed93a</item>
+                            <item name="Name" type_name="gh_string" type_code="10">x</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">Run</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
+                            <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">0</item>
+                            <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Source" index="0" type_name="gh_guid" type_code="9">a4829eb4-d0a8-42f6-a687-f6053b10d0c5</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
+                            <item name="TypeHintID" type_name="gh_guid" type_code="9">87f87f55-5b71-41f4-8aea-21d494016f81</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>202</X>
+                                  <Y>1799</Y>
+                                  <W>48</W>
+                                  <H>31</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>227.5</X>
+                                  <Y>1814.5</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="OutputParam" index="0">
+                          <items count="6">
+                            <item name="Description" type_name="gh_string" type_code="10">The execution information, as output and error streams</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">0cad69a4-5b90-403f-a3fc-cc9f03cbf7be</item>
+                            <item name="Name" type_name="gh_string" type_code="10">out</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">out</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>280</X>
+                                  <Y>1737</Y>
+                                  <W>59</W>
+                                  <H>46</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>309.5</X>
+                                  <Y>1760.25</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="OutputParam" index="1">
+                          <items count="6">
+                            <item name="Description" type_name="gh_string" type_code="10">name of climate file (with extension)</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">7e3ac59d-f86e-4267-a42d-5bb1a37dfb24</item>
+                            <item name="Name" type_name="gh_string" type_code="10">a</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">climatefile</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>280</X>
+                                  <Y>1783</Y>
+                                  <W>59</W>
+                                  <H>47</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>309.5</X>
+                                  <Y>1806.75</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                      </chunks>
+                    </chunk>
+                  </chunks>
+                </chunk>
+              </chunks>
+            </chunk>
+            <chunk name="Object" index="24">
               <items count="2">
-                <item name="GUID" type_name="gh_guid" type_code="9">59e0b89a-e487-49f8-bab8-b5bab16be14c</item>
-                <item name="Name" type_name="gh_string" type_code="10">Panel</item>
+                <item name="GUID" type_name="gh_guid" type_code="9">06953bda-1d37-4d58-9b38-4b3c74e54c8f</item>
+                <item name="Name" type_name="gh_string" type_code="10">File Path</item>
               </items>
               <chunks count="1">
                 <chunk name="Container">
                   <items count="8">
-                    <item name="Description" type_name="gh_string" type_code="10">A panel for custom notes and text values</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">d4bc84a8-691d-40a0-b10b-2298b93f0717</item>
-                    <item name="Name" type_name="gh_string" type_code="10">Panel</item>
-                    <item name="NickName" type_name="gh_string" type_code="10"></item>
+                    <item name="Description" type_name="gh_string" type_code="10">Contains a collection of file paths</item>
+                    <item name="ExpireOnFileEvent" type_name="gh_bool" type_code="1">false</item>
+                    <item name="FileFilter" type_name="gh_string" type_code="10">All files|*.*</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">c12bf14d-acf5-44fd-8a84-fe157aab5e68</item>
+                    <item name="Name" type_name="gh_string" type_code="10">File Path</item>
+                    <item name="NickName" type_name="gh_string" type_code="10">Path</item>
                     <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                    <item name="ScrollRatio" type_name="gh_double" type_code="6">0</item>
                     <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
-                    <item name="UserText" type_name="gh_string" type_code="10">neuchatel.cli</item>
                   </items>
                   <chunks count="2">
                     <chunk name="Attributes">
-                      <items count="5">
+                      <items count="2">
                         <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                          <X>494</X>
-                          <Y>1601</Y>
-                          <W>170</W>
-                          <H>40</H>
+                          <X>-433</X>
+                          <Y>1715</Y>
+                          <W>50</W>
+                          <H>20</H>
                         </item>
-                        <item name="MarginLeft" type_name="gh_int32" type_code="3">0</item>
-                        <item name="MarginRight" type_name="gh_int32" type_code="3">0</item>
-                        <item name="MarginTop" type_name="gh_int32" type_code="3">0</item>
                         <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                          <X>494.664</X>
-                          <Y>1601.557</Y>
+                          <X>-407.8</X>
+                          <Y>1725.6</Y>
                         </item>
                       </items>
                     </chunk>
-                    <chunk name="PanelProperties">
-                      <items count="6">
-                        <item name="Colour" type_name="gh_drawing_color" type_code="36">
-                          <ARGB>255;255;250;90</ARGB>
+                    <chunk name="PersistentData">
+                      <items count="1">
+                        <item name="Count" type_name="gh_int32" type_code="3">1</item>
+                      </items>
+                      <chunks count="1">
+                        <chunk name="Branch" index="0">
+                          <items count="2">
+                            <item name="Count" type_name="gh_int32" type_code="3">1</item>
+                            <item name="Path" type_name="gh_string" type_code="10">{0}</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Item" index="0">
+                              <items count="2">
+                                <item name="null_string" type_name="gh_bool" type_code="1">false</item>
+                                <item name="string" type_name="gh_string" type_code="10">C:\Users\peronato\Documents\WeatherFiles\Neuchatel-hour.epw</item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                      </chunks>
+                    </chunk>
+                  </chunks>
+                </chunk>
+              </chunks>
+            </chunk>
+            <chunk name="Object" index="25">
+              <items count="2">
+                <item name="GUID" type_name="gh_guid" type_code="9">2e78987b-9dfb-42a2-8b76-3923ac8bd91a</item>
+                <item name="Name" type_name="gh_string" type_code="10">Boolean Toggle</item>
+              </items>
+              <chunks count="1">
+                <chunk name="Container">
+                  <items count="7">
+                    <item name="Description" type_name="gh_string" type_code="10">Boolean (true/false) toggle</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">e8302228-bac3-4501-862b-7ada773e7df1</item>
+                    <item name="Name" type_name="gh_string" type_code="10">Boolean Toggle</item>
+                    <item name="NickName" type_name="gh_string" type_code="10">Toggle</item>
+                    <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                    <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                    <item name="ToggleValue" type_name="gh_bool" type_code="1">false</item>
+                  </items>
+                  <chunks count="1">
+                    <chunk name="Attributes">
+                      <items count="1">
+                        <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                          <X>-1138</X>
+                          <Y>1341</Y>
+                          <W>104</W>
+                          <H>22</H>
                         </item>
-                        <item name="DrawIndices" type_name="gh_bool" type_code="1">true</item>
-                        <item name="DrawPaths" type_name="gh_bool" type_code="1">true</item>
-                        <item name="Multiline" type_name="gh_bool" type_code="1">true</item>
-                        <item name="Stream" type_name="gh_bool" type_code="1">false</item>
-                        <item name="Wrap" type_name="gh_bool" type_code="1">true</item>
+                      </items>
+                    </chunk>
+                  </chunks>
+                </chunk>
+              </chunks>
+            </chunk>
+            <chunk name="Object" index="26">
+              <items count="2">
+                <item name="GUID" type_name="gh_guid" type_code="9">2e78987b-9dfb-42a2-8b76-3923ac8bd91a</item>
+                <item name="Name" type_name="gh_string" type_code="10">Boolean Toggle</item>
+              </items>
+              <chunks count="1">
+                <chunk name="Container">
+                  <items count="7">
+                    <item name="Description" type_name="gh_string" type_code="10">Boolean (true/false) toggle</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">a4829eb4-d0a8-42f6-a687-f6053b10d0c5</item>
+                    <item name="Name" type_name="gh_string" type_code="10">Boolean Toggle</item>
+                    <item name="NickName" type_name="gh_string" type_code="10">Toggle</item>
+                    <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                    <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                    <item name="ToggleValue" type_name="gh_bool" type_code="1">false</item>
+                  </items>
+                  <chunks count="1">
+                    <chunk name="Attributes">
+                      <items count="1">
+                        <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                          <X>-78</X>
+                          <Y>1826</Y>
+                          <W>104</W>
+                          <H>22</H>
+                        </item>
                       </items>
                     </chunk>
                   </chunks>
@@ -17482,7 +18554,7 @@ Provided by Ladybug 0.0.63</item>
     <chunk name="Thumbnail">
       <items count="1">
         <item name="Thumbnail" type_name="gh_drawing_bitmap" type_code="37">
-          <bitmap length="5319">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</bitmap>
+          <bitmap length="4177">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</bitmap>
         </item>
       </items>
     </chunk>

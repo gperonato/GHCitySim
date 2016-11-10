@@ -21,7 +21,7 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
         path: Directory
         name: name of the project
     Returns:
-        Irr = Tree of results
+        SW = Tree of results for shortwave radiation
 """
 
 ghenv.Component.Name = "Honeybee_CitySim-LoadResults"

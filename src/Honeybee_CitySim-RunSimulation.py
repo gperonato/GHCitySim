@@ -21,8 +21,10 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
         geometry: Tree of BReps (buildings;surfaces)
         path: Directory
         name: name of the project
+        Run: Boolean
+        climatefile: name of climate file (with extension)
     Returns:
-
+        Out: nothing
 """
 
 ghenv.Component.Name = "Honeybee_CitySim-RunSimulation"
@@ -164,7 +166,7 @@ CSpath = path
 if Run:
 
     xmlpath = path+name+'.xml'
-    command = "CitySim.exe " + '-I ' + xmlpath + " pause" #Runs only irradiation simulation with -I
+    command = "CitySim.exe " + '-I ' + xmlpath #Runs only irradiation simulation with -I
 
     import os
     os.chdir(CSpath)

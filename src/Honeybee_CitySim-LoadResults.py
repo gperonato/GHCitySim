@@ -1,10 +1,19 @@
-﻿# Interface to CitySim
-# 
+# Interface to CitySim Solver
+# http://citysim.epfl.ch/
+#
+# GH-Python component initiated by
 # Giuseppe Peronato <giuseppe.peronato@epfl.ch> 
 # 
 
 """
-Import CitySim results
+This component loads into Grasshopper the Citysim ouputs.
+
+-
+This component will hopefully be part of
+Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipour Roudsari
+
+@license GPL-3.0+ <http://spdx.org/licenses/GPL-3.0+>
+
 -
 
     
@@ -15,12 +24,12 @@ Import CitySim results
         Irr = Tree of results
 """
 
-ghenv.Component.Name = "CitySim_LoadResults"
-ghenv.Component.NickName = 'LoadResults'
+ghenv.Component.Name = "Honeybee_CitySim-LoadResults"
+ghenv.Component.NickName = 'CitySim-LoadResults'
 ghenv.Component.Message = 'VER 0.0.1\nNOV_03_2016'
-ghenv.Component.Category = "User"
-ghenv.Component.SubCategory = "CitySim"
-try: ghenv.Component.AdditionalHelpFromDocStrings = "1"
+ghenv.Component.Category = "Honeybee"
+ghenv.Component.SubCategory = "13 | WIP"
+try: ghenv.Component.AdditionalHelpFromDocStrings = "2"
 except: pass
 
 import rhinoscriptsyntax as rs
@@ -45,6 +54,7 @@ def list_to_tree(input, none_and_holes=True, source=[0]):
     if input is not None: t=Tree[object]();proc(input,t,source[:]);return t
 
 
+#Load SW output file
 in_file = open(path+name+"_SW.out","r")
 txt = in_file.read()
 in_file.close()
@@ -52,9 +62,6 @@ in_file.close()
 results = txt.splitlines()
 header = results[0]
 results.pop(0) #remove header
-
-
-
 
         
 #Parse header
@@ -76,12 +83,6 @@ for i in range(len(header)):
         bIDs.append(b)
         sIDs.append(int(s))
 
-
-
-
-       
-#print sIDs
-#print bIDs
 
 #Parse results
 irrH = []
@@ -115,7 +116,7 @@ for s in xrange(len(bIDs)):
 
     
 bIDs2set = set(bIDs2) #create a set of unique building IDs
-print len(irrS2[0])
+#print len(irrS2[0])
 
 output = []
 for b in bIDs2set:
@@ -128,5 +129,3 @@ for b in bIDs2set:
 
   
 SW = list_to_tree(output,none_and_holes=True, source=[])
-
-    

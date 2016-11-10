@@ -29,7 +29,7 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
 
 ghenv.Component.Name = "Honeybee_CitySim-RunSimulation"
 ghenv.Component.NickName = 'CitySim-RunSimulation'
-ghenv.Component.Message = 'VER 0.0.2\nNOV_10_2016'
+ghenv.Component.Message = 'VER 0.0.3\nNOV_10_2016'
 ghenv.Component.Category = "Honeybee"
 ghenv.Component.SubCategory = "13 | WIP"
 try: ghenv.Component.AdditionalHelpFromDocStrings = "2"
@@ -166,7 +166,7 @@ CSpath = path
 if Run:
 
     xmlpath = path+name+'.xml'
-    command = "CitySim.exe " + '-I ' + xmlpath #Runs only irradiation simulation with -I
+    command = Solver + ' -I ' + xmlpath #Runs only irradiation simulation with -I
 
     import os
     os.chdir(CSpath)

@@ -86,29 +86,19 @@ def main(_epw_file):
 result = main(_epwFile)
 
 if result!= -1:
-    location, locName, latitude = result[0][-1], result[0][0], result[0][1]
+    location, locName, latitude, longitude, meridian, altitude = result[0][-1], result[0][0], result[0][1], result[0][2], result[0][3], result[0][4]
     dryBulbTemperature, dewPointTemperature, relativeHumidity, windSpeed, windDirection, directNormalRadiation, diffuseHorizontalRadiation, globalHorizontalRadiation, directNormalIlluminance, diffuseHorizontalIlluminance, globalHorizontalIlluminance, totalSkyCover, horizontalInfraredRadiation, barometricPressure, modelYear = result[1][:]
     print 'Hourly weather data for ' + locName + ' is imported successfully!'
 
 
    
 #Create the header
-
-#standard values
-if longitude == "None":
-    longitude = 6.93 #Neuchatel
-if altitude == "None":
-    altitude = 0
-if meridian == "None":
-    meridian = 1
-    
-    
 header = locName
-header += "\n\n" + latitude + "," + str(longitude) + "," + str(altitude) + "," + str(meridian) + "\n\n\n\n" #Data missing here, substituted with "1+
+header += "\n\n" + str(latitude) + "," + str(longitude) + "," + str(altitude) + "," + str(meridian) + "\n\n\n\n"
 header += "dm\tm\th\tG_Dh\tG_Bn\tTa\tFF\tDD\tRH\tRR\tN\n\n"
 
 
-
+print(header)
 # Create time stamps
 def datetime_range(start, end, delta):
     current = start

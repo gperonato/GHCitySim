@@ -6,7 +6,7 @@
 # 
 
 """
-This component loads into Grasshopper the Citysim ouputs.
+This component loads the Citysim ouput into Grasshopper.
 
 -
 This component will hopefully be part of

@@ -27,7 +27,7 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
 
 ghenv.Component.Name = "Honeybee_CitySim-RunSimulation"
 ghenv.Component.NickName = 'CitySim-RunSimulation'
-ghenv.Component.Message = 'VER 0.0.1\nNOV_03_2016'
+ghenv.Component.Message = 'VER 0.0.2\nNOV_10_2016'
 ghenv.Component.Category = "Honeybee"
 ghenv.Component.SubCategory = "13 | WIP"
 try: ghenv.Component.AdditionalHelpFromDocStrings = "2"
@@ -152,6 +152,19 @@ xml+= ''' <ShadingSurface>
 </CitySim> '''
 
 #Write XML file
-out_file = open(path+name+".xml","w")
+xmlpath = path+name+".xml"
+out_file = open(xmlpath,"w")
 out_file.write(xml)
 out_file.close()
+
+CSpath = path
+
+#Run the simulation
+if Run:
+
+    xmlpath = path+name+'.xml'
+    command = "CitySim.exe " + '-I ' + xmlpath + " pause" #Runs only irradiation simulation with -I
+
+    import os
+    os.chdir(CSpath)
+    os.system(command)

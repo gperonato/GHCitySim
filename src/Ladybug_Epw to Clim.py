@@ -90,13 +90,26 @@ if result!= -1:
     dryBulbTemperature, dewPointTemperature, relativeHumidity, windSpeed, windDirection, directNormalRadiation, diffuseHorizontalRadiation, globalHorizontalRadiation, directNormalIlluminance, diffuseHorizontalIlluminance, globalHorizontalIlluminance, totalSkyCover, horizontalInfraredRadiation, barometricPressure, modelYear = result[1][:]
     print 'Hourly weather data for ' + locName + ' is imported successfully!'
 
+
+   
+#Create the header
+
+#standard values
+if longitude == "None":
+    longitude = 6.93 #Neuchatel
+if altitude == "None":
+    altitude = 0
+if meridian == "None":
+    meridian = 1
+    
+    
 header = locName
-header += "\n\n" + latitude + ",1,1,1" "\n\n\n\n" #Data missing here, substituted with "1+
+header += "\n\n" + latitude + "," + str(longitude) + "," + str(altitude) + "," + str(meridian) + "\n\n\n\n" #Data missing here, substituted with "1+
 header += "dm\tm\th\tG_Dh\tG_Bn\tTa\tFF\tDD\tRH\tRR\tN\n\n"
 
 
 
-
+# Create time stamps
 def datetime_range(start, end, delta):
     current = start
     if not isinstance(delta, timedelta):
@@ -104,20 +117,23 @@ def datetime_range(start, end, delta):
     while current < end:
         yield current
         current += delta
-
-
-start = datetime(2010,1,1)
-end = datetime(2011,1,1)
-count = 0
-dates = []
-for dt in datetime_range(start,end,{'hours':1}):
-    dates.append((dt.day, dt.month, dt.hour))
+#start = datetime(2010,1,1)
+#end = datetime(2011,1,1)
+#count = 0
+#dates = []
+#for dt in datetime_range(start,end,{'hours':1}):
+    #dates.append((dt.day, dt.month, dt.hour))
+    
+    
+#Import and write weather data
+#default values
+precipitation  = 0
+nebulosity = 0
 
 if Run:
-
     data = ""
     for h in xrange(7,len(diffuseHorizontalRadiation)):
-        data += "{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n\n".format(1,1,1,int(diffuseHorizontalRadiation[h]),int(directNormalRadiation[h]),dryBulbTemperature[h],windSpeed[h],int(windDirection[h]),int(relativeHumidity[h]),0,8)
+        data += "{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n\n".format(1,1,1,int(diffuseHorizontalRadiation[h]),int(directNormalRadiation[h]),dryBulbTemperature[h],windSpeed[h],int(windDirection[h]),int(relativeHumidity[h]),precipitation,nebulosity)
 
 
     #Write CLI file
@@ -126,7 +142,9 @@ if Run:
     out_file = open(clipath,"w")
     out_file.write(header + data)
     out_file.close()
-    
+
+
+#Retrieve the name of the climate file  
 climatefile = locName.lower()+".cli"
 
  

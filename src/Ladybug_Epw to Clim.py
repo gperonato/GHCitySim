@@ -3,7 +3,8 @@
 #
 # GH-Python component initiated by
 # Giuseppe Peronato <giuseppe.peronato@epfl.ch> 
-# 
+# Contribution by
+# Aymeric Delmas <aymeric.delmas@imageen.re>
 
 """
 This component converts an EPW file into a CLI file.
@@ -93,6 +94,7 @@ if result!= -1:
 
    
 #Create the header
+locName = locName.strip()
 header = locName
 header += "\n\n" + str(latitude) + "," + str(longitude) + "," + str(altitude) + "," + str(meridian) + "\n\n\n\n"
 header += "dm\tm\th\tG_Dh\tG_Bn\tTa\tFF\tDD\tRH\tRR\tN\n\n"

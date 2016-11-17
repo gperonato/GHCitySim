@@ -19,14 +19,16 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
     
     Args:
         path: Directory
+        paths: List of Paths of the DataTree
         name: name of the project
+        Run: set Boolean to True to load the results
     Returns:
-        SW = Tree of results for shortwave radiation
+        SW = Tree of results for shortwave radiation (hourly irradiance in W/m2)
 """
 
 ghenv.Component.Name = "Honeybee_CitySim-LoadResults"
 ghenv.Component.NickName = 'CitySim-LoadResults'
-ghenv.Component.Message = 'VER 0.0.1\nNOV_17_2016'
+ghenv.Component.Message = 'VER 0.0.2\nNOV_17_2016'
 ghenv.Component.Category = "Honeybee"
 ghenv.Component.SubCategory = "13 | WIP"
 try: ghenv.Component.AdditionalHelpFromDocStrings = "2"
@@ -120,23 +122,39 @@ def removeTerr(irrS,bIDs,sIDs):
             annIrr.append(sum(irrS[s])/1000)
     return irrS2, bIDs2, sIDs2, annIrr
 
-
+Run = True
 if Run:
     header, results = loadOut(path,name,"SW")
     bIDs, sIDs = parseHead(header)
     irrS = parseRes(results,sIDs)
     irrS2, bIDs2, sIDs2, annIrr = removeTerr(irrS,bIDs,sIDs)
-    bIDs2set = set(bIDs2) #create a set of unique building IDs
-
+    
+    #Create a dictionary from the output file
+    diction = {}
+    for i in xrange(len(bIDs2)):
+        diction[str(bIDs2[i])+"-"+str(sIDs2[i])]= irrS2[i]
+        
+    #Create lists of IDs from geometry data tree
+    bIDs3 = []
+    sIDs3 = []
+    for i in paths:
+        bldgid, srfid = str(i).split(';')
+        bldgid = bldgid[1:]
+        srfid = srfid[:-1]
+        bIDs3.append(int(bldgid))
+        sIDs3.append(int(srfid))
+    bIDs3set = list(set(bIDs3)) #create a set of unique building IDs from geometry data tree
+    
+    #Iterate over the geometry IDs
     output = []
-    for b in bIDs2set:
+    for b in bIDs3set:
         bldg = []
-        for s in xrange(len(sIDs2)):
-            if bIDs2[s] == b:
-                #print s, sIDs2[s]
-                bldg.append(irrS2[sIDs2[s]]) #Reorder surfaces
-        output.append(bldg)  
+        for s in xrange(len(sIDs3)):
+            if bIDs3[s] == b:
+                #print b, sIDs2[s]
+                print str(b)+'-'+str(sIDs3[s])
+                bldg.append(diction.get(str(b)+'-'+str(sIDs3[s]),[-1])) #if the key is valid retun list of hourly values, otherwise empty list
+        output.append(bldg)
 
- 
-    #SW = list_to_tree(output,none_and_holes=True, source=[])
-    SW = annIrr
+    SW = list_to_tree(output,none_and_holes=True, source=[])
+    #ySW = annIrr

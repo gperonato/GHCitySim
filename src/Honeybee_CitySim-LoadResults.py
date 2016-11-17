@@ -110,22 +110,23 @@ def removeTerr(irrS,bIDs,sIDs):
     sIDs2 = []
     IDs = []
     irrS2 = []
+    annIrr = []
     for s in xrange(len(bIDs)):
         if bIDs[s] != "NA" and bIDs[s] != "" : #remove columns
             sIDs2.append(int(sIDs[s]))
             bIDs2.append(int(bIDs[s]))
             IDs.append([int(bIDs[s]),int(sIDs[s])])
             irrS2.append(irrS[s])
-    return irrS2, bIDs2, sIDs2
+            annIrr.append(sum(irrS[s])/1000)
+    return irrS2, bIDs2, sIDs2, annIrr
 
 
 if Run:
     header, results = loadOut(path,name,"SW")
     bIDs, sIDs = parseHead(header)
     irrS = parseRes(results,sIDs)
-    irrS2, bIDs2, sIDs2 = removeTerr(irrS,bIDs,sIDs)
+    irrS2, bIDs2, sIDs2, annIrr = removeTerr(irrS,bIDs,sIDs)
     bIDs2set = set(bIDs2) #create a set of unique building IDs
-    #print len(irrS2[0])
 
     output = []
     for b in bIDs2set:
@@ -136,5 +137,6 @@ if Run:
                 bldg.append(irrS2[sIDs2[s]]) #Reorder surfaces
         output.append(bldg)  
 
-  
-    SW = list_to_tree(output,none_and_holes=True, source=[])
+ 
+    #SW = list_to_tree(output,none_and_holes=True, source=[])
+    SW = annIrr

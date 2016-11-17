@@ -26,7 +26,7 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
 
 ghenv.Component.Name = "Honeybee_CitySim-LoadResults"
 ghenv.Component.NickName = 'CitySim-LoadResults'
-ghenv.Component.Message = 'VER 0.0.1\nNOV_03_2016'
+ghenv.Component.Message = 'VER 0.0.1\nNOV_17_2016'
 ghenv.Component.Category = "Honeybee"
 ghenv.Component.SubCategory = "13 | WIP"
 try: ghenv.Component.AdditionalHelpFromDocStrings = "2"
@@ -85,7 +85,7 @@ def parseHead(head):
             sIDs.append(int(s))
     return bIDs, sIDs
 
-def parseRes(results):
+def parseRes(results,sIDs):
     #Parse results
     irrH = []
 
@@ -116,13 +116,14 @@ def removeTerr(irrS,bIDs,sIDs):
             bIDs2.append(int(bIDs[s]))
             IDs.append([int(bIDs[s]),int(sIDs[s])])
             irrS2.append(irrS[s])
+    return irrS2, bIDs2, sIDs2
 
 
 if Run:
     header, results = loadOut(path,name,"SW")
-    parseHead(header)
-    parseRes(results)
-    removeTerr(irrS,bIDs,sIDs)
+    bIDs, sIDs = parseHead(header)
+    irrS = parseRes(results,sIDs)
+    irrS2, bIDs2, sIDs2 = removeTerr(irrS,bIDs,sIDs)
     bIDs2set = set(bIDs2) #create a set of unique building IDs
     #print len(irrS2[0])
 

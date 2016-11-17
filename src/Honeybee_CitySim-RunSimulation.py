@@ -29,7 +29,7 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
 
 ghenv.Component.Name = "Honeybee_CitySim-RunSimulation"
 ghenv.Component.NickName = 'CitySim-RunSimulation'
-ghenv.Component.Message = 'VER 0.0.3\nNOV_10_2016'
+ghenv.Component.Message = 'VER 0.0.3\nNOV_17_2016'
 ghenv.Component.Category = "Honeybee"
 ghenv.Component.SubCategory = "13 | WIP"
 try: ghenv.Component.AdditionalHelpFromDocStrings = "2"
@@ -58,6 +58,8 @@ def tree_to_list(input, retrieve_base = lambda x: x[0]):
 import rhinoscriptsyntax as rs
     
 geometry = tree_to_list(geometry, retrieve_base = lambda P: P)
+
+surfcount = 0
 
 #Create XML file in CitySim format
 #Header and default values
@@ -122,13 +124,16 @@ for b in xrange(len(geometry)):
 				<Occupants n="9" d="0.06" type="2"/>'''
     for s in xrange(len(geometry[b])):
         xml += '<Wall id="'+str(s)+'" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">'
-        srfpts = rs.SurfacePoints(geometry[b][s])
-        for i in xrange(len(srfpts)):
-            xml+= '<V' + str(i) + ' x="' + str(srfpts[i][0]) +'" y="' + str(srfpts[i][1]) +'" z="' + str(srfpts[i][2])+'"/> \n'
-        xml+= '</Wall>'
-    xml+= '''   </Zone>
-            </Building>'''
-            
+        if geometry[b][s] != None:
+            srfpts = rs.SurfacePoints(geometry[b][s])
+            surfcount += 1
+            for i in xrange(len(srfpts)):
+                xml+= '<V' + str(i) + ' x="' + str(srfpts[i][0]) +'" y="' + str(srfpts[i][1]) +'" z="' + str(srfpts[i][2])+'"/> \n'
+            xml+= '</Wall>'
+            xml+= '''   </Zone>
+                </Building>'''
+        
+       
 #Add sample footer to the XML file
 xml+= ''' <ShadingSurface>
 		</ShadingSurface>
@@ -171,3 +176,6 @@ if Run:
     import os
     os.chdir(CSpath)
     os.system(command)
+
+print "N. of buildings: ", len(geometry)
+print "N. of surfaces: ", surfcount

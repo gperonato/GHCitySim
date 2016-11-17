@@ -37,6 +37,22 @@ except: pass
 import rhinoscriptsyntax as rs
 
 
+def tree_to_list(input, retrieve_base = lambda x: x[0]):
+    """Returns a list representation of a Grasshopper DataTree"""
+    # written by Giulio Piacentino, giulio@mcneel.com
+    def extend_at(path, index, simple_input, rest_list):
+        target = path[index]
+        if len(rest_list) <= target: rest_list.extend([None]*(target-len(rest_list)+1))
+        if index == path.Length - 1:
+            rest_list[target] = list(simple_input)
+        else:
+            if rest_list[target] is None: rest_list[target] = []
+            extend_at(path, index+1, simple_input, rest_list[target])
+    all = []
+    for i in range(input.BranchCount):
+        path = input.Path(i)
+        extend_at(path, 0, input.Branch(path), all)
+    return retrieve_base(all)
 
 def list_to_tree(input, none_and_holes=True, source=[0]):
     """Transforms nestings of lists or tuples to a Grasshopper DataTree"""
@@ -122,12 +138,13 @@ def removeTerr(irrS,bIDs,sIDs):
             annIrr.append(sum(irrS[s])/1000)
     return irrS2, bIDs2, sIDs2, annIrr
 
-Run = True
+
 if Run:
     header, results = loadOut(path,name,"SW")
     bIDs, sIDs = parseHead(header)
     irrS = parseRes(results,sIDs)
     irrS2, bIDs2, sIDs2, annIrr = removeTerr(irrS,bIDs,sIDs)
+    
     
     #Create a dictionary from the output file
     diction = {}
@@ -137,10 +154,8 @@ if Run:
     #Create lists of IDs from geometry data tree
     bIDs3 = []
     sIDs3 = []
-    for i in paths:
-        bldgid, srfid = str(i).split(';')
-        bldgid = bldgid[1:]
-        srfid = srfid[:-1]
+    for i in xrange(len(geometry.Paths)):
+        bldgid, srfid = geometry.Paths[i][0], geometry.Paths[i][1], 
         bIDs3.append(int(bldgid))
         sIDs3.append(int(srfid))
     bIDs3set = list(set(bIDs3)) #create a set of unique building IDs from geometry data tree
@@ -152,7 +167,7 @@ if Run:
         for s in xrange(len(sIDs3)):
             if bIDs3[s] == b:
                 #print b, sIDs2[s]
-                print str(b)+'-'+str(sIDs3[s])
+                #print str(b)+'-'+str(sIDs3[s])
                 bldg.append(diction.get(str(b)+'-'+str(sIDs3[s]),[-1])) #if the key is valid retun list of hourly values, otherwise empty list
         output.append(bldg)
 

@@ -59,8 +59,6 @@ import rhinoscriptsyntax as rs
     
 geometry = tree_to_list(geometry, retrieve_base = lambda P: P)
 
-surfcount = 0
-
 #Create XML file in CitySim format
 #Header and default values
 xml = '''<?xml version="1.0" encoding="ISO-8859-1"?>
@@ -123,17 +121,15 @@ for b in xrange(len(geometry)):
 			<Zone id="1" volume="1123.5" psi="0.2" Tmin="21" Tmax="27" groundFloor="true" >
 				<Occupants n="9" d="0.06" type="2"/>'''
     for s in xrange(len(geometry[b])):
-        xml += '<Wall id="'+str(s)+'" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">'
-        if geometry[b][s] != None:
-            srfpts = rs.SurfacePoints(geometry[b][s])
-            surfcount += 1
-            for i in xrange(len(srfpts)):
-                xml+= '<V' + str(i) + ' x="' + str(srfpts[i][0]) +'" y="' + str(srfpts[i][1]) +'" z="' + str(srfpts[i][2])+'"/> \n'
-            xml+= '</Wall>'
-            xml+= '''   </Zone>
-                </Building>'''
-        
-       
+        xml += '<Wall id="'+str(s)+'" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">\n'
+        srfpts = rs.CurvePoints(geometry[b][s])
+        for i in xrange(len(srfpts)):
+            print '<V' + str(i) + ' x="' + str(srfpts[i][0]) +'" y="' + str(srfpts[i][1]) +'" z="' + str(srfpts[i][2])+'"/> \n'
+            xml+= '<V' + str(i) + ' x="' + str(srfpts[i][0]) +'" y="' + str(srfpts[i][1]) +'" z="' + str(srfpts[i][2])+'"/> \n'
+        xml+= '</Wall>'
+    xml+= '''   </Zone>
+            </Building>'''
+            
 #Add sample footer to the XML file
 xml+= ''' <ShadingSurface>
 		</ShadingSurface>
@@ -176,6 +172,3 @@ if Run:
     import os
     os.chdir(CSpath)
     os.system(command)
-
-print "N. of buildings: ", len(geometry)
-print "N. of surfaces: ", surfcount

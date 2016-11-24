@@ -24,35 +24,36 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
         Run: set Boolean to True to load the results
     Returns:
         SW = Tree of results for shortwave radiation (hourly irradiance in W/m2)
+        Surfaces = Tree of curves of input geometry {Building;Surface}
 """
 
 ghenv.Component.Name = "Honeybee_CitySim-LoadResults"
 ghenv.Component.NickName = 'CitySim-LoadResults'
-ghenv.Component.Message = 'VER 0.0.2\nNOV_17_2016'
+ghenv.Component.Message = 'VER 0.1.0\nNOV_24_2016'
 ghenv.Component.Category = "Honeybee"
 ghenv.Component.SubCategory = "13 | WIP"
 try: ghenv.Component.AdditionalHelpFromDocStrings = "2"
 except: pass
 
 import rhinoscriptsyntax as rs
+import scriptcontext as sc
+import uuid
+
+hb_hive = sc.sticky["honeybee_Hive"]()
+
+geometry = []
 
 
-def tree_to_list(input, retrieve_base = lambda x: x[0]):
-    """Returns a list representation of a Grasshopper DataTree"""
-    # written by Giulio Piacentino, giulio@mcneel.com
-    def extend_at(path, index, simple_input, rest_list):
-        target = path[index]
-        if len(rest_list) <= target: rest_list.extend([None]*(target-len(rest_list)+1))
-        if index == path.Length - 1:
-            rest_list[target] = list(simple_input)
-        else:
-            if rest_list[target] is None: rest_list[target] = []
-            extend_at(path, index+1, simple_input, rest_list[target])
-    all = []
-    for i in range(input.BranchCount):
-        path = input.Path(i)
-        extend_at(path, 0, input.Branch(path), all)
-    return retrieve_base(all)
+HBO = hb_hive.callFromHoneybeeHive(_HBZones)
+for b in HBO:
+    crvs = []
+    HBSurfaces  = hb_hive.addToHoneybeeHive(b.surfaces, ghenv.Component.InstanceGuid.ToString() + str(uuid.uuid4()))
+    for s in HBSurfaces:
+        edges = rs.DuplicateEdgeCurves(s)
+        crvs.append(rs.JoinCurves(edges))
+    geometry.append(crvs)
+    
+
 
 def list_to_tree(input, none_and_holes=True, source=[0]):
     """Transforms nestings of lists or tuples to a Grasshopper DataTree"""
@@ -154,10 +155,11 @@ if Run:
     #Create lists of IDs from geometry data tree
     bIDs3 = []
     sIDs3 = []
-    for i in xrange(len(geometry.Paths)):
-        bldgid, srfid = geometry.Paths[i][0], geometry.Paths[i][1], 
-        bIDs3.append(int(bldgid))
-        sIDs3.append(int(srfid))
+    for b in xrange(len(geometry)):
+        for s in xrange(len(geometry[b])):
+            bldgid, srfid = b, s, 
+            bIDs3.append(int(bldgid))
+            sIDs3.append(int(srfid))
     bIDs3set = list(set(bIDs3)) #create a set of unique building IDs from geometry data tree
     
     #Iterate over the geometry IDs
@@ -173,3 +175,6 @@ if Run:
 
     SW = list_to_tree(output,none_and_holes=True, source=[])
     #ySW = annIrr
+    
+    
+    Surfaces = list_to_tree(geometry, source=[])

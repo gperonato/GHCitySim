@@ -18,7 +18,7 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
 
     
     Args:
-        geometry: Tree of BReps (buildings;surfaces)
+        _HBZones: List of Honeybee zones
         path: Directory
         name: name of the project
         Run: Boolean
@@ -29,13 +29,15 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
 
 ghenv.Component.Name = "Honeybee_CitySim-RunSimulation"
 ghenv.Component.NickName = 'CitySim-RunSimulation'
-ghenv.Component.Message = 'VER 0.0.3\nNOV_17_2016'
+ghenv.Component.Message = 'VER 0.1.0\nNOV_24_2016'
 ghenv.Component.Category = "Honeybee"
 ghenv.Component.SubCategory = "13 | WIP"
 try: ghenv.Component.AdditionalHelpFromDocStrings = "2"
 except: pass
 
 import rhinoscriptsyntax as rs
+import scriptcontext as sc
+import uuid
 
 
 def tree_to_list(input, retrieve_base = lambda x: x[0]):
@@ -55,9 +57,18 @@ def tree_to_list(input, retrieve_base = lambda x: x[0]):
         extend_at(path, 0, input.Branch(path), all)
     return retrieve_base(all)
     
-import rhinoscriptsyntax as rs
+#Get surfaces from Honeybee zones
+hb_hive = sc.sticky["honeybee_Hive"]()
+geometry = []
+HBO = hb_hive.callFromHoneybeeHive(_HBZones)
+for b in HBO:
+    crvs = []
+    HBSurfaces  = hb_hive.addToHoneybeeHive(b.surfaces, ghenv.Component.InstanceGuid.ToString() + str(uuid.uuid4()))
+    for s in HBSurfaces:
+        edges = rs.DuplicateEdgeCurves(s)
+        crvs.append(rs.JoinCurves(edges))
+    geometry.append(crvs)
     
-geometry = tree_to_list(geometry, retrieve_base = lambda P: P)
 
 #Create XML file in CitySim format
 #Header and default values
@@ -124,7 +135,7 @@ for b in xrange(len(geometry)):
         xml += '<Wall id="'+str(s)+'" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">\n'
         srfpts = rs.CurvePoints(geometry[b][s])
         for i in xrange(len(srfpts)):
-            print '<V' + str(i) + ' x="' + str(srfpts[i][0]) +'" y="' + str(srfpts[i][1]) +'" z="' + str(srfpts[i][2])+'"/> \n'
+            #print '<V' + str(i) + ' x="' + str(srfpts[i][0]) +'" y="' + str(srfpts[i][1]) +'" z="' + str(srfpts[i][2])+'"/> \n'
             xml+= '<V' + str(i) + ' x="' + str(srfpts[i][0]) +'" y="' + str(srfpts[i][1]) +'" z="' + str(srfpts[i][2])+'"/> \n'
         xml+= '</Wall>'
     xml+= '''   </Zone>

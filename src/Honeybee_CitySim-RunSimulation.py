@@ -71,10 +71,28 @@ def getSurfaces(HBZones):
             crvs.append(rs.JoinCurves(edges))
         geometry.append(crvs)
     return geometry
-    
+
+def getAttributes(HBZones):
+    # call the objects from the lib
+    thermalZonesPyClasses = hb_hive.callFromHoneybeeHive(HBZones)
+    attributes = [['Type of surface']] #when you add an attribute, list here what it means. 
+    zoneatt = []
+    for zone in thermalZonesPyClasses:
+        srfatt = []
+        for srf in zone.surfaces:
+            if srf.type == 0:
+                srfatt.append('Wall')
+            elif srf.type == 2.5:
+                srfatt.append('Floor')
+            elif srf.type == 1:
+                srfatt.append('Roof')
+        zoneatt.append(srfatt)    
+    attributes.append(zoneatt)
+    return attributes
+
 
 #Create XML file in CitySim format
-def createXML(geometry):
+def createXML(geometry,attributes):
     #Header and default values
     xml = '''<?xml version="1.0" encoding="ISO-8859-1"?>
     <CitySim name="test">
@@ -136,12 +154,12 @@ def createXML(geometry):
 			    <Zone id="1" volume="1123.5" psi="0.2" Tmin="21" Tmax="27" groundFloor="true" >
 				    <Occupants n="9" d="0.06" type="2"/>'''
         for s in xrange(len(geometry[b])):
-            xml += '<Wall id="'+str(s)+'" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">\n'
+            xml += '<' + attributes[1][b][s] + ' id="'+str(s)+'" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">\n'
             srfpts = rs.CurvePoints(geometry[b][s])
             for i in xrange(len(srfpts)):
                 #print '<V' + str(i) + ' x="' + str(srfpts[i][0]) +'" y="' + str(srfpts[i][1]) +'" z="' + str(srfpts[i][2])+'"/> \n'
                 xml+= '<V' + str(i) + ' x="' + str(srfpts[i][0]) +'" y="' + str(srfpts[i][1]) +'" z="' + str(srfpts[i][2])+'"/> \n'
-            xml+= '</Wall>'
+            xml+= '</' + attributes[1][b][s] + '>'
         xml+= '''   </Zone>
                 </Building>'''
             
@@ -182,7 +200,8 @@ def writeXML(xml, path, name):
 
 if Write:
     geometry = getSurfaces(_HBZones)
-    xml = createXML(geometry)
+    attributes = getAttributes(_HBZones)
+    xml = createXML(geometry,attributes)
     writeXML(xml,path,name)
 
 #Run the simulation

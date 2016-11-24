@@ -31,33 +31,105 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
 ghenv.Component.Name = "Honeybee_CitySim-RunSimulation"
 ghenv.Component.NickName = 'CitySim-RunSimulation'
 ghenv.Component.Message = 'VER 0.1.0\nNOV_24_2016'
+ghenv.Component.IconDisplayMode = ghenv.Component.IconDisplayMode.application
 ghenv.Component.Category = "Honeybee"
-ghenv.Component.SubCategory = "13 | WIP"
-try: ghenv.Component.AdditionalHelpFromDocStrings = "2"
-except: pass
+ghenv.Component.SubCategory = "09 | Energy | Energy"
+#compatibleHBVersion = VER 0.0.56\nFEB_03_2016
+#compatibleLBVersion = VER 0.0.59\nFEB_01_2015
+ghenv.Component.AdditionalHelpFromDocStrings = "1"
 
-import rhinoscriptsyntax as rs
+
+import Rhino as rc
 import scriptcontext as sc
-import uuid
+import rhinoscriptsyntax as rs
+import os
+import System
+import Grasshopper.Kernel as gh
+import math
+import shutil
+import collections
+import subprocess
+import copy
+
+rc.Runtime.HostUtils.DisplayOleAlerts(False)
 
 
-def tree_to_list(input, retrieve_base = lambda x: x[0]):
-    """Returns a list representation of a Grasshopper DataTree"""
-    # written by Giulio Piacentino, giulio@mcneel.com
-    def extend_at(path, index, simple_input, rest_list):
-        target = path[index]
-        if len(rest_list) <= target: rest_list.extend([None]*(target-len(rest_list)+1))
-        if index == path.Length - 1:
-            rest_list[target] = list(simple_input)
-        else:
-            if rest_list[target] is None: rest_list[target] = []
-            extend_at(path, index+1, simple_input, rest_list[target])
-    all = []
-    for i in range(input.BranchCount):
-        path = input.Path(i)
-        extend_at(path, 0, input.Branch(path), all)
-    return retrieve_base(all)
     
+lb_preparation = sc.sticky["ladybug_Preparation"]()
+hb_reEvaluateHBZones= sc.sticky["honeybee_reEvaluateHBZones"]
+hb_hive = sc.sticky["honeybee_Hive"]()
+hb_EPScheduleAUX = sc.sticky["honeybee_EPScheduleAUX"]()
+hb_EPPar = sc.sticky["honeybee_EPParameters"]()
+    
+
+       
+def EPConstructionStr(constructionName):
+        constructionData = None
+        if constructionName in sc.sticky ["honeybee_constructionLib"].keys():
+            constructionData = sc.sticky ["honeybee_constructionLib"][constructionName]
+        
+        if constructionData!=None:
+            materials = []
+            numberOfLayers = len(constructionData.keys())
+            constructionStr = constructionData[0] + ",\n"
+            # add the name
+            constructionStr =  constructionStr + "  " + constructionName + ",   !- name\n"
+            
+            for layer in range(1, numberOfLayers):
+                if layer < numberOfLayers-1:
+                    constructionStr =  constructionStr + "  " + constructionData[layer][0] + ",   !- " +  constructionData[layer][1] + "\n"
+                else:
+                    constructionStr =  constructionStr + "  " + constructionData[layer][0] + ";   !- " +  constructionData[layer][1] + "\n\n"
+                materials.append(constructionData[layer][0])
+                
+            return materials
+        else:
+            warning = "Failed to find " + constructionName + " in library."
+            print warning
+            ghenv.Component.AddRuntimeMessage(gh.GH_RuntimeMessageLevel.Warning, warning)
+            return None, None
+            
+ 
+def getMaterialProperties(matName):
+    if not sc.sticky["honeybee_release"]:
+        print "You should first let Honeybee to fly..."
+        w = gh.GH_RuntimeMessageLevel.Warning
+        ghenv.Component.AddRuntimeMessage(w, "You should first let Honeybee to fly...")
+        return -1
+
+    try:
+        if not sc.sticky['honeybee_release'].isCompatible(ghenv.Component): return -1
+        if sc.sticky['honeybee_release'].isInputMissing(ghenv.Component): return -1
+    except:
+        warning = "You need a newer version of Honeybee to use this compoent." + \
+        " Use updateHoneybee component to update userObjects.\n" + \
+        "If you have already updated userObjects drag Honeybee_Honeybee component " + \
+        "into canvas and try again."
+        w = gh.GH_RuntimeMessageLevel.Warning
+        ghenv.Component.AddRuntimeMessage(w, warning)
+        return -1
+    
+    # get the constuction
+    try:
+        hb_EPMaterialAUX = sc.sticky["honeybee_EPMaterialAUX"]()
+    except:
+        msg = "Failed to load EP constructions!"
+        ghenv.Component.AddRuntimeMessage(w, msg)
+        return -1
+    
+    if sc.sticky.has_key("honeybee_materialLib"):
+        result = hb_EPMaterialAUX.decomposeMaterial(matName.upper(), ghenv.Component)
+        if result == -1:
+            warning = "Failed to find " + matName + " in the Honeybee material library."
+            print warning
+            ghenv.Component.AddRuntimeMessage(gh.GH_RuntimeMessageLevel.Warning, warning)
+        return result
+        
+
+
+
+
+
 #Get surfaces from Honeybee zones
 def getSurfaces(HBZones):
     hb_hive = sc.sticky["honeybee_Hive"]()
@@ -75,20 +147,26 @@ def getSurfaces(HBZones):
 def getAttributes(HBZones):
     # call the objects from the lib
     thermalZonesPyClasses = hb_hive.callFromHoneybeeHive(HBZones)
-    attributes = [['Type of surface']] #when you add an attribute, list here what it means. 
+    attributes = [['Type of surface','Solar Reflectance']] #when you add an attribute, list here what it means. 
     zoneatt = []
     for zone in thermalZonesPyClasses:
-        srfatt = []
+        type = []
+        srefl = []
         for srf in zone.surfaces:
             if srf.type == 0:
-                srfatt.append('Wall')
+                type.append('Wall')
             elif srf.type == 2.5:
-                srfatt.append('Floor')
+                type.append('Floor')
             elif srf.type == 1:
-                srfatt.append('Roof')
-        zoneatt.append(srfatt)    
+                type.append('Roof')
+            srf.construction = srf.EPConstruction
+            materials = EPConstructionStr(srf.construction)
+            srefl.append(str((1 - float(getMaterialProperties(materials[0])[0][4]))))
+        zoneatt.append([type,srefl])    
     attributes.append(zoneatt)
     return attributes
+
+getAttributes(_HBZones)
 
 
 #Create XML file in CitySim format
@@ -154,12 +232,12 @@ def createXML(geometry,attributes):
 			    <Zone id="1" volume="1123.5" psi="0.2" Tmin="21" Tmax="27" groundFloor="true" >
 				    <Occupants n="9" d="0.06" type="2"/>'''
         for s in xrange(len(geometry[b])):
-            xml += '<' + attributes[1][b][s] + ' id="'+str(s)+'" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">\n'
+            xml += '<' + attributes[1][b][0][s] + ' id="'+str(s)+'" type="21" ShortWaveReflectance="' + attributes[1][b][1][s] + '" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">\n'
             srfpts = rs.CurvePoints(geometry[b][s])
             for i in xrange(len(srfpts)):
                 #print '<V' + str(i) + ' x="' + str(srfpts[i][0]) +'" y="' + str(srfpts[i][1]) +'" z="' + str(srfpts[i][2])+'"/> \n'
                 xml+= '<V' + str(i) + ' x="' + str(srfpts[i][0]) +'" y="' + str(srfpts[i][1]) +'" z="' + str(srfpts[i][2])+'"/> \n'
-            xml+= '</' + attributes[1][b][s] + '>'
+            xml+= '</' + attributes[1][b][0][s] + '>'
         xml+= '''   </Zone>
                 </Building>'''
             
@@ -188,6 +266,10 @@ def createXML(geometry,attributes):
 	    </District>
     </CitySim> '''
     return xml
+    
+geometry = getSurfaces(_HBZones)
+attributes = getAttributes(_HBZones)   
+createXML(geometry,attributes)
 
 #Write XML file
 def writeXML(xml, path, name):

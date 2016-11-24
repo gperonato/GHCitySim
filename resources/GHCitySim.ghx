@@ -48,10 +48,10 @@
             <chunk name="Projection">
               <items count="2">
                 <item name="Target" type_name="gh_drawing_point" type_code="30">
-                  <X>720</X>
-                  <Y>-68</Y>
+                  <X>323</X>
+                  <Y>-1744</Y>
                 </item>
-                <item name="Zoom" type_name="gh_single" type_code="5">0.40959996</item>
+                <item name="Zoom" type_name="gh_single" type_code="5">1</item>
               </items>
             </chunk>
             <chunk name="Views">
@@ -83,9 +83,9 @@
         </chunk>
         <chunk name="DefinitionObjects">
           <items count="1">
-            <item name="ObjectCount" type_name="gh_int32" type_code="3">36</item>
+            <item name="ObjectCount" type_name="gh_int32" type_code="3">48</item>
           </items>
-          <chunks count="36">
+          <chunks count="48">
             <chunk name="Object" index="0">
               <items count="3">
                 <item name="GUID" type_name="gh_guid" type_code="9">410755b1-224a-4c1e-a407-bf32fb45ea7e</item>
@@ -7055,7 +7055,7 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
 
 ghenv.Component.Name = "Honeybee_CitySim-RunSimulation"
 ghenv.Component.NickName = 'CitySim-RunSimulation'
-ghenv.Component.Message = 'VER 0.0.3\nNOV_10_2016'
+ghenv.Component.Message = 'VER 0.0.3\nNOV_17_2016'
 ghenv.Component.Category = "Honeybee"
 ghenv.Component.SubCategory = "13 | WIP"
 try: ghenv.Component.AdditionalHelpFromDocStrings = "2"
@@ -7205,8 +7205,8 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
 @license GPL-3.0+ &lt;http://spdx.org/licenses/GPL-3.0+&gt;
 -</item>
                     <item name="EditorLocation" type_name="gh_drawing_point" type_code="30">
-                      <X>156</X>
-                      <Y>156</Y>
+                      <X>78</X>
+                      <Y>78</Y>
                     </item>
                     <item name="EditorSize" type_name="gh_drawing_size" type_code="32">
                       <W>1358</W>
@@ -7223,13 +7223,13 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                     <chunk name="Attributes">
                       <items count="2">
                         <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                          <X>978</X>
+                          <X>972</X>
                           <Y>1425</Y>
                           <W>87</W>
                           <H>164</H>
                         </item>
                         <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                          <X>1051</X>
+                          <X>1045</X>
                           <Y>1507</Y>
                         </item>
                       </items>
@@ -7265,13 +7265,13 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>980</X>
+                                  <X>974</X>
                                   <Y>1427</Y>
                                   <W>56</W>
                                   <H>26</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>1009.5</X>
+                                  <X>1003.5</X>
                                   <Y>1440.333</Y>
                                 </item>
                               </items>
@@ -7296,13 +7296,13 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>980</X>
+                                  <X>974</X>
                                   <Y>1453</Y>
                                   <W>56</W>
                                   <H>27</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>1009.5</X>
+                                  <X>1003.5</X>
                                   <Y>1467</Y>
                                 </item>
                               </items>
@@ -7327,13 +7327,13 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>980</X>
+                                  <X>974</X>
                                   <Y>1480</Y>
                                   <W>56</W>
                                   <H>27</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>1009.5</X>
+                                  <X>1003.5</X>
                                   <Y>1493.667</Y>
                                 </item>
                               </items>
@@ -7358,13 +7358,13 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>980</X>
+                                  <X>974</X>
                                   <Y>1507</Y>
                                   <W>56</W>
                                   <H>26</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>1009.5</X>
+                                  <X>1003.5</X>
                                   <Y>1520.333</Y>
                                 </item>
                               </items>
@@ -7389,13 +7389,13 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>980</X>
+                                  <X>974</X>
                                   <Y>1533</Y>
                                   <W>56</W>
                                   <H>27</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>1009.5</X>
+                                  <X>1003.5</X>
                                   <Y>1547</Y>
                                 </item>
                               </items>
@@ -7420,13 +7420,13 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>980</X>
+                                  <X>974</X>
                                   <Y>1560</Y>
                                   <W>56</W>
                                   <H>27</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>1009.5</X>
+                                  <X>1003.5</X>
                                   <Y>1573.667</Y>
                                 </item>
                               </items>
@@ -7511,8 +7511,8 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                     <chunk name="Attributes">
                       <items count="5">
                         <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                          <X>424</X>
-                          <Y>1716</Y>
+                          <X>560</X>
+                          <Y>1698</Y>
                           <W>194</W>
                           <H>20</H>
                         </item>
@@ -7520,8 +7520,8 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                         <item name="MarginRight" type_name="gh_int32" type_code="3">0</item>
                         <item name="MarginTop" type_name="gh_int32" type_code="3">0</item>
                         <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                          <X>424.6224</X>
-                          <Y>1716.733</Y>
+                          <X>560.6224</X>
+                          <Y>1698.733</Y>
                         </item>
                       </items>
                     </chunk>
@@ -7809,7 +7809,7 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                             <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
                             <item name="Description" type_name="gh_string" type_code="10">name of the project</item>
                             <item name="InstanceGuid" type_name="gh_guid" type_code="9">cc37e9e3-fed1-4b86-9728-af166cc05791</item>
-                            <item name="Name" type_name="gh_string" type_code="10">x</item>
+                            <item name="Name" type_name="gh_string" type_code="10">name</item>
                             <item name="NickName" type_name="gh_string" type_code="10">name</item>
                             <item name="Optional" type_name="gh_bool" type_code="1">true</item>
                             <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">0</item>
@@ -7841,7 +7841,7 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                             <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
                             <item name="Description" type_name="gh_string" type_code="10">List of Paths of the DataTree</item>
                             <item name="InstanceGuid" type_name="gh_guid" type_code="9">74d245c1-4715-432f-92c4-ebcf4f60026d</item>
-                            <item name="Name" type_name="gh_string" type_code="10">paths</item>
+                            <item name="Name" type_name="gh_string" type_code="10">geometry</item>
                             <item name="NickName" type_name="gh_string" type_code="10">geometry</item>
                             <item name="Optional" type_name="gh_bool" type_code="1">true</item>
                             <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">2</item>
@@ -17219,7 +17219,7 @@ Provided by Ladybug 0.0.63</item>
                     <item name="NickName" type_name="gh_string" type_code="10">Toggle</item>
                     <item name="Optional" type_name="gh_bool" type_code="1">false</item>
                     <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
-                    <item name="ToggleValue" type_name="gh_bool" type_code="1">true</item>
+                    <item name="ToggleValue" type_name="gh_bool" type_code="1">false</item>
                   </items>
                   <chunks count="1">
                     <chunk name="Attributes">
@@ -17738,7 +17738,7 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                     <item name="NickName" type_name="gh_string" type_code="10">Toggle</item>
                     <item name="Optional" type_name="gh_bool" type_code="1">false</item>
                     <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
-                    <item name="ToggleValue" type_name="gh_bool" type_code="1">true</item>
+                    <item name="ToggleValue" type_name="gh_bool" type_code="1">false</item>
                   </items>
                   <chunks count="1">
                     <chunk name="Attributes">
@@ -18137,14 +18137,14 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                     <chunk name="Attributes">
                       <items count="2">
                         <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                          <X>912</X>
-                          <Y>1261</Y>
+                          <X>923</X>
+                          <Y>1237</Y>
                           <W>89</W>
                           <H>20</H>
                         </item>
                         <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                          <X>976.8</X>
-                          <Y>1271.8</Y>
+                          <X>987.8</X>
+                          <Y>1247.8</Y>
                         </item>
                       </items>
                     </chunk>
@@ -19004,6 +19004,2722 @@ import System
                 </chunk>
               </chunks>
             </chunk>
+            <chunk name="Object" index="36">
+              <items count="3">
+                <item name="GUID" type_name="gh_guid" type_code="9">410755b1-224a-4c1e-a407-bf32fb45ea7e</item>
+                <item name="Lib" type_name="gh_guid" type_code="9">16cf80bc-9018-cbdb-2238-976eb17fd30d</item>
+                <item name="Name" type_name="gh_string" type_code="10">Honeybee_Set EP Zone Construction</item>
+              </items>
+              <chunks count="1">
+                <chunk name="Container">
+                  <items count="11">
+                    <item name="CodeInput" type_name="gh_string" type_code="10"># Update EP
+#
+# Honeybee: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipour Roudsari
+# 
+# This file is part of Honeybee.
+# 
+# Copyright (c) 2013-2016, Mostapha Sadeghipour Roudsari &lt;Sadeghipour@gmail.com&gt; 
+# Honeybee is free software; you can redistribute it and/or modify 
+# it under the terms of the GNU General Public License as published 
+# by the Free Software Foundation; either version 3 of the License, 
+# or (at your option) any later version. 
+# 
+# Honeybee is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of 
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the 
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with Honeybee; If not, see &lt;http://www.gnu.org/licenses/&gt;.
+# 
+# @license GPL-3.0+ &lt;http://spdx.org/licenses/GPL-3.0+&gt;
+
+
+"""
+Update EP construction of zone based on type
+
+-
+Provided by Honeybee 0.0.59
+    
+    Args:
+        _HBZone: Honeybee zone
+        wallEPConstruction_: Optional new construction for walls
+        windowEPConstruction_: Optional new construction for windows
+        roofEPConstruction_: Optional new construction for roofs
+        floorEPConstruction_: Optional new construction for floors
+        expFloorEPConstruction_: Optional new construction for exposed floors
+        skylightEPConstruction_: Optional new construction for skylights
+    Returns:
+        modifiedHBZone:  Honeybee zone with updated constructions
+
+"""
+
+ghenv.Component.Name = "Honeybee_Set EP Zone Construction"
+ghenv.Component.NickName = 'setEPZoneCnstr'
+ghenv.Component.Message = 'VER 0.0.59\nJAN_26_2016'
+ghenv.Component.IconDisplayMode = ghenv.Component.IconDisplayMode.application
+ghenv.Component.Category = "Honeybee"
+ghenv.Component.SubCategory = "08 | Energy | Set Zone Properties"
+#compatibleHBVersion = VER 0.0.56\nFEB_01_2015
+#compatibleLBVersion = VER 0.0.59\nFEB_01_2015
+try: ghenv.Component.AdditionalHelpFromDocStrings = "1"
+except: pass
+
+import scriptcontext as sc
+import Rhino as rc
+import Grasshopper.Kernel as gh
+
+def main(HBZone, wallEPCnst, windowEPCnst, roofEPCnst, flrEPCnst, expFlrEpCnst, \
+        skylightEPCnst):
+            
+    # Make sure Honeybee is flying
+    if not sc.sticky.has_key('honeybee_release'):
+        print "You should first let Honeybee to fly..."
+        w = gh.GH_RuntimeMessageLevel.Warning
+        ghenv.Component.AddRuntimeMessage(w, "You should first let Honeybee to fly...")
+        return -1
+
+    try:
+        if not sc.sticky['honeybee_release'].isCompatible(ghenv.Component): return -1
+        if sc.sticky['honeybee_release'].isInputMissing(ghenv.Component): return -1
+    except:
+        warning = "You need a newer version of Honeybee to use this compoent." + \
+        " Use updateHoneybee component to update userObjects.\n" + \
+        "If you have already updated userObjects drag Honeybee_Honeybee component " + \
+        "into canvas and try again."
+        w = gh.GH_RuntimeMessageLevel.Warning
+        ghenv.Component.AddRuntimeMessage(w, warning)
+        return -1
+    
+    # call the objects from the lib
+    hb_hive = sc.sticky["honeybee_Hive"]()
+    try: HBZoneObject = hb_hive.callFromHoneybeeHive([HBZone])[0]
+    except Exception, e: HBZoneObject = None
+    
+    # here I should check for each construction to be in the library
+    hb_EPObjectsAux = sc.sticky["honeybee_EPObjectsAUX"]()
+    
+    if HBZoneObject != None:
+        for srf in HBZoneObject.surfaces:
+            if srf.BCObject.name == "": # not internal surfaces 
+                if windowEPCnst!=None and srf.type != 1 and srf.type != 1.5 and srf.hasChild:
+                    for childSrf in srf.childSrfs:
+                        hb_EPObjectsAux.assignEPConstruction(childSrf, windowEPCnst, ghenv.Component)
+                
+                # check for slab on grade and roofs
+                if skylightEPCnst!=None and (srf.type == 1 or srf.type == 1.5) and srf.hasChild:
+                    for childSrf in srf.childSrfs:
+                        hb_EPObjectsAux.assignEPConstruction(childSrf, skylightEPCnst, ghenv.Component)
+                
+                if srf.type == 0 and wallEPCnst!=None:
+                    hb_EPObjectsAux.assignEPConstruction(srf, wallEPCnst, ghenv.Component)
+                elif srf.type == 1 and roofEPCnst!=None:
+                    hb_EPObjectsAux.assignEPConstruction(srf, roofEPCnst, ghenv.Component)
+                elif srf.type == 2 and flrEPCnst!=None:
+                    hb_EPObjectsAux.assignEPConstruction(srf, flrEPCnst, ghenv.Component)
+                elif srf.type == 2.75 and expFlrEpCnst!=None:
+                    hb_EPObjectsAux.assignEPConstruction(srf, expFlrEpCnst, ghenv.Component)
+
+        # add zones to dictionary
+        HBZones  = hb_hive.addToHoneybeeHive([HBZoneObject], ghenv.Component.InstanceGuid.ToString())
+        
+        #print HBZones
+        return HBZones
+    
+    else:
+        return -1
+
+if _HBZone:
+    result = main(_HBZone, wallEPConstruction_, windowEPConstruction_, \
+        roofEPConstruction_, floorEPConstruction_, expFloorEPConstruction_, \
+        skylightEPConstruction_)
+    
+    if result!=-1: modifiedHBZone = result</item>
+                    <item name="Description" type_name="gh_string" type_code="10">Update EP construction of zone based on type
+-
+Provided by Honeybee 0.0.59</item>
+                    <item name="EditorLocation" type_name="gh_drawing_point" type_code="30">
+                      <X>130</X>
+                      <Y>130</Y>
+                    </item>
+                    <item name="EditorSize" type_name="gh_drawing_size" type_code="32">
+                      <W>895</W>
+                      <H>812</H>
+                    </item>
+                    <item name="Hidden" type_name="gh_bool" type_code="1">true</item>
+                    <item name="HideInput" type_name="gh_bool" type_code="1">true</item>
+                    <item name="HideOutput" type_name="gh_bool" type_code="1">true</item>
+                    <item name="IconOverride" type_name="gh_drawing_bitmap" type_code="37">
+                      <bitmap length="1145">iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwQAADsEBuJFr7QAABBtJREFUSEu9lG9MW1UYxruABBkgtKOMv6UDNtoKmzhEQ/ywJVZJXCQmrkEosC2L8Yt+MBg0QYFIsGUuQWIQiAtBoerM/ANM2eYXv2pESLZEY8KfDtLe3pbSwjo228f33vtKoe0SP+2XPDnnPD33OT33nPeqHibNmZmZ71F7gTRIsqekpLRTezErK+tNaj9mvyctLe1taj8k9bNnJ0969g3SA7k+MjICm82Grq4u9Pf3Y2hoCHq9HqOjo+jp6ZH9wcFBua2urkZfXx+6u7vluRMTE6A/8jdnJWQKCaipqeFelIWFBbS0tPAoSlFR0QJnxaNWqz8RRZGnKgSDQbS1tUVcLhc7CvPz8xgYGOBRlLq6um84Lp6CggK73+/nqQrr6+uwWCxhn8/HjsLc3BzsdjuPotTW1n7LcQmZWVxc5KkKHo8HBoMBy8vL7CjMzs6ioaGBR1Fyc3N/56yETMcuIAgCKioqsLKywo7C9MwMzOfO8iiKVq3+g7PiycvLuyi9kt1IZ9DY2BiWdrKbP2/dxGetZ7D9wwy2p67i3rUbsn/CbHZwXDxarXYg9l17vV5YrdaI1O4huIlIfilElQpuUig9B9jcwrHnTv7EcQmZWlpa4gQF6VZVVlbGncGmy43bxYex/lguxEwt7lc9BWwEoKuq/JWzEhJ3yNICJqMpboEtwYPbuiPRBY7Wyrs6YDT+xlnxUJHYNjY2OEJBOoPWV5vCPkTYUfiHJJRXwrtfAzH9AO6YquUZmldevsRx8WRkZAxLt2Y3Ah3uS6+/FnHaLuBefQMCzWcRsJ6D32KFSK/Ie7BElr+kAt7GVtwwGIVwTtHVraLyH4XCsnGO3uG72Fch0uHWWJtw6/kXEaLD9KhSZImqR+ErKIVXWoQk5h8iLxU4qEeQFvMUlsFL4twdvo9dYJ0q++mmRty0NGN73375of8rd2HZMucqFBcX9wUCAY5WCNAZnB+7FHY2nIafdiDI2kf/Nhk+KYh34MnTk58E5JUCeiMEaXf0O0crJCcnf7G2tsbRCm63G8/Wv4DVa9dx/6vLVFjTVFgzCHzugIuCfZoCiKStimMIfHkZZ8pNf82lZp6OlBgsnvyyUxy9w5XYT4JUwdVUB6vbd9lRuENy0jX1Z+TItyj8xDOyrzpq+oWz4klKSnKsrq7KE/9DurZmsznidDrZUQhRfbj0BvioBqQ6CJmepFVDOH7yxIMrWafT2fj5PXR2dnJvLyLVgZCmhptq4e7jx2Wv3tr0Nccl5Of29naMjY3B4XCgt7cXHR0d0Gg0cjs5OYnx8XHZ733nXawUliKUq8OmthjBw1X4qPN9JKen7705MZwnjWRnZ/fSd72L+sOkT1nD5HXTYh9I/UfIW8zXj4R1R0YlreUfGk1V5r9FepioVP8CpvhnNKmFZMIAAAAASUVORK5CYII=</bitmap>
+                    </item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">36f48e3e-aa34-45b7-bd37-79fa8221d02a</item>
+                    <item name="Name" type_name="gh_string" type_code="10">Honeybee_Set EP Zone Construction</item>
+                    <item name="NickName" type_name="gh_string" type_code="10">setEPZoneCnstr</item>
+                  </items>
+                  <chunks count="2">
+                    <chunk name="Attributes">
+                      <items count="2">
+                        <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                          <X>993</X>
+                          <Y>2843</Y>
+                          <W>269</W>
+                          <H>144</H>
+                        </item>
+                        <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                          <X>1137</X>
+                          <Y>2915</Y>
+                        </item>
+                      </items>
+                    </chunk>
+                    <chunk name="ParameterData">
+                      <items count="10">
+                        <item name="InputCount" type_name="gh_int32" type_code="3">7</item>
+                        <item name="InputId" index="0" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
+                        <item name="InputId" index="1" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
+                        <item name="InputId" index="2" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
+                        <item name="InputId" index="3" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
+                        <item name="InputId" index="4" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
+                        <item name="InputId" index="5" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
+                        <item name="InputId" index="6" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
+                        <item name="OutputCount" type_name="gh_int32" type_code="3">1</item>
+                        <item name="OutputId" index="0" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
+                      </items>
+                      <chunks count="8">
+                        <chunk name="InputParam" index="0">
+                          <items count="11">
+                            <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Description" type_name="gh_string" type_code="10">Honeybee zone</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">6f6e5458-d382-4104-90d1-f9f66bc7b13c</item>
+                            <item name="Name" type_name="gh_string" type_code="10">_HBZone</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">_HBZone</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
+                            <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">0</item>
+                            <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Source" index="0" type_name="gh_guid" type_code="9">ed42102d-c6bb-4395-9302-5ffdec725162</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
+                            <item name="TypeHintID" type_name="gh_guid" type_code="9">2ceb0405-fdfe-403d-a4d6-8786da45fb9d</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>995</X>
+                                  <Y>2845</Y>
+                                  <W>127</W>
+                                  <H>20</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>1060</X>
+                                  <Y>2855</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="InputParam" index="1">
+                          <items count="11">
+                            <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Description" type_name="gh_string" type_code="10">Optional new construction for walls</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">a3e78263-e1a4-4033-9978-29dcaff236c5</item>
+                            <item name="Name" type_name="gh_string" type_code="10">wallEPConstruction_</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">wallEPConstruction_</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
+                            <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">0</item>
+                            <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Source" index="0" type_name="gh_guid" type_code="9">cd5775ff-420d-4e2c-95ea-0e7c49d62e61</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
+                            <item name="TypeHintID" type_name="gh_guid" type_code="9">37261734-eec7-4f50-b6a8-b8d1f3c4396b</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>995</X>
+                                  <Y>2865</Y>
+                                  <W>127</W>
+                                  <H>20</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>1060</X>
+                                  <Y>2875</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="InputParam" index="2">
+                          <items count="10">
+                            <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Description" type_name="gh_string" type_code="10">Optional new construction for windows</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">58e99cd2-1ec7-40bd-8f0e-9bce4739a515</item>
+                            <item name="Name" type_name="gh_string" type_code="10">windowEPConstruction_</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">windowEPConstruction_</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
+                            <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">0</item>
+                            <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                            <item name="TypeHintID" type_name="gh_guid" type_code="9">37261734-eec7-4f50-b6a8-b8d1f3c4396b</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>995</X>
+                                  <Y>2885</Y>
+                                  <W>127</W>
+                                  <H>20</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>1060</X>
+                                  <Y>2895</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="InputParam" index="3">
+                          <items count="11">
+                            <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Description" type_name="gh_string" type_code="10">Optional new construction for roofs</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">6a81ab86-05cf-4bc0-997c-939d95292217</item>
+                            <item name="Name" type_name="gh_string" type_code="10">roofEPConstruction_</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">roofEPConstruction_</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
+                            <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">0</item>
+                            <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Source" index="0" type_name="gh_guid" type_code="9">7fd7c1d4-bd9c-4819-92b8-85b3ffbf9027</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
+                            <item name="TypeHintID" type_name="gh_guid" type_code="9">37261734-eec7-4f50-b6a8-b8d1f3c4396b</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>995</X>
+                                  <Y>2905</Y>
+                                  <W>127</W>
+                                  <H>20</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>1060</X>
+                                  <Y>2915</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="InputParam" index="4">
+                          <items count="10">
+                            <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Description" type_name="gh_string" type_code="10">Optional new construction for floors</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">077c6318-2537-4ed8-a62a-8e403ba30093</item>
+                            <item name="Name" type_name="gh_string" type_code="10">floorEPConstruction_</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">floorEPConstruction_</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
+                            <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">0</item>
+                            <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                            <item name="TypeHintID" type_name="gh_guid" type_code="9">37261734-eec7-4f50-b6a8-b8d1f3c4396b</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>995</X>
+                                  <Y>2925</Y>
+                                  <W>127</W>
+                                  <H>20</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>1060</X>
+                                  <Y>2935</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="InputParam" index="5">
+                          <items count="10">
+                            <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Description" type_name="gh_string" type_code="10">Optional new construction for exposed floors</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">cd3cc226-11a0-40c3-9599-f56c3696e956</item>
+                            <item name="Name" type_name="gh_string" type_code="10">expFloorEPConstruction_</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">expFloorEPConstruction_</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
+                            <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">0</item>
+                            <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                            <item name="TypeHintID" type_name="gh_guid" type_code="9">37261734-eec7-4f50-b6a8-b8d1f3c4396b</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>995</X>
+                                  <Y>2945</Y>
+                                  <W>127</W>
+                                  <H>20</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>1060</X>
+                                  <Y>2955</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="InputParam" index="6">
+                          <items count="10">
+                            <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Description" type_name="gh_string" type_code="10">Optional new construction for skylights</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">641b0844-f8e7-4520-9d44-25006e4ad241</item>
+                            <item name="Name" type_name="gh_string" type_code="10">skylightEPConstruction_</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">skylightEPConstruction_</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
+                            <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">0</item>
+                            <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                            <item name="TypeHintID" type_name="gh_guid" type_code="9">37261734-eec7-4f50-b6a8-b8d1f3c4396b</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>995</X>
+                                  <Y>2965</Y>
+                                  <W>127</W>
+                                  <H>20</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>1060</X>
+                                  <Y>2975</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="OutputParam" index="0">
+                          <items count="7">
+                            <item name="Description" type_name="gh_string" type_code="10">Honeybee zone with updated constructions</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">907e3227-ca40-42c5-9345-0624f1db7e5e</item>
+                            <item name="Name" type_name="gh_string" type_code="10">modifiedHBZone</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">modifiedHBZone</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                            <item name="SimplifyData" type_name="gh_bool" type_code="1">true</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>1152</X>
+                                  <Y>2845</Y>
+                                  <W>108</W>
+                                  <H>140</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>1198</X>
+                                  <Y>2915</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                      </chunks>
+                    </chunk>
+                  </chunks>
+                </chunk>
+              </chunks>
+            </chunk>
+            <chunk name="Object" index="37">
+              <items count="3">
+                <item name="GUID" type_name="gh_guid" type_code="9">410755b1-224a-4c1e-a407-bf32fb45ea7e</item>
+                <item name="Lib" type_name="gh_guid" type_code="9">16cf80bc-9018-cbdb-2238-976eb17fd30d</item>
+                <item name="Name" type_name="gh_string" type_code="10">Honeybee_createHBZones</item>
+              </items>
+              <chunks count="1">
+                <chunk name="Container">
+                  <items count="10">
+                    <item name="CodeInput" type_name="gh_string" type_code="10">#
+# Honeybee: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipour Roudsari
+# 
+# This file is part of Honeybee.
+# 
+# Copyright (c) 2013-2016, Mostapha Sadeghipour Roudsari &lt;Sadeghipour@gmail.com&gt; 
+# Honeybee is free software; you can redistribute it and/or modify 
+# it under the terms of the GNU General Public License as published 
+# by the Free Software Foundation; either version 3 of the License, 
+# or (at your option) any later version. 
+# 
+# Honeybee is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of 
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the 
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with Honeybee; If not, see &lt;http://www.gnu.org/licenses/&gt;.
+# 
+# @license GPL-3.0+ &lt;http://spdx.org/licenses/GPL-3.0+&gt;
+
+
+"""
+    Create an HBZone from HB Surfaces
+    
+-
+Provided by Honeybee 0.0.59
+
+    Args:
+        _name_: The name of the zone as a string
+        zoneProgram_: Optional input for the program of this zone
+        isConditioned_: True/False value. This value will be applied to the ouput zone to either condition them with an Ideal Air Loads System (True) or not condition them at all (False). If no value is connected here, all zones will be conditioned with an Ideal Air Loads System by default.
+        _HBSurfaces: A list of Honeybee Surfaces
+    Returns:
+        readMe!:...
+        HBZone: Honeybee zone as the result
+"""
+
+import rhinoscriptsyntax as rs
+import Rhino as rc
+import scriptcontext as sc
+import os
+import sys
+import System
+import Grasshopper.Kernel as gh
+import uuid
+import math
+
+ghenv.Component.Name = 'Honeybee_createHBZones'
+ghenv.Component.NickName = 'createHBZones'
+ghenv.Component.Message = 'VER 0.0.59\nJAN_26_2016'
+ghenv.Component.IconDisplayMode = ghenv.Component.IconDisplayMode.application
+ghenv.Component.Category = "Honeybee"
+ghenv.Component.SubCategory = "00 | Honeybee"
+#compatibleHBVersion = VER 0.0.56\nFEB_01_2015
+#compatibleLBVersion = VER 0.0.59\nFEB_01_2015
+try: ghenv.Component.AdditionalHelpFromDocStrings = "3"
+except: pass
+
+
+tolerance = sc.doc.ModelAbsoluteTolerance
+
+def main(zoneName,  HBZoneProgram, HBSurfaces, isConditioned):
+    # import the classes
+    if sc.sticky.has_key('honeybee_release'):
+
+        try:
+            if not sc.sticky['honeybee_release'].isCompatible(ghenv.Component): return -1
+            if sc.sticky['honeybee_release'].isInputMissing(ghenv.Component): return -1
+        except:
+            warning = "You need a newer version of Honeybee to use this compoent." + \
+            "Use updateHoneybee component to update userObjects.\n" + \
+            "If you have already updated userObjects drag Honeybee_Honeybee component " + \
+            "into canvas and try again."
+            w = gh.GH_RuntimeMessageLevel.Warning
+            ghenv.Component.AddRuntimeMessage(w, warning)
+            return
+            
+        # don't customize this part
+        hb_EPZone = sc.sticky["honeybee_EPZone"]
+        hb_EPSrf = sc.sticky["honeybee_EPSurface"]
+        hb_EPZoneSurface = sc.sticky["honeybee_EPSurface"]
+        
+    else:
+        print "You should first let Honeybee to fly..."
+        w = gh.GH_RuntimeMessageLevel.Warning
+        ghenv.Component.AddRuntimeMessage(w, "You should first let Honeybee to fly...")
+        return
+    
+    
+    # call the surface from the hive
+    hb_hive = sc.sticky["honeybee_Hive"]()
+    
+    HBSurfaces = hb_hive.callFromHoneybeeHive(HBSurfaces)
+    
+    # bldg program
+    try: bldgProgram, zoneProgram = HBZoneProgram.split("::")
+    except: bldgProgram, zoneProgram = 'Office', 'OpenOffice'
+    
+    # initiate the zone
+    zoneID = str(uuid.uuid4())
+    
+    # default for isConditioned is True
+    if isConditioned== None: isConditioned = True
+    
+    HBZone = hb_EPZone(None, zoneID, zoneName.strip().replace(" ","_"), (bldgProgram, zoneProgram), isConditioned)
+    
+    for hbSrf in HBSurfaces:
+        HBZone.addSrf(hbSrf)
+    
+    # create the zone from the surfaces
+    HBZone.createZoneFromSurfaces()
+    
+    if not HBZone.isClosed:
+        message = "All of your HBSrfs must make a closed volume."
+        print message
+        w = gh.GH_RuntimeMessageLevel.Warning
+        ghenv.Component.AddRuntimeMessage(w, message)
+    
+    HBZone  = hb_hive.addToHoneybeeHive([HBZone], ghenv.Component.InstanceGuid.ToString() + str(uuid.uuid4()))
+    
+    return HBZone 
+
+if _name != None and _HBSurfaces and _HBSurfaces[0]!=None:
+    
+    result= main(_name, zoneProgram_, _HBSurfaces, isConditioned_)
+    
+    HBZone = result
+</item>
+                    <item name="Description" type_name="gh_string" type_code="10">    Create an HBZone from HB Surfaces
+-
+Provided by Honeybee 0.0.59</item>
+                    <item name="EditorLocation" type_name="gh_drawing_point" type_code="30">
+                      <X>98</X>
+                      <Y>45</Y>
+                    </item>
+                    <item name="EditorSize" type_name="gh_drawing_size" type_code="32">
+                      <W>1059</W>
+                      <H>812</H>
+                    </item>
+                    <item name="HideInput" type_name="gh_bool" type_code="1">true</item>
+                    <item name="HideOutput" type_name="gh_bool" type_code="1">false</item>
+                    <item name="IconOverride" type_name="gh_drawing_bitmap" type_code="37">
+                      <bitmap length="1200">iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwQAADsEBuJFr7QAABFJJREFUSEvNlH1MlXUUx3+3m/I6IBMQXxiOnIC8ycs1dMpLV0ivQAiivF1IGmIqNXUqhorDzKlBbQWYxBakU+NFJcRRutTMRWRmmBlZOc2yrSYqgrj6dJ57qalhq/QPv9t3e/b8fud7zvM9zznqQcNy4Xrr4/1FoLvT4CM1y0KoX21gtLvNcXk3wXp0b7ARNmZFj6T3QBJ8lQmnM+BoCgUJo5GzD4RDtIv/B8VxYW5XO6ufgDOZ/HZoJtd2myy8eVCSdWZxrnYqiUHOPXK3zBry7xDm7DDox3cKQ+HzNDiRRs9eEd47g+4mK7Xn63tM0D4bTmXQuu5xHB1tuyXWaJUYGDHC9s154+DC03Ayjb598VwVoT+F76R2duPdeCliDlycS+3yUM22TmGiJngnKgNGO5ET60ldUTh8nQUfpdAtlgwkbqGc/X44Gc6aaXkxgrlxnoSOcdGSVFslb4FOryvZJZe+3RZL9tRRpEtjD2ycZEl0Y38C3WLTX8JiUU+zVC69aa+IwmwcRUbMSD4pj+KQ0PVRmwF7UrohcyxczoOe+ZTnB+DpaodZApEG82UGvWKH1g/NPtpSKYj3wmOILaW5fta4n3Opfi4IvU5X0a95Gyo35/nT05LE1hQX+GEWfWeyKc32ZdaU4SwyecFx8VoSFc0eQ9IkDzZm+dB32izNNrIlbRh8mkGFJBCtv1skWFe3OpyLb0Wi9CEYfN3oLHIC8vmuIZ7Jvo/w1EQPUiNHEObtzNmGBLiWzsEchcOosahhwdIzE43FBhzt9a/0a96Gku2FIfRt9UWtqkOVXcI2Jo+lJje66qdAVz7z5SuSI6TS6wv5/nUfkqJl2IxFqG3gXbAMWg3UrzHgZK8fsAeVVYuDubB+BCp6Meo8qA7htCpifezgXAYvLwhk/Tx/OPYkTo5DUWs6UJ1ypw3sgqWI/RG8uWT8XS0qq10RyvmSYajEVVbxpl7Uri4iJ4r/XyShFbDlebFiZwg20SbUCbmz8xfUx5JgUiw0GdheGIZer6vs17wFOlXSIP5drx6H8jejjkqwJlB1jey5RvhsGjteCLMMEy3hjMlZgHpfzrVCavrw8guDD6Nplql2cRxU2q96GyrX5vhKUxezY4UPytYLteSIVAgxUY/JopvJS/I7rjX7wJ5w7ONmoo6JeOJr2Do407ElQmILqPgHi6YJT70hPnNJVkVjIGY/hYpcSkREgEzrHGuCbEnwXhQPBcaim76Q4iAlMxEtMc+wY0kID+t150Un1aJ4F0QOtRn8a3tFDFzNof1VP1ameEsP0nlbelQtFXI4hQVGd67sNkBvPicrY/BwteuT2AF30N2wSVvFXftmwBWZUhmymqXjKX9WvuZkukz7PC43m8g2et6Uu1uFekvUf4SDsHX+dPmLvsmiXJZgySKx8KdcVso0y1mb0E27eK+YMMHHpS158nDLipga6npK3mnr/b5jlXCT9fGBgFJ/AF6Pynb7/hnZAAAAAElFTkSuQmCC</bitmap>
+                    </item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">f28078c6-c1b8-4193-bd9e-03b5b89f1364</item>
+                    <item name="Name" type_name="gh_string" type_code="10">Honeybee_createHBZones</item>
+                    <item name="NickName" type_name="gh_string" type_code="10">createHBZones</item>
+                  </items>
+                  <chunks count="2">
+                    <chunk name="Attributes">
+                      <items count="2">
+                        <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                          <X>447</X>
+                          <Y>2790</Y>
+                          <W>179</W>
+                          <H>111</H>
+                        </item>
+                        <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                          <X>559</X>
+                          <Y>2846</Y>
+                        </item>
+                      </items>
+                    </chunk>
+                    <chunk name="ParameterData">
+                      <items count="8">
+                        <item name="InputCount" type_name="gh_int32" type_code="3">4</item>
+                        <item name="InputId" index="0" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
+                        <item name="InputId" index="1" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
+                        <item name="InputId" index="2" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
+                        <item name="InputId" index="3" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
+                        <item name="OutputCount" type_name="gh_int32" type_code="3">2</item>
+                        <item name="OutputId" index="0" type_name="gh_guid" type_code="9">3ede854e-c753-40eb-84cb-b48008f14fd4</item>
+                        <item name="OutputId" index="1" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
+                      </items>
+                      <chunks count="6">
+                        <chunk name="InputParam" index="0">
+                          <items count="11">
+                            <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Description" type_name="gh_string" type_code="10">The name of the zone as a string</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">9608d667-2596-4923-9a5d-95091597810d</item>
+                            <item name="Name" type_name="gh_string" type_code="10">_name</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">_name</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
+                            <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">0</item>
+                            <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Source" index="0" type_name="gh_guid" type_code="9">1d81f59c-f0bd-42ed-b041-058773ca8b11</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
+                            <item name="TypeHintID" type_name="gh_guid" type_code="9">37261734-eec7-4f50-b6a8-b8d1f3c4396b</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>449</X>
+                                  <Y>2792</Y>
+                                  <W>95</W>
+                                  <H>26</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>506</X>
+                                  <Y>2805.375</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="InputParam" index="1">
+                          <items count="11">
+                            <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Description" type_name="gh_string" type_code="10">Optional input for the program of this zone</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">c3a8e6db-f482-4ebc-9c7f-641fdd538103</item>
+                            <item name="Name" type_name="gh_string" type_code="10">zoneProgram_</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">zoneProgram_</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
+                            <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">0</item>
+                            <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Source" index="0" type_name="gh_guid" type_code="9">3e439238-36f1-4349-8e68-cf4c6d5fd197</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
+                            <item name="TypeHintID" type_name="gh_guid" type_code="9">37261734-eec7-4f50-b6a8-b8d1f3c4396b</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>449</X>
+                                  <Y>2818</Y>
+                                  <W>95</W>
+                                  <H>27</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>506</X>
+                                  <Y>2832.125</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="InputParam" index="2">
+                          <items count="13">
+                            <item name="Access" type_name="gh_int32" type_code="3">1</item>
+                            <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Description" type_name="gh_string" type_code="10">A list of Honeybee Surfaces</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">c5bc2f3a-41ae-4c05-8a9e-15c12f1e04b7</item>
+                            <item name="Mapping" type_name="gh_int32" type_code="3">1</item>
+                            <item name="Name" type_name="gh_string" type_code="10">_HBSurfaces</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">_HBSurfaces</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
+                            <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">1</item>
+                            <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Source" index="0" type_name="gh_guid" type_code="9">06a1bbac-5a93-4405-81f5-fc5fb06b3d78</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
+                            <item name="TypeHintID" type_name="gh_guid" type_code="9">2ceb0405-fdfe-403d-a4d6-8786da45fb9d</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>449</X>
+                                  <Y>2845</Y>
+                                  <W>95</W>
+                                  <H>27</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>506</X>
+                                  <Y>2858.875</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="InputParam" index="3">
+                          <items count="10">
+                            <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Description" type_name="gh_string" type_code="10">True/False value. This value will be applied to the ouput zone to either condition them with an Ideal Air Loads System (True) or not condition them at all (False). If no value is connected here, all zones will be conditioned with an Ideal Air Loads System by default.</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">c76bcaeb-c451-456e-9ed7-8fe34b35b57c</item>
+                            <item name="Name" type_name="gh_string" type_code="10">isConditioned_</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">isConditioned_</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
+                            <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">0</item>
+                            <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                            <item name="TypeHintID" type_name="gh_guid" type_code="9">d60527f5-b5af-4ef6-8970-5f96fe412559</item>
+                          </items>
+                          <chunks count="2">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>449</X>
+                                  <Y>2872</Y>
+                                  <W>95</W>
+                                  <H>27</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>506</X>
+                                  <Y>2885.625</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                            <chunk name="PersistentData">
+                              <items count="1">
+                                <item name="Count" type_name="gh_int32" type_code="3">1</item>
+                              </items>
+                              <chunks count="1">
+                                <chunk name="Branch" index="0">
+                                  <items count="2">
+                                    <item name="Count" type_name="gh_int32" type_code="3">1</item>
+                                    <item name="Path" type_name="gh_string" type_code="10">{0}</item>
+                                  </items>
+                                  <chunks count="1">
+                                    <chunk name="Item" index="0">
+                                      <items count="2">
+                                        <item name="boolean" type_name="gh_bool" type_code="1">true</item>
+                                        <item name="TypeName" type_name="gh_string" type_code="10">Grasshopper.Kernel.Types.GH_Boolean</item>
+                                      </items>
+                                    </chunk>
+                                  </chunks>
+                                </chunk>
+                              </chunks>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="OutputParam" index="0">
+                          <items count="6">
+                            <item name="Description" type_name="gh_string" type_code="10">...</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">bcf6b527-8b17-4bc8-8fee-8ac2039e4f60</item>
+                            <item name="Name" type_name="gh_string" type_code="10">out</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">readMe!</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>574</X>
+                                  <Y>2792</Y>
+                                  <W>50</W>
+                                  <H>53</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>599</X>
+                                  <Y>2818.75</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="OutputParam" index="1">
+                          <items count="6">
+                            <item name="Description" type_name="gh_string" type_code="10">Honeybee zone as the result</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">ed42102d-c6bb-4395-9302-5ffdec725162</item>
+                            <item name="Name" type_name="gh_string" type_code="10">HBZone</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">HBZone</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>574</X>
+                                  <Y>2845</Y>
+                                  <W>50</W>
+                                  <H>54</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>599</X>
+                                  <Y>2872.25</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                      </chunks>
+                    </chunk>
+                  </chunks>
+                </chunk>
+              </chunks>
+            </chunk>
+            <chunk name="Object" index="38">
+              <items count="2">
+                <item name="GUID" type_name="gh_guid" type_code="9">28061aae-04fb-4cb5-ac45-16f3b66bc0a4</item>
+                <item name="Name" type_name="gh_string" type_code="10">Center Box</item>
+              </items>
+              <chunks count="1">
+                <chunk name="Container">
+                  <items count="4">
+                    <item name="Description" type_name="gh_string" type_code="10">Create a box centered on a plane.</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">8789743a-13ac-4724-a93d-74bea2fcb4c5</item>
+                    <item name="Name" type_name="gh_string" type_code="10">Center Box</item>
+                    <item name="NickName" type_name="gh_string" type_code="10">Box</item>
+                  </items>
+                  <chunks count="6">
+                    <chunk name="Attributes">
+                      <items count="2">
+                        <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                          <X>-74</X>
+                          <Y>2913</Y>
+                          <W>64</W>
+                          <H>84</H>
+                        </item>
+                        <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                          <X>-43</X>
+                          <Y>2955</Y>
+                        </item>
+                      </items>
+                    </chunk>
+                    <chunk name="param_input" index="0">
+                      <items count="6">
+                        <item name="Description" type_name="gh_string" type_code="10">Base plane</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">50ae7dea-07c7-42c8-b9d0-7602e22229b2</item>
+                        <item name="Name" type_name="gh_string" type_code="10">Base</item>
+                        <item name="NickName" type_name="gh_string" type_code="10">B</item>
+                        <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                        <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                      </items>
+                      <chunks count="2">
+                        <chunk name="Attributes">
+                          <items count="2">
+                            <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                              <X>-72</X>
+                              <Y>2915</Y>
+                              <W>14</W>
+                              <H>20</H>
+                            </item>
+                            <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                              <X>-63.5</X>
+                              <Y>2925</Y>
+                            </item>
+                          </items>
+                        </chunk>
+                        <chunk name="PersistentData">
+                          <items count="1">
+                            <item name="Count" type_name="gh_int32" type_code="3">1</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Branch" index="0">
+                              <items count="2">
+                                <item name="Count" type_name="gh_int32" type_code="3">1</item>
+                                <item name="Path" type_name="gh_string" type_code="10">{0}</item>
+                              </items>
+                              <chunks count="1">
+                                <chunk name="Item" index="0">
+                                  <items count="1">
+                                    <item name="plane" type_name="gh_plane" type_code="72">
+                                      <Ox>0</Ox>
+                                      <Oy>0</Oy>
+                                      <Oz>0</Oz>
+                                      <Xx>1</Xx>
+                                      <Xy>0</Xy>
+                                      <Xz>0</Xz>
+                                      <Yx>0</Yx>
+                                      <Yy>1</Yy>
+                                      <Yz>0</Yz>
+                                    </item>
+                                  </items>
+                                </chunk>
+                              </chunks>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                      </chunks>
+                    </chunk>
+                    <chunk name="param_input" index="1">
+                      <items count="6">
+                        <item name="Description" type_name="gh_string" type_code="10">Size of box in {x} direction.</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">3971eb9d-aa1f-47da-8d1b-2a55d6cad6b8</item>
+                        <item name="Name" type_name="gh_string" type_code="10">X</item>
+                        <item name="NickName" type_name="gh_string" type_code="10">X</item>
+                        <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                        <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                      </items>
+                      <chunks count="2">
+                        <chunk name="Attributes">
+                          <items count="2">
+                            <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                              <X>-72</X>
+                              <Y>2935</Y>
+                              <W>14</W>
+                              <H>20</H>
+                            </item>
+                            <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                              <X>-63.5</X>
+                              <Y>2945</Y>
+                            </item>
+                          </items>
+                        </chunk>
+                        <chunk name="PersistentData">
+                          <items count="1">
+                            <item name="Count" type_name="gh_int32" type_code="3">1</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Branch" index="0">
+                              <items count="2">
+                                <item name="Count" type_name="gh_int32" type_code="3">1</item>
+                                <item name="Path" type_name="gh_string" type_code="10">{0}</item>
+                              </items>
+                              <chunks count="1">
+                                <chunk name="Item" index="0">
+                                  <items count="1">
+                                    <item name="number" type_name="gh_double" type_code="6">1</item>
+                                  </items>
+                                </chunk>
+                              </chunks>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                      </chunks>
+                    </chunk>
+                    <chunk name="param_input" index="2">
+                      <items count="6">
+                        <item name="Description" type_name="gh_string" type_code="10">Size of box in {y} direction.</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">0b154554-021f-4627-a674-ead9deb9430b</item>
+                        <item name="Name" type_name="gh_string" type_code="10">Y</item>
+                        <item name="NickName" type_name="gh_string" type_code="10">Y</item>
+                        <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                        <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                      </items>
+                      <chunks count="2">
+                        <chunk name="Attributes">
+                          <items count="2">
+                            <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                              <X>-72</X>
+                              <Y>2955</Y>
+                              <W>14</W>
+                              <H>20</H>
+                            </item>
+                            <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                              <X>-63.5</X>
+                              <Y>2965</Y>
+                            </item>
+                          </items>
+                        </chunk>
+                        <chunk name="PersistentData">
+                          <items count="1">
+                            <item name="Count" type_name="gh_int32" type_code="3">1</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Branch" index="0">
+                              <items count="2">
+                                <item name="Count" type_name="gh_int32" type_code="3">1</item>
+                                <item name="Path" type_name="gh_string" type_code="10">{0}</item>
+                              </items>
+                              <chunks count="1">
+                                <chunk name="Item" index="0">
+                                  <items count="1">
+                                    <item name="number" type_name="gh_double" type_code="6">1</item>
+                                  </items>
+                                </chunk>
+                              </chunks>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                      </chunks>
+                    </chunk>
+                    <chunk name="param_input" index="3">
+                      <items count="6">
+                        <item name="Description" type_name="gh_string" type_code="10">Size of box in {z} direction.</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">d492eeb0-a4e9-42f2-ae63-217ef994ca1d</item>
+                        <item name="Name" type_name="gh_string" type_code="10">Z</item>
+                        <item name="NickName" type_name="gh_string" type_code="10">Z</item>
+                        <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                        <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                      </items>
+                      <chunks count="2">
+                        <chunk name="Attributes">
+                          <items count="2">
+                            <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                              <X>-72</X>
+                              <Y>2975</Y>
+                              <W>14</W>
+                              <H>20</H>
+                            </item>
+                            <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                              <X>-63.5</X>
+                              <Y>2985</Y>
+                            </item>
+                          </items>
+                        </chunk>
+                        <chunk name="PersistentData">
+                          <items count="1">
+                            <item name="Count" type_name="gh_int32" type_code="3">1</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Branch" index="0">
+                              <items count="2">
+                                <item name="Count" type_name="gh_int32" type_code="3">1</item>
+                                <item name="Path" type_name="gh_string" type_code="10">{0}</item>
+                              </items>
+                              <chunks count="1">
+                                <chunk name="Item" index="0">
+                                  <items count="1">
+                                    <item name="number" type_name="gh_double" type_code="6">1</item>
+                                  </items>
+                                </chunk>
+                              </chunks>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                      </chunks>
+                    </chunk>
+                    <chunk name="param_output" index="0">
+                      <items count="6">
+                        <item name="Description" type_name="gh_string" type_code="10">Resulting box</item>
+                        <item name="InstanceGuid" type_name="gh_guid" type_code="9">f860f7a0-f3cf-4922-9c8f-48f7eba5e403</item>
+                        <item name="Name" type_name="gh_string" type_code="10">Box</item>
+                        <item name="NickName" type_name="gh_string" type_code="10">B</item>
+                        <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                        <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                      </items>
+                      <chunks count="1">
+                        <chunk name="Attributes">
+                          <items count="2">
+                            <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                              <X>-28</X>
+                              <Y>2915</Y>
+                              <W>16</W>
+                              <H>80</H>
+                            </item>
+                            <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                              <X>-20</X>
+                              <Y>2955</Y>
+                            </item>
+                          </items>
+                        </chunk>
+                      </chunks>
+                    </chunk>
+                  </chunks>
+                </chunk>
+              </chunks>
+            </chunk>
+            <chunk name="Object" index="39">
+              <items count="2">
+                <item name="GUID" type_name="gh_guid" type_code="9">919e146f-30ae-4aae-be34-4d72f555e7da</item>
+                <item name="Name" type_name="gh_string" type_code="10">Brep</item>
+              </items>
+              <chunks count="1">
+                <chunk name="Container">
+                  <items count="7">
+                    <item name="Description" type_name="gh_string" type_code="10">Contains a collection of Breps (Boundary REPresentations)</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">bff4f85b-3b80-4e66-b7b3-2a51e75476f4</item>
+                    <item name="Name" type_name="gh_string" type_code="10">Brep</item>
+                    <item name="NickName" type_name="gh_string" type_code="10">Brep</item>
+                    <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                    <item name="Source" index="0" type_name="gh_guid" type_code="9">f860f7a0-f3cf-4922-9c8f-48f7eba5e403</item>
+                    <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
+                  </items>
+                  <chunks count="1">
+                    <chunk name="Attributes">
+                      <items count="2">
+                        <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                          <X>84</X>
+                          <Y>2961</Y>
+                          <W>50</W>
+                          <H>20</H>
+                        </item>
+                        <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                          <X>109.721</X>
+                          <Y>2971.684</Y>
+                        </item>
+                      </items>
+                    </chunk>
+                  </chunks>
+                </chunk>
+              </chunks>
+            </chunk>
+            <chunk name="Object" index="40">
+              <items count="2">
+                <item name="GUID" type_name="gh_guid" type_code="9">00027467-0d24-4fa7-b178-8dc0ac5f42ec</item>
+                <item name="Name" type_name="gh_string" type_code="10">Honeybee_bldgPrograms</item>
+              </items>
+              <chunks count="1">
+                <chunk name="Container">
+                  <items count="9">
+                    <item name="Description" type_name="gh_string" type_code="10">Provides a list of available building programs from the template</item>
+                    <item name="IconOverride" type_name="gh_drawing_bitmap" type_code="37">
+                      <bitmap length="683">iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwQAADsEBuJFr7QAAAk1JREFUSEutls+LaWEYxw+JhQ1iyv/AGis1+R2DDAv8BWZFXbe7tCMbi1lY2FhQFkg2FlJTYzPJgiiZBkNJdF3TpIzrPtfz3sa5d0a3meOoT8457+nzfd/nfd9zDrX/cfl8/heBQPBjfwxMUCgUoFKp3qHVakvUXnzlcDh+ttttmEwm/zAejz+ERqOB9XoNm83mwHw+B7Va/YsSCoXTwWAAj4+P8PDwwAjsLUp7vR4ZEf4XCgVyneJwOLunpye4v79nzGvA32U7BOAJNvb7fYjFYoz47wjwwm63g06nA6FQ6N08fAQUYc1R+ko+n8c5+BOw3W6h0WiAz+eD4XD4abBjGPIWpVJJl+jm5gb0ev3RGn8GdKBrNBqRcpEAXGI4pLOzM1ZAV7fbpQOen58hl8uxSqvVogNWqxVkMpmjvWECuprNJh2wXC4hnU6TRtzRp4AOdN3d3dEBi8UCUqkUawHoqtfrdMBsNoNkMslaALpwJR0CptMpXF9fk0Y2QFe1WqUDcDcmEglWqVQqdADuxng8frQ3TEBXuVymA7B2kUgEZDIZmf1TQAe6stksHXB7ewvhcBikUinUarWTQAe6cKIPAaVSCQKBAEgkEigWiyeBDnRFo1E6ANet3+8HkUjECujCUZAAHo/3PRgMgtfrBbPZzApOp5OAbgz4JpfLX2w2G3g8HnC73XB5eQkul4vctP8gALvdDhcXF4D3WK1WsFgsRGQymcBoNILBYCCPaZ1OB+fn5+RFIxaLX9CNJeLuD77uYfzZ8hZ0oZOiKO5vTbZjMjrdMKMAAAAASUVORK5CYII=</bitmap>
+                    </item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">3e439238-36f1-4349-8e68-cf4c6d5fd197</item>
+                    <item name="ListCount" type_name="gh_int32" type_code="3">13</item>
+                    <item name="ListMode" type_name="gh_int32" type_code="3">1</item>
+                    <item name="Name" type_name="gh_string" type_code="10">Honeybee_bldgPrograms</item>
+                    <item name="NickName" type_name="gh_string" type_code="10">bldgPrograms</item>
+                    <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                    <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                  </items>
+                  <chunks count="14">
+                    <chunk name="ListItem" index="0">
+                      <items count="3">
+                        <item name="Expression" type_name="gh_string" type_code="10">0</item>
+                        <item name="Name" type_name="gh_string" type_code="10">Office</item>
+                        <item name="Selected" type_name="gh_bool" type_code="1">true</item>
+                      </items>
+                    </chunk>
+                    <chunk name="ListItem" index="1">
+                      <items count="3">
+                        <item name="Expression" type_name="gh_string" type_code="10">1</item>
+                        <item name="Name" type_name="gh_string" type_code="10">Retail</item>
+                        <item name="Selected" type_name="gh_bool" type_code="1">false</item>
+                      </items>
+                    </chunk>
+                    <chunk name="ListItem" index="2">
+                      <items count="3">
+                        <item name="Expression" type_name="gh_string" type_code="10">2</item>
+                        <item name="Name" type_name="gh_string" type_code="10">MidriseApartment</item>
+                        <item name="Selected" type_name="gh_bool" type_code="1">false</item>
+                      </items>
+                    </chunk>
+                    <chunk name="ListItem" index="3">
+                      <items count="3">
+                        <item name="Expression" type_name="gh_string" type_code="10">3</item>
+                        <item name="Name" type_name="gh_string" type_code="10">PrimarySchool</item>
+                        <item name="Selected" type_name="gh_bool" type_code="1">false</item>
+                      </items>
+                    </chunk>
+                    <chunk name="ListItem" index="4">
+                      <items count="3">
+                        <item name="Expression" type_name="gh_string" type_code="10">4</item>
+                        <item name="Name" type_name="gh_string" type_code="10">SecondarySchool</item>
+                        <item name="Selected" type_name="gh_bool" type_code="1">false</item>
+                      </items>
+                    </chunk>
+                    <chunk name="ListItem" index="5">
+                      <items count="3">
+                        <item name="Expression" type_name="gh_string" type_code="10">5</item>
+                        <item name="Name" type_name="gh_string" type_code="10">SmallHotel</item>
+                        <item name="Selected" type_name="gh_bool" type_code="1">false</item>
+                      </items>
+                    </chunk>
+                    <chunk name="ListItem" index="6">
+                      <items count="3">
+                        <item name="Expression" type_name="gh_string" type_code="10">6</item>
+                        <item name="Name" type_name="gh_string" type_code="10">LargeHotel</item>
+                        <item name="Selected" type_name="gh_bool" type_code="1">false</item>
+                      </items>
+                    </chunk>
+                    <chunk name="ListItem" index="7">
+                      <items count="3">
+                        <item name="Expression" type_name="gh_string" type_code="10">7</item>
+                        <item name="Name" type_name="gh_string" type_code="10">Hospital</item>
+                        <item name="Selected" type_name="gh_bool" type_code="1">false</item>
+                      </items>
+                    </chunk>
+                    <chunk name="ListItem" index="8">
+                      <items count="3">
+                        <item name="Expression" type_name="gh_string" type_code="10">8</item>
+                        <item name="Name" type_name="gh_string" type_code="10">Outpatient</item>
+                        <item name="Selected" type_name="gh_bool" type_code="1">false</item>
+                      </items>
+                    </chunk>
+                    <chunk name="ListItem" index="9">
+                      <items count="3">
+                        <item name="Expression" type_name="gh_string" type_code="10">9</item>
+                        <item name="Name" type_name="gh_string" type_code="10">Warehouse</item>
+                        <item name="Selected" type_name="gh_bool" type_code="1">false</item>
+                      </items>
+                    </chunk>
+                    <chunk name="ListItem" index="10">
+                      <items count="3">
+                        <item name="Expression" type_name="gh_string" type_code="10">10</item>
+                        <item name="Name" type_name="gh_string" type_code="10">SuperMarket</item>
+                        <item name="Selected" type_name="gh_bool" type_code="1">false</item>
+                      </items>
+                    </chunk>
+                    <chunk name="ListItem" index="11">
+                      <items count="3">
+                        <item name="Expression" type_name="gh_string" type_code="10">11</item>
+                        <item name="Name" type_name="gh_string" type_code="10">FullServiceRestaurant</item>
+                        <item name="Selected" type_name="gh_bool" type_code="1">false</item>
+                      </items>
+                    </chunk>
+                    <chunk name="ListItem" index="12">
+                      <items count="3">
+                        <item name="Expression" type_name="gh_string" type_code="10">12</item>
+                        <item name="Name" type_name="gh_string" type_code="10">QuickServiceRestaurant</item>
+                        <item name="Selected" type_name="gh_bool" type_code="1">false</item>
+                      </items>
+                    </chunk>
+                    <chunk name="Attributes">
+                      <items count="2">
+                        <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                          <X>143</X>
+                          <Y>2789</Y>
+                          <W>233</W>
+                          <H>22</H>
+                        </item>
+                        <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                          <X>226</X>
+                          <Y>2789</Y>
+                        </item>
+                      </items>
+                    </chunk>
+                  </chunks>
+                </chunk>
+              </chunks>
+            </chunk>
+            <chunk name="Object" index="41">
+              <items count="2">
+                <item name="GUID" type_name="gh_guid" type_code="9">59e0b89a-e487-49f8-bab8-b5bab16be14c</item>
+                <item name="Name" type_name="gh_string" type_code="10">Panel</item>
+              </items>
+              <chunks count="1">
+                <chunk name="Container">
+                  <items count="8">
+                    <item name="Description" type_name="gh_string" type_code="10">A panel for custom notes and text values</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">1d81f59c-f0bd-42ed-b041-058773ca8b11</item>
+                    <item name="Name" type_name="gh_string" type_code="10">Panel</item>
+                    <item name="NickName" type_name="gh_string" type_code="10"></item>
+                    <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                    <item name="ScrollRatio" type_name="gh_double" type_code="6">0</item>
+                    <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                    <item name="UserText" type_name="gh_string" type_code="10">test</item>
+                  </items>
+                  <chunks count="2">
+                    <chunk name="Attributes">
+                      <items count="5">
+                        <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                          <X>177</X>
+                          <Y>2696</Y>
+                          <W>160</W>
+                          <H>20</H>
+                        </item>
+                        <item name="MarginLeft" type_name="gh_int32" type_code="3">0</item>
+                        <item name="MarginRight" type_name="gh_int32" type_code="3">0</item>
+                        <item name="MarginTop" type_name="gh_int32" type_code="3">0</item>
+                        <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                          <X>177.121</X>
+                          <Y>2696.073</Y>
+                        </item>
+                      </items>
+                    </chunk>
+                    <chunk name="PanelProperties">
+                      <items count="6">
+                        <item name="Colour" type_name="gh_drawing_color" type_code="36">
+                          <ARGB>255;255;250;90</ARGB>
+                        </item>
+                        <item name="DrawIndices" type_name="gh_bool" type_code="1">true</item>
+                        <item name="DrawPaths" type_name="gh_bool" type_code="1">true</item>
+                        <item name="Multiline" type_name="gh_bool" type_code="1">true</item>
+                        <item name="Stream" type_name="gh_bool" type_code="1">false</item>
+                        <item name="Wrap" type_name="gh_bool" type_code="1">true</item>
+                      </items>
+                    </chunk>
+                  </chunks>
+                </chunk>
+              </chunks>
+            </chunk>
+            <chunk name="Object" index="42">
+              <items count="3">
+                <item name="GUID" type_name="gh_guid" type_code="9">410755b1-224a-4c1e-a407-bf32fb45ea7e</item>
+                <item name="Lib" type_name="gh_guid" type_code="9">16cf80bc-9018-cbdb-2238-976eb17fd30d</item>
+                <item name="Name" type_name="gh_string" type_code="10">Honeybee_createHBSrfs</item>
+              </items>
+              <chunks count="1">
+                <chunk name="Container">
+                  <items count="10">
+                    <item name="CodeInput" type_name="gh_string" type_code="10">#
+# Honeybee: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipour Roudsari
+# 
+# This file is part of Honeybee.
+# 
+# Copyright (c) 2013-2016, Mostapha Sadeghipour Roudsari &lt;Sadeghipour@gmail.com&gt; 
+# Honeybee is free software; you can redistribute it and/or modify 
+# it under the terms of the GNU General Public License as published 
+# by the Free Software Foundation; either version 3 of the License, 
+# or (at your option) any later version. 
+# 
+# Honeybee is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of 
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the 
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with Honeybee; If not, see &lt;http://www.gnu.org/licenses/&gt;.
+# 
+# @license GPL-3.0+ &lt;http://spdx.org/licenses/GPL-3.0+&gt;
+
+
+"""
+Create a Honeybee surface, which can be plugged into the "Run Daylight Sumilation" component or combined with other surfaces to make HBZones with the "createHBZones" component.
+-
+Provided by Honeybee 0.0.59
+
+    Args:
+        _geometry: List of Breps
+        srfName_: Optional name for surface
+        srfType_: Optional input for surface type &gt;
+            0- 'WALL'
+            0.5- 'UndergroundWall'
+            1- 'ROOF'
+            1.5- 'UndergroundCeiling'
+            2- 'FLOOR'
+            2.25- 'UndergroundSlab'
+            2.5- 'SlabOnGrade'
+            2.75- 'ExposedFloor'
+            3- 'CEILING'
+            4- 'AIRWALL'
+            5- 'WINDOW'
+            6- 'SHADING'
+        EPBC_: 'Ground', 'Adiabatic', 'Outdoors'
+        _EPConstruction_: Optional EnergyPlus construction
+        _RADMaterial_: Optional Radiance Material
+    Returns:
+        readMe!:...
+        HBZone: A Honeybee Surface, which can be plugged into the "Run Daylight Sumilation" component or combined with other surfaces to make HBZones with the "createHBZones" component.
+"""
+
+import rhinoscriptsyntax as rs
+import Rhino as rc
+import scriptcontext as sc
+import os
+import sys
+import System
+import Grasshopper.Kernel as gh
+import uuid
+
+ghenv.Component.Name = 'Honeybee_createHBSrfs'
+ghenv.Component.NickName = 'createHBSrfs'
+ghenv.Component.Message = 'VER 0.0.59\nJAN_26_2016'
+ghenv.Component.IconDisplayMode = ghenv.Component.IconDisplayMode.application
+ghenv.Component.Category = "Honeybee"
+ghenv.Component.SubCategory = "00 | Honeybee"
+#compatibleHBVersion = VER 0.0.57\nNOV_01_2015
+#compatibleLBVersion = VER 0.0.59\nFEB_01_2015
+try: ghenv.Component.AdditionalHelpFromDocStrings = "3"
+except: pass
+
+
+tolerance = sc.doc.ModelAbsoluteTolerance
+import math
+
+
+def main(geometry, srfName, srfType, EPBC, EPConstruction, RADMaterial):
+    # import the classes
+    if sc.sticky.has_key('honeybee_release'):
+
+        try:
+            if not sc.sticky['honeybee_release'].isCompatible(ghenv.Component): return -1
+            if sc.sticky['honeybee_release'].isInputMissing(ghenv.Component): return -1
+        except:
+            warning = "You need a newer version of Honeybee to use this compoent." + \
+            "Use updateHoneybee component to update userObjects.\n" + \
+            "If you have already updated userObjects drag Honeybee_Honeybee component " + \
+            "into canvas and try again."
+            w = gh.GH_RuntimeMessageLevel.Warning
+            ghenv.Component.AddRuntimeMessage(w, warning)
+            return -1
+            
+        # don't customize this part
+        hb_EPZone = sc.sticky["honeybee_EPZone"]
+        hb_EPSrf = sc.sticky["honeybee_EPSurface"]
+        hb_EPZoneSurface = sc.sticky["honeybee_EPZoneSurface"]
+        hb_EPFenSurface = sc.sticky["honeybee_EPFenSurface"]
+        hb_RADMaterialAUX = sc.sticky["honeybee_RADMaterialAUX"]
+        hb_EPObjectsAux = sc.sticky["honeybee_EPObjectsAUX"]()
+        
+    else:
+        print "You should first let Honeybee to fly..."
+        w = gh.GH_RuntimeMessageLevel.Warning
+        ghenv.Component.AddRuntimeMessage(w, "You should first let Honeybee to fly...")
+        return
+    
+    # if the input is mesh, convert it to a surface
+    try:
+        # check if this is a mesh
+        geometry.Faces[0].IsQuad
+        # convert to brep
+        geometry = rc.Geometry.Brep.CreateFromMesh(geometry, False)
+    except:
+        pass
+    
+    HBSurfaces = []
+    originalSrfName = srfName
+    
+    for faceCount in range(geometry.Faces.Count):
+        
+        # 0. check if user input a name for this surface
+        guid = str(uuid.uuid4())
+        number = guid.split("-")[-1]
+        
+        if srfName != None:
+            if originalSrfName == None: originalSrfName = srfName
+            originalSrfName = originalSrfName.strip().replace(" ","_")
+            if geometry.Faces.Count != 1:
+                srfName = originalSrfName + "_" + `faceCount`
+            else: srfName = originalSrfName
+        else:
+            # generate a random name
+            # the name will be overwritten for energy simulation
+            srfName = "".join(guid.split("-")[:-1])
+        
+        # 1. create initial surface
+        HBSurface = hb_EPZoneSurface(geometry.Faces[faceCount].DuplicateFace(False), number, srfName)
+        
+        # If the user has set a construction as Air Wall, change the surface type to air wall.
+        try:
+            if EPConstruction.ToUpper() == "AIR WALL":
+                if srfType == None or srfType == "4":
+                    srfType = 4
+                    infoMsg = "Setting the construction to Air Wall will also ensure that the surface has the air wall srfType_."
+                    print infoMsg
+                else:
+                    infoMsg = "By manually setting the srfType_ to be something other than 4: Air Wall on this component and also setting the Air Wall construction, you are overriding the air mixing properties of the air wall and only using the air wall as a construction."
+                    print infoMsg
+        except: pass
+        
+        if srfType == 4 or srfType == 4.0 or srfType == "4" or srfType == "4.0":
+            try:
+                if EPConstruction.ToUpper() == "AIR WALL": pass
+                else:
+                    infoMsg = "Setting the srfType to 4 will also ensure that the surface has the air wall construction."
+                    print infoMsg
+            except:
+                infoMsg = "Setting the srfType to 4 will also ensure that the surface has the air wall construction."
+                print infoMsg
+            EPConstruction = "AIR WALL"
+        
+        # 1.1 check for surface type
+        if srfType!=None:
+            try:
+                # if user uses a number to input type
+                try: surfaceType = int(srfType)
+                except:
+                    if float(srfType) == 0.5 or float(srfType) == 1.5 or float(srfType) == 2.25 or float(srfType) == 2.5 or float(srfType) == 2.75:
+                        surfaceType = srfType
+                    else: pass
+                print "HBSurface Type has been set to " + HBSurface.srfType[float(srfType)]
+                
+                if surfaceType == 5.0:
+                    warningMsg = "If you want to use this model for energy simulation, use addGlazing to add window to surfaces.\n" + \
+                                 "It will be fine for Daylighting simulation though."
+                    print warningMsg
+                    ghenv.Component.AddRuntimeMessage(gh.GH_RuntimeMessageLevel.Remark, warningMsg)
+            except:
+                # user uses text as an input (e.g.: wall)
+                # convert it to a number if a valid input
+                surfaceType = srfType.ToUpper()
+                if surfaceType in HBSurface.srfType.keys():
+                   surfaceType = HBSurface.srfType[surfaceType.ToUpper()]
+                   print "HBSurface Type has been set to " + surfaceType.ToUpper()
+            
+            if surfaceType in HBSurface.srfType.keys():
+                acceptableCombination = [[1,3], [3,1], [0,5], [5,0], [1,5], [5,1], [4,0], [4,1], [4,2], [4,3], [0,4], [1,4], [2,4], [3,4]]
+                try:
+                    if int(HBSurface.type) != surfaceType and [int(HBSurface.type), surfaceType] not in acceptableCombination:
+                        warningMsg = "Normal direction of the surface is not expected for a " + HBSurface.srfType[surfaceType] + ". " + \
+                                     "The surface is more likely a " + HBSurface.srfType[int(HBSurface.type)] + ".\n" + \
+                                     "Honeybee won't overwrite the type so you may need to manually flip the surface."
+                        print warningMsg
+                    HBSurface.setType(surfaceType, isUserInput= True)
+                except:
+                    warningMsg = "You are using an old version of Honeybee_Honeybee! Update your files and try again."
+                    print warningMsg
+                    ghenv.Component.AddRuntimeMessage(gh.GH_RuntimeMessageLevel.Warning, warningMsg)
+                    return
+            
+        
+        # 1.2 assign boundary condition
+        if EPBC!= None:
+            # only ground, adiabatic and outdoors is valid
+            validBC = ['ground', 'adiabatic', 'outdoors']
+            if EPBC.lower() in validBC:
+                try:
+                    HBSurface.setBC(EPBC, isUserInput= True)
+                    
+                    # change type of surface if BC is set to ground
+                    if EPBC.lower()== "ground":
+                        HBSurface.setType(int(HBSurface.type) + 0.5, isUserInput= True)
+                    
+                    
+                    if EPBC.lower()== "ground" or EPBC.lower()== "adiabatic":
+                        HBSurface.setSunExposure('NoSun')
+                        HBSurface.setWindExposure('NoWind')
+                    
+                    print "HBSurface boundary condition has been set to " + EPBC.upper()
+                except:
+                    warningMsg = "You are using an old version of Honeybee_Honeybee! Update your files and try again."
+                    print warningMsg
+                    ghenv.Component.AddRuntimeMessage(gh.GH_RuntimeMessageLevel.Warning, warningMsg)
+                    return               
+            else:
+                print "HBSurface BOUNDARY CONDITION IS NOT VALID."
+        
+        # 1.3 assign construction for EnergyPlus
+        if EPConstruction!=None:
+            # if it is just the name of the material make sure it is already defined
+            if len(EPConstruction.split("\n")) == 1:
+                # if the material is not in the library add it to the library
+                if not hb_EPObjectsAux.isEPConstruction(EPConstruction):
+                    warningMsg = "Can't find " + EPConstruction + " in EP Construction Library.\n" + \
+                                "Add the construction to the library and try again."
+                    print warningMsg
+                    ghenv.Component.AddRuntimeMessage(gh.GH_RuntimeMessageLevel.Warning, warningMsg)
+                    return
+            else:
+                # it is a full string
+                if "CONSTRUCTION" in EPConstruction.upper():
+                    added, EPConstruction = hb_EPObjectsAux.addEPObjectToLib(EPConstruction, overwrite = True)
+                    
+                    if not added:
+                        msg = name + " is not added to the project library!"
+                        ghenv.Component.AddRuntimeMessage(gh.GH_RuntimeMessageLevel.Warning, msg)
+                        print msg
+                        return
+                elif "MATERIAL" in EPConstruction.upper():
+                    msg = "Your connected EPConstruction_ is just a material and not a full construction. \n You have to pass it through an 'EnergyPlus Construction' component before connecting it here."
+                    ghenv.Component.AddRuntimeMessage(gh.GH_RuntimeMessageLevel.Warning, msg)
+                    print msg
+                    return
+                else:
+                    msg = "Your connected EPConstruction_ is not a valid construction."
+                    ghenv.Component.AddRuntimeMessage(gh.GH_RuntimeMessageLevel.Warning, msg)
+                    print msg
+                    return
+            
+            try:
+                HBSurface.setEPConstruction(EPConstruction)
+                print "HBSurface construction has been set to " + EPConstruction
+            except:
+                warningMsg = "You are using an old version of Honeybee_Honeybee! Update your files and try again."
+                print warningMsg
+                ghenv.Component.AddRuntimeMessage(gh.GH_RuntimeMessageLevel.Warning, warningMsg)
+                return                 
+            
+        # 1.4 assign RAD Material
+        if RADMaterial!=None:
+            # if it is just the name of the material make sure it is already defined
+            if len(RADMaterial.split(" ")) == 1:
+                # if the material is not in the library add it to the library
+                if not hb_RADMaterialAUX.isMatrialExistInLibrary(RADMaterial):
+                    warningMsg = "Can't find " + RADMaterial + " in RAD Material Library.\n" + \
+                                "Add the material to the library and try again."
+                    ghenv.Component.AddRuntimeMessage(gh.GH_RuntimeMessageLevel.Warning, warningMsg)
+                    return
+                
+                try:
+                    HBSurface.setRADMaterial(RADMaterial)
+                    print "HBSurface Radiance Material has been set to " + RADMaterial
+                except Exception, e:
+                    print e
+                    warningMsg = "You are using an old version of Honeybee_Honeybee! Update your files and try again."
+                    print warningMsg
+                    ghenv.Component.AddRuntimeMessage(gh.GH_RuntimeMessageLevel.Warning, warningMsg)
+                    return
+                
+                addedToLib = True
+            else:
+                
+                # try to add the material to the library
+                addedToLib, HBSurface.RadMaterial = hb_RADMaterialAUX.analyseRadMaterials(RADMaterial, True)
+                
+            if addedToLib==False:
+                warningMsg = "Failed to add " + RADMaterial + " to the Library."
+                ghenv.Component.AddRuntimeMessage(gh.GH_RuntimeMessageLevel.Warning, warningMsg)
+                return
+            
+        HBSurfaces.append(HBSurface)
+    
+    # add to the hive
+    hb_hive = sc.sticky["honeybee_Hive"]()
+    HBSurface  = hb_hive.addToHoneybeeHive(HBSurfaces, ghenv.Component.InstanceGuid.ToString() + str(uuid.uuid4()))
+    
+    return HBSurface
+    
+    
+    
+
+if _geometry != None:
+    
+    result= main(_geometry, srfName_, srfType_, EPBC_, _EPConstruction_, _RADMaterial_)
+    
+    if result!=-1:
+        HBSurface = result
+</item>
+                    <item name="Description" type_name="gh_string" type_code="10">Create a Honeybee surface, which can be plugged into the "Run Daylight Sumilation" component or combined with other surfaces to make HBZones with the "createHBZones" component.
+-
+Provided by Honeybee 0.0.59</item>
+                    <item name="EditorLocation" type_name="gh_drawing_point" type_code="30">
+                      <X>1390</X>
+                      <Y>67</Y>
+                    </item>
+                    <item name="EditorSize" type_name="gh_drawing_size" type_code="32">
+                      <W>1169</W>
+                      <H>812</H>
+                    </item>
+                    <item name="HideInput" type_name="gh_bool" type_code="1">true</item>
+                    <item name="HideOutput" type_name="gh_bool" type_code="1">false</item>
+                    <item name="IconOverride" type_name="gh_drawing_bitmap" type_code="37">
+                      <bitmap length="794">iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwQAADsEBuJFr7QAAArxJREFUSEvNVWtIk1EYnpuXb6arVJTN0oQgo1RwI4WS8I9ZWoZNN2+L7lKpP0ItCNQsoqILWGo/igok7UerZXSTDDOisjIvBSX0o9uPhKjmFLWe3nffBzn7stWMeuBhh3Pe93nP955znin+NxQrlQqzNJ5U6IgtlZZo2HYlgMa3iXN5wVP4EMvXpUb2dx1PBp7nA0/z8LoxFamGUC5U7Yz6Q5g0GsHRXJUA9BUA97MxcCENA9Y04G4W0J2Ltw0pMGinDVNsiZjiHgzaIN9b57brMdKWCfTmYtCWDjtx4JJIHg82pzuLosOEui0x0AjKHsqdKUrII5ZozUrS4SMJ4EUBRq5nwH6Rdi0JjyevDV9dAfTkAg9NqMifw21rJSay4HjUlhtnA+/X42u7EXZuh4yoHO22NHy5kQG8W4v9G+dxkZOi5BgE+nuXNlUsADrNLu1wl5yDjmzcPLQIEWHq3ZKsC2orC6KBrhxZAXeIRyacLouHv4/qqKTpgjruoUcFnuSgZmusfIsI+w5umu9skVyyO+Tc2uI4LnBClByDQMG79EyZ3nnt5JLdIe5lo7k6Ebpgvz2SrAs8bxF/QdFPvoDwd89ApfKqqi+JAx57cAZ0ixp26BEgqGok2e/w8VIcOLXTAPRvwNDl5RO+4PHk2CH65YfWUrMYM6b7HZFkXVA4RfB2NJbTQT8j16TdDFLiRI+O1xwUgwfkSb15uEYHHKLx5RZtEyXlUZS5MPRVdz3ZM7noaNsq2K3LfhSnudFWMsM+C96cXYI1KRH9lMsv2Mup8gsEEK1mMr4PV8jMXq4WjY/86TMbHM+RsKNlJQqXRvKO2eCmcuLvIj4qzP/8sc0xwB2j85bwJWCbbiI7j9KqWThZDPUMlvAQ4VP74SR0Uuu02gD+kykSlyYPwbNC1Xu1QUIdjcPFqX8OheIbukQwObBaeUMAAAAASUVORK5CYII=</bitmap>
+                    </item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">af8c9429-2a30-41c5-8e66-283aaf06e53d</item>
+                    <item name="Name" type_name="gh_string" type_code="10">Honeybee_createHBSrfs</item>
+                    <item name="NickName" type_name="gh_string" type_code="10">createHBSrfs</item>
+                  </items>
+                  <chunks count="2">
+                    <chunk name="Attributes">
+                      <items count="2">
+                        <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                          <X>166</X>
+                          <Y>2950</Y>
+                          <W>200</W>
+                          <H>124</H>
+                        </item>
+                        <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                          <X>273</X>
+                          <Y>3012</Y>
+                        </item>
+                      </items>
+                    </chunk>
+                    <chunk name="ParameterData">
+                      <items count="10">
+                        <item name="InputCount" type_name="gh_int32" type_code="3">6</item>
+                        <item name="InputId" index="0" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
+                        <item name="InputId" index="1" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
+                        <item name="InputId" index="2" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
+                        <item name="InputId" index="3" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
+                        <item name="InputId" index="4" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
+                        <item name="InputId" index="5" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
+                        <item name="OutputCount" type_name="gh_int32" type_code="3">2</item>
+                        <item name="OutputId" index="0" type_name="gh_guid" type_code="9">3ede854e-c753-40eb-84cb-b48008f14fd4</item>
+                        <item name="OutputId" index="1" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
+                      </items>
+                      <chunks count="8">
+                        <chunk name="InputParam" index="0">
+                          <items count="11">
+                            <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Description" type_name="gh_string" type_code="10">List of Breps</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">8956cabd-241d-4b03-9660-1e0a1fa483e0</item>
+                            <item name="Name" type_name="gh_string" type_code="10">_geometry</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">_geometry</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
+                            <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">0</item>
+                            <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Source" index="0" type_name="gh_guid" type_code="9">bff4f85b-3b80-4e66-b7b3-2a51e75476f4</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
+                            <item name="TypeHintID" type_name="gh_guid" type_code="9">c37956f4-d39c-49c7-af71-1e87f8031b26</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>168</X>
+                                  <Y>2952</Y>
+                                  <W>90</W>
+                                  <H>20</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>214.5</X>
+                                  <Y>2962</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="InputParam" index="1">
+                          <items count="10">
+                            <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Description" type_name="gh_string" type_code="10">Optional name for surface</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">09f6b57e-dcda-4f72-8277-7673727b6790</item>
+                            <item name="Name" type_name="gh_string" type_code="10">srfName_</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">srfName_</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
+                            <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">0</item>
+                            <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                            <item name="TypeHintID" type_name="gh_guid" type_code="9">37261734-eec7-4f50-b6a8-b8d1f3c4396b</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>168</X>
+                                  <Y>2972</Y>
+                                  <W>90</W>
+                                  <H>20</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>214.5</X>
+                                  <Y>2982</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="InputParam" index="2">
+                          <items count="10">
+                            <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Description" type_name="gh_string" type_code="10">Optional input for surface type &gt;
+0- 'WALL'
+0.5- 'UndergroundWall'
+1- 'ROOF'
+1.5- 'UndergroundCeiling'
+2- 'FLOOR'
+2.25- 'UndergroundSlab'
+2.5- 'SlabOnGrade'
+2.75- 'ExposedFloor'
+3- 'CEILING'
+4- 'AIRWALL'
+5- 'WINDOW'
+6- 'SHADING'</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">bb32c39a-dc4a-4642-9111-c5724241e9ad</item>
+                            <item name="Name" type_name="gh_string" type_code="10">srfType_</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">srfType_</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
+                            <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">0</item>
+                            <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                            <item name="TypeHintID" type_name="gh_guid" type_code="9">37261734-eec7-4f50-b6a8-b8d1f3c4396b</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>168</X>
+                                  <Y>2992</Y>
+                                  <W>90</W>
+                                  <H>20</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>214.5</X>
+                                  <Y>3002</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="InputParam" index="3">
+                          <items count="10">
+                            <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Description" type_name="gh_string" type_code="10">'Ground', 'Adiabatic', 'Outdoors'</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">06fdb55f-e481-4be8-b932-fa2a097b10e1</item>
+                            <item name="Name" type_name="gh_string" type_code="10">EPBC_</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">EPBC_</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
+                            <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">0</item>
+                            <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                            <item name="TypeHintID" type_name="gh_guid" type_code="9">37261734-eec7-4f50-b6a8-b8d1f3c4396b</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>168</X>
+                                  <Y>3012</Y>
+                                  <W>90</W>
+                                  <H>20</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>214.5</X>
+                                  <Y>3022</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="InputParam" index="4">
+                          <items count="10">
+                            <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Description" type_name="gh_string" type_code="10">Optional EnergyPlus construction</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">3d768442-85ef-4f7f-a7e4-b5cebeb3036b</item>
+                            <item name="Name" type_name="gh_string" type_code="10">_EPConstruction_</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">_EPConstruction_</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
+                            <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">0</item>
+                            <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                            <item name="TypeHintID" type_name="gh_guid" type_code="9">37261734-eec7-4f50-b6a8-b8d1f3c4396b</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>168</X>
+                                  <Y>3032</Y>
+                                  <W>90</W>
+                                  <H>20</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>214.5</X>
+                                  <Y>3042</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="InputParam" index="5">
+                          <items count="10">
+                            <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Description" type_name="gh_string" type_code="10">Optional Radiance Material</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">1ac93cf9-59b4-41bf-8603-ad5581ff38e7</item>
+                            <item name="Name" type_name="gh_string" type_code="10">_RADMaterial_</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">_RADMaterial_</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
+                            <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">0</item>
+                            <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                            <item name="TypeHintID" type_name="gh_guid" type_code="9">37261734-eec7-4f50-b6a8-b8d1f3c4396b</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>168</X>
+                                  <Y>3052</Y>
+                                  <W>90</W>
+                                  <H>20</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>214.5</X>
+                                  <Y>3062</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="OutputParam" index="0">
+                          <items count="6">
+                            <item name="Description" type_name="gh_string" type_code="10">...</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">dd4b91a7-5e8d-487e-9175-67af5863e059</item>
+                            <item name="Name" type_name="gh_string" type_code="10">out</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">readMe!</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>288</X>
+                                  <Y>2952</Y>
+                                  <W>76</W>
+                                  <H>60</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>318</X>
+                                  <Y>2982</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="OutputParam" index="1">
+                          <items count="7">
+                            <item name="Description" type_name="gh_string" type_code="10">Honeybee zone as the result</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">06a1bbac-5a93-4405-81f5-fc5fb06b3d78</item>
+                            <item name="Name" type_name="gh_string" type_code="10">HBSurface</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">HBSurface</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                            <item name="SimplifyData" type_name="gh_bool" type_code="1">true</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>288</X>
+                                  <Y>3012</Y>
+                                  <W>76</W>
+                                  <H>60</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>318</X>
+                                  <Y>3042</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                      </chunks>
+                    </chunk>
+                  </chunks>
+                </chunk>
+              </chunks>
+            </chunk>
+            <chunk name="Object" index="43">
+              <items count="3">
+                <item name="GUID" type_name="gh_guid" type_code="9">410755b1-224a-4c1e-a407-bf32fb45ea7e</item>
+                <item name="Lib" type_name="gh_guid" type_code="9">16cf80bc-9018-cbdb-2238-976eb17fd30d</item>
+                <item name="Name" type_name="gh_string" type_code="10">CitySim-CheckMaterials</item>
+              </items>
+              <chunks count="1">
+                <chunk name="Container">
+                  <items count="9">
+                    <item name="CodeInput" type_name="gh_string" type_code="10">#Extract material properties
+#GH-Citysim working component
+
+
+ghenv.Component.Name = "CitySim-CheckMaterials"
+ghenv.Component.NickName = 'CitySim-CheckMaterials'
+ghenv.Component.Message = 'WORKING COMPONENT'
+ghenv.Component.IconDisplayMode = ghenv.Component.IconDisplayMode.application
+ghenv.Component.Category = "Honeybee"
+ghenv.Component.SubCategory = "09 | Energy | Energy"
+#compatibleHBVersion = VER 0.0.56\nFEB_03_2016
+#compatibleLBVersion = VER 0.0.59\nFEB_01_2015
+ghenv.Component.AdditionalHelpFromDocStrings = "1"
+
+
+import Rhino as rc
+import scriptcontext as sc
+import rhinoscriptsyntax as rs
+import os
+import System
+import Grasshopper.Kernel as gh
+import math
+import shutil
+import collections
+import subprocess
+import copy
+
+rc.Runtime.HostUtils.DisplayOleAlerts(False)
+
+
+    
+lb_preparation = sc.sticky["ladybug_Preparation"]()
+hb_reEvaluateHBZones= sc.sticky["honeybee_reEvaluateHBZones"]
+hb_hive = sc.sticky["honeybee_Hive"]()
+hb_EPScheduleAUX = sc.sticky["honeybee_EPScheduleAUX"]()
+hb_EPPar = sc.sticky["honeybee_EPParameters"]()
+    
+
+       
+def EPConstructionStr(constructionName):
+        constructionData = None
+        if constructionName in sc.sticky ["honeybee_constructionLib"].keys():
+            constructionData = sc.sticky ["honeybee_constructionLib"][constructionName]
+        
+        if constructionData!=None:
+            materials = []
+            numberOfLayers = len(constructionData.keys())
+            constructionStr = constructionData[0] + ",\n"
+            # add the name
+            constructionStr =  constructionStr + "  " + constructionName + ",   !- name\n"
+            
+            for layer in range(1, numberOfLayers):
+                if layer &lt; numberOfLayers-1:
+                    constructionStr =  constructionStr + "  " + constructionData[layer][0] + ",   !- " +  constructionData[layer][1] + "\n"
+                else:
+                    constructionStr =  constructionStr + "  " + constructionData[layer][0] + ";   !- " +  constructionData[layer][1] + "\n\n"
+                materials.append(constructionData[layer][0])
+                
+            return materials
+        else:
+            warning = "Failed to find " + constructionName + " in library."
+            print warning
+            ghenv.Component.AddRuntimeMessage(gh.GH_RuntimeMessageLevel.Warning, warning)
+            return None, None
+            
+ 
+def getMaterialProperties(matName):
+    if not sc.sticky["honeybee_release"]:
+        print "You should first let Honeybee to fly..."
+        w = gh.GH_RuntimeMessageLevel.Warning
+        ghenv.Component.AddRuntimeMessage(w, "You should first let Honeybee to fly...")
+        return -1
+
+    try:
+        if not sc.sticky['honeybee_release'].isCompatible(ghenv.Component): return -1
+        if sc.sticky['honeybee_release'].isInputMissing(ghenv.Component): return -1
+    except:
+        warning = "You need a newer version of Honeybee to use this compoent." + \
+        " Use updateHoneybee component to update userObjects.\n" + \
+        "If you have already updated userObjects drag Honeybee_Honeybee component " + \
+        "into canvas and try again."
+        w = gh.GH_RuntimeMessageLevel.Warning
+        ghenv.Component.AddRuntimeMessage(w, warning)
+        return -1
+    
+    # get the constuction
+    try:
+        hb_EPMaterialAUX = sc.sticky["honeybee_EPMaterialAUX"]()
+    except:
+        msg = "Failed to load EP constructions!"
+        ghenv.Component.AddRuntimeMessage(w, msg)
+        return -1
+    
+    if sc.sticky.has_key("honeybee_materialLib"):
+        result = hb_EPMaterialAUX.decomposeMaterial(matName.upper(), ghenv.Component)
+        if result == -1:
+            warning = "Failed to find " + matName + " in the Honeybee material library."
+            print warning
+            ghenv.Component.AddRuntimeMessage(gh.GH_RuntimeMessageLevel.Warning, warning)
+        return result
+        
+
+    
+# call the objects from the lib
+thermalZonesPyClasses = hb_hive.callFromHoneybeeHive(_HBZones)
+
+
+
+for zone in thermalZonesPyClasses:
+
+        schedules = zone.getCurrentSchedules(True)
+        loads = zone.getCurrentLoads(True)
+        
+                
+        for srf in zone.surfaces:
+
+            if srf.EPConstruction != None:
+                srf.construction = srf.EPConstruction
+                print "Construction:"
+                print "\n"
+                print srf.construction
+                materials = EPConstructionStr(srf.construction)
+                for m in materials:
+                    print "Material: ", m
+                    print "Material properties : ", getMaterialProperties(m)
+                    print "\n"
+                print "\n"
+                </item>
+                    <item name="Description" type_name="gh_string" type_code="10">A python scriptable component</item>
+                    <item name="EditorLocation" type_name="gh_drawing_point" type_code="30">
+                      <X>564</X>
+                      <Y>221</Y>
+                    </item>
+                    <item name="EditorSize" type_name="gh_drawing_size" type_code="32">
+                      <W>1390</W>
+                      <H>1067</H>
+                    </item>
+                    <item name="HideInput" type_name="gh_bool" type_code="1">true</item>
+                    <item name="HideOutput" type_name="gh_bool" type_code="1">false</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">94a37a01-9842-405e-b31e-8a952cf06b37</item>
+                    <item name="Name" type_name="gh_string" type_code="10">CitySim-CheckMaterials</item>
+                    <item name="NickName" type_name="gh_string" type_code="10">CitySim-CheckMaterials</item>
+                  </items>
+                  <chunks count="2">
+                    <chunk name="Attributes">
+                      <items count="2">
+                        <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                          <X>1652</X>
+                          <Y>2905</Y>
+                          <W>115</W>
+                          <H>167</H>
+                        </item>
+                        <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                          <X>1724</X>
+                          <Y>2989</Y>
+                        </item>
+                      </items>
+                    </chunk>
+                    <chunk name="ParameterData">
+                      <items count="4">
+                        <item name="InputCount" type_name="gh_int32" type_code="3">1</item>
+                        <item name="InputId" index="0" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
+                        <item name="OutputCount" type_name="gh_int32" type_code="3">1</item>
+                        <item name="OutputId" index="0" type_name="gh_guid" type_code="9">3ede854e-c753-40eb-84cb-b48008f14fd4</item>
+                      </items>
+                      <chunks count="2">
+                        <chunk name="InputParam" index="0">
+                          <items count="12">
+                            <item name="Access" type_name="gh_int32" type_code="3">1</item>
+                            <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Description" type_name="gh_string" type_code="10">Script variable Python</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">d966f42b-fd42-4b0a-b15e-3be72d62ad80</item>
+                            <item name="Name" type_name="gh_string" type_code="10">_HBZones</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">_HBZones</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
+                            <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">1</item>
+                            <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Source" index="0" type_name="gh_guid" type_code="9">907e3227-ca40-42c5-9345-0624f1db7e5e</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
+                            <item name="TypeHintID" type_name="gh_guid" type_code="9">2ceb0405-fdfe-403d-a4d6-8786da45fb9d</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>1654</X>
+                                  <Y>2907</Y>
+                                  <W>55</W>
+                                  <H>163</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>1683</X>
+                                  <Y>2988.5</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="OutputParam" index="0">
+                          <items count="6">
+                            <item name="Description" type_name="gh_string" type_code="10">The execution information, as output and error streams</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">7fde824a-b235-49c9-8b56-bbd0b54ac64e</item>
+                            <item name="Name" type_name="gh_string" type_code="10">out</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">out</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>1739</X>
+                                  <Y>2907</Y>
+                                  <W>26</W>
+                                  <H>163</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>1752</X>
+                                  <Y>2988.5</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                      </chunks>
+                    </chunk>
+                  </chunks>
+                </chunk>
+              </chunks>
+            </chunk>
+            <chunk name="Object" index="44">
+              <items count="3">
+                <item name="GUID" type_name="gh_guid" type_code="9">410755b1-224a-4c1e-a407-bf32fb45ea7e</item>
+                <item name="Lib" type_name="gh_guid" type_code="9">16cf80bc-9018-cbdb-2238-976eb17fd30d</item>
+                <item name="Name" type_name="gh_string" type_code="10">Honeybee_Search EP Construction</item>
+              </items>
+              <chunks count="1">
+                <chunk name="Container">
+                  <items count="11">
+                    <item name="CodeInput" type_name="gh_string" type_code="10"># Filter EnergyPlus Construction
+#
+# Honeybee: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipour Roudsari
+# 
+# This file is part of Honeybee.
+# 
+# Copyright (c) 2013-2016, Mostapha Sadeghipour Roudsari &lt;Sadeghipour@gmail.com&gt; 
+# Honeybee is free software; you can redistribute it and/or modify 
+# it under the terms of the GNU General Public License as published 
+# by the Free Software Foundation; either version 3 of the License, 
+# or (at your option) any later version. 
+# 
+# Honeybee is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of 
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the 
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with Honeybee; If not, see &lt;http://www.gnu.org/licenses/&gt;.
+# 
+# @license GPL-3.0+ &lt;http://spdx.org/licenses/GPL-3.0+&gt;
+
+
+"""
+Search EnergyPlus construction based on Energy modeling standards, climate zone, surface type and building program
+
+-
+Provided by Honeybee 0.0.59
+    
+    Args:
+        _EPConstrList: List of EPConstructions from Honeybee construction library
+        _standard: Energy modeling standard [0:"ASHRAE 90.1-2004", 1:"ASHRAE 90.1-2007", 2:"ASHRAE 90.1-2010", 3:"ASHRAE 189.1", 4:"CBECS 1980-2004", 5:"CBECS Before-1980"]
+        climateZone_: Optional input for climate zone
+        surfaceType_: Optional input for surface type &gt; 0:'WALL', 1:'ROOF', 2:'FLOOR', 3:'CEILING', 4:'WINDOW'
+        altBldgProgram_: Optional input for building type &gt; 0:'RESIDENTIAL', 1:'OFFICE', 2:'HOSPITAL'
+        keyword_: List of optional keywords in the name of the construction (ie. METAL, MASS, WOODFRAME).
+    Returns:
+        EPSelectedConstr:  List of selected EP constructions that matches the the inputs
+
+"""
+
+
+ghenv.Component.Name = "Honeybee_Search EP Construction"
+ghenv.Component.NickName = 'searchEPConstruction'
+ghenv.Component.Message = 'VER 0.0.59\nJAN_26_2016'
+ghenv.Component.IconDisplayMode = ghenv.Component.IconDisplayMode.application
+ghenv.Component.Category = "Honeybee"
+ghenv.Component.SubCategory = "06 | Energy | Material | Construction"
+#compatibleHBVersion = VER 0.0.56\nFEB_01_2015
+#compatibleLBVersion = VER 0.0.59\nFEB_01_2015
+try: ghenv.Component.AdditionalHelpFromDocStrings = "1"
+except: pass
+
+import scriptcontext as sc
+import Grasshopper.Kernel as gh
+
+
+def main(constrList, standard, climateZone, surfaceType, keywords):
+    
+    # Make sure Honeybee is flying
+    if not sc.sticky.has_key('honeybee_release'):
+        print "You should first let Honeybee to fly..."
+        w = gh.GH_RuntimeMessageLevel.Warning
+        ghenv.Component.AddRuntimeMessage(w, "You should first let Honeybee to fly...")
+        return -1
+
+    try:
+        if not sc.sticky['honeybee_release'].isCompatible(ghenv.Component): return -1
+        if sc.sticky['honeybee_release'].isInputMissing(ghenv.Component): return -1
+    except:
+        warning = "You need a newer version of Honeybee to use this compoent." + \
+        " Use updateHoneybee component to update userObjects.\n" + \
+        "If you have already updated userObjects drag Honeybee_Honeybee component " + \
+        "into canvas and try again."
+        w = gh.GH_RuntimeMessageLevel.Warning
+        ghenv.Component.AddRuntimeMessage(w, warning)
+        return -1
+    
+    # get the constuction
+    try:
+        hb_EPMaterialAUX = sc.sticky["honeybee_EPMaterialAUX"]()
+    except:
+        msg = "Failed to load EP constructions!"
+        ghenv.Component.AddRuntimeMessage(w, msg)
+        return -1
+    
+    surfaceTypesDict = {'0':'WALL', '1':'ROOF', '2':'FLOOR', '3':'CEILING', '4':'WINDOW',
+                        'WALL':'WALL', 'ROOF':'ROOF', 'FLOOR':'FLOOR', 'CEILING':'CEILING', 'CEILING':'WINDOW',
+                        '':'', None:''}
+    
+    selConstruction = hb_EPMaterialAUX.filterMaterials(constrList, standard, \
+                        climateZone, surfaceTypesDict[surfaceType.upper()], \
+                        "", keywords, ghenv.Component)
+    
+    # constrList, standard, climateZone, surfaceType, bldgProgram, constructionType, ghenv.Component
+    
+    return selConstruction
+    
+    
+if len(_EPConstrList)!=0 and _standard:
+    result = main(_EPConstrList, _standard, climateZone_, surfaceType_, keywords_)
+    if result!= -1:
+        EPSelectedConstr = result</item>
+                    <item name="Description" type_name="gh_string" type_code="10">Search EnergyPlus construction based on Energy modeling standards, climate zone, surface type and building program
+-
+Provided by Honeybee 0.0.59</item>
+                    <item name="EditorLocation" type_name="gh_drawing_point" type_code="30">
+                      <X>16</X>
+                      <Y>121</Y>
+                    </item>
+                    <item name="EditorSize" type_name="gh_drawing_size" type_code="32">
+                      <W>1228</W>
+                      <H>606</H>
+                    </item>
+                    <item name="Hidden" type_name="gh_bool" type_code="1">true</item>
+                    <item name="HideInput" type_name="gh_bool" type_code="1">true</item>
+                    <item name="HideOutput" type_name="gh_bool" type_code="1">true</item>
+                    <item name="IconOverride" type_name="gh_drawing_bitmap" type_code="37">
+                      <bitmap length="1037">iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwgAADsIBFShKgAAAA69JREFUSEu9lW1MW2UUxy92UVpbXiJUKNtkdi/YYMJ8SYwxMbgRYoZAiZIoUtqExfCRxsQBLYXwMnnLKMqwDDCGLiRLBD4Q4ItxJiaL3yBM+DBBNNmcQFcaYGBT7t/z9HnkantH9IP7JSe95/S5/397nnueKz1OPjQajd7U1NRWuv6Kwp+ZmVmn0Wg+T0tLazQYDJep9iULk8nk0mq1n9J3PaLmz8jIcNGaq3R9nEKVIZvNhv7+/u2qqipUVFRgdHQ0mJOTE7FaraHu7u4dh8MBu90On8+3mZeXt1dUVBSuqamJrh0cHAwVFhaCdF7lcvEM9fX1IZaSkhI0NzeLTIHV5+bmRMZxu93M4BUuFwP93faxsTGxVMHpdMotLS2ySA9obW3FysqKyDj0L5iBeouSkpIuTU9Pi6UK9fX1cm9vb5wBmWJ5eVlknEMNiCGv1yuWKhQXF6u2iNXn5+dFxnG5XI9uEfH/GiQmJjZOTEyIpQoNDQ1yV1dXXIt6enqwuroqMs7wyAgzMHHFGHQ6XePk5KRYqlBbWyt3dnbGGbzvrMXCT3eAcBiRHxejtcv0FJLUKa4Yz39q0ZX8c7jz0mvYejYba9IRRIzP4Wb2GXQaku1CLw5VA7U5CNmqsSslYOMJDdaOaPHgRC7uP6nH9tPJwOmzkLMtxUJTQa/X101NTQkJhaampv3YxzT4TikCkoQdx0XIWzvA/j6wu4sHH9ixrtFjzXRyIZBlviikOQkJCaqDVl1dLdPxITLO9sd12CSD8Dc3RYXzGQ3fLar/cuyUvHHUPCCkD7j2b1vE+OjNfNxe5Jv7F9NuDxbJ4Pf09D8CR81eoXvANbWzqKysTNWg5L13MSfmQN4MIXTJjd3049jLNCOQdXIymGXOF7ocOio+mZmZid7wd9gekLHqHPwKKt8Yx7qkwT365cHkZ7BnfvF7elY1QvYf9A4PD4vbFcrLy0FzIDKF0tJS3I5E6Ah14S6J44IVV2yOQ48K1RY9ag/YfCwENoBbP2A9QQfcX4Pb98WhBlcHBgbE7QqVlZVob28XmQJ70SwtLYmMQ0cKM3iBy8WQkpJSNzs7K5YqeDweWW0PmNjP9+4CW1sIf/tdtDZy/TozOMYV4/Gxvvr9ftCZ9LCjoyN6bbFYUFBQAJqR/fHx8YdtbW3slYkzublwNnkQfPl1bLM9OH8BBVbroS16nuJtircoTlOcF9cszlG8QcHqhaKWr5Oks78ZjDdwwgL6/FrL38dPUTwuJOlPa42gYlzDRJgAAAAASUVORK5CYII=</bitmap>
+                    </item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">54f454bc-3595-4a76-b5fc-2637e3bdc96d</item>
+                    <item name="Name" type_name="gh_string" type_code="10">Honeybee_Search EP Construction</item>
+                    <item name="NickName" type_name="gh_string" type_code="10">searchEPConstruction</item>
+                  </items>
+                  <chunks count="2">
+                    <chunk name="Attributes">
+                      <items count="2">
+                        <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                          <X>871</X>
+                          <Y>2376</Y>
+                          <W>199</W>
+                          <H>154</H>
+                        </item>
+                        <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                          <X>959</X>
+                          <Y>2453</Y>
+                        </item>
+                      </items>
+                    </chunk>
+                    <chunk name="ParameterData">
+                      <items count="8">
+                        <item name="InputCount" type_name="gh_int32" type_code="3">5</item>
+                        <item name="InputId" index="0" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
+                        <item name="InputId" index="1" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
+                        <item name="InputId" index="2" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
+                        <item name="InputId" index="3" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
+                        <item name="InputId" index="4" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
+                        <item name="OutputCount" type_name="gh_int32" type_code="3">1</item>
+                        <item name="OutputId" index="0" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
+                      </items>
+                      <chunks count="6">
+                        <chunk name="InputParam" index="0">
+                          <items count="11">
+                            <item name="Access" type_name="gh_int32" type_code="3">1</item>
+                            <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Description" type_name="gh_string" type_code="10">List of EPConstructions from Honeybee construction library</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">b27cc720-4b66-41b8-9ecf-6fb9b5f606c2</item>
+                            <item name="Name" type_name="gh_string" type_code="10">_EPConstrList</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">_EPConstrList</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
+                            <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">1</item>
+                            <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                            <item name="TypeHintID" type_name="gh_guid" type_code="9">87f87f55-5b71-41f4-8aea-21d494016f81</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>873</X>
+                                  <Y>2378</Y>
+                                  <W>71</W>
+                                  <H>30</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>910</X>
+                                  <Y>2393</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="InputParam" index="1">
+                          <items count="10">
+                            <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Description" type_name="gh_string" type_code="10">Energy modeling standard [0:"ASHRAE 90.1-2004", 1:"ASHRAE 90.1-2007", 2:"ASHRAE 90.1-2010", 3:"ASHRAE 189.1", 4:"CBECS 1980-2004", 5:"CBECS Before-1980"]</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">d148dee2-aa8e-444a-9b1d-e161932f160c</item>
+                            <item name="Name" type_name="gh_string" type_code="10">_standard</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">_standard</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
+                            <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">0</item>
+                            <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                            <item name="TypeHintID" type_name="gh_guid" type_code="9">37261734-eec7-4f50-b6a8-b8d1f3c4396b</item>
+                          </items>
+                          <chunks count="2">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>873</X>
+                                  <Y>2408</Y>
+                                  <W>71</W>
+                                  <H>30</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>910</X>
+                                  <Y>2423</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                            <chunk name="PersistentData">
+                              <items count="1">
+                                <item name="Count" type_name="gh_int32" type_code="3">1</item>
+                              </items>
+                              <chunks count="1">
+                                <chunk name="Branch" index="0">
+                                  <items count="2">
+                                    <item name="Count" type_name="gh_int32" type_code="3">1</item>
+                                    <item name="Path" type_name="gh_string" type_code="10">{0}</item>
+                                  </items>
+                                  <chunks count="1">
+                                    <chunk name="Item" index="0">
+                                      <items count="3">
+                                        <item name="null_string" type_name="gh_bool" type_code="1">false</item>
+                                        <item name="string" type_name="gh_string" type_code="10"></item>
+                                        <item name="TypeName" type_name="gh_string" type_code="10">Grasshopper.Kernel.Types.GH_String</item>
+                                      </items>
+                                    </chunk>
+                                  </chunks>
+                                </chunk>
+                              </chunks>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="InputParam" index="2">
+                          <items count="10">
+                            <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Description" type_name="gh_string" type_code="10">Optional input for climate zone</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">ef3288bb-ec69-4558-82a6-b4f90ddd8284</item>
+                            <item name="Name" type_name="gh_string" type_code="10">climateZone_</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">climateZone_</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
+                            <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">0</item>
+                            <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                            <item name="TypeHintID" type_name="gh_guid" type_code="9">37261734-eec7-4f50-b6a8-b8d1f3c4396b</item>
+                          </items>
+                          <chunks count="2">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>873</X>
+                                  <Y>2438</Y>
+                                  <W>71</W>
+                                  <H>30</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>910</X>
+                                  <Y>2453</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                            <chunk name="PersistentData">
+                              <items count="1">
+                                <item name="Count" type_name="gh_int32" type_code="3">1</item>
+                              </items>
+                              <chunks count="1">
+                                <chunk name="Branch" index="0">
+                                  <items count="2">
+                                    <item name="Count" type_name="gh_int32" type_code="3">1</item>
+                                    <item name="Path" type_name="gh_string" type_code="10">{0}</item>
+                                  </items>
+                                  <chunks count="1">
+                                    <chunk name="Item" index="0">
+                                      <items count="3">
+                                        <item name="null_string" type_name="gh_bool" type_code="1">false</item>
+                                        <item name="string" type_name="gh_string" type_code="10"></item>
+                                        <item name="TypeName" type_name="gh_string" type_code="10">Grasshopper.Kernel.Types.GH_String</item>
+                                      </items>
+                                    </chunk>
+                                  </chunks>
+                                </chunk>
+                              </chunks>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="InputParam" index="3">
+                          <items count="10">
+                            <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Description" type_name="gh_string" type_code="10">Optional input for surface type &gt; 0:'WALL', 1:'ROOF', 2:'FLOOR', 3:'CEILING', 4:'WINDOW'</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">33ce5d86-0f32-406f-aed2-b41c566d49e7</item>
+                            <item name="Name" type_name="gh_string" type_code="10">surfaceType_</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">surfaceType_</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
+                            <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">0</item>
+                            <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                            <item name="TypeHintID" type_name="gh_guid" type_code="9">37261734-eec7-4f50-b6a8-b8d1f3c4396b</item>
+                          </items>
+                          <chunks count="2">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>873</X>
+                                  <Y>2468</Y>
+                                  <W>71</W>
+                                  <H>30</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>910</X>
+                                  <Y>2483</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                            <chunk name="PersistentData">
+                              <items count="1">
+                                <item name="Count" type_name="gh_int32" type_code="3">1</item>
+                              </items>
+                              <chunks count="1">
+                                <chunk name="Branch" index="0">
+                                  <items count="2">
+                                    <item name="Count" type_name="gh_int32" type_code="3">1</item>
+                                    <item name="Path" type_name="gh_string" type_code="10">{0}</item>
+                                  </items>
+                                  <chunks count="1">
+                                    <chunk name="Item" index="0">
+                                      <items count="3">
+                                        <item name="null_string" type_name="gh_bool" type_code="1">false</item>
+                                        <item name="string" type_name="gh_string" type_code="10"></item>
+                                        <item name="TypeName" type_name="gh_string" type_code="10">Grasshopper.Kernel.Types.GH_String</item>
+                                      </items>
+                                    </chunk>
+                                  </chunks>
+                                </chunk>
+                              </chunks>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="InputParam" index="4">
+                          <items count="11">
+                            <item name="Access" type_name="gh_int32" type_code="3">1</item>
+                            <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Description" type_name="gh_string" type_code="10">Optional keyword in the name of the construction (ie. METAL, MASS, WOODFRAME).</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">2f2286f7-ec16-4027-9c94-01959929deb4</item>
+                            <item name="Name" type_name="gh_string" type_code="10">keywords_</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">keywords_</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
+                            <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">1</item>
+                            <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                            <item name="TypeHintID" type_name="gh_guid" type_code="9">37261734-eec7-4f50-b6a8-b8d1f3c4396b</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>873</X>
+                                  <Y>2498</Y>
+                                  <W>71</W>
+                                  <H>30</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>910</X>
+                                  <Y>2513</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="OutputParam" index="0">
+                          <items count="6">
+                            <item name="Description" type_name="gh_string" type_code="10">List of selected EP constructions that matches the the inputs</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">e29df068-79df-47d4-88df-a0deeb0270a5</item>
+                            <item name="Name" type_name="gh_string" type_code="10">EPSelectedConstr</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">EPSelectedConstr</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>974</X>
+                                  <Y>2378</Y>
+                                  <W>94</W>
+                                  <H>150</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>1021</X>
+                                  <Y>2453</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                      </chunks>
+                    </chunk>
+                  </chunks>
+                </chunk>
+              </chunks>
+            </chunk>
+            <chunk name="Object" index="45">
+              <items count="2">
+                <item name="GUID" type_name="gh_guid" type_code="9">59e0b89a-e487-49f8-bab8-b5bab16be14c</item>
+                <item name="Name" type_name="gh_string" type_code="10">Panel</item>
+              </items>
+              <chunks count="1">
+                <chunk name="Container">
+                  <items count="8">
+                    <item name="Description" type_name="gh_string" type_code="10">A panel for custom notes and text values</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">7fd7c1d4-bd9c-4819-92b8-85b3ffbf9027</item>
+                    <item name="Name" type_name="gh_string" type_code="10">Panel</item>
+                    <item name="NickName" type_name="gh_string" type_code="10"></item>
+                    <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                    <item name="ScrollRatio" type_name="gh_double" type_code="6">0</item>
+                    <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                    <item name="UserText" type_name="gh_string" type_code="10">ASHRAE 189.1-2009 EXTROOF IEAD CLIMATEZONE 1</item>
+                  </items>
+                  <chunks count="2">
+                    <chunk name="Attributes">
+                      <items count="5">
+                        <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                          <X>500</X>
+                          <Y>3017</Y>
+                          <W>362</W>
+                          <H>20</H>
+                        </item>
+                        <item name="MarginLeft" type_name="gh_int32" type_code="3">0</item>
+                        <item name="MarginRight" type_name="gh_int32" type_code="3">0</item>
+                        <item name="MarginTop" type_name="gh_int32" type_code="3">0</item>
+                        <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                          <X>500</X>
+                          <Y>3017.75</Y>
+                        </item>
+                      </items>
+                    </chunk>
+                    <chunk name="PanelProperties">
+                      <items count="6">
+                        <item name="Colour" type_name="gh_drawing_color" type_code="36">
+                          <ARGB>255;255;250;90</ARGB>
+                        </item>
+                        <item name="DrawIndices" type_name="gh_bool" type_code="1">true</item>
+                        <item name="DrawPaths" type_name="gh_bool" type_code="1">true</item>
+                        <item name="Multiline" type_name="gh_bool" type_code="1">true</item>
+                        <item name="Stream" type_name="gh_bool" type_code="1">false</item>
+                        <item name="Wrap" type_name="gh_bool" type_code="1">true</item>
+                      </items>
+                    </chunk>
+                  </chunks>
+                </chunk>
+              </chunks>
+            </chunk>
+            <chunk name="Object" index="46">
+              <items count="2">
+                <item name="GUID" type_name="gh_guid" type_code="9">59e0b89a-e487-49f8-bab8-b5bab16be14c</item>
+                <item name="Name" type_name="gh_string" type_code="10">Panel</item>
+              </items>
+              <chunks count="1">
+                <chunk name="Container">
+                  <items count="8">
+                    <item name="Description" type_name="gh_string" type_code="10">A panel for custom notes and text values</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">cd5775ff-420d-4e2c-95ea-0e7c49d62e61</item>
+                    <item name="Name" type_name="gh_string" type_code="10">Panel</item>
+                    <item name="NickName" type_name="gh_string" type_code="10"></item>
+                    <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                    <item name="ScrollRatio" type_name="gh_double" type_code="6">0</item>
+                    <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                    <item name="UserText" type_name="gh_string" type_code="10">ASHRAE 189.1-2009 EXTWALL MASS CLIMATEZONE 1</item>
+                  </items>
+                  <chunks count="2">
+                    <chunk name="Attributes">
+                      <items count="5">
+                        <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                          <X>547</X>
+                          <Y>2690</Y>
+                          <W>362</W>
+                          <H>35</H>
+                        </item>
+                        <item name="MarginLeft" type_name="gh_int32" type_code="3">0</item>
+                        <item name="MarginRight" type_name="gh_int32" type_code="3">0</item>
+                        <item name="MarginTop" type_name="gh_int32" type_code="3">0</item>
+                        <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                          <X>547.5</X>
+                          <Y>2690.043</Y>
+                        </item>
+                      </items>
+                    </chunk>
+                    <chunk name="PanelProperties">
+                      <items count="6">
+                        <item name="Colour" type_name="gh_drawing_color" type_code="36">
+                          <ARGB>255;255;250;90</ARGB>
+                        </item>
+                        <item name="DrawIndices" type_name="gh_bool" type_code="1">true</item>
+                        <item name="DrawPaths" type_name="gh_bool" type_code="1">true</item>
+                        <item name="Multiline" type_name="gh_bool" type_code="1">true</item>
+                        <item name="Stream" type_name="gh_bool" type_code="1">false</item>
+                        <item name="Wrap" type_name="gh_bool" type_code="1">true</item>
+                      </items>
+                    </chunk>
+                  </chunks>
+                </chunk>
+              </chunks>
+            </chunk>
+            <chunk name="Object" index="47">
+              <items count="2">
+                <item name="GUID" type_name="gh_guid" type_code="9">59e0b89a-e487-49f8-bab8-b5bab16be14c</item>
+                <item name="Name" type_name="gh_string" type_code="10">Panel</item>
+              </items>
+              <chunks count="1">
+                <chunk name="Container">
+                  <items count="9">
+                    <item name="Description" type_name="gh_string" type_code="10">A panel for custom notes and text values</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">4975698c-587a-4fab-ab05-8eb7bf76945c</item>
+                    <item name="Name" type_name="gh_string" type_code="10">Panel</item>
+                    <item name="NickName" type_name="gh_string" type_code="10"></item>
+                    <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                    <item name="ScrollRatio" type_name="gh_double" type_code="6">0</item>
+                    <item name="Source" index="0" type_name="gh_guid" type_code="9">7fde824a-b235-49c9-8b56-bbd0b54ac64e</item>
+                    <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
+                    <item name="UserText" type_name="gh_string" type_code="10">Double click to edit panel content…</item>
+                  </items>
+                  <chunks count="2">
+                    <chunk name="Attributes">
+                      <items count="5">
+                        <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                          <X>2032</X>
+                          <Y>2677</Y>
+                          <W>996</W>
+                          <H>621</H>
+                        </item>
+                        <item name="MarginLeft" type_name="gh_int32" type_code="3">0</item>
+                        <item name="MarginRight" type_name="gh_int32" type_code="3">0</item>
+                        <item name="MarginTop" type_name="gh_int32" type_code="3">0</item>
+                        <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                          <X>2032.558</X>
+                          <Y>2677.555</Y>
+                        </item>
+                      </items>
+                    </chunk>
+                    <chunk name="PanelProperties">
+                      <items count="6">
+                        <item name="Colour" type_name="gh_drawing_color" type_code="36">
+                          <ARGB>255;255;250;90</ARGB>
+                        </item>
+                        <item name="DrawIndices" type_name="gh_bool" type_code="1">true</item>
+                        <item name="DrawPaths" type_name="gh_bool" type_code="1">true</item>
+                        <item name="Multiline" type_name="gh_bool" type_code="1">true</item>
+                        <item name="Stream" type_name="gh_bool" type_code="1">false</item>
+                        <item name="Wrap" type_name="gh_bool" type_code="1">true</item>
+                      </items>
+                    </chunk>
+                  </chunks>
+                </chunk>
+              </chunks>
+            </chunk>
           </chunks>
         </chunk>
       </chunks>
@@ -19011,7 +21727,7 @@ import System
     <chunk name="Thumbnail">
       <items count="1">
         <item name="Thumbnail" type_name="gh_drawing_bitmap" type_code="37">
-          <bitmap length="3700">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</bitmap>
+          <bitmap length="7671">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</bitmap>
         </item>
       </items>
     </chunk>

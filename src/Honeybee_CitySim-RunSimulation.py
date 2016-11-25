@@ -22,6 +22,7 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
         path: Directory
         name: name of the project
         climatefile: name of climate file (with extension)
+        XML: extra XML strings (e.g. terrain, far-field obstructions)
         Write: Boolean to write the XML file
         Run: Boolean to start the simulation
     Returns:
@@ -166,11 +167,19 @@ def getAttributes(HBZones):
     attributes.append(zoneatt)
     return attributes
 
-getAttributes(_HBZones)
 
+def getextraXML(XML):
+    if len(XML) > 0:
+        for i in XML:
+            if i[1:7] == "Ground":
+                terrain = i
+    else:
+        terrain = ""
+    return terrain
+        
 
 #Create XML file in CitySim format
-def createXML(geometry,attributes):
+def createXML(geometry,attributes,terrain):
     #Header and default values
     xml = '''<?xml version="1.0" encoding="ISO-8859-1"?>
     <CitySim name="test">
@@ -245,31 +254,14 @@ def createXML(geometry,attributes):
     xml+= ''' <ShadingSurface>
 		    </ShadingSurface>
 		    <Trees>
-		    </Trees>
-		    <GroundSurface>
-			    <Ground id="10000002" ShortWaveReflectance="0.2">
-				    <V0 x="15.00" y="10.00" z="0.00"/>
-				    <V1 x="0.00" y="20.00" z="0.00"/>
-				    <V2 x="0.00" y="10.00" z="0.00"/>
-			    </Ground>
-			    <Ground id="10000001" ShortWaveReflectance="0.2">
-				    <V0 x="15.00" y="10.00" z="0.00"/>
-				    <V1 x="7.49" y="20.00" z="0.00"/>
-				    <V2 x="0.00" y="20.00" z="0.00"/>
-			    </Ground>
-			    <Ground id="10000000" ShortWaveReflectance="0.2">
-				    <V0 x="15.00" y="10.00" z="0.00"/>
-				    <V1 x="7.49" y="30.00" z="0.00"/>
-				    <V2 x="7.49" y="20.00" z="0.00"/>
-			    </Ground>
-		    </GroundSurface>
-	    </District>
-    </CitySim> '''
+		    </Trees> '''
+    if len(terrain) > 0:
+        xml+= terrain
+    xml+= '''</District>
+		   </CitySim> '''
     return xml
-    
-geometry = getSurfaces(_HBZones)
-attributes = getAttributes(_HBZones)   
-createXML(geometry,attributes)
+
+
 
 #Write XML file
 def writeXML(xml, path, name):
@@ -283,7 +275,8 @@ def writeXML(xml, path, name):
 if Write:
     geometry = getSurfaces(_HBZones)
     attributes = getAttributes(_HBZones)
-    xml = createXML(geometry,attributes)
+    terrain = getextraXML(XML)
+    xml = createXML(geometry,attributes,terrain)
     writeXML(xml,path,name)
 
 #Run the simulation

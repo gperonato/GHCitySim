@@ -34,7 +34,7 @@ ghenv.Component.NickName = 'CitySim-RunSimulation'
 ghenv.Component.Message = 'VER 0.1.0\nNOV_24_2016'
 ghenv.Component.IconDisplayMode = ghenv.Component.IconDisplayMode.application
 ghenv.Component.Category = "Honeybee"
-ghenv.Component.SubCategory = "09 | Energy | Energy"
+ghenv.Component.SubCategory = "14 | CitySim"
 #compatibleHBVersion = VER 0.0.56\nFEB_03_2016
 #compatibleLBVersion = VER 0.0.59\nFEB_01_2015
 ghenv.Component.AdditionalHelpFromDocStrings = "1"
@@ -169,29 +169,28 @@ def getAttributes(HBZones):
 
 
 def getextraXML(XML):
+    horizon = ""
+    terrain = ""
     if len(XML) > 0:
         for i in XML:
             if i[1:7] == "Ground":
                 terrain = i
-    else:
-        terrain = ""
-    return terrain
+            if i[1:9] == "FarField":
+                horizon = i
+    return terrain, horizon
         
 
 #Create XML file in CitySim format
-def createXML(geometry,attributes,terrain):
+def createXML(geometry,attributes,terrain,horizon):
     #Header and default values
     xml = '''<?xml version="1.0" encoding="ISO-8859-1"?>
     <CitySim name="test">
 	    <Simulation beginMonth="1" endMonth="12" beginDay="1" endDay="31"/>'''
 
     xml += '<Climate location="' + climatefile + ' "city="Unknown"/>'
-    xml += '''	<District>
-		    <FarFieldObstructions>
-			    <Point phi="0"  theta="0"/>
-			    <Point phi="360"  theta="0"/>
-		    </FarFieldObstructions>
-		    <Composite id="12" name="Neuchatel_1981-1990_Double" category="Wall">
+    xml += "	<District>"
+    xml += horizon
+    xml += ''' <Composite id="12" name="Neuchatel_1981-1990_Double" category="Wall">
 			    <Layer Thickness="0.0100" Conductivity="0.5000" Cp="1000" Density="1300" nre="0" gwp="0" ubp="0"/>
 			    <Layer Thickness="0.1000" Conductivity="1.1300" Cp="1000" Density="1431" nre="0" gwp="0" ubp="0"/>
 			    <Layer Thickness="0.0800" Conductivity="0.7900" Cp="1000" Density="1329" nre="0" gwp="0" ubp="0"/>
@@ -275,8 +274,8 @@ def writeXML(xml, path, name):
 if Write:
     geometry = getSurfaces(_HBZones)
     attributes = getAttributes(_HBZones)
-    terrain = getextraXML(XML)
-    xml = createXML(geometry,attributes,terrain)
+    terrain, horizon = getextraXML(XML)
+    xml = createXML(geometry,attributes,terrain,horizon)
     writeXML(xml,path,name)
 
 #Run the simulation

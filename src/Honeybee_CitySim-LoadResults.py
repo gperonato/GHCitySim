@@ -31,7 +31,7 @@ ghenv.Component.Name = "Honeybee_CitySim-LoadResults"
 ghenv.Component.NickName = 'CitySim-LoadResults'
 ghenv.Component.Message = 'VER 0.1.0\nNOV_24_2016'
 ghenv.Component.Category = "Honeybee"
-ghenv.Component.SubCategory = "13 | WIP"
+ghenv.Component.SubCategory = "14 | CitySim"
 try: ghenv.Component.AdditionalHelpFromDocStrings = "2"
 except: pass
 

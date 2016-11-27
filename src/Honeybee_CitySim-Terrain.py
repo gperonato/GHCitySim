@@ -1,4 +1,4 @@
-# Create XML for terrain mesh in CitySim format
+# Interface to CitySim Solver
 # http://citysim.epfl.ch/
 #
 # GH-Python component initiated by
@@ -29,7 +29,7 @@ ghenv.Component.NickName = 'CitySim-Terrain'
 ghenv.Component.Message = 'VER 0.0.1\nNOV_25_2016'
 ghenv.Component.IconDisplayMode = ghenv.Component.IconDisplayMode.application
 ghenv.Component.Category = "Honeybee"
-ghenv.Component.SubCategory = "09 | Energy | Energy"
+ghenv.Component.SubCategory = "14 | CitySim"
 ghenv.Component.AdditionalHelpFromDocStrings = "1"
 
 import rhinoscriptsyntax as rs

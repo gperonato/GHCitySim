@@ -120,7 +120,7 @@ def datetime_range(start, end, delta):
 #Import and write weather data
 #default values
 precipitation  = 0
-nebulosity = 0
+nebulosity = 0 #clear sky
 
 if Run:
     data = ""

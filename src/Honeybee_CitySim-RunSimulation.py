@@ -138,7 +138,7 @@ def getSurfaces(HBZones):
     HBO = hb_hive.callFromHoneybeeHive(_HBZones)
     for b in HBO:
         crvs = []
-        HBSurfaces  = hb_hive.addToHoneybeeHive(b.surfaces, ghenv.Component.InstanceGuid.ToString() + str(uuid.uuid4()))
+        HBSurfaces  = hb_hive.addToHoneybeeHive(b.surfaces, ghenv.Component.InstanceGuid.ToString())
         for s in HBSurfaces:
             edges = rs.DuplicateEdgeCurves(s)
             crvs.append(rs.JoinCurves(edges))
@@ -269,8 +269,6 @@ def writeXML(xml, path, name):
     out_file.write(xml)
     out_file.close()
 
-    CSpath = path
-
 if Write:
     geometry = getSurfaces(_HBZones)
     attributes = getAttributes(_HBZones)
@@ -285,5 +283,5 @@ if Run:
     command = Solver + ' -I ' + xmlpath #Runs only irradiation simulation with -I
 
     import os
-    os.chdir(CSpath)
+    os.chdir(path)
     os.system(command)

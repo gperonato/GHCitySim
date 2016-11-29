@@ -42,7 +42,7 @@ if Dup == "None":
     Dup = True # By default duplicate surfaces
     
 XML = "<ShadingSurface>\n"
-for m in range(len(T)):
+for m in range(len(S)):
     facevertices = rs.MeshFaceVertices(S[m])
     meshvertices = rs.MeshVertices(S[m])
     for f in range(len(facevertices)):

@@ -171,17 +171,20 @@ def getAttributes(HBZones):
 def getextraXML(XML):
     horizon = ""
     terrain = ""
+    shading = ""
     if len(XML) > 0:
         for i in XML:
             if i[1:7] == "Ground":
                 terrain = i
             if i[1:9] == "FarField":
                 horizon = i
-    return terrain, horizon
+            if i[1:8] == "Shading":
+                shading = i
+    return terrain, horizon, shading
         
-
+print getextraXML(XML)
 #Create XML file in CitySim format
-def createXML(geometry,attributes,terrain,horizon):
+def createXML(geometry,attributes,terrain,horizon,shading):
     #Header and default values
     xml = '''<?xml version="1.0" encoding="ISO-8859-1"?>
     <CitySim name="test">
@@ -250,10 +253,8 @@ def createXML(geometry,attributes,terrain,horizon):
                 </Building>'''
             
     #Add sample footer to the XML file
-    xml+= ''' <ShadingSurface>
-		    </ShadingSurface>
-		    <Trees>
-		    </Trees> '''
+    if len(terrain) > 0:
+        xml+= shading
     if len(terrain) > 0:
         xml+= terrain
     xml+= '''</District>
@@ -272,8 +273,8 @@ def writeXML(xml, path, name):
 if Write:
     geometry = getSurfaces(_HBZones)
     attributes = getAttributes(_HBZones)
-    terrain, horizon = getextraXML(XML)
-    xml = createXML(geometry,attributes,terrain,horizon)
+    terrain, horizon,shading = getextraXML(XML)
+    xml = createXML(geometry,attributes,terrain,horizon,shading)
     writeXML(xml,path,name)
 
 #Run the simulation

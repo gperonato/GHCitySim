@@ -19,20 +19,24 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
     
     Args:
         T: List of terrain meshes
-        R: List of SW reflectance values 
+        R: List (or single value) for SW reflectance; Default = 0.1 
     Returns:
-        tXML: XML code
+        XML: XML code
 """
 
 ghenv.Component.Name = "Honeybee_CitySim-Terrain"
 ghenv.Component.NickName = 'CitySim-Terrain'
-ghenv.Component.Message = 'VER 0.0.1\nNOV_25_2016'
+ghenv.Component.Message = 'VER 0.0.2\nNOV_29_2016'
 ghenv.Component.IconDisplayMode = ghenv.Component.IconDisplayMode.application
 ghenv.Component.Category = "Honeybee"
 ghenv.Component.SubCategory = "14 | CitySim"
 ghenv.Component.AdditionalHelpFromDocStrings = "1"
 
 import rhinoscriptsyntax as rs
+if len(R) == 0:
+    R.append(0.1) #Default
+while len(R) < len(T):
+    R.append(R[0])
 
 XML = "<GroundSurface>\n"
 for m in range(len(T)):

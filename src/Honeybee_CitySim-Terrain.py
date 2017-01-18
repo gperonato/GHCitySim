@@ -20,13 +20,14 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
     Args:
         T: List of terrain meshes
         R: List (or single value) for SW reflectance; Default = 0.1 
-    Returns:
-        XML: XML code
+        path: path of project
+        name: title of project
+        Write: Boolean to start
 """
 
 ghenv.Component.Name = "Honeybee_CitySim-Terrain"
 ghenv.Component.NickName = 'CitySim-Terrain'
-ghenv.Component.Message = 'VER 0.0.2\nNOV_29_2016'
+ghenv.Component.Message = 'VER 0.0.3\nJAN_17_2017'
 ghenv.Component.IconDisplayMode = ghenv.Component.IconDisplayMode.application
 ghenv.Component.Category = "Honeybee"
 ghenv.Component.SubCategory = "14 | CitySim"
@@ -48,4 +49,16 @@ for m in range(len(T)):
             XML += '<V{0} x ="{1}" y="{2}" z ="{3}"/>\n'.format(v,meshvertices[facevertices[f][v]][0],meshvertices[facevertices[f][v]][1],meshvertices[facevertices[f][v]][2])
         XML += '</Ground>\n'
 XML += '</GroundSurface>'
-print XML            
+
+
+def writeXML(xml, path, name):
+    xmlpath = path+name+"_terrain.xml"
+    out_file = open(xmlpath,"w")
+    out_file.write(xml)
+    out_file.close()
+
+if Write:
+    writeXML(XML,path,name)
+    print "XML file created"
+else:
+    print "Set Write to true"

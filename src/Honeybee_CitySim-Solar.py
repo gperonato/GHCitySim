@@ -32,7 +32,7 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
 
 ghenv.Component.Name = "Honeybee_CitySim-Solar"
 ghenv.Component.NickName = 'CitySim-Solar'
-ghenv.Component.Message = 'VER 0.0.1\nJAN_16_2017'
+ghenv.Component.Message = 'VER 0.0.2\nJAN_18_2017'
 ghenv.Component.IconDisplayMode = ghenv.Component.IconDisplayMode.application
 ghenv.Component.Category = "Honeybee"
 ghenv.Component.SubCategory = "14 | CitySim"
@@ -105,14 +105,31 @@ def getextraXML(XML):
     horizon = ""
     terrain = ""
     shading = ""
-    if len(XML) > 0:
-        for i in XML:
-            if i[1:7] == "Ground":
-                terrain = i
-            if i[1:9] == "FarField":
-                horizon = i
-            if i[1:8] == "Shading":
-                shading = i
+    import os.path
+    terrainf = path+name+"_terrain.xml"
+    horizonf = path+name+"_horizon.xml"
+    shadingf = path+name+"_shading.xml"
+    if os.path.isfile(terrainf):
+        file = file = open(terrainf, 'r')
+        terrain = file.read()
+        file.close()
+    if os.path.isfile(horizonf):
+        file = file = open(horizonf, 'r')
+        horizon = file.read()
+        file.close()
+    if os.path.isfile(shadingf):
+        file = file = open(shadingf, 'r')
+        shading = file.read()
+        file.close()
+    #Old code to retrieve XML from input
+    #if len(XML) > 0:
+        #for i in XML:
+            #if i[1:7] == "Ground":
+                #terrain = i
+            #if i[1:9] == "FarField":
+                #horizon = i
+            #if i[1:8] == "Shading":
+                #shading = i
     return terrain, horizon, shading
         
 print getextraXML(XML)

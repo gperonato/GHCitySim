@@ -30,7 +30,7 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
 
 ghenv.Component.Name = "Honeybee_CitySim-LoadSolar"
 ghenv.Component.NickName = 'CitySim-LoadSolar'
-ghenv.Component.Message = 'VER 0.0.1\nJAN_16_2017'
+ghenv.Component.Message = 'VER 0.0.1\nJAN_17_2017'
 ghenv.Component.Category = "Honeybee"
 ghenv.Component.SubCategory = "14 | CitySim"
 try: ghenv.Component.AdditionalHelpFromDocStrings = "2"

@@ -21,8 +21,9 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
         S: List of shading meshes
         R: List (or single value) for SW reflectance; Default = 0.1
         Dup: Boolean to duplicate obstructing surfaces with reversed normals: Default = True 
-    Returns:
-        XML: XML code
+        path: path of project
+        name: title of project
+        Write: Boolean to start
 """
 
 ghenv.Component.Name = "Honeybee_CitySim-Shading"
@@ -57,4 +58,15 @@ for m in range(len(S)):
                 XML += '<V{0} x ="{1}" y="{2}" z ="{3}"/>\n'.format(v,meshvertices[-facevertices[f][v]+1][0],meshvertices[-facevertices[f][v]+1][1],meshvertices[-facevertices[f][v]+1][2])
             XML += '</Surface>\n'
 XML += '</ShadingSurface>'
-print XML            
+
+def writeXML(xml, path, name):
+    xmlpath = path+name+"_shading.xml"
+    out_file = open(xmlpath,"w")
+    out_file.write(xml)
+    out_file.close()
+
+if Write:
+    writeXML(XML,path,name)
+    print "XML file created"
+else:
+    print "Set Write to true"

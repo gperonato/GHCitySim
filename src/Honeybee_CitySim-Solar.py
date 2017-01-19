@@ -57,7 +57,7 @@ import copy
 
 
 
-#Get surfaces from Honeybee zones
+
 # written by Giulio Piacentino, giulio@mcneel.com
 def tree_to_list(input, retrieve_base = lambda x: x[0]):
     """Returns a list representation of a Grasshopper DataTree"""
@@ -77,28 +77,6 @@ def tree_to_list(input, retrieve_base = lambda x: x[0]):
     
 geometry = tree_to_list(geometry, lambda x: x)
 reflectance = tree_to_list(reflectance, lambda x: x)
-
-def getAttributes(HBZones):
-    # call the objects from the lib
-    thermalZonesPyClasses = hb_hive.callFromHoneybeeHive(HBZones)
-    attributes = [['Type of surface','Solar Reflectance']] #when you add an attribute, list here what it means. 
-    zoneatt = []
-    for zone in thermalZonesPyClasses:
-        type = []
-        srefl = []
-        for srf in zone.surfaces:
-            if srf.type == 0:
-                type.append('Wall')
-            elif srf.type == 2.5:
-                type.append('Floor')
-            elif srf.type == 1:
-                type.append('Roof')
-            srf.construction = srf.EPConstruction
-            materials = EPConstructionStr(srf.construction)
-            srefl.append(str((1 - float(getMaterialProperties(materials[0])[0][4]))))
-        zoneatt.append([type,srefl])    
-    attributes.append(zoneatt)
-    return attributes
 
 
 def getextraXML():
@@ -165,10 +143,11 @@ def createXML(geometry,terrain,horizon,shading,reflectance):
         for s in xrange(len(geometry[b])):
             #xml += '<' + attributes[1][b][0][s] + ' id="'+str(s)+'" type="21" ShortWaveReflectance="' + attributes[1][b][1][s] + '" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">\n'
             xml += '<' + 'Wall' + ' id="'+str(s)+'" type="21" ShortWaveReflectance="' + str(reflectance[b][s]) + '" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">\n'
-            srfpts = rs.CurvePoints(geometry[b][s])
-            for i in xrange(len(srfpts)):
+            for p in range(geometry[b][s].Count):
+            #srfpts = rs.CurvePoints(geometry[b][s])
+            #for i in xrange(len(srfpts)):
                 #print '<V' + str(i) + ' x="' + str(srfpts[i][0]) +'" y="' + str(srfpts[i][1]) +'" z="' + str(srfpts[i][2])+'"/> \n'
-                xml+= '<V' + str(i) + ' x="' + str(srfpts[i][0]) +'" y="' + str(srfpts[i][1]) +'" z="' + str(srfpts[i][2])+'"/> \n'
+                xml+= '<V' + str(p) + ' x="' + str(geometry[b][s].X[p]) +'" y="' + str(geometry[b][s].Y[p]) +'" z="' + str(geometry[b][s].Z[p])+'"/> \n'
             xml+= '</' + 'Wall' + '>'        
             #xml+= '</' + attributes[1][b][0][s] + '>'
         xml+= '''   </Zone>

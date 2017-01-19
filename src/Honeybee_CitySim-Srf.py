@@ -40,18 +40,25 @@ if len(R) == 0:
 while len(R) < len(S):
     R.append(R[0])
 
+ReqInputs = True
+
 if Dup == None:
     Dup = True # By default duplicate surfaces
-    
-if type == "None":
-    type = "shading"
-    
+   
+if type == None:
+    type = "shading" # By default surfaces are considered as shading
 
-FilePath = path + name + "_shading.xml"
-
+if name == None:
+    name = "simulation"
     
+if path == None:
+    print "Select a path"
+    Run = False
     
-if Write:
+if ReqInputs:
+    print "Set Write to True"     
+elif Write and ReqInputs:
+    FilePath = path + name + "_shading.xml"
     with open(FilePath, "w") as outfile:
         if type == "terrain":
             outfile.write("<GroundSurface>\n")
@@ -74,16 +81,17 @@ if Write:
                     outfile.write('<V3 x ="{0}" y="{1}" z ="{2}"/>\n'.format(Tmesh.Vertices[face.D].X,Tmesh.Vertices[face.D].Y,Tmesh.Vertices[face.D].Z))
                 outfile.write('</{0}>'.format(s))
             
-                if Dup:
+                if Dup: #Duplicate surfaces with reversed normals
                     outfile.write('<Surface id="s{0}-verso" ShortWaveReflectance="{1}">\n'.format(str(meshcount)+'-'+str(facecount),str(R[0])))
-                    outfile.write('<V0 x ="{0}" y="{1}" z ="{2}"/>\n'.format(Tmesh.Vertices[face.A].X,Tmesh.Vertices[face.A].Y,Tmesh.Vertices[face.A].Z))
-                    outfile.write('<V1 x ="{0}" y="{1}" z ="{2}"/>\n'.format(Tmesh.Vertices[face.B].X,Tmesh.Vertices[face.B].Y,Tmesh.Vertices[face.B].Z))
-                    outfile.write('<V2 x ="{0}" y="{1}" z ="{2}"/>\n'.format(Tmesh.Vertices[face.C].X,Tmesh.Vertices[face.C].Y,Tmesh.Vertices[face.C].Z))
                     if face.IsQuad:
                         outfile.write('<V3 x ="{0}" y="{1}" z ="{2}"/>\n'.format(Tmesh.Vertices[face.D].X,Tmesh.Vertices[face.D].Y,Tmesh.Vertices[face.D].Z))
+                    outfile.write('<V0 x ="{0}" y="{1}" z ="{2}"/>\n'.format(Tmesh.Vertices[face.C].X,Tmesh.Vertices[face.C].Y,Tmesh.Vertices[face.C].Z))
+                    outfile.write('<V1 x ="{0}" y="{1}" z ="{2}"/>\n'.format(Tmesh.Vertices[face.B].X,Tmesh.Vertices[face.B].Y,Tmesh.Vertices[face.B].Z))
+                    outfile.write('<V2 x ="{0}" y="{1}" z ="{2}"/>\n'.format(Tmesh.Vertices[face.A].X,Tmesh.Vertices[face.A].Y,Tmesh.Vertices[face.A].Z))
                     outfile.write('</{0}>'.format(s))
                 facecount += 1
         if type == "terrain":
             outfile.write("</GroundSurface>")
         else:
             outfile.write("</ShadingSurface>")
+    print "XML file created"

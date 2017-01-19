@@ -32,7 +32,7 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
 
 ghenv.Component.Name = "Honeybee_CitySim-Solar"
 ghenv.Component.NickName = 'CitySim-Solar'
-ghenv.Component.Message = 'VER 0.0.2\nJAN_18_2017'
+ghenv.Component.Message = 'VER 0.0.2\nJAN_19_2017'
 ghenv.Component.IconDisplayMode = ghenv.Component.IconDisplayMode.application
 ghenv.Component.Category = "Honeybee"
 ghenv.Component.SubCategory = "14 | CitySim"
@@ -101,7 +101,7 @@ def getAttributes(HBZones):
     return attributes
 
 
-def getextraXML(XML):
+def getextraXML():
     horizon = ""
     terrain = ""
     shading = ""
@@ -132,7 +132,7 @@ def getextraXML(XML):
                 #shading = i
     return terrain, horizon, shading
         
-print getextraXML(XML)
+
 #Create XML file in CitySim format
 def createXML(geometry,terrain,horizon,shading,reflectance):
     #Header and default values
@@ -175,7 +175,7 @@ def createXML(geometry,terrain,horizon,shading,reflectance):
                 </Building>'''
             
     #Add sample footer to the XML file
-    if len(terrain) > 0:
+    if len(shading) > 0:
         xml+= shading
     if len(terrain) > 0:
         xml+= terrain
@@ -193,7 +193,7 @@ def writeXML(xml, path, name):
     out_file.close()
 
 if Write:
-    terrain, horizon,shading = getextraXML(XML)
+    terrain, horizon,shading = getextraXML()
     xml = createXML(geometry,terrain,horizon,shading,reflectance)
     writeXML(xml,path,name)
 

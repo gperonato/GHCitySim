@@ -62,7 +62,10 @@ if Sim == None:
 if Write == False and ReqInputs == True:
     print "Set Write to True"     
 elif Write == True and ReqInputs == True:
-    FilePath = path + name + "_shading.xml"
+    if type == "terrain":
+        FilePath = path + name + "_terrain.xml"
+    else:
+        FilePath = path + name + "_shading.xml"
     with open(FilePath, "w") as outfile:
         if type == "terrain":
             outfile.write("<GroundSurface>\n")

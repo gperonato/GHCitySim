@@ -43,7 +43,6 @@ ghenv.Component.AdditionalHelpFromDocStrings = "1"
 
 import Rhino as rc
 import scriptcontext as sc
-import rhinoscriptsyntax as rs
 import os
 import System
 import Grasshopper.Kernel as gh

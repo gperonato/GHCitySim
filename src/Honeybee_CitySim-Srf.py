@@ -21,7 +21,8 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
         S: List of  meshes
         R: List (or single value) for SW reflectance; Default = 0.1
         type = either "Surface" or "Terrain" - default = "Surface"
-        Dup: Boolean to duplicate obstructing surfaces with reversed normals: Default = True 
+        Dup: Boolean to duplicate obstructing surfaces with reversed normals: Default = True
+        Sim: Boolean to include the surfaces in the results: Default = False
         path: path of project
         name: title of project
         Write: Boolean to start
@@ -29,7 +30,7 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
 
 ghenv.Component.Name = "Honeybee_CitySim-Srf"
 ghenv.Component.NickName = 'CitySim-Srf'
-ghenv.Component.Message = 'VER 0.0.1\nJAN_19_2016'
+ghenv.Component.Message = 'VER 0.0.2\nJAN_23_2016'
 ghenv.Component.IconDisplayMode = ghenv.Component.IconDisplayMode.application
 ghenv.Component.Category = "Honeybee"
 ghenv.Component.SubCategory = "14 | CitySim"
@@ -49,22 +50,24 @@ if type == None:
     type = "shading" # By default surfaces are considered as shading
 
 if name == None:
-    name = "simulation"
+    name = "simulation" #default name
     
 if path == None:
-    print "Select a path"
-    Run = False
+    print "Select a path" #this is mandatory: no default
+    ReqInputs = False
     
-if ReqInputs:
+if Sim == None:
+    Sim = False #by default do not simulate surfaces
+
+if Write == False and ReqInputs == True:
     print "Set Write to True"     
-elif Write and ReqInputs:
+elif Write == True and ReqInputs == True:
     FilePath = path + name + "_shading.xml"
     with open(FilePath, "w") as outfile:
         if type == "terrain":
             outfile.write("<GroundSurface>\n")
         else:
-            outfile.write("<ShadingSurface>\n")  
-        
+            outfile.write("<ShadingSurface>\n")         
         for meshcount, Tmesh in enumerate(S):
             #for v in Tmesh.Vertices:
             facecount = 0
@@ -73,7 +76,11 @@ elif Write and ReqInputs:
                     s = "Ground"
                 else:
                     s = "Surface"
-                outfile.write('<{0} id="s{1}" ShortWaveReflectance="{2}">\n'.format(s,str(meshcount)+'-'+str(facecount),str(R[0])))
+                if Sim:
+                    simstring = ""
+                else:
+                    simstring = ' Simulate="False"'
+                outfile.write('<{0} id="s{1}" ShortWaveReflectance="{2}"{3}>\n'.format(s,str(meshcount)+'-'+str(facecount),str(R[0]),simstring))
                 outfile.write('<V0 x ="{0}" y="{1}" z ="{2}"/>\n'.format(Tmesh.Vertices[face.A].X,Tmesh.Vertices[face.A].Y,Tmesh.Vertices[face.A].Z))
                 outfile.write('<V1 x ="{0}" y="{1}" z ="{2}"/>\n'.format(Tmesh.Vertices[face.B].X,Tmesh.Vertices[face.B].Y,Tmesh.Vertices[face.B].Z))
                 outfile.write('<V2 x ="{0}" y="{1}" z ="{2}"/>\n'.format(Tmesh.Vertices[face.C].X,Tmesh.Vertices[face.C].Y,Tmesh.Vertices[face.C].Z))

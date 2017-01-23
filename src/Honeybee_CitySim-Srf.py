@@ -89,7 +89,7 @@ elif Write == True and ReqInputs == True:
                 outfile.write('</{0}>'.format(s))
             
                 if Dup: #Duplicate surfaces with reversed normals
-                    outfile.write('<Surface id="s{0}-verso" ShortWaveReflectance="{1}">\n'.format(str(meshcount)+'-'+str(facecount),str(R[0])))
+                    outfile.write('<{0} id="s{1}-verso" ShortWaveReflectance="{2}"{3}>\n'.format(s,str(meshcount)+'-'+str(facecount),str(R[0]),simstring))
                     if face.IsQuad:
                         outfile.write('<V3 x ="{0}" y="{1}" z ="{2}"/>\n'.format(Tmesh.Vertices[face.D].X,Tmesh.Vertices[face.D].Y,Tmesh.Vertices[face.D].Z))
                     outfile.write('<V0 x ="{0}" y="{1}" z ="{2}"/>\n'.format(Tmesh.Vertices[face.C].X,Tmesh.Vertices[face.C].Y,Tmesh.Vertices[face.C].Z))

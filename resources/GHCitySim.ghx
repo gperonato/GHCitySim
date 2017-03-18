@@ -48,10 +48,10 @@
             <chunk name="Projection">
               <items count="2">
                 <item name="Target" type_name="gh_drawing_point" type_code="30">
-                  <X>-2004</X>
-                  <Y>-1891</Y>
+                  <X>253</X>
+                  <Y>-1856</Y>
                 </item>
-                <item name="Zoom" type_name="gh_single" type_code="5">1</item>
+                <item name="Zoom" type_name="gh_single" type_code="5">0.85221225</item>
               </items>
             </chunk>
             <chunk name="Views">
@@ -83,9 +83,9 @@
         </chunk>
         <chunk name="DefinitionObjects">
           <items count="1">
-            <item name="ObjectCount" type_name="gh_int32" type_code="3">166</item>
+            <item name="ObjectCount" type_name="gh_int32" type_code="3">170</item>
           </items>
-          <chunks count="166">
+          <chunks count="170">
             <chunk name="Object" index="0">
               <items count="3">
                 <item name="GUID" type_name="gh_guid" type_code="9">410755b1-224a-4c1e-a407-bf32fb45ea7e</item>
@@ -11240,6 +11240,7 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
     Args:
         _HBZones: List of Honeybee zones
         _Windows: List of Window ratios for walls (or tree in which each branch is a building): GlazingRatio, GValue, GlazingUValue, OpenableRatio
+        _Occupancy: List of (or tree in which each branch is a building): Number of occupants and ScheduleProfileID
         path: Directory
         name: name of the project
         climatefile: name of climate file (with extension)
@@ -11260,6 +11261,7 @@ ghenv.Component.SubCategory = "14 | CitySim"
 ghenv.Component.AdditionalHelpFromDocStrings = "1"
 
 
+
 import Rhino as rc
 import scriptcontext as sc
 import rhinoscriptsyntax as rs
@@ -11274,7 +11276,9 @@ import copy
 
 rc.Runtime.HostUtils.DisplayOleAlerts(False)
 
-
+if _Occupancy.BranchCount == 0:
+    print "Add Occupancy"
+    raise SystemExit(0)
     
 lb_preparation = sc.sticky["ladybug_Preparation"]()
 hb_reEvaluateHBZones= sc.sticky["honeybee_reEvaluateHBZones"]
@@ -11439,6 +11443,10 @@ def getMaterials(matName):
     return hb_EPMaterialAUX.decomposeMaterial(matName.upper(), ghenv.Component)
 
 
+def getVolume(b):
+    volume = _HBZones[b].GetVolume()
+    return volume
+
 def getConLibrary():
     xml = ''
     for c in range(len(EPConstructions)):
@@ -11487,7 +11495,13 @@ def getWindows():
        ratios = [0.5,0.3,0.45,0.0]
     return ratios
     
-    
+def getOccupancy():
+    if _Occupancy != None:
+       occupancy = tree_to_list(_Occupancy, lambda x: x)
+    else:
+       print 'Error'
+    return occupancy 
+
 #Create XML file in CitySim format
 def createXML(geometry,attributes,terrain,horizon,shading):
     #Header and default values
@@ -11520,9 +11534,14 @@ def createXML(geometry,attributes,terrain,horizon,shading):
 			    &lt;/HeatSource&gt;
 			    &lt;CoolSource beginDay="1" endDay="365"&gt;
 				    &lt;HeatPump Pmax="10000000" eta_tech="0.3" Ttarget="5" Tsource="ground" depth="5" alpha="0.0700000003" position="vertical" z1="10" /&gt;
-			    &lt;/CoolSource&gt;
-			    &lt;Zone id="1" volume="1123.5" psi="0.2" Tmin="21" Tmax="27" groundFloor="true" &gt;
-				    &lt;Occupants n="9" d="0.06" type="2"/&gt;'''
+			    &lt;/CoolSource&gt;'''
+        xml += '&lt;Zone id="1" volume="{0}" psi="0.2" Tmin="20" Tmax="26" groundFloor="true" &gt;'.format(getVolume(b))
+        occupancy = getOccupancy()
+        if len(occupancy) == 1:
+            occ = occupancy[0]
+        else:
+            occ = occupancy[b]
+        xml +=	'&lt;Occupants n="{0}" type="{1}"/&gt;'.format(occ[0],occ[1])
         for s in xrange(len(geometry[b])):
             #xml += '&lt;' + attributes[1][b][0][s] + ' id="'+str(s)+'" type="'+ str(EPConstructions.index(thermalZonesPyClasses[b].surfaces[s].EPConstruction))+'" ShortWaveReflectance="' + attributes[1][b][1][s] + '" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0"&gt;\n'
             if attributes[1][b][0][s] == 'Wall' and len(wratios)&gt;1: #Use windows ratios only for walls
@@ -11581,8 +11600,8 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
 @license GPL-3.0+ &lt;http://spdx.org/licenses/GPL-3.0+&gt;
 -</item>
                     <item name="EditorLocation" type_name="gh_drawing_point" type_code="30">
-                      <X>-24</X>
-                      <Y>196</Y>
+                      <X>5</X>
+                      <Y>151</Y>
                     </item>
                     <item name="EditorSize" type_name="gh_drawing_size" type_code="32">
                       <W>1358</W>
@@ -11599,20 +11618,20 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                     <chunk name="Attributes">
                       <items count="2">
                         <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                          <X>2965</X>
-                          <Y>2059</Y>
-                          <W>132</W>
-                          <H>164</H>
+                          <X>2968</X>
+                          <Y>2051</Y>
+                          <W>141</W>
+                          <H>184</H>
                         </item>
                         <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                          <X>3054</X>
-                          <Y>2141</Y>
+                          <X>3066</X>
+                          <Y>2143</Y>
                         </item>
                       </items>
                     </chunk>
                     <chunk name="ParameterData">
-                      <items count="11">
-                        <item name="InputCount" type_name="gh_int32" type_code="3">8</item>
+                      <items count="12">
+                        <item name="InputCount" type_name="gh_int32" type_code="3">9</item>
                         <item name="InputId" index="0" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
                         <item name="InputId" index="1" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
                         <item name="InputId" index="2" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
@@ -11621,10 +11640,11 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                         <item name="InputId" index="5" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
                         <item name="InputId" index="6" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
                         <item name="InputId" index="7" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
+                        <item name="InputId" index="8" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
                         <item name="OutputCount" type_name="gh_int32" type_code="3">1</item>
                         <item name="OutputId" index="0" type_name="gh_guid" type_code="9">3ede854e-c753-40eb-84cb-b48008f14fd4</item>
                       </items>
-                      <chunks count="9">
+                      <chunks count="10">
                         <chunk name="InputParam" index="0">
                           <items count="13">
                             <item name="Access" type_name="gh_int32" type_code="3">1</item>
@@ -11645,14 +11665,14 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>2967</X>
-                                  <Y>2061</Y>
-                                  <W>72</W>
+                                  <X>2970</X>
+                                  <Y>2053</Y>
+                                  <W>81</W>
                                   <H>20</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>3012.5</X>
-                                  <Y>2071</Y>
+                                  <X>3020</X>
+                                  <Y>2063</Y>
                                 </item>
                               </items>
                             </chunk>
@@ -11664,7 +11684,7 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                             <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
                             <item name="Description" type_name="gh_string" type_code="10">List of Window ratios for walls (or tree in which each branch is a building): GlazingRatio, GValue, GlazingUValue, OpenableRatio</item>
                             <item name="InstanceGuid" type_name="gh_guid" type_code="9">77398e95-4afd-4f3d-bffe-ac8e70834195</item>
-                            <item name="Name" type_name="gh_string" type_code="10">x</item>
+                            <item name="Name" type_name="gh_string" type_code="10">_Windows</item>
                             <item name="NickName" type_name="gh_string" type_code="10">_Windows</item>
                             <item name="Optional" type_name="gh_bool" type_code="1">true</item>
                             <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">2</item>
@@ -11677,20 +11697,52 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>2967</X>
-                                  <Y>2081</Y>
-                                  <W>72</W>
+                                  <X>2970</X>
+                                  <Y>2073</Y>
+                                  <W>81</W>
                                   <H>20</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>3012.5</X>
-                                  <Y>2091</Y>
+                                  <X>3020</X>
+                                  <Y>2083</Y>
                                 </item>
                               </items>
                             </chunk>
                           </chunks>
                         </chunk>
                         <chunk name="InputParam" index="2">
+                          <items count="12">
+                            <item name="Access" type_name="gh_int32" type_code="3">2</item>
+                            <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Description" type_name="gh_string" type_code="10">List of (or tree in which each branch is a building): Number of occupants and ScheduleProfileID</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">049ecdf7-7cdc-49be-b9ae-51f3c196611e</item>
+                            <item name="Name" type_name="gh_string" type_code="10">x</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">_Occupancy</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
+                            <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">2</item>
+                            <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Source" index="0" type_name="gh_guid" type_code="9">82eee4dd-2408-46db-b4cc-441e1e7723dd</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
+                            <item name="TypeHintID" type_name="gh_guid" type_code="9">37261734-eec7-4f50-b6a8-b8d1f3c4396b</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>2970</X>
+                                  <Y>2093</Y>
+                                  <W>81</W>
+                                  <H>20</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>3020</X>
+                                  <Y>2103</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="InputParam" index="3">
                           <items count="11">
                             <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
                             <item name="Description" type_name="gh_string" type_code="10">Directory</item>
@@ -11708,20 +11760,20 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>2967</X>
-                                  <Y>2101</Y>
-                                  <W>72</W>
+                                  <X>2970</X>
+                                  <Y>2113</Y>
+                                  <W>81</W>
                                   <H>20</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>3012.5</X>
-                                  <Y>2111</Y>
+                                  <X>3020</X>
+                                  <Y>2123</Y>
                                 </item>
                               </items>
                             </chunk>
                           </chunks>
                         </chunk>
-                        <chunk name="InputParam" index="3">
+                        <chunk name="InputParam" index="4">
                           <items count="11">
                             <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
                             <item name="Description" type_name="gh_string" type_code="10">name of the project</item>
@@ -11739,20 +11791,20 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>2967</X>
-                                  <Y>2121</Y>
-                                  <W>72</W>
+                                  <X>2970</X>
+                                  <Y>2133</Y>
+                                  <W>81</W>
                                   <H>20</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>3012.5</X>
-                                  <Y>2131</Y>
+                                  <X>3020</X>
+                                  <Y>2143</Y>
                                 </item>
                               </items>
                             </chunk>
                           </chunks>
                         </chunk>
-                        <chunk name="InputParam" index="4">
+                        <chunk name="InputParam" index="5">
                           <items count="11">
                             <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
                             <item name="Description" type_name="gh_string" type_code="10">name of climate file (with extension)</item>
@@ -11770,20 +11822,20 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>2967</X>
-                                  <Y>2141</Y>
-                                  <W>72</W>
+                                  <X>2970</X>
+                                  <Y>2153</Y>
+                                  <W>81</W>
                                   <H>20</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>3012.5</X>
-                                  <Y>2151</Y>
+                                  <X>3020</X>
+                                  <Y>2163</Y>
                                 </item>
                               </items>
                             </chunk>
                           </chunks>
                         </chunk>
-                        <chunk name="InputParam" index="5">
+                        <chunk name="InputParam" index="6">
                           <items count="11">
                             <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
                             <item name="Description" type_name="gh_string" type_code="10">Script variable CitySim-RunSimulation</item>
@@ -11801,20 +11853,20 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>2967</X>
-                                  <Y>2161</Y>
-                                  <W>72</W>
+                                  <X>2970</X>
+                                  <Y>2173</Y>
+                                  <W>81</W>
                                   <H>20</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>3012.5</X>
-                                  <Y>2171</Y>
+                                  <X>3020</X>
+                                  <Y>2183</Y>
                                 </item>
                               </items>
                             </chunk>
                           </chunks>
                         </chunk>
-                        <chunk name="InputParam" index="6">
+                        <chunk name="InputParam" index="7">
                           <items count="11">
                             <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
                             <item name="Description" type_name="gh_string" type_code="10">Boolean to write the XML file</item>
@@ -11832,20 +11884,20 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>2967</X>
-                                  <Y>2181</Y>
-                                  <W>72</W>
+                                  <X>2970</X>
+                                  <Y>2193</Y>
+                                  <W>81</W>
                                   <H>20</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>3012.5</X>
-                                  <Y>2191</Y>
+                                  <X>3020</X>
+                                  <Y>2203</Y>
                                 </item>
                               </items>
                             </chunk>
                           </chunks>
                         </chunk>
-                        <chunk name="InputParam" index="7">
+                        <chunk name="InputParam" index="8">
                           <items count="11">
                             <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
                             <item name="Description" type_name="gh_string" type_code="10">Boolean to start the simulation</item>
@@ -11863,14 +11915,14 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>2967</X>
-                                  <Y>2201</Y>
-                                  <W>72</W>
+                                  <X>2970</X>
+                                  <Y>2213</Y>
+                                  <W>81</W>
                                   <H>20</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>3012.5</X>
-                                  <Y>2211</Y>
+                                  <X>3020</X>
+                                  <Y>2223</Y>
                                 </item>
                               </items>
                             </chunk>
@@ -11889,14 +11941,14 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>3069</X>
-                                  <Y>2061</Y>
+                                  <X>3081</X>
+                                  <Y>2053</Y>
                                   <W>26</W>
-                                  <H>160</H>
+                                  <H>180</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>3082</X>
-                                  <Y>2141</Y>
+                                  <X>3094</X>
+                                  <Y>2143</Y>
                                 </item>
                               </items>
                             </chunk>
@@ -12153,14 +12205,14 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                     <chunk name="Attributes">
                       <items count="2">
                         <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                          <X>2908</X>
-                          <Y>2329</Y>
+                          <X>2951</X>
+                          <Y>2331</Y>
                           <W>155</W>
                           <H>146</H>
                         </item>
                         <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                          <X>2996</X>
-                          <Y>2402</Y>
+                          <X>3039</X>
+                          <Y>2404</Y>
                         </item>
                       </items>
                     </chunk>
@@ -12194,14 +12246,14 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>2910</X>
-                                  <Y>2331</Y>
+                                  <X>2953</X>
+                                  <Y>2333</Y>
                                   <W>71</W>
                                   <H>35</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>2955</X>
-                                  <Y>2348.75</Y>
+                                  <X>2998</X>
+                                  <Y>2350.75</Y>
                                 </item>
                               </items>
                             </chunk>
@@ -12225,14 +12277,14 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>2910</X>
-                                  <Y>2366</Y>
+                                  <X>2953</X>
+                                  <Y>2368</Y>
                                   <W>71</W>
                                   <H>36</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>2955</X>
-                                  <Y>2384.25</Y>
+                                  <X>2998</X>
+                                  <Y>2386.25</Y>
                                 </item>
                               </items>
                             </chunk>
@@ -12258,14 +12310,14 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>2910</X>
-                                  <Y>2402</Y>
+                                  <X>2953</X>
+                                  <Y>2404</Y>
                                   <W>71</W>
                                   <H>35</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>2955</X>
-                                  <Y>2419.75</Y>
+                                  <X>2998</X>
+                                  <Y>2421.75</Y>
                                 </item>
                               </items>
                             </chunk>
@@ -12289,14 +12341,14 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>2910</X>
-                                  <Y>2437</Y>
+                                  <X>2953</X>
+                                  <Y>2439</Y>
                                   <W>71</W>
                                   <H>36</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>2955</X>
-                                  <Y>2455.25</Y>
+                                  <X>2998</X>
+                                  <Y>2457.25</Y>
                                 </item>
                               </items>
                             </chunk>
@@ -12315,14 +12367,14 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>3011</X>
-                                  <Y>2331</Y>
+                                  <X>3054</X>
+                                  <Y>2333</Y>
                                   <W>50</W>
                                   <H>71</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>3036</X>
-                                  <Y>2366.5</Y>
+                                  <X>3079</X>
+                                  <Y>2368.5</Y>
                                 </item>
                               </items>
                             </chunk>
@@ -12341,14 +12393,14 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>3011</X>
-                                  <Y>2402</Y>
+                                  <X>3054</X>
+                                  <Y>2404</Y>
                                   <W>50</W>
                                   <H>71</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>3036</X>
-                                  <Y>2437.5</Y>
+                                  <X>3079</X>
+                                  <Y>2439.5</Y>
                                 </item>
                               </items>
                             </chunk>
@@ -15207,14 +15259,14 @@ Provided by Honeybee 0.0.59</item>
                     <chunk name="Attributes">
                       <items count="2">
                         <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                          <X>2837</X>
-                          <Y>2101</Y>
+                          <X>2833</X>
+                          <Y>2124</Y>
                           <W>50</W>
                           <H>20</H>
                         </item>
                         <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                          <X>2862.439</X>
-                          <Y>2111.769</Y>
+                          <X>2858.439</X>
+                          <Y>2134.769</Y>
                         </item>
                       </items>
                     </chunk>
@@ -18311,7 +18363,7 @@ Provided by Honeybee 0.0.59</item>
                     <item name="NickName" type_name="gh_string" type_code="10">Toggle</item>
                     <item name="Optional" type_name="gh_bool" type_code="1">false</item>
                     <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
-                    <item name="ToggleValue" type_name="gh_bool" type_code="1">true</item>
+                    <item name="ToggleValue" type_name="gh_bool" type_code="1">false</item>
                   </items>
                   <chunks count="1">
                     <chunk name="Attributes">
@@ -33163,13 +33215,13 @@ If empty default folder will be set to C:\ladybug or C:\Users\%USERNAME%\AppData
                       <items count="2">
                         <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
                           <X>2824</X>
-                          <Y>2061</Y>
+                          <Y>2021</Y>
                           <W>64</W>
                           <H>20</H>
                         </item>
                         <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
                           <X>2856.75</X>
-                          <Y>2071.343</Y>
+                          <Y>2031.343</Y>
                         </item>
                       </items>
                     </chunk>
@@ -38018,1453 +38070,6 @@ Provided by Honeybee 0.0.59</item>
               </chunks>
             </chunk>
             <chunk name="Object" index="159">
-              <items count="3">
-                <item name="GUID" type_name="gh_guid" type_code="9">410755b1-224a-4c1e-a407-bf32fb45ea7e</item>
-                <item name="Lib" type_name="gh_guid" type_code="9">16cf80bc-9018-cbdb-2238-976eb17fd30d</item>
-                <item name="Name" type_name="gh_string" type_code="10">Honeybee_Call from EP Schedule Library</item>
-              </items>
-              <chunks count="1">
-                <chunk name="Container">
-                  <items count="11">
-                    <item name="CodeInput" type_name="gh_string" type_code="10">#
-# Honeybee: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipour Roudsari
-# 
-# This file is part of Honeybee.
-# 
-# Copyright (c) 2013-2016, Mostapha Sadeghipour Roudsari &lt;Sadeghipour@gmail.com&gt; 
-# Honeybee is free software; you can redistribute it and/or modify 
-# it under the terms of the GNU General Public License as published 
-# by the Free Software Foundation; either version 3 of the License, 
-# or (at your option) any later version. 
-# 
-# Honeybee is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of 
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the 
-# GNU General Public License for more details.
-# 
-# You should have received a copy of the GNU General Public License
-# along with Honeybee; If not, see &lt;http://www.gnu.org/licenses/&gt;.
-# 
-# @license GPL-3.0+ &lt;http://spdx.org/licenses/GPL-3.0+&gt;
-
-
-"""
-Call from EP Schedule Library
-
--
-Provided by Honeybee 0.0.59
-    
-    Args:
-        keywords_: List of keywords to filter the list of schedules
-            
-    Returns:
-        scheduleTypeLimits: List of EP schedules in Honeybee library
-        scheduleList: List of EP window schedules in Honeybee library
-
-"""
-
-ghenv.Component.Name = "Honeybee_Call from EP Schedule Library"
-ghenv.Component.NickName = 'callFromEPSCHLibrary'
-ghenv.Component.Message = 'VER 0.0.59\nJAN_26_2016'
-ghenv.Component.IconDisplayMode = ghenv.Component.IconDisplayMode.application
-ghenv.Component.Category = "Honeybee"
-ghenv.Component.SubCategory = "07 | Energy | Schedule"
-#compatibleHBVersion = VER 0.0.56\nFEB_01_2015
-#compatibleLBVersion = VER 0.0.59\nFEB_01_2015
-try: ghenv.Component.AdditionalHelpFromDocStrings = "1"
-except: pass
-
-
-import scriptcontext as sc
-import Grasshopper.Kernel as gh
-
-def main(keywords_):
-    if sc.sticky.has_key("honeybee_release") and sc.sticky.has_key("honeybee_ScheduleLib"):
-        
-        try:
-            if not sc.sticky['honeybee_release'].isCompatible(ghenv.Component): return -1
-            if sc.sticky['honeybee_release'].isInputMissing(ghenv.Component): return -1
-        except:
-            warning = "You need a newer version of Honeybee to use this compoent." + \
-            "Use updateHoneybee component to update userObjects.\n" + \
-            "If you have already updated userObjects drag Honeybee_Honeybee component " + \
-            "into canvas and try again."
-            w = gh.GH_RuntimeMessageLevel.Warning
-            ghenv.Component.AddRuntimeMessage(w, warning)
-            return -1
-            
-        hb_EPMaterialAUX = sc.sticky["honeybee_EPMaterialAUX"]()
-        scheduleList = sc.sticky["honeybee_ScheduleLib"].keys()
-        scheduleTypeLimits = sc.sticky["honeybee_ScheduleTypeLimitsLib"].keys()
-    
-        scheduleList.sort()
-        scheduleTypeLimits.sort()
-        
-        if len(keywords_)!=0 and keywords_[0]!=None:
-            scheduleList = hb_EPMaterialAUX.searchListByKeyword(scheduleList, keywords_)
-            scheduleTypeLimits = hb_EPMaterialAUX.searchListByKeyword(scheduleTypeLimits, keywords_)
-        
-        return scheduleTypeLimits, scheduleList
-    else:
-        print "You should first let the Honeybee fly..."
-        w = gh.GH_RuntimeMessageLevel.Warning
-        ghenv.Component.AddRuntimeMessage(w, "You should first let the Honeybee fly...")
-        return -1
-
-results = main(keywords_)
-
-if results!=-1:
-    scheduleTypeLimits, scheduleList = results</item>
-                    <item name="Description" type_name="gh_string" type_code="10">Call from EP Schedule Library
--
-Provided by Honeybee 0.0.59</item>
-                    <item name="EditorLocation" type_name="gh_drawing_point" type_code="30">
-                      <X>-5</X>
-                      <Y>16</Y>
-                    </item>
-                    <item name="EditorSize" type_name="gh_drawing_size" type_code="32">
-                      <W>1042</W>
-                      <H>741</H>
-                    </item>
-                    <item name="Hidden" type_name="gh_bool" type_code="1">true</item>
-                    <item name="HideInput" type_name="gh_bool" type_code="1">true</item>
-                    <item name="HideOutput" type_name="gh_bool" type_code="1">true</item>
-                    <item name="IconOverride" type_name="gh_drawing_bitmap" type_code="37">
-                      <bitmap length="1026">iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwgAADsIBFShKgAAAA6RJREFUSEvNlV9M01cUx3/8E1MsNm5swq9QoLSMohsPklh4IEAyhIRByBiEZS7MRHREsuCSgRJCgojhBVESECLVsIkPEFJ4gJCJiEHfho1uyyRLpiBMWlqpdUBpOZ5zfxelRQgZxvhJvjnn3vZ+z73397u/K7xv5KGUUioINpVKMRsWpZ0VozUULTExwfyn/40RpZNSQViJjCt7EhrqtOz5YJFFUX2Y/7Ql4lDRUsqIRd1EFaN2UgcW+OpFhBbmlDGSRPVR6t8qvqh6Pz+/azk5OTMdHR2QmJgIdXV1UFFZ+UwIDu77cYesC6J0rwpYlDFUfMscSU1Nnamvr4dV3G43zwAMpnHIl+8G+CiKmZuVanCFa77lYzdExmNpdXU1M5qYmGDRm7/nn8Gfp6rBERjECsyHa+HuXtVxPn5DElAn8/LyrNxnHcum++B+NCU1rnfDtCCAFQu4I+Pg6yD5WTJZErWfOkTNZ5SvIyQk5Pfa2loYGBiQTLyYzy2Ap2hKOG/dhlnMaQVU5Hm4Op48rEoNbVk3M/QirKysjA2enJxk0ZsVqw0fZiTYDqbAgqETzIG7wIbms6IabnysrHMoNU+XVdoJ0Ol2cc/X+Pv7J4+MjKxwr82hAoI/mFWfsBX8iwWcEbHgUsb+xu08+B51BfWwpKSEO6zHYDBAeXk5XPy5E86droIbuD2OoA9hDvcfQiLgpq9sKVIQzqAPBk8OoL7w8fFpb2xs3HAF6enpoNfrob29Hb6r+AmunvgBlsKiwYqF7LiKL3X7pgW53BQok71x/4WAgID4sbExZmaxWFhcS09PD7S0tPCWxMKdu2DbnwD2eyb4D9uTU1OQkpICaHdEcvVkd1paGuAqoKurS3JYg91uh9zcXHA4HLzHE6vVujw4OPiXXC6nAjOSpSf0pRynmW5EdnY2tLW18ZYneNJ/cblcD5KTk/9AHzVz9IJO8s6srKzHfAyMjo56fCJaW1uhoaGBt16D//kV1T80NESzP8bcNkGfmZm5aDQaoa+vj1tI0LMpKCjgLQmctQnNOygXRfEFjl/95GwKvVlzTU1NYDabmdHw8DCLRUVF0Nvby3Kn0/kPml+g/S8tLaXZ69noLUAnkS6XzxUKxeWMjIxxzJeTkpIe4iyN9BLgw36O5pfQ3FlcXEzm36C2RT9KRUlVVRU0Nzcv1dTUQGFhoR278ql/u5xH0c1GdKJo1njOBAV1vA18UHTTrXIIRdfk2r53iSC8BA1AMFR/DqQjAAAAAElFTkSuQmCC</bitmap>
-                    </item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">88093fcd-258d-41a8-871c-e78339d77b19</item>
-                    <item name="Name" type_name="gh_string" type_code="10">Honeybee_Call from EP Schedule Library</item>
-                    <item name="NickName" type_name="gh_string" type_code="10">callFromEPSCHLibrary</item>
-                  </items>
-                  <chunks count="2">
-                    <chunk name="Attributes">
-                      <items count="2">
-                        <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                          <X>2600</X>
-                          <Y>1489</Y>
-                          <W>195</W>
-                          <H>157</H>
-                        </item>
-                        <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                          <X>2674</X>
-                          <Y>1568</Y>
-                        </item>
-                      </items>
-                    </chunk>
-                    <chunk name="ParameterData">
-                      <items count="5">
-                        <item name="InputCount" type_name="gh_int32" type_code="3">1</item>
-                        <item name="InputId" index="0" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
-                        <item name="OutputCount" type_name="gh_int32" type_code="3">2</item>
-                        <item name="OutputId" index="0" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
-                        <item name="OutputId" index="1" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
-                      </items>
-                      <chunks count="3">
-                        <chunk name="InputParam" index="0">
-                          <items count="11">
-                            <item name="Access" type_name="gh_int32" type_code="3">1</item>
-                            <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
-                            <item name="Description" type_name="gh_string" type_code="10">List of keywords to filter the list of schedules</item>
-                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">f77ac653-0aa4-4e8e-b4a4-c33451a9fa39</item>
-                            <item name="Name" type_name="gh_string" type_code="10">keywords_</item>
-                            <item name="NickName" type_name="gh_string" type_code="10">keywords_</item>
-                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
-                            <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">1</item>
-                            <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
-                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
-                            <item name="TypeHintID" type_name="gh_guid" type_code="9">37261734-eec7-4f50-b6a8-b8d1f3c4396b</item>
-                          </items>
-                          <chunks count="1">
-                            <chunk name="Attributes">
-                              <items count="2">
-                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>2602</X>
-                                  <Y>1491</Y>
-                                  <W>57</W>
-                                  <H>153</H>
-                                </item>
-                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>2632</X>
-                                  <Y>1567.5</Y>
-                                </item>
-                              </items>
-                            </chunk>
-                          </chunks>
-                        </chunk>
-                        <chunk name="OutputParam" index="0">
-                          <items count="6">
-                            <item name="Description" type_name="gh_string" type_code="10">List of EP schedules in Honeybee library</item>
-                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">c5bfc8c6-5db0-408b-9b48-ab8f005eed27</item>
-                            <item name="Name" type_name="gh_string" type_code="10">scheduleTypeLimits</item>
-                            <item name="NickName" type_name="gh_string" type_code="10">scheduleTypeLimits</item>
-                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
-                          </items>
-                          <chunks count="1">
-                            <chunk name="Attributes">
-                              <items count="2">
-                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>2689</X>
-                                  <Y>1491</Y>
-                                  <W>104</W>
-                                  <H>76</H>
-                                </item>
-                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>2741</X>
-                                  <Y>1529.25</Y>
-                                </item>
-                              </items>
-                            </chunk>
-                          </chunks>
-                        </chunk>
-                        <chunk name="OutputParam" index="1">
-                          <items count="6">
-                            <item name="Description" type_name="gh_string" type_code="10">List of EP window schedules in Honeybee library</item>
-                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">38ec3f7e-6e6c-40e6-bb0b-4ffe85d2fb53</item>
-                            <item name="Name" type_name="gh_string" type_code="10">scheduleList</item>
-                            <item name="NickName" type_name="gh_string" type_code="10">scheduleList</item>
-                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
-                          </items>
-                          <chunks count="1">
-                            <chunk name="Attributes">
-                              <items count="2">
-                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>2689</X>
-                                  <Y>1567</Y>
-                                  <W>104</W>
-                                  <H>77</H>
-                                </item>
-                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>2741</X>
-                                  <Y>1605.75</Y>
-                                </item>
-                              </items>
-                            </chunk>
-                          </chunks>
-                        </chunk>
-                      </chunks>
-                    </chunk>
-                  </chunks>
-                </chunk>
-              </chunks>
-            </chunk>
-            <chunk name="Object" index="160">
-              <items count="3">
-                <item name="GUID" type_name="gh_guid" type_code="9">410755b1-224a-4c1e-a407-bf32fb45ea7e</item>
-                <item name="Lib" type_name="gh_guid" type_code="9">16cf80bc-9018-cbdb-2238-976eb17fd30d</item>
-                <item name="Name" type_name="gh_string" type_code="10">Honeybee_Get EnergyPlus Schedules</item>
-              </items>
-              <chunks count="1">
-                <chunk name="Container">
-                  <items count="11">
-                    <item name="CodeInput" type_name="gh_string" type_code="10">#
-# Honeybee: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipour Roudsari
-# 
-# This file is part of Honeybee.
-# 
-# Copyright (c) 2013-2016, Mostapha Sadeghipour Roudsari &lt;Sadeghipour@gmail.com&gt; 
-# Honeybee is free software; you can redistribute it and/or modify 
-# it under the terms of the GNU General Public License as published 
-# by the Free Software Foundation; either version 3 of the License, 
-# or (at your option) any later version. 
-# 
-# Honeybee is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of 
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the 
-# GNU General Public License for more details.
-# 
-# You should have received a copy of the GNU General Public License
-# along with Honeybee; If not, see &lt;http://www.gnu.org/licenses/&gt;.
-# 
-# @license GPL-3.0+ &lt;http://spdx.org/licenses/GPL-3.0+&gt;
-
-
-"""
-Look up schedules for an specific bldgProgram and zoneProgram
--
-Provided by Honeybee 0.0.59
-
-    Args:
-        bldgProgram_:...
-        zoneProgram_:...
-    Returns:
-        occupancySchedule:
-        heatingSetPtSchedule:
-        coolingSetPtSchedule:
-        lightingSchedule:
-        equipmentSchedule:
-        infiltrationSchedule:
-"""
-
-ghenv.Component.Name = "Honeybee_Get EnergyPlus Schedules"
-ghenv.Component.NickName = 'getEPSchedules'
-ghenv.Component.Message = 'VER 0.0.59\nJAN_26_2016'
-ghenv.Component.IconDisplayMode = ghenv.Component.IconDisplayMode.application
-ghenv.Component.Category = "Honeybee"
-ghenv.Component.SubCategory = "05 | Energy | Building Program"
-#compatibleHBVersion = VER 0.0.56\nFEB_01_2015
-#compatibleLBVersion = VER 0.0.59\nFEB_01_2015
-try: ghenv.Component.AdditionalHelpFromDocStrings = "0"
-except: pass
-import scriptcontext as sc
-import Grasshopper.Kernel as gh
-
-def main(HBZoneProgram):
-    # check for Honeybee
-    if not sc.sticky.has_key('honeybee_release'):
-        print "You should first let Honeybee to fly..."
-        w = gh.GH_RuntimeMessageLevel.Warning
-        ghenv.Component.AddRuntimeMessage(w, "You should first let Honeybee to fly...")
-        return -1
-
-    try:
-        if not sc.sticky['honeybee_release'].isCompatible(ghenv.Component): return -1
-        if sc.sticky['honeybee_release'].isInputMissing(ghenv.Component): return -1
-    except:
-        warning = "You need a newer version of Honeybee to use this compoent." + \
-        " Use updateHoneybee component to update userObjects.\n" + \
-        "If you have already updated userObjects drag Honeybee_Honeybee component " + \
-        "into canvas and try again."
-        w = gh.GH_RuntimeMessageLevel.Warning
-        ghenv.Component.AddRuntimeMessage(w, warning)
-        return -1
-    
-    bldgProgram, zoneProgram = HBZoneProgram.split("::")
-    
-    openStudioStandardLib = sc.sticky ["honeybee_OpenStudioStandardsFile"]
-    
-    BuildingPrograms = sc.sticky["honeybee_BuildingProgramsLib"]()
-    bldgProgramDict = BuildingPrograms.bldgPrograms
-    zonesProgramDict = BuildingPrograms.zonePrograms
-    
-    try:
-        schedulesAndLoads = openStudioStandardLib['space_types']['90.1-2007']['ClimateZone 1-8'][bldgProgram][zoneProgram]
-    except:
-        msg = "Either your input for bldgProgram &gt; [" + str(bldgProgram) + "] or " + \
-              "the input for zoneProgram &gt; [" + str(zoneProgram) + "] is not valid; " + \
-              "or [" + str(bldgProgram) + "] and [" + str(zoneProgram) + "] is not a valid combination.\n" + \
-              "Use ListSpacePrograms component to find the available programs."
-        print msg
-        ghenv.Component.AddRuntimeMessage(gh.GH_RuntimeMessageLevel.Warning, msg)
-        return -1
-        
-    occupancySchedule = schedulesAndLoads['occupancy_sch']
-    occupancyActivitySch = schedulesAndLoads['occupancy_activity_sch'] 
-    heatingSetPtSchedule = schedulesAndLoads['heating_setpoint_sch']
-    coolingSetPtSchedule = schedulesAndLoads['cooling_setpoint_sch']
-    lightingSchedule = schedulesAndLoads['lighting_sch']
-    equipmentSchedule = schedulesAndLoads['elec_equip_sch']
-    infiltrationSchedule = schedulesAndLoads['infiltration_sch']
-    
-    return occupancySchedule, occupancyActivitySch, heatingSetPtSchedule, coolingSetPtSchedule, lightingSchedule, equipmentSchedule, infiltrationSchedule
-    
-    
-if _zoneProgram:
-    results = main(_zoneProgram)
-    
-    if results != -1:
-        occupancySchedule, occupancyActivitySch, heatingSetPtSchedule, coolingSetPtSchedule, lightingSchedule, equipmentSchedule, infiltrationSchedule = results</item>
-                    <item name="Description" type_name="gh_string" type_code="10">Look up schedules for an specific bldgProgram and zoneProgram
--
-Provided by Honeybee 0.0.59</item>
-                    <item name="EditorLocation" type_name="gh_drawing_point" type_code="30">
-                      <X>2102</X>
-                      <Y>129</Y>
-                    </item>
-                    <item name="EditorSize" type_name="gh_drawing_size" type_code="32">
-                      <W>923</W>
-                      <H>820</H>
-                    </item>
-                    <item name="Hidden" type_name="gh_bool" type_code="1">true</item>
-                    <item name="HideInput" type_name="gh_bool" type_code="1">true</item>
-                    <item name="HideOutput" type_name="gh_bool" type_code="1">true</item>
-                    <item name="IconOverride" type_name="gh_drawing_bitmap" type_code="37">
-                      <bitmap length="1068">iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwgAADsIBFShKgAAAA85JREFUSEvNlW1MVmUcxq8Hnhf1kQeqRa7VIBOKlZZFAptCqGOVLJljWjG/5BftbYwiaNUoldbLdLMkP6gbmH1g8apOZSC6RUrCFGuF2TDz7UMY7wEVcnXd5z4slMRmq3Vtv93/c+77f/3PuV/Owf9NWWK2Df8dbRfP2PCfa4ZIs6Ejr2gS65wrq5BIseGNqUBUIiH5EoqqBhGfSKQ9fRmrigYxJaJNfTvEk2bgjWgRZiV9h6xc4ksS34qq80R9D/G94s1HiXlPEHEPlmtstE25vqa4bRaSs4gWGW1pJiq6xM/E/mFi9wCx9zeipE33zohzhHfaWeX4bSrC3PYvdbN4FjMfaEebzA+K+iGiWk9d2a03cPnMFPtFhdRn3qxUDwHsFAuNyfW0DctfJYqqibpRaz5mfDV7VGDnj0R+maZriSmSYS0m0+zUizimp9p2cnJzQ20/UfaDCvURn7abAputybUVj/wS4msV2DV4pVn5JeKA1uCE+prEYfG5aNBb1qntEPPSG1yfCcoWlaIRcxdr3jV4l+Z4fIFDpOf1MoY9vJyeFTuI7Aoip5548yyxXeOztxJhgS55mHOSKa5QgjAL9LYz/18owczv+AJmRz3+PvNSwAsN4MZccM1S8MXcSC5bHcv4aC9jQxi8NRpdgQBa5RVpjK9WCDlFw7gos32aov0j1rxS23TfZWL9T3whL0T1TmRE/GrjlStg1uM9MdVxHa9gTELHzNRVvP2edHp3q0izUmp6td9VqJH0p2aw55hr2if6xYBwzRvrcEI2p4QpUmw8xxQo8Hirj/gCbFu0gIdTknhIg9Ke/5A4olRzDlrVZmxg7QZr5hQYowccGUGL6/WyMF/e6c6V0SbftFbeGceujtNKthr4+CP2qkjsG+V2XcziF3awMN8t0Pun+dAQul2rJeITG7q61+d7ivCxpWQL+5V6vr6Bfe0n2dpsPkLg1vvS7NY0aJruWDiXPCfj3605R8HRUdzv2l0Qi23o6rGpwVz6o9hUU8Pa1c+x4q44ls95iNWJyexOeoTrMlcS38h8/R7tey12ZjEPlsjYvIWQeY5rZf4X79hwnG4JD390CH4ez3+Nw0oZ06jb5hV/UIXQrFoEo4iYxE545pcXFWLEmHeecT7pRloyXPOg4ZXgTbX0RrCj+F1nmhy1HudXa4s71e2xo1AmzKFE9lKcOrDX2SkviY2i1NyfVGv800v1F+HRuxPYOCeRBZ7w07cB6W630SaxzATBINZGRToFDAvMvb+rGTEyjQDi3Ovx8olwGzqaL94SEw/UfyPgDwT5gT0fdp0rAAAAAElFTkSuQmCC</bitmap>
-                    </item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">e1763f08-c323-445c-a399-58c0b1dbbeb9</item>
-                    <item name="Name" type_name="gh_string" type_code="10">Honeybee_Get EnergyPlus Schedules</item>
-                    <item name="NickName" type_name="gh_string" type_code="10">getEPSchedules</item>
-                  </items>
-                  <chunks count="2">
-                    <chunk name="Attributes">
-                      <items count="2">
-                        <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                          <X>2814</X>
-                          <Y>1280</Y>
-                          <W>227</W>
-                          <H>144</H>
-                        </item>
-                        <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                          <X>2908</X>
-                          <Y>1352</Y>
-                        </item>
-                      </items>
-                    </chunk>
-                    <chunk name="ParameterData">
-                      <items count="10">
-                        <item name="InputCount" type_name="gh_int32" type_code="3">1</item>
-                        <item name="InputId" index="0" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
-                        <item name="OutputCount" type_name="gh_int32" type_code="3">7</item>
-                        <item name="OutputId" index="0" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
-                        <item name="OutputId" index="1" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
-                        <item name="OutputId" index="2" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
-                        <item name="OutputId" index="3" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
-                        <item name="OutputId" index="4" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
-                        <item name="OutputId" index="5" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
-                        <item name="OutputId" index="6" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
-                      </items>
-                      <chunks count="8">
-                        <chunk name="InputParam" index="0">
-                          <items count="10">
-                            <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
-                            <item name="Description" type_name="gh_string" type_code="10">Script input _zoneProgram.</item>
-                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">7e007e1c-fe7a-4055-88c3-e8be25cff6dc</item>
-                            <item name="Name" type_name="gh_string" type_code="10">_zoneProgram</item>
-                            <item name="NickName" type_name="gh_string" type_code="10">_zoneProgram</item>
-                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
-                            <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">0</item>
-                            <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
-                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
-                            <item name="TypeHintID" type_name="gh_guid" type_code="9">87f87f55-5b71-41f4-8aea-21d494016f81</item>
-                          </items>
-                          <chunks count="1">
-                            <chunk name="Attributes">
-                              <items count="2">
-                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>2816</X>
-                                  <Y>1282</Y>
-                                  <W>77</W>
-                                  <H>140</H>
-                                </item>
-                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>2856</X>
-                                  <Y>1352</Y>
-                                </item>
-                              </items>
-                            </chunk>
-                          </chunks>
-                        </chunk>
-                        <chunk name="OutputParam" index="0">
-                          <items count="6">
-                            <item name="Description" type_name="gh_string" type_code="10"></item>
-                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">6b639b54-34cd-4052-b900-e5a09585db66</item>
-                            <item name="Name" type_name="gh_string" type_code="10">occupancySchedule</item>
-                            <item name="NickName" type_name="gh_string" type_code="10">occupancySchedule</item>
-                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
-                          </items>
-                          <chunks count="1">
-                            <chunk name="Attributes">
-                              <items count="2">
-                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>2923</X>
-                                  <Y>1282</Y>
-                                  <W>116</W>
-                                  <H>20</H>
-                                </item>
-                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>2981</X>
-                                  <Y>1292</Y>
-                                </item>
-                              </items>
-                            </chunk>
-                          </chunks>
-                        </chunk>
-                        <chunk name="OutputParam" index="1">
-                          <items count="6">
-                            <item name="Description" type_name="gh_string" type_code="10">Script variable LookupSchedules</item>
-                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">b7440a80-02f4-4869-beef-629059fff428</item>
-                            <item name="Name" type_name="gh_string" type_code="10">occupancyActivitySch</item>
-                            <item name="NickName" type_name="gh_string" type_code="10">occupancyActivitySch</item>
-                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
-                          </items>
-                          <chunks count="1">
-                            <chunk name="Attributes">
-                              <items count="2">
-                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>2923</X>
-                                  <Y>1302</Y>
-                                  <W>116</W>
-                                  <H>20</H>
-                                </item>
-                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>2981</X>
-                                  <Y>1312</Y>
-                                </item>
-                              </items>
-                            </chunk>
-                          </chunks>
-                        </chunk>
-                        <chunk name="OutputParam" index="2">
-                          <items count="6">
-                            <item name="Description" type_name="gh_string" type_code="10"></item>
-                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">00f9ee4f-6a5c-4ff7-bb23-91e17988f0e6</item>
-                            <item name="Name" type_name="gh_string" type_code="10">heatingSetPtSchedule</item>
-                            <item name="NickName" type_name="gh_string" type_code="10">heatingSetPtSchedule</item>
-                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
-                          </items>
-                          <chunks count="1">
-                            <chunk name="Attributes">
-                              <items count="2">
-                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>2923</X>
-                                  <Y>1322</Y>
-                                  <W>116</W>
-                                  <H>20</H>
-                                </item>
-                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>2981</X>
-                                  <Y>1332</Y>
-                                </item>
-                              </items>
-                            </chunk>
-                          </chunks>
-                        </chunk>
-                        <chunk name="OutputParam" index="3">
-                          <items count="6">
-                            <item name="Description" type_name="gh_string" type_code="10"></item>
-                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">bcf73f0b-6d77-41ed-9e20-c83f072a73ac</item>
-                            <item name="Name" type_name="gh_string" type_code="10">coolingSetPtSchedule</item>
-                            <item name="NickName" type_name="gh_string" type_code="10">coolingSetPtSchedule</item>
-                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
-                          </items>
-                          <chunks count="1">
-                            <chunk name="Attributes">
-                              <items count="2">
-                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>2923</X>
-                                  <Y>1342</Y>
-                                  <W>116</W>
-                                  <H>20</H>
-                                </item>
-                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>2981</X>
-                                  <Y>1352</Y>
-                                </item>
-                              </items>
-                            </chunk>
-                          </chunks>
-                        </chunk>
-                        <chunk name="OutputParam" index="4">
-                          <items count="6">
-                            <item name="Description" type_name="gh_string" type_code="10"></item>
-                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">32d6e9b7-5aad-4a88-ad27-f7575955239a</item>
-                            <item name="Name" type_name="gh_string" type_code="10">lightingSchedule</item>
-                            <item name="NickName" type_name="gh_string" type_code="10">lightingSchedule</item>
-                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
-                          </items>
-                          <chunks count="1">
-                            <chunk name="Attributes">
-                              <items count="2">
-                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>2923</X>
-                                  <Y>1362</Y>
-                                  <W>116</W>
-                                  <H>20</H>
-                                </item>
-                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>2981</X>
-                                  <Y>1372</Y>
-                                </item>
-                              </items>
-                            </chunk>
-                          </chunks>
-                        </chunk>
-                        <chunk name="OutputParam" index="5">
-                          <items count="6">
-                            <item name="Description" type_name="gh_string" type_code="10"></item>
-                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">4f1dfeab-f795-4b92-8095-f89f94b32b53</item>
-                            <item name="Name" type_name="gh_string" type_code="10">equipmentSchedule</item>
-                            <item name="NickName" type_name="gh_string" type_code="10">equipmentSchedule</item>
-                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
-                          </items>
-                          <chunks count="1">
-                            <chunk name="Attributes">
-                              <items count="2">
-                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>2923</X>
-                                  <Y>1382</Y>
-                                  <W>116</W>
-                                  <H>20</H>
-                                </item>
-                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>2981</X>
-                                  <Y>1392</Y>
-                                </item>
-                              </items>
-                            </chunk>
-                          </chunks>
-                        </chunk>
-                        <chunk name="OutputParam" index="6">
-                          <items count="6">
-                            <item name="Description" type_name="gh_string" type_code="10"></item>
-                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">477a201b-958d-4311-a7c3-26a81e989996</item>
-                            <item name="Name" type_name="gh_string" type_code="10">infiltrationSchedule</item>
-                            <item name="NickName" type_name="gh_string" type_code="10">infiltrationSchedule</item>
-                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
-                          </items>
-                          <chunks count="1">
-                            <chunk name="Attributes">
-                              <items count="2">
-                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>2923</X>
-                                  <Y>1402</Y>
-                                  <W>116</W>
-                                  <H>20</H>
-                                </item>
-                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>2981</X>
-                                  <Y>1412</Y>
-                                </item>
-                              </items>
-                            </chunk>
-                          </chunks>
-                        </chunk>
-                      </chunks>
-                    </chunk>
-                  </chunks>
-                </chunk>
-              </chunks>
-            </chunk>
-            <chunk name="Object" index="161">
-              <items count="2">
-                <item name="GUID" type_name="gh_guid" type_code="9">59e0b89a-e487-49f8-bab8-b5bab16be14c</item>
-                <item name="Name" type_name="gh_string" type_code="10">Panel</item>
-              </items>
-              <chunks count="1">
-                <chunk name="Container">
-                  <items count="9">
-                    <item name="Description" type_name="gh_string" type_code="10">A panel for custom notes and text values</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">e366e828-2883-4265-a9da-d7c7ec7af278</item>
-                    <item name="Name" type_name="gh_string" type_code="10">Panel</item>
-                    <item name="NickName" type_name="gh_string" type_code="10"></item>
-                    <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                    <item name="ScrollRatio" type_name="gh_double" type_code="6">0.78491353988647461</item>
-                    <item name="Source" index="0" type_name="gh_guid" type_code="9">38ec3f7e-6e6c-40e6-bb0b-4ffe85d2fb53</item>
-                    <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
-                    <item name="UserText" type_name="gh_string" type_code="10">Double click to edit panel content…</item>
-                  </items>
-                  <chunks count="2">
-                    <chunk name="Attributes">
-                      <items count="5">
-                        <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                          <X>2899</X>
-                          <Y>1547</Y>
-                          <W>261</W>
-                          <H>100</H>
-                        </item>
-                        <item name="MarginLeft" type_name="gh_int32" type_code="3">0</item>
-                        <item name="MarginRight" type_name="gh_int32" type_code="3">0</item>
-                        <item name="MarginTop" type_name="gh_int32" type_code="3">0</item>
-                        <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                          <X>2899.547</X>
-                          <Y>1547.221</Y>
-                        </item>
-                      </items>
-                    </chunk>
-                    <chunk name="PanelProperties">
-                      <items count="6">
-                        <item name="Colour" type_name="gh_drawing_color" type_code="36">
-                          <ARGB>255;255;250;90</ARGB>
-                        </item>
-                        <item name="DrawIndices" type_name="gh_bool" type_code="1">true</item>
-                        <item name="DrawPaths" type_name="gh_bool" type_code="1">true</item>
-                        <item name="Multiline" type_name="gh_bool" type_code="1">true</item>
-                        <item name="Stream" type_name="gh_bool" type_code="1">false</item>
-                        <item name="Wrap" type_name="gh_bool" type_code="1">true</item>
-                      </items>
-                    </chunk>
-                  </chunks>
-                </chunk>
-              </chunks>
-            </chunk>
-            <chunk name="Object" index="162">
-              <items count="2">
-                <item name="GUID" type_name="gh_guid" type_code="9">59e0b89a-e487-49f8-bab8-b5bab16be14c</item>
-                <item name="Name" type_name="gh_string" type_code="10">Panel</item>
-              </items>
-              <chunks count="1">
-                <chunk name="Container">
-                  <items count="8">
-                    <item name="Description" type_name="gh_string" type_code="10">A panel for custom notes and text values</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">3d8cb281-7169-4c5c-8fc5-85a5244f3cb0</item>
-                    <item name="Name" type_name="gh_string" type_code="10">Panel</item>
-                    <item name="NickName" type_name="gh_string" type_code="10"></item>
-                    <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                    <item name="ScrollRatio" type_name="gh_double" type_code="6">0</item>
-                    <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
-                    <item name="UserText" type_name="gh_string" type_code="10">ALWAYS ON
-ALWAYS ON DEFAULT SCHEDULE
-ALWAYS ON SUMMER DESIGN DAY
-ALWAYS ON WINTER DESIGN DAY
-FULLSERVICERESTAURANT ACTIVITY
-FULLSERVICERESTAURANT ACTIVITY DEFAULT SCHEDULE
-FULLSERVICERESTAURANT ACTIVITY SUMMER DESIGN DAY
-FULLSERVICERESTAURANT ACTIVITY WINTER DESIGN DAY
-FULLSERVICERESTAURANT BLDG EQUIP
-FULLSERVICERESTAURANT BLDG EQUIP DEFAULT SCHEDULE
-FULLSERVICERESTAURANT BLDG EQUIP RULE 1 DAY SCHEDULE
-FULLSERVICERESTAURANT BLDG EQUIP SUMMER DESIGN DAY
-FULLSERVICERESTAURANT BLDG EQUIP WINTER DESIGN DAY
-FULLSERVICERESTAURANT BLDG LIGHT
-FULLSERVICERESTAURANT BLDG LIGHT DEFAULT SCHEDULE
-FULLSERVICERESTAURANT BLDG LIGHT SUMMER DESIGN DAY
-FULLSERVICERESTAURANT BLDG LIGHT WINTER DESIGN DAY
-FULLSERVICERESTAURANT BLDG OCC
-FULLSERVICERESTAURANT BLDG OCC DEFAULT SCHEDULE
-FULLSERVICERESTAURANT BLDG OCC RULE 1 DAY SCHEDULE
-FULLSERVICERESTAURANT BLDG OCC RULE 2 DAY SCHEDULE
-FULLSERVICERESTAURANT BLDG OCC SUMMER DESIGN DAY
-FULLSERVICERESTAURANT BLDG OCC WINTER DESIGN DAY
-FULLSERVICERESTAURANT CLGSETP
-FULLSERVICERESTAURANT CLGSETP DEFAULT SCHEDULE
-FULLSERVICERESTAURANT CLGSETP KITCHEN
-FULLSERVICERESTAURANT CLGSETP KITCHEN DEFAULT SCHEDULE
-FULLSERVICERESTAURANT CLGSETP KITCHEN SUMMER DESIGN DAY
-FULLSERVICERESTAURANT CLGSETP KITCHEN WINTER DESIGN DAY
-FULLSERVICERESTAURANT CLGSETP SUMMER DESIGN DAY
-FULLSERVICERESTAURANT CLGSETP WINTER DESIGN DAY
-FULLSERVICERESTAURANT GAS EQUIP
-FULLSERVICERESTAURANT GAS EQUIP DEFAULT SCHEDULE
-FULLSERVICERESTAURANT GAS EQUIP RULE 1 DAY SCHEDULE
-FULLSERVICERESTAURANT GAS EQUIP SUMMER DESIGN DAY
-FULLSERVICERESTAURANT GAS EQUIP WINTER DESIGN DAY
-FULLSERVICERESTAURANT HTGSETP
-FULLSERVICERESTAURANT HTGSETP DEFAULT SCHEDULE
-FULLSERVICERESTAURANT HTGSETP KITCHEN
-FULLSERVICERESTAURANT HTGSETP KITCHEN DEFAULT SCHEDULE
-FULLSERVICERESTAURANT HTGSETP KITCHEN SUMMER DESIGN DAY
-FULLSERVICERESTAURANT HTGSETP KITCHEN WINTER DESIGN DAY
-FULLSERVICERESTAURANT HTGSETP SUMMER DESIGN DAY
-FULLSERVICERESTAURANT HTGSETP WINTER DESIGN DAY
-FULLSERVICERESTAURANT INFIL HALF ON
-FULLSERVICERESTAURANT INFIL HALF ON DEFAULT SCHEDULE
-FULLSERVICERESTAURANT INFIL HALF ON RULE 1 DAY SCHEDULE
-FULLSERVICERESTAURANT INFIL HALF ON RULE 2 DAY SCHEDULE
-FULLSERVICERESTAURANT INFIL HALF ON SUMMER DESIGN DAY
-FULLSERVICERESTAURANT INFIL HALF ON WINTER DESIGN DAY
-HOSPITAL ACTIVITY
-HOSPITAL ACTIVITY DEFAULT SCHEDULE
-HOSPITAL ACTIVITY SUMMER DESIGN DAY
-HOSPITAL ACTIVITY WINTER DESIGN DAY
-HOSPITAL BLDG CLGSETP
-HOSPITAL BLDG CLGSETP DEFAULT SCHEDULE
-HOSPITAL BLDG CLGSETP RULE 1 DAY SCHEDULE
-HOSPITAL BLDG CLGSETP SUMMER DESIGN DAY
-HOSPITAL BLDG CLGSETP WINTER DESIGN DAY
-HOSPITAL BLDG EQUIP
-HOSPITAL BLDG EQUIP DEFAULT SCHEDULE
-HOSPITAL BLDG EQUIP RULE 1 DAY SCHEDULE
-HOSPITAL BLDG EQUIP RULE 2 DAY SCHEDULE
-HOSPITAL BLDG EQUIP SUMMER DESIGN DAY
-HOSPITAL BLDG EQUIP WINTER DESIGN DAY
-HOSPITAL BLDG HTGSETP
-HOSPITAL BLDG HTGSETP DEFAULT SCHEDULE
-HOSPITAL BLDG HTGSETP RULE 1 DAY SCHEDULE
-HOSPITAL BLDG HTGSETP SUMMER DESIGN DAY
-HOSPITAL BLDG HTGSETP WINTER DESIGN DAY
-HOSPITAL BLDG LIGHT
-HOSPITAL BLDG LIGHT DEFAULT SCHEDULE
-HOSPITAL BLDG LIGHT RULE 1 DAY SCHEDULE
-HOSPITAL BLDG LIGHT RULE 2 DAY SCHEDULE
-HOSPITAL BLDG LIGHT SUMMER DESIGN DAY
-HOSPITAL BLDG LIGHT WINTER DESIGN DAY
-HOSPITAL BLDG OCC
-HOSPITAL BLDG OCC DEFAULT SCHEDULE
-HOSPITAL BLDG OCC RULE 1 DAY SCHEDULE
-HOSPITAL BLDG OCC RULE 2 DAY SCHEDULE
-HOSPITAL BLDG OCC SUMMER DESIGN DAY
-HOSPITAL BLDG OCC WINTER DESIGN DAY
-HOSPITAL CRITICAL CLGSETP
-HOSPITAL CRITICAL CLGSETP DEFAULT SCHEDULE
-HOSPITAL CRITICAL CLGSETP SUMMER DESIGN DAY
-HOSPITAL CRITICAL CLGSETP WINTER DESIGN DAY
-HOSPITAL CRITICAL HTGSETP
-HOSPITAL CRITICAL HTGSETP DEFAULT SCHEDULE
-HOSPITAL CRITICAL HTGSETP SUMMER DESIGN DAY
-HOSPITAL CRITICAL HTGSETP WINTER DESIGN DAY
-HOSPITAL CRITICAL OCC
-HOSPITAL CRITICAL OCC DEFAULT SCHEDULE
-HOSPITAL CRITICAL OCC RULE 1 DAY SCHEDULE
-HOSPITAL CRITICAL OCC RULE 2 DAY SCHEDULE
-HOSPITAL CRITICAL OCC SUMMER DESIGN DAY
-HOSPITAL CRITICAL OCC WINTER DESIGN DAY
-HOSPITAL INFIL QUARTER ON
-HOSPITAL INFIL QUARTER ON DEFAULT SCHEDULE
-HOSPITAL INFIL QUARTER ON RULE 1 DAY SCHEDULE
-HOSPITAL INFIL QUARTER ON RULE 2 DAY SCHEDULE
-HOSPITAL INFIL QUARTER ON SUMMER DESIGN DAY
-HOSPITAL INFIL QUARTER ON WINTER DESIGN DAY
-HOSPITAL KITCHEN GAS
-HOSPITAL KITCHEN GAS DEFAULT SCHEDULE
-HOSPITAL KITCHEN GAS RULE 1 DAY SCHEDULE
-HOSPITAL KITCHEN GAS SUMMER DESIGN DAY
-HOSPITAL KITCHEN GAS WINTER DESIGN DAY
-LARGE OFFICE ACTIVITY
-LARGE OFFICE ACTIVITY DEFAULT SCHEDULE
-LARGE OFFICE ACTIVITY SUMMER DESIGN DAY
-LARGE OFFICE ACTIVITY WINTER DESIGN DAY
-LARGE OFFICE BLDG EQUIP
-LARGE OFFICE BLDG EQUIP DEFAULT SCHEDULE
-LARGE OFFICE BLDG EQUIP RULE 1 DAY SCHEDULE
-LARGE OFFICE BLDG EQUIP RULE 2 DAY SCHEDULE
-LARGE OFFICE BLDG EQUIP SUMMER DESIGN DAY
-LARGE OFFICE BLDG EQUIP WINTER DESIGN DAY
-LARGE OFFICE BLDG LIGHT
-LARGE OFFICE BLDG LIGHT DEFAULT SCHEDULE
-LARGE OFFICE BLDG LIGHT RULE 1 DAY SCHEDULE
-LARGE OFFICE BLDG LIGHT RULE 2 DAY SCHEDULE
-LARGE OFFICE BLDG LIGHT SUMMER DESIGN DAY
-LARGE OFFICE BLDG LIGHT WINTER DESIGN DAY
-LARGE OFFICE BLDG OCC
-LARGE OFFICE BLDG OCC DEFAULT SCHEDULE
-LARGE OFFICE BLDG OCC RULE 1 DAY SCHEDULE
-LARGE OFFICE BLDG OCC RULE 2 DAY SCHEDULE
-LARGE OFFICE BLDG OCC SUMMER DESIGN DAY
-LARGE OFFICE BLDG OCC WINTER DESIGN DAY
-LARGE OFFICE CLGSETP
-LARGE OFFICE CLGSETP DEFAULT SCHEDULE
-LARGE OFFICE CLGSETP RULE 1 DAY SCHEDULE
-LARGE OFFICE CLGSETP RULE 2 DAY SCHEDULE
-LARGE OFFICE CLGSETP SUMMER DESIGN DAY
-LARGE OFFICE CLGSETP WINTER DESIGN DAY
-LARGE OFFICE HTGSETP
-LARGE OFFICE HTGSETP DEFAULT SCHEDULE
-LARGE OFFICE HTGSETP RULE 1 DAY SCHEDULE
-LARGE OFFICE HTGSETP RULE 2 DAY SCHEDULE
-LARGE OFFICE HTGSETP SUMMER DESIGN DAY
-LARGE OFFICE HTGSETP WINTER DESIGN DAY
-LARGE OFFICE INFIL QUARTER ON
-LARGE OFFICE INFIL QUARTER ON DEFAULT SCHEDULE
-LARGE OFFICE INFIL QUARTER ON RULE 1 DAY SCHEDULE
-LARGE OFFICE INFIL QUARTER ON RULE 2 DAY SCHEDULE
-LARGE OFFICE INFIL QUARTER ON SUMMER DESIGN DAY
-LARGE OFFICE INFIL QUARTER ON WINTER DESIGN DAY
-LARGEHOTEL ACTIVITY
-LARGEHOTEL ACTIVITY DEFAULT SCHEDULE
-LARGEHOTEL ACTIVITY SUMMER DESIGN DAY
-LARGEHOTEL ACTIVITY WINTER DESIGN DAY
-LARGEHOTEL BLDG EQUIP
-LARGEHOTEL BLDG EQUIP DEFAULT SCHEDULE
-LARGEHOTEL BLDG EQUIP RULE 1 DAY SCHEDULE
-LARGEHOTEL BLDG EQUIP RULE 2 DAY SCHEDULE
-LARGEHOTEL BLDG EQUIP SUMMER DESIGN DAY
-LARGEHOTEL BLDG EQUIP WINTER DESIGN DAY
-LARGEHOTEL BLDG LIGHT
-LARGEHOTEL BLDG LIGHT DEFAULT SCHEDULE
-LARGEHOTEL BLDG LIGHT RULE 1 DAY SCHEDULE
-LARGEHOTEL BLDG LIGHT RULE 2 DAY SCHEDULE
-LARGEHOTEL BLDG LIGHT SUMMER DESIGN DAY
-LARGEHOTEL BLDG LIGHT WINTER DESIGN DAY
-LARGEHOTEL BLDG OCC
-LARGEHOTEL BLDG OCC DEFAULT SCHEDULE
-LARGEHOTEL BLDG OCC RULE 1 DAY SCHEDULE
-LARGEHOTEL BLDG OCC RULE 2 DAY SCHEDULE
-LARGEHOTEL BLDG OCC SUMMER DESIGN DAY
-LARGEHOTEL BLDG OCC WINTER DESIGN DAY
-LARGEHOTEL CLGSETP
-LARGEHOTEL CLGSETP DEFAULT SCHEDULE
-LARGEHOTEL CLGSETP SUMMER DESIGN DAY
-LARGEHOTEL CLGSETP WINTER DESIGN DAY
-LARGEHOTEL CORRIDOR CLGSETP
-LARGEHOTEL CORRIDOR CLGSETP DEFAULT SCHEDULE
-LARGEHOTEL CORRIDOR CLGSETP SUMMER DESIGN DAY
-LARGEHOTEL CORRIDOR CLGSETP WINTER DESIGN DAY
-LARGEHOTEL CORRIDOR HTGSETP
-LARGEHOTEL CORRIDOR HTGSETP DEFAULT SCHEDULE
-LARGEHOTEL CORRIDOR HTGSETP SUMMER DESIGN DAY
-LARGEHOTEL CORRIDOR HTGSETP WINTER DESIGN DAY
-LARGEHOTEL GUESTROOM CLGSETP
-LARGEHOTEL GUESTROOM CLGSETP DEFAULT SCHEDULE
-LARGEHOTEL GUESTROOM CLGSETP SUMMER DESIGN DAY
-LARGEHOTEL GUESTROOM CLGSETP WINTER DESIGN DAY
-LARGEHOTEL GUESTROOM EQUIP
-LARGEHOTEL GUESTROOM EQUIP DEFAULT SCHEDULE
-LARGEHOTEL GUESTROOM EQUIP RULE 1 DAY SCHEDULE
-LARGEHOTEL GUESTROOM EQUIP SUMMER DESIGN DAY
-LARGEHOTEL GUESTROOM EQUIP WINTER DESIGN DAY
-LARGEHOTEL GUESTROOM HTGSETP
-LARGEHOTEL GUESTROOM HTGSETP DEFAULT SCHEDULE
-LARGEHOTEL GUESTROOM HTGSETP SUMMER DESIGN DAY
-LARGEHOTEL GUESTROOM HTGSETP WINTER DESIGN DAY
-LARGEHOTEL GUESTROOM OCC
-LARGEHOTEL GUESTROOM OCC DEFAULT SCHEDULE
-LARGEHOTEL GUESTROOM OCC RULE 1 DAY SCHEDULE
-LARGEHOTEL GUESTROOM OCC SUMMER DESIGN DAY
-LARGEHOTEL GUESTROOM OCC WINTER DESIGN DAY
-LARGEHOTEL HTGSETP
-LARGEHOTEL HTGSETP DEFAULT SCHEDULE
-LARGEHOTEL HTGSETP SUMMER DESIGN DAY
-LARGEHOTEL HTGSETP WINTER DESIGN DAY
-LARGEHOTEL INFIL QUARTER ON
-LARGEHOTEL INFIL QUARTER ON DEFAULT SCHEDULE
-LARGEHOTEL INFIL QUARTER ON SUMMER DESIGN DAY
-LARGEHOTEL INFIL QUARTER ON WINTER DESIGN DAY
-LARGEHOTEL KITCHEN CLGSETP
-LARGEHOTEL KITCHEN CLGSETP DEFAULT SCHEDULE
-LARGEHOTEL KITCHEN CLGSETP SUMMER DESIGN DAY
-LARGEHOTEL KITCHEN CLGSETP WINTER DESIGN DAY
-LARGEHOTEL KITCHEN EQUIP
-LARGEHOTEL KITCHEN EQUIP DEFAULT SCHEDULE
-LARGEHOTEL KITCHEN EQUIP RULE 1 DAY SCHEDULE
-LARGEHOTEL KITCHEN EQUIP SUMMER DESIGN DAY
-LARGEHOTEL KITCHEN EQUIP WINTER DESIGN DAY
-LARGEHOTEL KITCHEN GAS
-LARGEHOTEL KITCHEN GAS DEFAULT SCHEDULE
-LARGEHOTEL KITCHEN GAS RULE 1 DAY SCHEDULE
-LARGEHOTEL KITCHEN GAS SUMMER DESIGN DAY
-LARGEHOTEL KITCHEN GAS WINTER DESIGN DAY
-LARGEHOTEL KITCHEN HTGSETP
-LARGEHOTEL KITCHEN HTGSETP DEFAULT SCHEDULE
-LARGEHOTEL KITCHEN HTGSETP SUMMER DESIGN DAY
-LARGEHOTEL KITCHEN HTGSETP WINTER DESIGN DAY
-LARGEHOTEL LAUNDRYROOM EQUIP
-LARGEHOTEL LAUNDRYROOM EQUIP DEFAULT SCHEDULE
-LARGEHOTEL LAUNDRYROOM EQUIP SUMMER DESIGN DAY
-LARGEHOTEL LAUNDRYROOM EQUIP WINTER DESIGN DAY
-LARGEHOTEL LAUNDRYROOM GAS
-LARGEHOTEL LAUNDRYROOM GAS DEFAULT SCHEDULE
-LARGEHOTEL LAUNDRYROOM GAS SUMMER DESIGN DAY
-LARGEHOTEL LAUNDRYROOM GAS WINTER DESIGN DAY
-MEDIUM OFFICE ACTIVITY
-MEDIUM OFFICE ACTIVITY DEFAULT SCHEDULE
-MEDIUM OFFICE ACTIVITY SUMMER DESIGN DAY
-MEDIUM OFFICE ACTIVITY WINTER DESIGN DAY
-MEDIUM OFFICE BLDG EQUIP
-MEDIUM OFFICE BLDG EQUIP DEFAULT SCHEDULE
-MEDIUM OFFICE BLDG EQUIP RULE 1 DAY SCHEDULE
-MEDIUM OFFICE BLDG EQUIP RULE 2 DAY SCHEDULE
-MEDIUM OFFICE BLDG EQUIP SUMMER DESIGN DAY
-MEDIUM OFFICE BLDG EQUIP WINTER DESIGN DAY
-MEDIUM OFFICE BLDG OCC
-MEDIUM OFFICE BLDG OCC DEFAULT SCHEDULE
-MEDIUM OFFICE BLDG OCC RULE 1 DAY SCHEDULE
-MEDIUM OFFICE BLDG OCC RULE 2 DAY SCHEDULE
-MEDIUM OFFICE BLDG OCC SUMMER DESIGN DAY
-MEDIUM OFFICE BLDG OCC WINTER DESIGN DAY
-MEDIUM OFFICE CLGSETP
-MEDIUM OFFICE CLGSETP DEFAULT SCHEDULE
-MEDIUM OFFICE CLGSETP RULE 1 DAY SCHEDULE
-MEDIUM OFFICE CLGSETP RULE 2 DAY SCHEDULE
-MEDIUM OFFICE CLGSETP SUMMER DESIGN DAY
-MEDIUM OFFICE CLGSETP WINTER DESIGN DAY
-MEDIUM OFFICE HTGSETP
-MEDIUM OFFICE HTGSETP DEFAULT SCHEDULE
-MEDIUM OFFICE HTGSETP RULE 1 DAY SCHEDULE
-MEDIUM OFFICE HTGSETP RULE 2 DAY SCHEDULE
-MEDIUM OFFICE HTGSETP SUMMER DESIGN DAY
-MEDIUM OFFICE HTGSETP WINTER DESIGN DAY
-MEDIUM OFFICE INFIL QUARTER ON
-MEDIUM OFFICE INFIL QUARTER ON DEFAULT SCHEDULE
-MEDIUM OFFICE INFIL QUARTER ON RULE 1 DAY SCHEDULE
-MEDIUM OFFICE INFIL QUARTER ON RULE 2 DAY SCHEDULE
-MEDIUM OFFICE INFIL QUARTER ON SUMMER DESIGN DAY
-MEDIUM OFFICE INFIL QUARTER ON WINTER DESIGN DAY
-MIDRISEAPARTMENT ACTIVITY
-MIDRISEAPARTMENT ACTIVITY DEFAULT SCHEDULE
-MIDRISEAPARTMENT ACTIVITY SUMMER DESIGN DAY
-MIDRISEAPARTMENT ACTIVITY WINTER DESIGN DAY
-MIDRISEAPARTMENT APARTMENT CLGSETP
-MIDRISEAPARTMENT APARTMENT CLGSETP DEFAULT SCHEDULE
-MIDRISEAPARTMENT APARTMENT EQUIP
-MIDRISEAPARTMENT APARTMENT EQUIP DEFAULT SCHEDULE
-MIDRISEAPARTMENT APARTMENT EQUIP SUMMER DESIGN DAY
-MIDRISEAPARTMENT APARTMENT EQUIP WINTER DESIGN DAY
-MIDRISEAPARTMENT APARTMENT HTGSETP
-MIDRISEAPARTMENT APARTMENT HTGSETP DEFAULT SCHEDULE
-MIDRISEAPARTMENT APARTMENT LIGHT
-MIDRISEAPARTMENT APARTMENT LIGHT DEFAULT SCHEDULE
-MIDRISEAPARTMENT APARTMENT LIGHT SUMMER DESIGN DAY
-MIDRISEAPARTMENT APARTMENT LIGHT WINTER DESIGN DAY
-MIDRISEAPARTMENT APARTMENT OCC
-MIDRISEAPARTMENT APARTMENT OCC DEFAULT SCHEDULE
-MIDRISEAPARTMENT APARTMENT OCC SUMMER DESIGN DAY
-MIDRISEAPARTMENT APARTMENT OCC WINTER DESIGN DAY
-MIDRISEAPARTMENT CORRIDOR LIGHT
-MIDRISEAPARTMENT CORRIDOR LIGHT DEFAULT SCHEDULE
-MIDRISEAPARTMENT CORRIDOR LIGHT SUMMER DESIGN DAY
-MIDRISEAPARTMENT CORRIDOR LIGHT WINTER DESIGN DAY
-MIDRISEAPARTMENT INFIL
-MIDRISEAPARTMENT INFIL DEFAULT SCHEDULE
-MIDRISEAPARTMENT INFIL SUMMER DESIGN DAY
-MIDRISEAPARTMENT INFIL WINTER DESIGN DAY
-MIDRISEAPARTMENT OFFICE CLGSETP
-MIDRISEAPARTMENT OFFICE CLGSETP DEFAULT SCHEDULE
-MIDRISEAPARTMENT OFFICE CLGSETP SUMMER DESIGN DAY
-MIDRISEAPARTMENT OFFICE CLGSETP WINTER DESIGN DAY
-MIDRISEAPARTMENT OFFICE EQUIP
-MIDRISEAPARTMENT OFFICE EQUIP DEFAULT SCHEDULE
-MIDRISEAPARTMENT OFFICE EQUIP RULE 1 DAY SCHEDULE
-MIDRISEAPARTMENT OFFICE EQUIP SUMMER DESIGN DAY
-MIDRISEAPARTMENT OFFICE EQUIP WINTER DESIGN DAY
-MIDRISEAPARTMENT OFFICE HTGSETP
-MIDRISEAPARTMENT OFFICE HTGSETP DEFAULT SCHEDULE
-MIDRISEAPARTMENT OFFICE HTGSETP SUMMER DESIGN DAY
-MIDRISEAPARTMENT OFFICE HTGSETP WINTER DESIGN DAY
-MIDRISEAPARTMENT OFFICE LIGHT
-MIDRISEAPARTMENT OFFICE LIGHT DEFAULT SCHEDULE
-MIDRISEAPARTMENT OFFICE LIGHT RULE 1 DAY SCHEDULE
-MIDRISEAPARTMENT OFFICE LIGHT SUMMER DESIGN DAY
-MIDRISEAPARTMENT OFFICE LIGHT WINTER DESIGN DAY
-MIDRISEAPARTMENT OFFICE OCC
-MIDRISEAPARTMENT OFFICE OCC DEFAULT SCHEDULE
-MIDRISEAPARTMENT OFFICE OCC RULE 1 DAY SCHEDULE
-MIDRISEAPARTMENT OFFICE OCC SUMMER DESIGN DAY
-MIDRISEAPARTMENT OFFICE OCC WINTER DESIGN DAY
-OFFICE ACTIVITY
-OFFICE ACTIVITY DEFAULT SCHEDULE
-OFFICE ACTIVITY SUMMER DESIGN DAY
-OFFICE ACTIVITY WINTER DESIGN DAY
-OFFICE BLDG EQUIP
-OFFICE BLDG EQUIP DEFAULT SCHEDULE
-OFFICE BLDG EQUIP RULE 1 DAY SCHEDULE
-OFFICE BLDG EQUIP RULE 2 DAY SCHEDULE
-OFFICE BLDG EQUIP SUMMER DESIGN DAY
-OFFICE BLDG EQUIP WINTER DESIGN DAY
-OFFICE BLDG LIGHT
-OFFICE BLDG LIGHT DEFAULT SCHEDULE
-OFFICE BLDG LIGHT RULE 1 DAY SCHEDULE
-OFFICE BLDG LIGHT RULE 2 DAY SCHEDULE
-OFFICE BLDG LIGHT SUMMER DESIGN DAY
-OFFICE BLDG LIGHT WINTER DESIGN DAY
-OFFICE BLDG OCC DEFAULT SCHEDULE
-OFFICE BLDG OCC DEFAULT SCHEDULE 1
-OFFICE BLDG OCC RULE 1 DAY SCHEDULE
-OFFICE BLDG OCC RULE 1 DAY SCHEDULE 1
-OFFICE BLDG OCC RULE 2 DAY SCHEDULE
-OFFICE BLDG OCC RULE 2 DAY SCHEDULE 1
-OFFICE BLDG OCC SUMMER DESIGN DAY
-OFFICE BLDG OCC SUMMER DESIGN DAY 1
-OFFICE BLDG OCC WINTER DESIGN DAY
-OFFICE BLDG OCC WINTER DESIGN DAY 1
-OFFICE INFIL QUARTER ON
-OFFICE INFIL QUARTER ON DEFAULT SCHEDULE
-OFFICE INFIL QUARTER ON RULE 1 DAY SCHEDULE
-OFFICE INFIL QUARTER ON RULE 2 DAY SCHEDULE
-OFFICE INFIL QUARTER ON SUMMER DESIGN DAY
-OFFICE INFIL QUARTER ON WINTER DESIGN DAY
-OFFICE MISC OCC
-OFFICE WORK OCC
-OUTPATIENT ACTIVITY
-OUTPATIENT ACTIVITY DEFAULT SCHEDULE
-OUTPATIENT ACTIVITY SUMMER DESIGN DAY
-OUTPATIENT ACTIVITY WINTER DESIGN DAY
-OUTPATIENT BLDG EQUIP
-OUTPATIENT BLDG EQUIP DEFAULT SCHEDULE
-OUTPATIENT BLDG EQUIP RULE 1 DAY SCHEDULE
-OUTPATIENT BLDG EQUIP RULE 2 DAY SCHEDULE
-OUTPATIENT BLDG EQUIP SUMMER DESIGN DAY
-OUTPATIENT BLDG EQUIP WINTER DESIGN DAY
-OUTPATIENT BLDG LIGHT
-OUTPATIENT BLDG LIGHT DEFAULT SCHEDULE
-OUTPATIENT BLDG LIGHT RULE 1 DAY SCHEDULE
-OUTPATIENT BLDG LIGHT RULE 2 DAY SCHEDULE
-OUTPATIENT BLDG LIGHT SUMMER DESIGN DAY
-OUTPATIENT BLDG LIGHT WINTER DESIGN DAY
-OUTPATIENT BLDG OCC
-OUTPATIENT BLDG OCC DEFAULT SCHEDULE
-OUTPATIENT BLDG OCC RULE 1 DAY SCHEDULE
-OUTPATIENT BLDG OCC RULE 2 DAY SCHEDULE
-OUTPATIENT BLDG OCC SUMMER DESIGN DAY
-OUTPATIENT BLDG OCC WINTER DESIGN DAY
-OUTPATIENT CLGSETP
-OUTPATIENT CLGSETP DEFAULT SCHEDULE
-OUTPATIENT CLGSETP RULE 1 DAY SCHEDULE
-OUTPATIENT CLGSETP SUMMER DESIGN DAY
-OUTPATIENT CLGSETP WINTER DESIGN DAY
-OUTPATIENT HTGSETP
-OUTPATIENT HTGSETP DEFAULT SCHEDULE
-OUTPATIENT HTGSETP RULE 1 DAY SCHEDULE
-OUTPATIENT HTGSETP SUMMER DESIGN DAY
-OUTPATIENT HTGSETP WINTER DESIGN DAY
-OUTPATIENT INFIL
-OUTPATIENT INFIL DEFAULT SCHEDULE
-OUTPATIENT INFIL SUMMER DESIGN DAY
-OUTPATIENT INFIL WINTER DESIGN DAY
-OUTPATIENT OR CLGSETP
-OUTPATIENT OR CLGSETP DEFAULT SCHEDULE
-OUTPATIENT OR CLGSETP SUMMER DESIGN DAY
-OUTPATIENT OR CLGSETP WINTER DESIGN DAY
-OUTPATIENT OR HTGSETP
-OUTPATIENT OR HTGSETP DEFAULT SCHEDULE
-OUTPATIENT OR HTGSETP SUMMER DESIGN DAY
-OUTPATIENT OR HTGSETP WINTER DESIGN DAY
-PRIMARYSCHOOL ACTIVITY
-PRIMARYSCHOOL ACTIVITY DEFAULT SCHEDULE
-PRIMARYSCHOOL ACTIVITY SUMMER DESIGN DAY
-PRIMARYSCHOOL ACTIVITY WINTER DESIGN DAY
-PRIMARYSCHOOL BATHCORRMECHKITCHEN CLGSETP
-PRIMARYSCHOOL BATHCORRMECHKITCHEN CLGSETP DEFAULT SCHEDULE
-PRIMARYSCHOOL BATHCORRMECHKITCHEN CLGSETP SUMMER DESIGN DAY
-PRIMARYSCHOOL BATHCORRMECHKITCHEN CLGSETP WINTER DESIGN DAY
-PRIMARYSCHOOL BATHCORRMECHKITCHEN HTGSETP
-PRIMARYSCHOOL BATHCORRMECHKITCHEN HTGSETP DEFAULT SCHEDULE
-PRIMARYSCHOOL BATHCORRMECHKITCHEN HTGSETP SUMMER DESIGN DAY
-PRIMARYSCHOOL BATHCORRMECHKITCHEN HTGSETP WINTER DESIGN DAY
-PRIMARYSCHOOL BLDG EQUIP
-PRIMARYSCHOOL BLDG EQUIP DEFAULT SCHEDULE
-PRIMARYSCHOOL BLDG EQUIP RULE 1 DAY SCHEDULE
-PRIMARYSCHOOL BLDG EQUIP RULE 2 DAY SCHEDULE
-PRIMARYSCHOOL BLDG EQUIP RULE 3 DAY SCHEDULE
-PRIMARYSCHOOL BLDG EQUIP RULE 4 DAY SCHEDULE
-PRIMARYSCHOOL BLDG EQUIP RULE 5 DAY SCHEDULE
-PRIMARYSCHOOL BLDG EQUIP SUMMER DESIGN DAY
-PRIMARYSCHOOL BLDG EQUIP WINTER DESIGN DAY
-PRIMARYSCHOOL BLDG LIGHT
-PRIMARYSCHOOL BLDG LIGHT DEFAULT SCHEDULE
-PRIMARYSCHOOL BLDG LIGHT RULE 1 DAY SCHEDULE
-PRIMARYSCHOOL BLDG LIGHT RULE 2 DAY SCHEDULE
-PRIMARYSCHOOL BLDG LIGHT RULE 3 DAY SCHEDULE
-PRIMARYSCHOOL BLDG LIGHT RULE 4 DAY SCHEDULE
-PRIMARYSCHOOL BLDG LIGHT RULE 5 DAY SCHEDULE
-PRIMARYSCHOOL BLDG LIGHT SUMMER DESIGN DAY
-PRIMARYSCHOOL BLDG LIGHT WINTER DESIGN DAY
-PRIMARYSCHOOL BLDG OCC
-PRIMARYSCHOOL BLDG OCC DEFAULT SCHEDULE
-PRIMARYSCHOOL BLDG OCC RULE 1 DAY SCHEDULE
-PRIMARYSCHOOL BLDG OCC RULE 2 DAY SCHEDULE
-PRIMARYSCHOOL BLDG OCC RULE 3 DAY SCHEDULE
-PRIMARYSCHOOL BLDG OCC RULE 4 DAY SCHEDULE
-PRIMARYSCHOOL BLDG OCC RULE 5 DAY SCHEDULE
-PRIMARYSCHOOL BLDG OCC SUMMER DESIGN DAY
-PRIMARYSCHOOL BLDG OCC WINTER DESIGN DAY
-PRIMARYSCHOOL CAFETERIA OCC
-PRIMARYSCHOOL CAFETERIA OCC DEFAULT SCHEDULE
-PRIMARYSCHOOL CAFETERIA OCC RULE 1 DAY SCHEDULE
-PRIMARYSCHOOL CAFETERIA OCC RULE 2 DAY SCHEDULE
-PRIMARYSCHOOL CAFETERIA OCC RULE 3 DAY SCHEDULE
-PRIMARYSCHOOL CAFETERIA OCC RULE 4 DAY SCHEDULE
-PRIMARYSCHOOL CAFETERIA OCC RULE 5 DAY SCHEDULE
-PRIMARYSCHOOL CAFETERIA OCC SUMMER DESIGN DAY
-PRIMARYSCHOOL CAFETERIA OCC WINTER DESIGN DAY
-PRIMARYSCHOOL CLGSETP
-PRIMARYSCHOOL CLGSETP DEFAULT SCHEDULE
-PRIMARYSCHOOL CLGSETP RULE 1 DAY SCHEDULE
-PRIMARYSCHOOL CLGSETP RULE 2 DAY SCHEDULE
-PRIMARYSCHOOL CLGSETP SUMMER DESIGN DAY
-PRIMARYSCHOOL CLGSETP WINTER DESIGN DAY
-PRIMARYSCHOOL GYM OCC
-PRIMARYSCHOOL GYM OCC DEFAULT SCHEDULE
-PRIMARYSCHOOL GYM OCC RULE 1 DAY SCHEDULE
-PRIMARYSCHOOL GYM OCC RULE 2 DAY SCHEDULE
-PRIMARYSCHOOL GYM OCC RULE 3 DAY SCHEDULE
-PRIMARYSCHOOL GYM OCC RULE 4 DAY SCHEDULE
-PRIMARYSCHOOL GYM OCC RULE 5 DAY SCHEDULE
-PRIMARYSCHOOL GYM OCC SUMMER DESIGN DAY
-PRIMARYSCHOOL GYM OCC WINTER DESIGN DAY
-PRIMARYSCHOOL HTGSETP
-PRIMARYSCHOOL HTGSETP DEFAULT SCHEDULE
-PRIMARYSCHOOL HTGSETP RULE 1 DAY SCHEDULE
-PRIMARYSCHOOL HTGSETP RULE 2 DAY SCHEDULE
-PRIMARYSCHOOL HTGSETP SUMMER DESIGN DAY
-PRIMARYSCHOOL HTGSETP WINTER DESIGN DAY
-PRIMARYSCHOOL INFIL
-PRIMARYSCHOOL INFIL DEFAULT SCHEDULE
-PRIMARYSCHOOL INFIL SUMMER DESIGN DAY
-PRIMARYSCHOOL INFIL WINTER DESIGN DAY
-PRIMARYSCHOOL KITCHEN EQUIP
-PRIMARYSCHOOL KITCHEN EQUIP DEFAULT SCHEDULE
-PRIMARYSCHOOL KITCHEN EQUIP RULE 1 DAY SCHEDULE
-PRIMARYSCHOOL KITCHEN EQUIP RULE 2 DAY SCHEDULE
-PRIMARYSCHOOL KITCHEN EQUIP RULE 3 DAY SCHEDULE
-PRIMARYSCHOOL KITCHEN EQUIP RULE 4 DAY SCHEDULE
-PRIMARYSCHOOL KITCHEN EQUIP RULE 5 DAY SCHEDULE
-PRIMARYSCHOOL KITCHEN EQUIP SUMMER DESIGN DAY
-PRIMARYSCHOOL KITCHEN EQUIP WINTER DESIGN DAY
-PRIMARYSCHOOL KITCHEN GAS
-PRIMARYSCHOOL KITCHEN GAS DEFAULT SCHEDULE
-PRIMARYSCHOOL KITCHEN GAS RULE 1 DAY SCHEDULE
-PRIMARYSCHOOL KITCHEN GAS RULE 2 DAY SCHEDULE
-PRIMARYSCHOOL KITCHEN GAS RULE 3 DAY SCHEDULE
-PRIMARYSCHOOL KITCHEN GAS RULE 4 DAY SCHEDULE
-PRIMARYSCHOOL KITCHEN GAS RULE 5 DAY SCHEDULE
-PRIMARYSCHOOL KITCHEN GAS SUMMER DESIGN DAY
-PRIMARYSCHOOL KITCHEN GAS WINTER DESIGN DAY
-QUICKSERVICERESTAURANT ACTIVITY
-QUICKSERVICERESTAURANT ACTIVITY DEFAULT SCHEDULE
-QUICKSERVICERESTAURANT ACTIVITY SUMMER DESIGN DAY
-QUICKSERVICERESTAURANT ACTIVITY WINTER DESIGN DAY
-QUICKSERVICERESTAURANT BLDG EQUIP
-QUICKSERVICERESTAURANT BLDG EQUIP DEFAULT SCHEDULE
-QUICKSERVICERESTAURANT BLDG EQUIP RULE 1 DAY SCHEDULE
-QUICKSERVICERESTAURANT BLDG EQUIP SUMMER DESIGN DAY
-QUICKSERVICERESTAURANT BLDG EQUIP WINTER DESIGN DAY
-QUICKSERVICERESTAURANT BLDG LIGHT
-QUICKSERVICERESTAURANT BLDG LIGHT DEFAULT SCHEDULE
-QUICKSERVICERESTAURANT BLDG LIGHT SUMMER DESIGN DAY
-QUICKSERVICERESTAURANT BLDG LIGHT WINTER DESIGN DAY
-QUICKSERVICERESTAURANT BLDG OCC
-QUICKSERVICERESTAURANT BLDG OCC DEFAULT SCHEDULE
-QUICKSERVICERESTAURANT BLDG OCC RULE 1 DAY SCHEDULE
-QUICKSERVICERESTAURANT BLDG OCC SUMMER DESIGN DAY
-QUICKSERVICERESTAURANT BLDG OCC WINTER DESIGN DAY
-QUICKSERVICERESTAURANT CLGSETP
-QUICKSERVICERESTAURANT CLGSETP DEFAULT SCHEDULE
-QUICKSERVICERESTAURANT CLGSETP KITCHEN
-QUICKSERVICERESTAURANT CLGSETP KITCHEN DEFAULT SCHEDULE
-QUICKSERVICERESTAURANT CLGSETP KITCHEN SUMMER DESIGN DAY
-QUICKSERVICERESTAURANT CLGSETP KITCHEN WINTER DESIGN DAY
-QUICKSERVICERESTAURANT CLGSETP SUMMER DESIGN DAY
-QUICKSERVICERESTAURANT CLGSETP WINTER DESIGN DAY
-QUICKSERVICERESTAURANT GAS EQUIP
-QUICKSERVICERESTAURANT GAS EQUIP DEFAULT SCHEDULE
-QUICKSERVICERESTAURANT GAS EQUIP SUMMER DESIGN DAY
-QUICKSERVICERESTAURANT GAS EQUIP WINTER DESIGN DAY
-QUICKSERVICERESTAURANT HTGSETP
-QUICKSERVICERESTAURANT HTGSETP DEFAULT SCHEDULE
-QUICKSERVICERESTAURANT HTGSETP KITCHEN
-QUICKSERVICERESTAURANT HTGSETP KITCHEN DEFAULT SCHEDULE
-QUICKSERVICERESTAURANT HTGSETP KITCHEN SUMMER DESIGN DAY
-QUICKSERVICERESTAURANT HTGSETP KITCHEN WINTER DESIGN DAY
-QUICKSERVICERESTAURANT HTGSETP SUMMER DESIGN DAY
-QUICKSERVICERESTAURANT HTGSETP WINTER DESIGN DAY
-QUICKSERVICERESTAURANT INFIL HALF ON
-QUICKSERVICERESTAURANT INFIL HALF ON DEFAULT SCHEDULE
-QUICKSERVICERESTAURANT INFIL HALF ON RULE 1 DAY SCHEDULE
-QUICKSERVICERESTAURANT INFIL HALF ON RULE 2 DAY SCHEDULE
-QUICKSERVICERESTAURANT INFIL HALF ON SUMMER DESIGN DAY
-QUICKSERVICERESTAURANT INFIL HALF ON WINTER DESIGN DAY
-RETAIL ACTIVITY
-RETAIL ACTIVITY DEFAULT SCHEDULE
-RETAIL ACTIVITY SUMMER DESIGN DAY
-RETAIL ACTIVITY WINTER DESIGN DAY
-RETAIL BLDG EQUIP
-RETAIL BLDG EQUIP DEFAULT SCHEDULE
-RETAIL BLDG EQUIP RULE 1 DAY SCHEDULE
-RETAIL BLDG EQUIP RULE 2 DAY SCHEDULE
-RETAIL BLDG EQUIP SUMMER DESIGN DAY
-RETAIL BLDG EQUIP WINTER DESIGN DAY
-RETAIL BLDG LIGHT
-RETAIL BLDG LIGHT DEFAULT SCHEDULE
-RETAIL BLDG LIGHT RULE 1 DAY SCHEDULE
-RETAIL BLDG LIGHT RULE 2 DAY SCHEDULE
-RETAIL BLDG LIGHT SUMMER DESIGN DAY
-RETAIL BLDG LIGHT WINTER DESIGN DAY
-RETAIL BLDG OCC
-RETAIL BLDG OCC DEFAULT SCHEDULE
-RETAIL BLDG OCC RULE 1 DAY SCHEDULE
-RETAIL BLDG OCC RULE 2 DAY SCHEDULE
-RETAIL BLDG OCC SUMMER DESIGN DAY
-RETAIL BLDG OCC WINTER DESIGN DAY
-RETAIL CLGSETP
-RETAIL CLGSETP DEFAULT SCHEDULE
-RETAIL CLGSETP RULE 1 DAY SCHEDULE
-RETAIL CLGSETP RULE 2 DAY SCHEDULE
-RETAIL CLGSETP SUMMER DESIGN DAY
-RETAIL CLGSETP WINTER DESIGN DAY
-RETAIL HTGSETP
-RETAIL HTGSETP DEFAULT SCHEDULE
-RETAIL HTGSETP RULE 1 DAY SCHEDULE
-RETAIL HTGSETP RULE 2 DAY SCHEDULE
-RETAIL HTGSETP SUMMER DESIGN DAY
-RETAIL HTGSETP WINTER DESIGN DAY
-RETAIL INFIL HALF ON
-RETAIL INFIL HALF ON DEFAULT SCHEDULE
-RETAIL INFIL HALF ON RULE 1 DAY SCHEDULE
-RETAIL INFIL HALF ON RULE 2 DAY SCHEDULE
-RETAIL INFIL HALF ON SUMMER DESIGN DAY
-RETAIL INFIL HALF ON WINTER DESIGN DAY
-SCHEDULE:WEEK:DAILY {00231219-E7FA-464E-874F-73CC88548EC2}
-SCHEDULE:WEEK:DAILY {00C75020-BAA6-4483-BEB8-277B967FB046}
-SCHEDULE:WEEK:DAILY {01149F01-B753-4199-9E5D-2E1352E3889E}
-SCHEDULE:WEEK:DAILY {013CED72-A534-45EC-BF81-368E77D3234F}
-SCHEDULE:WEEK:DAILY {02B511E0-42DF-4D96-BD7D-2C4AD0CC3975}
-SCHEDULE:WEEK:DAILY {02CCC358-1751-4DC4-8BCC-D44AE20D0F1F}
-SCHEDULE:WEEK:DAILY {038346C4-34BB-4180-83E9-F2B0CB968FD7}
-SCHEDULE:WEEK:DAILY {0463F319-D19B-46C1-83FE-4AFE19BEEB96}
-SCHEDULE:WEEK:DAILY {04C08488-6F3C-49E5-BD04-F1F166E9F39E}
-SCHEDULE:WEEK:DAILY {07DE9B4B-4F8E-4B4A-8D46-E4A46C031B24}
-SCHEDULE:WEEK:DAILY {07E976B2-3133-4FB5-93CD-CB97BB690ADB}
-SCHEDULE:WEEK:DAILY {084A40FE-904E-4106-83D4-694B2E510EC9}
-SCHEDULE:WEEK:DAILY {08C7C777-5DBB-48E8-BD08-23F6494B5CB7}
-SCHEDULE:WEEK:DAILY {0971BFAB-B167-493A-96C6-43801D5DEC62}
-SCHEDULE:WEEK:DAILY {0A1EC0A7-40C6-46F7-B2DF-3B19C396424F}
-SCHEDULE:WEEK:DAILY {0AA78AE4-C7A1-44B3-ADF6-1594828614CB}
-SCHEDULE:WEEK:DAILY {0E94DF24-6133-48AC-9AC4-4406ED3C91F4}
-SCHEDULE:WEEK:DAILY {0F2DBDB4-5A81-42B7-A164-C22AA2389DF6}
-SCHEDULE:WEEK:DAILY {0F92A042-E070-4843-909F-23C8E7203153}
-SCHEDULE:WEEK:DAILY {0FCFC34B-947C-4048-B102-CBC67BE1E0B1}
-SCHEDULE:WEEK:DAILY {10AEF8C2-B660-44E4-8988-D4395C2B2A55}
-SCHEDULE:WEEK:DAILY {11C6D8E7-4578-4388-A57B-C1E2DBB22760}
-SCHEDULE:WEEK:DAILY {1299FE67-7844-4679-B33C-BBAED79FDD50}
-SCHEDULE:WEEK:DAILY {12B2C116-E3F3-41FB-B555-DFA3134B52F5}
-SCHEDULE:WEEK:DAILY {13E18858-2DBA-46F8-BDEE-6CDC74E5F8C0}
-SCHEDULE:WEEK:DAILY {15FF95ED-8669-4923-8EB9-5524E99CF71B}
-SCHEDULE:WEEK:DAILY {1655650B-61B5-4F04-B225-F684AB1A97A9}
-SCHEDULE:WEEK:DAILY {180F6A1D-CE23-4F9C-B673-E7C3291C6D63}
-SCHEDULE:WEEK:DAILY {181AB0B2-A60E-42E7-93CC-6E932A79DC0D}
-SCHEDULE:WEEK:DAILY {184CA65E-1978-407B-A491-880AAC01E4DF}
-SCHEDULE:WEEK:DAILY {18A47FFC-94AA-4D66-BD3F-1E675068371F}
-SCHEDULE:WEEK:DAILY {1A4816BC-4DC3-4BC3-BB3C-60B7BE6A4D3E}
-SCHEDULE:WEEK:DAILY {1AF643D3-80EF-4568-9046-4289EF89389F}
-SCHEDULE:WEEK:DAILY {1BB4B2D1-B19E-42F5-B1E5-06C7B22D505C}
-SCHEDULE:WEEK:DAILY {1C610DED-B49E-432A-B8A3-989C933AA263}
-SCHEDULE:WEEK:DAILY {1C9602D8-8B86-43C0-9F10-B0C06BAB450C}
-SCHEDULE:WEEK:DAILY {1D382922-7F7E-420D-B4C8-5BB09E8DA286}
-SCHEDULE:WEEK:DAILY {1DC8EC41-5EDC-4D84-9AEC-376DC99D3236}
-SCHEDULE:WEEK:DAILY {1EFF1100-230E-4F61-BB7E-CDC75630A2C8}
-SCHEDULE:WEEK:DAILY {1F937F70-F245-4AB5-92AF-54C9E7188344}
-SCHEDULE:WEEK:DAILY {20D59800-5E48-48EA-BC4D-F9BDE1662F1A}
-SCHEDULE:WEEK:DAILY {21163E2E-B8AC-4E11-8E90-559A1ACE10CB}
-SCHEDULE:WEEK:DAILY {213A494C-A2E7-45F1-B7EC-2E37962A739D}
-SCHEDULE:WEEK:DAILY {229A340A-5C08-468B-A165-4DCE52B19519}
-SCHEDULE:WEEK:DAILY {244C971E-890A-4268-ABA8-341229A0E5FD}
-SCHEDULE:WEEK:DAILY {248829C0-9D65-4576-82FD-EB695BA2409B}
-SCHEDULE:WEEK:DAILY {24CF5568-29D7-475E-A33A-9D9ED715D832}
-SCHEDULE:WEEK:DAILY {24FC17DA-CEE6-49E5-9304-89198CBA84B0}
-SCHEDULE:WEEK:DAILY {27141397-CBB8-4318-B034-1898F1610D85}
-SCHEDULE:WEEK:DAILY {274450DA-8839-43F9-929A-917CBB1085AF}
-SCHEDULE:WEEK:DAILY {2833C46C-62BA-4E37-8611-85B3339DBD94}
-SCHEDULE:WEEK:DAILY {28D2351C-3388-49D2-BDF1-E6E52895FF29}
-SCHEDULE:WEEK:DAILY {298C12DE-A7DF-4E78-962A-96B3647C98DB}
-SCHEDULE:WEEK:DAILY {2A45EFDF-33B2-497B-B92A-07ECAADC0DA7}
-SCHEDULE:WEEK:DAILY {2A535473-F341-4C3D-9378-DD8C18CF414B}
-SCHEDULE:WEEK:DAILY {2AC5A6A7-15A7-4DC7-91DD-0F2DC532E641}
-SCHEDULE:WEEK:DAILY {2B174DF2-802E-44CF-A23C-7ECF91CB83C1}
-SCHEDULE:WEEK:DAILY {2BAA51E2-E14D-4E99-8D10-280A76E24539}
-SCHEDULE:WEEK:DAILY {2C6B4D02-0945-4297-B9B1-46EF161DAD90}
-SCHEDULE:WEEK:DAILY {2D2ACDBD-D91D-4BD4-994C-4DD0D42A57AD}
-SCHEDULE:WEEK:DAILY {2D483CED-5BE8-4137-AC28-AA7E4BA2CE6C}
-SCHEDULE:WEEK:DAILY {2E3B83C2-D1EA-4164-A16F-959D8586F6A6}
-SCHEDULE:WEEK:DAILY {2E4CADF1-2410-4D36-AAC0-5F190B8F2651}
-SCHEDULE:WEEK:DAILY {2EC9698B-52E1-475B-9BCE-AEBEFC73C7C0}
-SCHEDULE:WEEK:DAILY {2F2A54DE-829B-4F28-831E-F9215900F25C}
-SCHEDULE:WEEK:DAILY {2F877B69-FA08-4724-90E4-5A15F37AEA8E}
-SCHEDULE:WEEK:DAILY {30265645-B055-4800-BDF5-E1A9F9DE16E8}
-SCHEDULE:WEEK:DAILY {3146F0CB-BE24-4882-AC32-4C3AF4C82D33}
-SCHEDULE:WEEK:DAILY {3273BEC3-6685-426D-98D5-116389F2138B}
-SCHEDULE:WEEK:DAILY {32E91691-5689-4E91-89FB-DD90CD63BCE6}
-SCHEDULE:WEEK:DAILY {338196C2-A95D-4F16-9964-69065FE8B094}
-SCHEDULE:WEEK:DAILY {33840044-FE82-466C-8ECE-DEC92EBCC113}
-SCHEDULE:WEEK:DAILY {3429E3C9-6920-4BB7-9454-B6D70368DA8C}
-SCHEDULE:WEEK:DAILY {34E60843-19DB-4FAB-B2BF-5E2878AA7313}
-SCHEDULE:WEEK:DAILY {361671FC-F72E-4199-A000-37D582F8C7D0}
-SCHEDULE:WEEK:DAILY {36241B23-72A8-4747-AA88-654B1D37409E}
-SCHEDULE:WEEK:DAILY {362E557F-B099-4E5F-9518-D2FDB9D54436}
-SCHEDULE:WEEK:DAILY {364505FB-8A94-44B7-AF94-16AF606EEB2D}
-SCHEDULE:WEEK:DAILY {36FDB495-8E68-4DF6-B838-BE98181DC413}
-SCHEDULE:WEEK:DAILY {38D10BEF-FBED-4429-9E19-8769EEE162D7}
-SCHEDULE:WEEK:DAILY {39EAB657-A499-4B86-B753-AE715E1F50BD}
-SCHEDULE:WEEK:DAILY {3A004CDF-2572-4430-BADB-9CF744FA28C3}
-SCHEDULE:WEEK:DAILY {3A0DF7F7-8FD2-4EB9-BEDC-0126FE12108F}
-SCHEDULE:WEEK:DAILY {3B5306EA-72B2-444D-84F9-DDF8BA5D40E1}
-SCHEDULE:WEEK:DAILY {3BEBABA5-ABD4-46BA-82CE-3473A0BA5B76}
-SCHEDULE:WEEK:DAILY {3C12D1B0-BA15-4D1E-BD59-94922859B713}
-SCHEDULE:WEEK:DAILY {3D0ECE14-55CA-4F40-B108-5AD04F45BBB2}
-SCHEDULE:WEEK:DAILY {3F25E837-E942-4310-984D-B42D3C70567F}
-SCHEDULE:WEEK:DAILY {414C5E28-F829-4F31-9691-693F4ACD1535}
-SCHEDULE:WEEK:DAILY {43299393-CCF4-488C-893E-8CFFF0D666F4}
-SCHEDULE:WEEK:DAILY {4663EFD7-F06E-42DA-88B8-18B722F52222}
-SCHEDULE:WEEK:DAILY {46E75AA4-7542-4698-B611-F3C61DA5B4EF}
-SCHEDULE:WEEK:DAILY {470BE697-C471-499D-95EF-F8912017A04E}
-SCHEDULE:WEEK:DAILY {471CA2BF-F097-48C9-AD35-050402414BEA}
-SCHEDULE:WEEK:DAILY {4B6DE953-892D-41B8-A7A6-02A1D0EABBB0}
-SCHEDULE:WEEK:DAILY {4D6C0A7C-819D-4AF2-86F9-B416FEB7817D}
-SCHEDULE:WEEK:DAILY {4E25A8B1-2937-4D2C-AD7A-6D21BF16DCB9}
-SCHEDULE:WEEK:DAILY {4E729CA3-B4BC-4653-9AA8-860CDB9AD152}
-SCHEDULE:WEEK:DAILY {4ECB3445-819C-4C91-B0CA-DA3FD2F87522}
-SCHEDULE:WEEK:DAILY {508E5848-A78C-4051-90F8-652F3913FFE1}
-SCHEDULE:WEEK:DAILY {51585971-C88D-4BE0-A14B-A76B94309DC7}
-SCHEDULE:WEEK:DAILY {519C7A27-0845-4B4C-953F-58CEDBD52DDB}
-SCHEDULE:WEEK:DAILY {51DD66E0-4420-4F7D-A325-9B99CBB73723}
-SCHEDULE:WEEK:DAILY {539B6E5C-E523-4B54-A812-3E8FD5608387}
-SCHEDULE:WEEK:DAILY {543393A2-9E2A-4FBE-B00D-4FF541E86AA0}
-SCHEDULE:WEEK:DAILY {55A43576-9F25-4B6F-A0D0-C1DAD26050EA}
-SCHEDULE:WEEK:DAILY {565B5E2B-3A42-4E66-87BB-9CF626519FCD}
-SCHEDULE:WEEK:DAILY {572F7507-B73F-4106-81FB-40B122162932}
-SCHEDULE:WEEK:DAILY {59D4D9D2-E004-459B-B305-5D93B3EF4A7E}
-SCHEDULE:WEEK:DAILY {5A2DB5E2-4AA1-4D95-BD2D-EAAEBAD9DAB9}
-SCHEDULE:WEEK:DAILY {5A7FE5D6-50E6-4355-87AA-CEFCDD244C3D}
-SCHEDULE:WEEK:DAILY {5AB32054-597D-4593-9032-47AC8BF2FB37}
-SCHEDULE:WEEK:DAILY {5B01400A-3620-4E1C-9DAF-E3D5B39AF3BE}
-SCHEDULE:WEEK:DAILY {5BE9DC47-719E-453D-A578-CC21F7D349E6}
-SCHEDULE:WEEK:DAILY {5D58C588-2D74-4D50-B0AD-65AFE48E816E}
-SCHEDULE:WEEK:DAILY {5D843B3E-47D1-4EF6-B3F3-3047A56C3A79}
-SCHEDULE:WEEK:DAILY {5DB7142F-84C7-4F1A-BBF2-864857C336FF}
-SCHEDULE:WEEK:DAILY {5DD4FA5B-FF1B-4D75-A871-59043EF5FF2A}
-SCHEDULE:WEEK:DAILY {5EF17CC2-52A7-4F95-9485-6AE2338645A0}
-SCHEDULE:WEEK:DAILY {5F78BCBF-2B23-4EA6-BD80-E039F850FE86}
-SCHEDULE:WEEK:DAILY {60BD5957-84EB-44D8-A67F-35E3BE5464C0}
-SCHEDULE:WEEK:DAILY {60FBBD0B-49C8-4929-AD06-00641D3539E6}
-SCHEDULE:WEEK:DAILY {63648676-A866-42B2-9E23-1D20AA28B355}
-SCHEDULE:WEEK:DAILY {63B980D5-7601-4C4C-9E6E-7845E1BCA5B9}
-SCHEDULE:WEEK:DAILY {647E1E24-0757-4B34-B42F-B880F3B274E9}
-SCHEDULE:WEEK:DAILY {65684F8D-EE8B-4514-A896-039880480A4D}
-SCHEDULE:WEEK:DAILY {65BB2703-9743-4868-AB91-56BDE9A4A056}
-SCHEDULE:WEEK:DAILY {66835748-E70B-474B-A535-6FBB4EF2865C}
-SCHEDULE:WEEK:DAILY {66FB361C-3A86-4761-976B-866F278C4CA5}
-SCHEDULE:WEEK:DAILY {6860CE7C-1D1B-499E-AAD8-582FA64FDF5B}
-SCHEDULE:WEEK:DAILY {693B0341-6840-4052-A8C9-946A3EACF646}
-SCHEDULE:WEEK:DAILY {6BA5BE4F-FD06-4387-B478-DE27CF0AD082}
-SCHEDULE:WEEK:DAILY {6BBB5FE9-4735-43F7-A596-ECBADB827F04}
-SCHEDULE:WEEK:DAILY {6BD7F5E6-E7C1-4067-A979-330E3524C3F5}
-SCHEDULE:WEEK:DAILY {6BF256D2-C131-4749-9B0D-AFA726B0242C}
-SCHEDULE:WEEK:DAILY {6E612322-53B4-4C4E-BD70-C1E23777DD22}
-SCHEDULE:WEEK:DAILY {6FD70C34-0834-4254-BD6A-44158E05266A}
-SCHEDULE:WEEK:DAILY {706AC13E-836A-4784-A69B-48A46E146351}
-SCHEDULE:WEEK:DAILY {70A7FDBC-D654-432E-A6EF-0DD99BBADCBD}
-SCHEDULE:WEEK:DAILY {72A051E8-DCE0-4EC3-9B0D-E0237E364AAF}
-SCHEDULE:WEEK:DAILY {7384F685-C15C-41C7-BAEB-2852EE675E8A}
-SCHEDULE:WEEK:DAILY {7395FD02-B3E3-4A32-A1D1-8B8990D453B6}
-SCHEDULE:WEEK:DAILY {73ADF476-08E6-4D9D-9977-CB16592646CA}
-SCHEDULE:WEEK:DAILY {73D6B898-FE69-42E3-9ED4-EDBB3A90583B}
-SCHEDULE:WEEK:DAILY {7460814D-B9F9-4C76-8CBB-F3689809F6B7}
-SCHEDULE:WEEK:DAILY {74BC8E6B-2607-4AEB-B64E-5FE7A13D811F}
-SCHEDULE:WEEK:DAILY {752C09B2-CCBE-4215-B6ED-42FEAE6BB571}
-SCHEDULE:WEEK:DAILY {75778C94-C94E-407B-8234-80207331423D}
-SCHEDULE:WEEK:DAILY {75A6703A-8085-48A8-B4F9-19AA3C651ED8}
-SCHEDULE:WEEK:DAILY {76ECC664-9E1A-45A1-A2E4-A54C8E241302}
-SCHEDULE:WEEK:DAILY {7744B0F0-7D36-4B2F-B94E-D94314B12758}
-SCHEDULE:WEEK:DAILY {77A9FCD7-66F4-4935-B684-F737CC5E6D84}
-SCHEDULE:WEEK:DAILY {77C907AB-9351-4483-81B5-8F1C6D610676}
-SCHEDULE:WEEK:DAILY {7804CBE3-BB00-45C6-8A5A-BD7460C070F8}
-SCHEDULE:WEEK:DAILY {7811157B-671C-4944-8F7A-D43DEEF9C512}
-SCHEDULE:WEEK:DAILY {78C76C19-7432-46F1-B258-AC0661C6A983}
-SCHEDULE:WEEK:DAILY {790C71ED-6685-4DD8-AE05-BA28B4DE42D0}
-SCHEDULE:WEEK:DAILY {79A1C455-08A9-4DAD-A83</item>
-                  </items>
-                  <chunks count="2">
-                    <chunk name="Attributes">
-                      <items count="5">
-                        <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                          <X>2939</X>
-                          <Y>1467</Y>
-                          <W>160</W>
-                          <H>100</H>
-                        </item>
-                        <item name="MarginLeft" type_name="gh_int32" type_code="3">0</item>
-                        <item name="MarginRight" type_name="gh_int32" type_code="3">0</item>
-                        <item name="MarginTop" type_name="gh_int32" type_code="3">0</item>
-                        <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                          <X>2939.72</X>
-                          <Y>1467.277</Y>
-                        </item>
-                      </items>
-                    </chunk>
-                    <chunk name="PanelProperties">
-                      <items count="6">
-                        <item name="Colour" type_name="gh_drawing_color" type_code="36">
-                          <ARGB>255;255;250;90</ARGB>
-                        </item>
-                        <item name="DrawIndices" type_name="gh_bool" type_code="1">true</item>
-                        <item name="DrawPaths" type_name="gh_bool" type_code="1">true</item>
-                        <item name="Multiline" type_name="gh_bool" type_code="1">true</item>
-                        <item name="Stream" type_name="gh_bool" type_code="1">false</item>
-                        <item name="Wrap" type_name="gh_bool" type_code="1">true</item>
-                      </items>
-                    </chunk>
-                  </chunks>
-                </chunk>
-              </chunks>
-            </chunk>
-            <chunk name="Object" index="163">
               <items count="2">
                 <item name="GUID" type_name="gh_guid" type_code="9">59e0b89a-e487-49f8-bab8-b5bab16be14c</item>
                 <item name="Name" type_name="gh_string" type_code="10">Panel</item>
@@ -39518,7 +38123,7 @@ SCHEDULE:WEEK:DAILY {79A1C455-08A9-4DAD-A83</item>
                 </chunk>
               </chunks>
             </chunk>
-            <chunk name="Object" index="164">
+            <chunk name="Object" index="160">
               <items count="2">
                 <item name="GUID" type_name="gh_guid" type_code="9">c9785b8e-2f30-4f90-8ee3-cca710f82402</item>
                 <item name="Name" type_name="gh_string" type_code="10">Entwine</item>
@@ -39677,7 +38282,7 @@ SCHEDULE:WEEK:DAILY {79A1C455-08A9-4DAD-A83</item>
                 </chunk>
               </chunks>
             </chunk>
-            <chunk name="Object" index="165">
+            <chunk name="Object" index="161">
               <items count="2">
                 <item name="GUID" type_name="gh_guid" type_code="9">59e0b89a-e487-49f8-bab8-b5bab16be14c</item>
                 <item name="Name" type_name="gh_string" type_code="10">Panel</item>
@@ -39731,6 +38336,707 @@ SCHEDULE:WEEK:DAILY {79A1C455-08A9-4DAD-A83</item>
                 </chunk>
               </chunks>
             </chunk>
+            <chunk name="Object" index="162">
+              <items count="3">
+                <item name="GUID" type_name="gh_guid" type_code="9">410755b1-224a-4c1e-a407-bf32fb45ea7e</item>
+                <item name="Lib" type_name="gh_guid" type_code="9">16cf80bc-9018-cbdb-2238-976eb17fd30d</item>
+                <item name="Name" type_name="gh_string" type_code="10">Honeybee_CitySim-Schedules</item>
+              </items>
+              <chunks count="1">
+                <chunk name="Container">
+                  <items count="11">
+                    <item name="CodeInput" type_name="gh_string" type_code="10"># Interface to CitySim Solver
+# http://citysim.epfl.ch/
+#
+# GH-Python component initiated by
+# Giuseppe Peronato &lt;giuseppe.peronato@epfl.ch&gt; 
+# 
+
+"""
+This component imports the geometry and produces the XML code representing shading surfaces or terrain (simulated but excluded from results)
+
+-
+This component will hopefully be part of
+Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipour Roudsari
+
+@license GPL-3.0+ &lt;http://spdx.org/licenses/GPL-3.0+&gt;
+
+-
+
+    
+    Args:
+        S: List of  meshes
+        R: List (or single value) for SW reflectance; Default = 0.1
+        type = either "Surface" or "Terrain" - default = "Surface"
+        Dup: Boolean to duplicate obstructing surfaces with reversed normals: Default = True
+        Sim: Boolean to include the surfaces in the results: Default = False
+        path: path of project
+        name: title of project
+        Write: Boolean to start
+"""
+
+ghenv.Component.Name = "Honeybee_CitySim-Schedules"
+ghenv.Component.NickName = 'CitySim-Schedules'
+ghenv.Component.Message = 'VER 0.0.1\nMAR_17_2017'
+ghenv.Component.IconDisplayMode = ghenv.Component.IconDisplayMode.application
+ghenv.Component.Category = "Honeybee"
+ghenv.Component.SubCategory = "14 | CitySim"
+ghenv.Component.AdditionalHelpFromDocStrings = "1"
+
+if len(R) == 0:
+    R.append(0.1) #Default reflectance
+while len(R) &lt; len(S):
+    R.append(R[0])
+
+ReqInputs = True
+
+if Dup == None:
+    Dup = True # By default duplicate surfaces
+   
+if type == None:
+    type = "shading" # By default surfaces are considered as shading
+
+if name == None:
+    name = "simulation" #default name
+    
+if path == None:
+    print "Select a path" #this is mandatory: no default
+    ReqInputs = False
+    
+if Sim == None:
+    Sim = False #by default do not simulate surfaces
+
+if Write == False and ReqInputs == True:
+    print "Set Write to True"     
+elif Write == True and ReqInputs == True:
+    if type == "terrain":
+        FilePath = path + name + "_terrain.xml"
+    else:
+        FilePath = path + name + "_shading.xml"
+    with open(FilePath, "w") as outfile:
+        if type == "terrain":
+            outfile.write("&lt;GroundSurface&gt;\n")
+        else:
+            outfile.write("&lt;ShadingSurface&gt;\n")         
+        for meshcount, Tmesh in enumerate(S):
+            #for v in Tmesh.Vertices:
+            facecount = 0
+            for face in Tmesh.Faces:
+                if type == "terrain":
+                    s = "Ground"
+                else:
+                    s = "Surface"
+                if Sim:
+                    simstring = ""
+                else:
+                    simstring = ' Simulate="False"'
+                outfile.write('&lt;{0} id="s{1}" ShortWaveReflectance="{2}"{3}&gt;\n'.format(s,str(meshcount)+'-'+str(facecount),str(R[0]),simstring))
+                outfile.write('&lt;V0 x ="{0}" y="{1}" z ="{2}"/&gt;\n'.format(Tmesh.Vertices[face.A].X,Tmesh.Vertices[face.A].Y,Tmesh.Vertices[face.A].Z))
+                outfile.write('&lt;V1 x ="{0}" y="{1}" z ="{2}"/&gt;\n'.format(Tmesh.Vertices[face.B].X,Tmesh.Vertices[face.B].Y,Tmesh.Vertices[face.B].Z))
+                outfile.write('&lt;V2 x ="{0}" y="{1}" z ="{2}"/&gt;\n'.format(Tmesh.Vertices[face.C].X,Tmesh.Vertices[face.C].Y,Tmesh.Vertices[face.C].Z))
+                if face.IsQuad:
+                    outfile.write('&lt;V3 x ="{0}" y="{1}" z ="{2}"/&gt;\n'.format(Tmesh.Vertices[face.D].X,Tmesh.Vertices[face.D].Y,Tmesh.Vertices[face.D].Z))
+                outfile.write('&lt;/{0}&gt;'.format(s))
+            
+                if Dup: #Duplicate surfaces with reversed normals
+                    outfile.write('&lt;{0} id="s{1}-verso" ShortWaveReflectance="{2}"{3}&gt;\n'.format(s,str(meshcount)+'-'+str(facecount),str(R[0]),simstring))
+                    if face.IsQuad:
+                        outfile.write('&lt;V3 x ="{0}" y="{1}" z ="{2}"/&gt;\n'.format(Tmesh.Vertices[face.D].X,Tmesh.Vertices[face.D].Y,Tmesh.Vertices[face.D].Z))
+                    outfile.write('&lt;V0 x ="{0}" y="{1}" z ="{2}"/&gt;\n'.format(Tmesh.Vertices[face.C].X,Tmesh.Vertices[face.C].Y,Tmesh.Vertices[face.C].Z))
+                    outfile.write('&lt;V1 x ="{0}" y="{1}" z ="{2}"/&gt;\n'.format(Tmesh.Vertices[face.B].X,Tmesh.Vertices[face.B].Y,Tmesh.Vertices[face.B].Z))
+                    outfile.write('&lt;V2 x ="{0}" y="{1}" z ="{2}"/&gt;\n'.format(Tmesh.Vertices[face.A].X,Tmesh.Vertices[face.A].Y,Tmesh.Vertices[face.A].Z))
+                    outfile.write('&lt;/{0}&gt;'.format(s))
+                facecount += 1
+        if type == "terrain":
+            outfile.write("&lt;/GroundSurface&gt;")
+        else:
+            outfile.write("&lt;/ShadingSurface&gt;")
+    print "XML file created"</item>
+                    <item name="Description" type_name="gh_string" type_code="10">This component imports the geometry and produces the XML code representing shading surfaces or terrain (simulated but excluded from results)
+-
+This component will hopefully be part of
+Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipour Roudsari
+@license GPL-3.0+ &lt;http://spdx.org/licenses/GPL-3.0+&gt;
+-</item>
+                    <item name="EditorLocation" type_name="gh_drawing_point" type_code="30">
+                      <X>78</X>
+                      <Y>78</Y>
+                    </item>
+                    <item name="EditorSize" type_name="gh_drawing_size" type_code="32">
+                      <W>988</W>
+                      <H>698</H>
+                    </item>
+                    <item name="Hidden" type_name="gh_bool" type_code="1">true</item>
+                    <item name="HideInput" type_name="gh_bool" type_code="1">true</item>
+                    <item name="HideOutput" type_name="gh_bool" type_code="1">false</item>
+                    <item name="IconOverride" type_name="gh_drawing_bitmap" type_code="37">
+                      <bitmap length="994">iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOvAAADrwBlbxySQAAA4RJREFUSEvllWlPE2EUhfkH/gQ/a0IwSmaGahxRNG6AUcQlskjQGMAlLqDQOhXFNRLXqLjUFalYUNSGInQsSkXFGhUIolAVUCNurYZIlzneWUCN1Wj9ZLzJ/dK8ec6Z856ZRvwfc7WpY8gGs5OPK7LycYYqZRfutPLVjY+itCPhz5YKV2LSbse9qdtFjF5/BTp9FXT5lYjVWzBn66X38YbyRO1oeBNbVCsKFc1o7XoHtuAS2HWVYPMsYNeYwa46g7F5pUgqMvPa8T8fbkOdmHPShbMNnQS/AHZtBdjccwqcWXEczNIjiF569C8EDDaR018Bm39RhcvuFfgJBf7HAgWn7w7NOOgUuMJagTPS6q0Ck18lMGsrBCb3vDDRYBaZlafALDsGJqcETPYBlFVbTNLrBYLUnSz0d6akaajQk37I6eY2OsAZr4JbbwOrv6zlfh7s6rOq++Umgh8Gk7UfbNY+NNypAnrmAs9nQXqcgL7WZaFFDtvup8VsInihHZxQo8IHotEudSB3JvugAuey9+HmbQvwdCbweDrQNhn9bSvdGvL7SS62UzQiua8FRfO1NbnlBC+FEo0M/8Z96uZSvGrZqMJbJgIPYuF3JUBDfj86Y42cO0VT/RVO7qcYK5Gxy4rM4ovI3HkBmTvKsWjHORhKzGhxHUOwPQlonQTcGwvc0SHYyIUWGGOsFmT4YGtIYJfFhr4XRki96cBb2t5U4OV8ypugT+IpkinkPA5wEfw2BzSMhHR9VGiBnJJ6ag3B5b5THZO2W/Gyo1gFD8B75gBdMjxByRvNE1Tnt1Q46qPgd4wPLeB80MnrCmTnJEC5L95bg8Cbwh/hHTKcnFPeaBoNNDIq/FokUDsMn5uyRA3542TssYlsrlzJMhKwIfBuE/A6Ra3hs1mDTfkZPGiLpJru//WLt+aonY9bd4aPzSuLknrmiehOBtwzgPZpCLbEI9A0Tgg0jhECTk4I3OAEv4NJ9Nk5Xt6+u6uGapjfG+nZTBGdiQp88DIV57Q3eUj2SPjs0eF/i4Lt8SIeTVXhSg1jAGc0RUXd73WQAEM7InwBX9sSk9RML5DSFJbyHgVcH0FPkUZ3sQ3+unHv+1054f/xoGP2EN/D1OX+++nuQH0MJJEus244VXEy/PUzTD5nSvju/+3xer3CR6/XRAt5vR4PPB8+DO7A77Ru+ewnjyfEJzoi4gstbPbWsFiGLQAAAABJRU5ErkJggg==</bitmap>
+                    </item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">fc862561-c2cf-43c2-a7ee-96a24cd77239</item>
+                    <item name="Name" type_name="gh_string" type_code="10">Honeybee_CitySim-Schedules</item>
+                    <item name="NickName" type_name="gh_string" type_code="10">CitySim-Schedules</item>
+                  </items>
+                  <chunks count="2">
+                    <chunk name="Attributes">
+                      <items count="2">
+                        <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                          <X>2522</X>
+                          <Y>2685</Y>
+                          <W>94</W>
+                          <H>133</H>
+                        </item>
+                        <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                          <X>2573</X>
+                          <Y>2752</Y>
+                        </item>
+                      </items>
+                    </chunk>
+                    <chunk name="ParameterData">
+                      <items count="6">
+                        <item name="InputCount" type_name="gh_int32" type_code="3">3</item>
+                        <item name="InputId" index="0" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
+                        <item name="InputId" index="1" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
+                        <item name="InputId" index="2" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
+                        <item name="OutputCount" type_name="gh_int32" type_code="3">1</item>
+                        <item name="OutputId" index="0" type_name="gh_guid" type_code="9">3ede854e-c753-40eb-84cb-b48008f14fd4</item>
+                      </items>
+                      <chunks count="4">
+                        <chunk name="InputParam" index="0">
+                          <items count="11">
+                            <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Description" type_name="gh_string" type_code="10">path of project</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">84840657-3a6f-427b-8fa7-57e56d87b7c2</item>
+                            <item name="Name" type_name="gh_string" type_code="10">path</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">path</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
+                            <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">0</item>
+                            <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Source" index="0" type_name="gh_guid" type_code="9">cbd82730-6056-48fb-b264-3d1da6f61f8e</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
+                            <item name="TypeHintID" type_name="gh_guid" type_code="9">37261734-eec7-4f50-b6a8-b8d1f3c4396b</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>2524</X>
+                                  <Y>2687</Y>
+                                  <W>34</W>
+                                  <H>43</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>2542.5</X>
+                                  <Y>2708.5</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="InputParam" index="1">
+                          <items count="11">
+                            <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Description" type_name="gh_string" type_code="10">title of project</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">66e20f25-9bee-44f1-b1d8-60ba95ba6c89</item>
+                            <item name="Name" type_name="gh_string" type_code="10">name</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">name</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
+                            <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">0</item>
+                            <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Source" index="0" type_name="gh_guid" type_code="9">20387745-1c5d-42d1-bba8-5cb6c57e9d1f</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
+                            <item name="TypeHintID" type_name="gh_guid" type_code="9">37261734-eec7-4f50-b6a8-b8d1f3c4396b</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>2524</X>
+                                  <Y>2730</Y>
+                                  <W>34</W>
+                                  <H>43</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>2542.5</X>
+                                  <Y>2751.5</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="InputParam" index="2">
+                          <items count="11">
+                            <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Description" type_name="gh_string" type_code="10">Boolean to start</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">aabf0891-cbcd-4fb4-8732-4bc087598d0e</item>
+                            <item name="Name" type_name="gh_string" type_code="10">Write</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">Write</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
+                            <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">0</item>
+                            <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Source" index="0" type_name="gh_guid" type_code="9">2eb0d17b-9eaa-461e-a342-66dfe75aba5c</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
+                            <item name="TypeHintID" type_name="gh_guid" type_code="9">d60527f5-b5af-4ef6-8970-5f96fe412559</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>2524</X>
+                                  <Y>2773</Y>
+                                  <W>34</W>
+                                  <H>43</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>2542.5</X>
+                                  <Y>2794.5</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="OutputParam" index="0">
+                          <items count="6">
+                            <item name="Description" type_name="gh_string" type_code="10">The execution information, as output and error streams</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">fdff2b05-80fd-4125-aee7-6cf8e3b114bb</item>
+                            <item name="Name" type_name="gh_string" type_code="10">out</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">out</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>2588</X>
+                                  <Y>2687</Y>
+                                  <W>26</W>
+                                  <H>129</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>2601</X>
+                                  <Y>2751.5</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                      </chunks>
+                    </chunk>
+                  </chunks>
+                </chunk>
+              </chunks>
+            </chunk>
+            <chunk name="Object" index="163">
+              <items count="2">
+                <item name="GUID" type_name="gh_guid" type_code="9">2e78987b-9dfb-42a2-8b76-3923ac8bd91a</item>
+                <item name="Name" type_name="gh_string" type_code="10">Boolean Toggle</item>
+              </items>
+              <chunks count="1">
+                <chunk name="Container">
+                  <items count="7">
+                    <item name="Description" type_name="gh_string" type_code="10">Boolean (true/false) toggle</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">2eb0d17b-9eaa-461e-a342-66dfe75aba5c</item>
+                    <item name="Name" type_name="gh_string" type_code="10">Boolean Toggle</item>
+                    <item name="NickName" type_name="gh_string" type_code="10">Toggle</item>
+                    <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                    <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                    <item name="ToggleValue" type_name="gh_bool" type_code="1">false</item>
+                  </items>
+                  <chunks count="1">
+                    <chunk name="Attributes">
+                      <items count="1">
+                        <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                          <X>2311</X>
+                          <Y>2808</Y>
+                          <W>104</W>
+                          <H>22</H>
+                        </item>
+                      </items>
+                    </chunk>
+                  </chunks>
+                </chunk>
+              </chunks>
+            </chunk>
+            <chunk name="Object" index="164">
+              <items count="2">
+                <item name="GUID" type_name="gh_guid" type_code="9">3ede854e-c753-40eb-84cb-b48008f14fd4</item>
+                <item name="Name" type_name="gh_string" type_code="10">Text</item>
+              </items>
+              <chunks count="1">
+                <chunk name="Container">
+                  <items count="8">
+                    <item name="Description" type_name="gh_string" type_code="10">Contains a collection of text fragments</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">20387745-1c5d-42d1-bba8-5cb6c57e9d1f</item>
+                    <item name="Name" type_name="gh_string" type_code="10">Text</item>
+                    <item name="NickName" type_name="gh_string" type_code="10">name</item>
+                    <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                    <item name="Source" index="0" type_name="gh_guid" type_code="9">55e441c8-2261-4180-894a-1aae89a772fc</item>
+                    <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
+                    <item name="WireDisplay" type_name="gh_int32" type_code="3">2</item>
+                  </items>
+                  <chunks count="1">
+                    <chunk name="Attributes">
+                      <items count="2">
+                        <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                          <X>2340</X>
+                          <Y>2753</Y>
+                          <W>50</W>
+                          <H>20</H>
+                        </item>
+                        <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                          <X>2365.44</X>
+                          <Y>2763.285</Y>
+                        </item>
+                      </items>
+                    </chunk>
+                  </chunks>
+                </chunk>
+              </chunks>
+            </chunk>
+            <chunk name="Object" index="165">
+              <items count="2">
+                <item name="GUID" type_name="gh_guid" type_code="9">06953bda-1d37-4d58-9b38-4b3c74e54c8f</item>
+                <item name="Name" type_name="gh_string" type_code="10">File Path</item>
+              </items>
+              <chunks count="1">
+                <chunk name="Container">
+                  <items count="10">
+                    <item name="Description" type_name="gh_string" type_code="10">Contains a collection of file paths</item>
+                    <item name="ExpireOnFileEvent" type_name="gh_bool" type_code="1">false</item>
+                    <item name="FileFilter" type_name="gh_string" type_code="10">All files|*.*</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">cbd82730-6056-48fb-b264-3d1da6f61f8e</item>
+                    <item name="Name" type_name="gh_string" type_code="10">File Path</item>
+                    <item name="NickName" type_name="gh_string" type_code="10">Path</item>
+                    <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                    <item name="Source" index="0" type_name="gh_guid" type_code="9">6e4f9b6e-17a7-409f-a03d-25e47793da25</item>
+                    <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
+                    <item name="WireDisplay" type_name="gh_int32" type_code="3">2</item>
+                  </items>
+                  <chunks count="1">
+                    <chunk name="Attributes">
+                      <items count="2">
+                        <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                          <X>2347</X>
+                          <Y>2721</Y>
+                          <W>50</W>
+                          <H>20</H>
+                        </item>
+                        <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                          <X>2372.283</X>
+                          <Y>2731.251</Y>
+                        </item>
+                      </items>
+                    </chunk>
+                  </chunks>
+                </chunk>
+              </chunks>
+            </chunk>
+            <chunk name="Object" index="166">
+              <items count="2">
+                <item name="GUID" type_name="gh_guid" type_code="9">59e0b89a-e487-49f8-bab8-b5bab16be14c</item>
+                <item name="Name" type_name="gh_string" type_code="10">Panel</item>
+              </items>
+              <chunks count="1">
+                <chunk name="Container">
+                  <items count="8">
+                    <item name="Description" type_name="gh_string" type_code="10">A panel for custom notes and text values</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">c0ea3324-e20a-454b-9de6-79a28dbf6299</item>
+                    <item name="Name" type_name="gh_string" type_code="10">Panel</item>
+                    <item name="NickName" type_name="gh_string" type_code="10"></item>
+                    <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                    <item name="ScrollRatio" type_name="gh_double" type_code="6">0</item>
+                    <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                    <item name="UserText" type_name="gh_string" type_code="10">0,0,0,0</item>
+                  </items>
+                  <chunks count="2">
+                    <chunk name="Attributes">
+                      <items count="5">
+                        <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                          <X>2236</X>
+                          <Y>2564</Y>
+                          <W>160</W>
+                          <H>100</H>
+                        </item>
+                        <item name="MarginLeft" type_name="gh_int32" type_code="3">0</item>
+                        <item name="MarginRight" type_name="gh_int32" type_code="3">0</item>
+                        <item name="MarginTop" type_name="gh_int32" type_code="3">0</item>
+                        <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                          <X>2236.925</X>
+                          <Y>2564.591</Y>
+                        </item>
+                      </items>
+                    </chunk>
+                    <chunk name="PanelProperties">
+                      <items count="6">
+                        <item name="Colour" type_name="gh_drawing_color" type_code="36">
+                          <ARGB>255;255;250;90</ARGB>
+                        </item>
+                        <item name="DrawIndices" type_name="gh_bool" type_code="1">true</item>
+                        <item name="DrawPaths" type_name="gh_bool" type_code="1">true</item>
+                        <item name="Multiline" type_name="gh_bool" type_code="1">true</item>
+                        <item name="Stream" type_name="gh_bool" type_code="1">false</item>
+                        <item name="Wrap" type_name="gh_bool" type_code="1">true</item>
+                      </items>
+                    </chunk>
+                  </chunks>
+                </chunk>
+              </chunks>
+            </chunk>
+            <chunk name="Object" index="167">
+              <items count="2">
+                <item name="GUID" type_name="gh_guid" type_code="9">59e0b89a-e487-49f8-bab8-b5bab16be14c</item>
+                <item name="Name" type_name="gh_string" type_code="10">Panel</item>
+              </items>
+              <chunks count="1">
+                <chunk name="Container">
+                  <items count="8">
+                    <item name="Description" type_name="gh_string" type_code="10">A panel for custom notes and text values</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">0c373c1d-3541-4dc4-a1e1-3516823fd2c8</item>
+                    <item name="Name" type_name="gh_string" type_code="10">Panel</item>
+                    <item name="NickName" type_name="gh_string" type_code="10"></item>
+                    <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                    <item name="ScrollRatio" type_name="gh_double" type_code="6">0</item>
+                    <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                    <item name="UserText" type_name="gh_string" type_code="10">20
+2</item>
+                  </items>
+                  <chunks count="2">
+                    <chunk name="Attributes">
+                      <items count="4">
+                        <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                          <X>2491</X>
+                          <Y>2064</Y>
+                          <W>160</W>
+                          <H>100</H>
+                        </item>
+                        <item name="MarginLeft" type_name="gh_int32" type_code="3">0</item>
+                        <item name="MarginRight" type_name="gh_int32" type_code="3">0</item>
+                        <item name="MarginTop" type_name="gh_int32" type_code="3">0</item>
+                      </items>
+                    </chunk>
+                    <chunk name="PanelProperties">
+                      <items count="6">
+                        <item name="Colour" type_name="gh_drawing_color" type_code="36">
+                          <ARGB>255;255;250;90</ARGB>
+                        </item>
+                        <item name="DrawIndices" type_name="gh_bool" type_code="1">true</item>
+                        <item name="DrawPaths" type_name="gh_bool" type_code="1">true</item>
+                        <item name="Multiline" type_name="gh_bool" type_code="1">false</item>
+                        <item name="Stream" type_name="gh_bool" type_code="1">false</item>
+                        <item name="Wrap" type_name="gh_bool" type_code="1">true</item>
+                      </items>
+                    </chunk>
+                  </chunks>
+                </chunk>
+              </chunks>
+            </chunk>
+            <chunk name="Object" index="168">
+              <items count="2">
+                <item name="GUID" type_name="gh_guid" type_code="9">c9785b8e-2f30-4f90-8ee3-cca710f82402</item>
+                <item name="Name" type_name="gh_string" type_code="10">Entwine</item>
+              </items>
+              <chunks count="1">
+                <chunk name="Container">
+                  <items count="5">
+                    <item name="Description" type_name="gh_string" type_code="10">Flatten and combine a collection of data streams</item>
+                    <item name="FlattenInputs" type_name="gh_bool" type_code="1">true</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">5335115a-d292-4c8d-a0b1-7647728de8d8</item>
+                    <item name="Name" type_name="gh_string" type_code="10">Entwine</item>
+                    <item name="NickName" type_name="gh_string" type_code="10">Entwine</item>
+                  </items>
+                  <chunks count="2">
+                    <chunk name="Attributes">
+                      <items count="2">
+                        <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                          <X>2706</X>
+                          <Y>2062</Y>
+                          <W>95</W>
+                          <H>65</H>
+                        </item>
+                        <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                          <X>2751</X>
+                          <Y>2095</Y>
+                        </item>
+                      </items>
+                    </chunk>
+                    <chunk name="ParameterData">
+                      <items count="6">
+                        <item name="InputCount" type_name="gh_int32" type_code="3">3</item>
+                        <item name="InputId" index="0" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
+                        <item name="InputId" index="1" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
+                        <item name="InputId" index="2" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
+                        <item name="OutputCount" type_name="gh_int32" type_code="3">1</item>
+                        <item name="OutputId" index="0" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
+                      </items>
+                      <chunks count="4">
+                        <chunk name="InputParam" index="0">
+                          <items count="9">
+                            <item name="Access" type_name="gh_int32" type_code="3">2</item>
+                            <item name="Description" type_name="gh_string" type_code="10">Data to entwine</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">4b5134e0-9e62-484c-b2c5-2a3dc9b33ee0</item>
+                            <item name="Mutable" type_name="gh_bool" type_code="1">false</item>
+                            <item name="Name" type_name="gh_string" type_code="10">Branch {0;0}</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">{0;0}</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Source" index="0" type_name="gh_guid" type_code="9">0c373c1d-3541-4dc4-a1e1-3516823fd2c8</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>2708</X>
+                                  <Y>2064</Y>
+                                  <W>28</W>
+                                  <H>20</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>2723.5</X>
+                                  <Y>2074.167</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="InputParam" index="1">
+                          <items count="9">
+                            <item name="Access" type_name="gh_int32" type_code="3">2</item>
+                            <item name="Description" type_name="gh_string" type_code="10">Data to entwine</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">2f344596-1e48-4517-bf5f-01bebc0f4a2e</item>
+                            <item name="Mutable" type_name="gh_bool" type_code="1">false</item>
+                            <item name="Name" type_name="gh_string" type_code="10">Branch {0;1}</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">{0;1}</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Source" index="0" type_name="gh_guid" type_code="9">0c373c1d-3541-4dc4-a1e1-3516823fd2c8</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>2708</X>
+                                  <Y>2084</Y>
+                                  <W>28</W>
+                                  <H>20</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>2723.5</X>
+                                  <Y>2094.5</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="InputParam" index="2">
+                          <items count="9">
+                            <item name="Access" type_name="gh_int32" type_code="3">2</item>
+                            <item name="Description" type_name="gh_string" type_code="10">Data to entwine</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">4c2bea44-d400-4d09-8850-b11a62892e3e</item>
+                            <item name="Mutable" type_name="gh_bool" type_code="1">false</item>
+                            <item name="Name" type_name="gh_string" type_code="10">Branch {0;2}</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">{0;2}</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Source" index="0" type_name="gh_guid" type_code="9">0c373c1d-3541-4dc4-a1e1-3516823fd2c8</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>2708</X>
+                                  <Y>2104</Y>
+                                  <W>28</W>
+                                  <H>21</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>2723.5</X>
+                                  <Y>2114.833</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="OutputParam" index="0">
+                          <items count="7">
+                            <item name="Description" type_name="gh_string" type_code="10">Entwined result</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">82eee4dd-2408-46db-b4cc-441e1e7723dd</item>
+                            <item name="Name" type_name="gh_string" type_code="10">Result</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">R</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                            <item name="SimplifyData" type_name="gh_bool" type_code="1">true</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>2766</X>
+                                  <Y>2064</Y>
+                                  <W>33</W>
+                                  <H>61</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>2774.5</X>
+                                  <Y>2094.5</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                      </chunks>
+                    </chunk>
+                  </chunks>
+                </chunk>
+              </chunks>
+            </chunk>
+            <chunk name="Object" index="169">
+              <items count="2">
+                <item name="GUID" type_name="gh_guid" type_code="9">59e0b89a-e487-49f8-bab8-b5bab16be14c</item>
+                <item name="Name" type_name="gh_string" type_code="10">Panel</item>
+              </items>
+              <chunks count="1">
+                <chunk name="Container">
+                  <items count="9">
+                    <item name="Description" type_name="gh_string" type_code="10">A panel for custom notes and text values</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">0f5a8acf-0a70-4d01-a96a-976b436ee615</item>
+                    <item name="Name" type_name="gh_string" type_code="10">Panel</item>
+                    <item name="NickName" type_name="gh_string" type_code="10"></item>
+                    <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                    <item name="ScrollRatio" type_name="gh_double" type_code="6">0</item>
+                    <item name="Source" index="0" type_name="gh_guid" type_code="9">82eee4dd-2408-46db-b4cc-441e1e7723dd</item>
+                    <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
+                    <item name="UserText" type_name="gh_string" type_code="10">Double click to edit panel content…</item>
+                  </items>
+                  <chunks count="2">
+                    <chunk name="Attributes">
+                      <items count="4">
+                        <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                          <X>2892</X>
+                          <Y>1858</Y>
+                          <W>160</W>
+                          <H>150</H>
+                        </item>
+                        <item name="MarginLeft" type_name="gh_int32" type_code="3">0</item>
+                        <item name="MarginRight" type_name="gh_int32" type_code="3">0</item>
+                        <item name="MarginTop" type_name="gh_int32" type_code="3">0</item>
+                      </items>
+                    </chunk>
+                    <chunk name="PanelProperties">
+                      <items count="6">
+                        <item name="Colour" type_name="gh_drawing_color" type_code="36">
+                          <ARGB>255;255;250;90</ARGB>
+                        </item>
+                        <item name="DrawIndices" type_name="gh_bool" type_code="1">true</item>
+                        <item name="DrawPaths" type_name="gh_bool" type_code="1">true</item>
+                        <item name="Multiline" type_name="gh_bool" type_code="1">true</item>
+                        <item name="Stream" type_name="gh_bool" type_code="1">false</item>
+                        <item name="Wrap" type_name="gh_bool" type_code="1">true</item>
+                      </items>
+                    </chunk>
+                  </chunks>
+                </chunk>
+              </chunks>
+            </chunk>
           </chunks>
         </chunk>
       </chunks>
@@ -39738,7 +39044,7 @@ SCHEDULE:WEEK:DAILY {79A1C455-08A9-4DAD-A83</item>
     <chunk name="Thumbnail">
       <items count="1">
         <item name="Thumbnail" type_name="gh_drawing_bitmap" type_code="37">
-          <bitmap length="11573">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</bitmap>
+          <bitmap length="2771">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</bitmap>
         </item>
       </items>
     </chunk>

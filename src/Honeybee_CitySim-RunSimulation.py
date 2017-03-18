@@ -20,6 +20,7 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
     Args:
         _HBZones: List of Honeybee zones
         _Windows: List of Window ratios for walls (or tree in which each branch is a building): GlazingRatio, GValue, GlazingUValue, OpenableRatio
+        _Occupancy: List of (or tree in which each branch is a building): Number of occupants and ScheduleProfileID
         path: Directory
         name: name of the project
         climatefile: name of climate file (with extension)
@@ -40,6 +41,7 @@ ghenv.Component.SubCategory = "14 | CitySim"
 ghenv.Component.AdditionalHelpFromDocStrings = "1"
 
 
+
 import Rhino as rc
 import scriptcontext as sc
 import rhinoscriptsyntax as rs
@@ -54,7 +56,9 @@ import copy
 
 rc.Runtime.HostUtils.DisplayOleAlerts(False)
 
-
+if _Occupancy.BranchCount == 0:
+    print "Add Occupancy"
+    raise SystemExit(0)
     
 lb_preparation = sc.sticky["ladybug_Preparation"]()
 hb_reEvaluateHBZones= sc.sticky["honeybee_reEvaluateHBZones"]
@@ -219,6 +223,10 @@ def getMaterials(matName):
     return hb_EPMaterialAUX.decomposeMaterial(matName.upper(), ghenv.Component)
 
 
+def getVolume(b):
+    volume = _HBZones[b].GetVolume()
+    return volume
+
 def getConLibrary():
     xml = ''
     for c in range(len(EPConstructions)):
@@ -267,7 +275,13 @@ def getWindows():
        ratios = [0.5,0.3,0.45,0.0]
     return ratios
     
-    
+def getOccupancy():
+    if _Occupancy != None:
+       occupancy = tree_to_list(_Occupancy, lambda x: x)
+    else:
+       print 'Error'
+    return occupancy 
+
 #Create XML file in CitySim format
 def createXML(geometry,attributes,terrain,horizon,shading):
     #Header and default values
@@ -300,9 +314,14 @@ def createXML(geometry,attributes,terrain,horizon,shading):
 			    </HeatSource>
 			    <CoolSource beginDay="1" endDay="365">
 				    <HeatPump Pmax="10000000" eta_tech="0.3" Ttarget="5" Tsource="ground" depth="5" alpha="0.0700000003" position="vertical" z1="10" />
-			    </CoolSource>
-			    <Zone id="1" volume="1123.5" psi="0.2" Tmin="21" Tmax="27" groundFloor="true" >
-				    <Occupants n="9" d="0.06" type="2"/>'''
+			    </CoolSource>'''
+        xml += '<Zone id="1" volume="{0}" psi="0.2" Tmin="20" Tmax="26" groundFloor="true" >'.format(getVolume(b))
+        occupancy = getOccupancy()
+        if len(occupancy) == 1:
+            occ = occupancy[0]
+        else:
+            occ = occupancy[b]
+        xml +=	'<Occupants n="{0}" type="{1}"/>'.format(occ[0],occ[1])
         for s in xrange(len(geometry[b])):
             #xml += '<' + attributes[1][b][0][s] + ' id="'+str(s)+'" type="'+ str(EPConstructions.index(thermalZonesPyClasses[b].surfaces[s].EPConstruction))+'" ShortWaveReflectance="' + attributes[1][b][1][s] + '" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">\n'
             if attributes[1][b][0][s] == 'Wall' and len(wratios)>1: #Use windows ratios only for walls

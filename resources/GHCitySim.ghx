@@ -48,10 +48,10 @@
             <chunk name="Projection">
               <items count="2">
                 <item name="Target" type_name="gh_drawing_point" type_code="30">
-                  <X>-171</X>
-                  <Y>-1168</Y>
+                  <X>-1712</X>
+                  <Y>-1559</Y>
                 </item>
-                <item name="Zoom" type_name="gh_single" type_code="5">0.64</item>
+                <item name="Zoom" type_name="gh_single" type_code="5">0.8553875</item>
               </items>
             </chunk>
             <chunk name="Views">
@@ -83,9 +83,9 @@
         </chunk>
         <chunk name="DefinitionObjects">
           <items count="1">
-            <item name="ObjectCount" type_name="gh_int32" type_code="3">153</item>
+            <item name="ObjectCount" type_name="gh_int32" type_code="3">159</item>
           </items>
-          <chunks count="153">
+          <chunks count="159">
             <chunk name="Object" index="0">
               <items count="3">
                 <item name="GUID" type_name="gh_guid" type_code="9">410755b1-224a-4c1e-a407-bf32fb45ea7e</item>
@@ -9055,14 +9055,14 @@ Provided by Honeybee 0.0.59</item>
                     <chunk name="Attributes">
                       <items count="2">
                         <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                          <X>1074</X>
-                          <Y>3146</Y>
+                          <X>1075</X>
+                          <Y>3139</Y>
                           <W>269</W>
                           <H>144</H>
                         </item>
                         <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                          <X>1218</X>
-                          <Y>3218</Y>
+                          <X>1219</X>
+                          <Y>3211</Y>
                         </item>
                       </items>
                     </chunk>
@@ -9098,14 +9098,14 @@ Provided by Honeybee 0.0.59</item>
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>1076</X>
-                                  <Y>3148</Y>
+                                  <X>1077</X>
+                                  <Y>3141</Y>
                                   <W>127</W>
                                   <H>20</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>1141</X>
-                                  <Y>3158</Y>
+                                  <X>1142</X>
+                                  <Y>3151</Y>
                                 </item>
                               </items>
                             </chunk>
@@ -9129,14 +9129,14 @@ Provided by Honeybee 0.0.59</item>
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>1076</X>
-                                  <Y>3168</Y>
+                                  <X>1077</X>
+                                  <Y>3161</Y>
                                   <W>127</W>
                                   <H>20</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>1141</X>
-                                  <Y>3178</Y>
+                                  <X>1142</X>
+                                  <Y>3171</Y>
                                 </item>
                               </items>
                             </chunk>
@@ -9159,14 +9159,14 @@ Provided by Honeybee 0.0.59</item>
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>1076</X>
-                                  <Y>3188</Y>
+                                  <X>1077</X>
+                                  <Y>3181</Y>
                                   <W>127</W>
                                   <H>20</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>1141</X>
-                                  <Y>3198</Y>
+                                  <X>1142</X>
+                                  <Y>3191</Y>
                                 </item>
                               </items>
                             </chunk>
@@ -9190,21 +9190,21 @@ Provided by Honeybee 0.0.59</item>
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>1076</X>
-                                  <Y>3208</Y>
+                                  <X>1077</X>
+                                  <Y>3201</Y>
                                   <W>127</W>
                                   <H>20</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>1141</X>
-                                  <Y>3218</Y>
+                                  <X>1142</X>
+                                  <Y>3211</Y>
                                 </item>
                               </items>
                             </chunk>
                           </chunks>
                         </chunk>
                         <chunk name="InputParam" index="4">
-                          <items count="10">
+                          <items count="11">
                             <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
                             <item name="Description" type_name="gh_string" type_code="10">Optional new construction for floors</item>
                             <item name="InstanceGuid" type_name="gh_guid" type_code="9">077c6318-2537-4ed8-a62a-8e403ba30093</item>
@@ -9213,28 +9213,29 @@ Provided by Honeybee 0.0.59</item>
                             <item name="Optional" type_name="gh_bool" type_code="1">true</item>
                             <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">0</item>
                             <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
-                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                            <item name="Source" index="0" type_name="gh_guid" type_code="9">7fd7c1d4-bd9c-4819-92b8-85b3ffbf9027</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                             <item name="TypeHintID" type_name="gh_guid" type_code="9">37261734-eec7-4f50-b6a8-b8d1f3c4396b</item>
                           </items>
                           <chunks count="1">
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>1076</X>
-                                  <Y>3228</Y>
+                                  <X>1077</X>
+                                  <Y>3221</Y>
                                   <W>127</W>
                                   <H>20</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>1141</X>
-                                  <Y>3238</Y>
+                                  <X>1142</X>
+                                  <Y>3231</Y>
                                 </item>
                               </items>
                             </chunk>
                           </chunks>
                         </chunk>
                         <chunk name="InputParam" index="5">
-                          <items count="10">
+                          <items count="11">
                             <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
                             <item name="Description" type_name="gh_string" type_code="10">Optional new construction for exposed floors</item>
                             <item name="InstanceGuid" type_name="gh_guid" type_code="9">cd3cc226-11a0-40c3-9599-f56c3696e956</item>
@@ -9243,21 +9244,22 @@ Provided by Honeybee 0.0.59</item>
                             <item name="Optional" type_name="gh_bool" type_code="1">true</item>
                             <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">0</item>
                             <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
-                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                            <item name="Source" index="0" type_name="gh_guid" type_code="9">7fd7c1d4-bd9c-4819-92b8-85b3ffbf9027</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                             <item name="TypeHintID" type_name="gh_guid" type_code="9">37261734-eec7-4f50-b6a8-b8d1f3c4396b</item>
                           </items>
                           <chunks count="1">
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>1076</X>
-                                  <Y>3248</Y>
+                                  <X>1077</X>
+                                  <Y>3241</Y>
                                   <W>127</W>
                                   <H>20</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>1141</X>
-                                  <Y>3258</Y>
+                                  <X>1142</X>
+                                  <Y>3251</Y>
                                 </item>
                               </items>
                             </chunk>
@@ -9280,14 +9282,14 @@ Provided by Honeybee 0.0.59</item>
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>1076</X>
-                                  <Y>3268</Y>
+                                  <X>1077</X>
+                                  <Y>3261</Y>
                                   <W>127</W>
                                   <H>20</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>1141</X>
-                                  <Y>3278</Y>
+                                  <X>1142</X>
+                                  <Y>3271</Y>
                                 </item>
                               </items>
                             </chunk>
@@ -9307,14 +9309,14 @@ Provided by Honeybee 0.0.59</item>
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>1233</X>
-                                  <Y>3148</Y>
+                                  <X>1234</X>
+                                  <Y>3141</Y>
                                   <W>108</W>
                                   <H>140</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>1279</X>
-                                  <Y>3218</Y>
+                                  <X>1280</X>
+                                  <Y>3211</Y>
                                 </item>
                               </items>
                             </chunk>
@@ -10862,7 +10864,7 @@ hb_hive = sc.sticky["honeybee_Hive"]()
 hb_EPScheduleAUX = sc.sticky["honeybee_EPScheduleAUX"]()
 hb_EPPar = sc.sticky["honeybee_EPParameters"]()
     
-
+#EPConstructions = sc.sticky ["honeybee_constructionLib"].keys()
        
 def EPConstructionStr(constructionName):
         constructionData = None
@@ -10889,7 +10891,8 @@ def EPConstructionStr(constructionName):
             print warning
             ghenv.Component.AddRuntimeMessage(gh.GH_RuntimeMessageLevel.Warning, warning)
             return None, None
-            
+
+        
  
 def getMaterialProperties(matName):
     if not sc.sticky["honeybee_release"]:
@@ -10930,60 +10933,32 @@ def getMaterialProperties(matName):
     
 # call the objects from the lib
 thermalZonesPyClasses = hb_hive.callFromHoneybeeHive(_HBZones)
-
-
-
-for zone in thermalZonesPyClasses:
-
-        schedules = zone.getCurrentSchedules(True)
-        loads = zone.getCurrentLoads(True)
-        
-                
-        for srf in zone.surfaces:
-
-            if srf.EPConstruction != None:
-                srf.construction = srf.EPConstruction
-
-                print "Construction:"
-                print "\n"
-                print srf.construction
-                materials = EPConstructionStr(srf.construction)
-                for m in materials:
-                    print "Material: ", m
-                    print "Material properties : ", getMaterialProperties(m)
-                    print "\n"
-                print "\n"
-
+ 
 
 for zone in thermalZonesPyClasses:
 
         schedules = zone.getCurrentSchedules(True)
         loads = zone.getCurrentLoads(True)
-        
-                
+             
         for srf in zone.surfaces:
-
             if srf.EPConstruction != None:
                 srf.construction = srf.EPConstruction
-
-                print "Construction:"
-                print "\n"
-                print srf.construction
+                print 'ID', EPConstructions.index(srf.construction)
                 materials = EPConstructionStr(srf.construction)
-                for m in materials:
-                    print "Material: ", m
-                    print "Material properties : ", getMaterialProperties(m)
-                    print "\n"
-                print "\n"
+                print "Solar reflectivity : ",str(1-float(getMaterialProperties(materials[-1])[0][-2]))
+                #print "\n"
+
+
+
 </item>
                     <item name="Description" type_name="gh_string" type_code="10">A python scriptable component</item>
                     <item name="EditorLocation" type_name="gh_drawing_point" type_code="30">
-                      <X>564</X>
-                      <Y>221</Y>
+                      <X>-182</X>
+                      <Y>232</Y>
                     </item>
                     <item name="EditorSize" type_name="gh_drawing_size" type_code="32">
                       <W>1390</W>
-                      <H>1067</H>
+                      <H>742</H>
                     </item>
                     <item name="Hidden" type_name="gh_bool" type_code="1">true</item>
                     <item name="HideInput" type_name="gh_bool" type_code="1">true</item>
@@ -10996,9 +10971,9 @@ for zone in thermalZonesPyClasses:
                     <chunk name="Attributes">
                       <items count="2">
                         <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                          <X>1726</X>
+                          <X>1710</X>
                           <Y>3195</Y>
-                          <W>115</W>
+                          <W>131</W>
                           <H>167</H>
                         </item>
                         <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
@@ -11016,11 +10991,12 @@ for zone in thermalZonesPyClasses:
                       </items>
                       <chunks count="2">
                         <chunk name="InputParam" index="0">
-                          <items count="12">
+                          <items count="13">
                             <item name="Access" type_name="gh_int32" type_code="3">1</item>
                             <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
                             <item name="Description" type_name="gh_string" type_code="10">Script variable Python</item>
                             <item name="InstanceGuid" type_name="gh_guid" type_code="9">d966f42b-fd42-4b0a-b15e-3be72d62ad80</item>
+                            <item name="Mapping" type_name="gh_int32" type_code="3">1</item>
                             <item name="Name" type_name="gh_string" type_code="10">_HBZones</item>
                             <item name="NickName" type_name="gh_string" type_code="10">_HBZones</item>
                             <item name="Optional" type_name="gh_bool" type_code="1">true</item>
@@ -11034,9 +11010,9 @@ for zone in thermalZonesPyClasses:
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>1728</X>
+                                  <X>1712</X>
                                   <Y>3197</Y>
-                                  <W>55</W>
+                                  <W>71</W>
                                   <H>163</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
@@ -11194,7 +11170,7 @@ for zone in thermalZonesPyClasses:
                     <item name="Name" type_name="gh_string" type_code="10">Panel</item>
                     <item name="NickName" type_name="gh_string" type_code="10"></item>
                     <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                    <item name="ScrollRatio" type_name="gh_double" type_code="6">0</item>
+                    <item name="ScrollRatio" type_name="gh_double" type_code="6">1</item>
                     <item name="Source" index="0" type_name="gh_guid" type_code="9">7fde824a-b235-49c9-8b56-bbd0b54ac64e</item>
                     <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                     <item name="UserText" type_name="gh_string" type_code="10">Double click to edit panel content…</item>
@@ -11303,10 +11279,23 @@ lb_preparation = sc.sticky["ladybug_Preparation"]()
 hb_reEvaluateHBZones= sc.sticky["honeybee_reEvaluateHBZones"]
 hb_hive = sc.sticky["honeybee_Hive"]()
 hb_EPScheduleAUX = sc.sticky["honeybee_EPScheduleAUX"]()
+hb_EPMaterialAUX = sc.sticky["honeybee_EPMaterialAUX"]()
 hb_EPPar = sc.sticky["honeybee_EPParameters"]()
+EPConstructions = sc.sticky ["honeybee_constructionLib"].keys() 
+EPMaterials =  sc.sticky ["honeybee_materialLib"].keys()
+EPWindowMaterials = sc.sticky ["honeybee_windowMaterialLib"].keys()
+ThermMaterials = sc.sticky["honeybee_thermMaterialLib"].keys()   
+thermalZonesPyClasses = hb_hive.callFromHoneybeeHive(_HBZones)
+
+
+    
     
 
-       
+    
+EPConstructions.sort()
+EPMaterials.sort()
+EPWindowMaterials.sort()
+ThermMaterials.sort()      
 def EPConstructionStr(constructionName):
         constructionData = None
         if constructionName in sc.sticky ["honeybee_constructionLib"].keys():
@@ -11442,6 +11431,39 @@ def getextraXML():
                 #shading = i
     return terrain, horizon, shading
      
+def getLayers(cnstrName):
+    return hb_EPMaterialAUX.decomposeEPCnstr(cnstrName.upper())
+    
+def getMaterials(matName):
+    return hb_EPMaterialAUX.decomposeMaterial(matName.upper(), ghenv.Component)
+
+
+def getConLibrary():
+    xml = ''
+    for c in range(len(EPConstructions)):
+        if getMaterials(getLayers(EPConstructions[c])[0][0])[0][0] == 'Material' or getMaterials(getLayers(EPConstructions[c])[0][0])[0][0] == 'Material:NoMass': #Exclude and windows
+            xml += '&lt;Composite id="{0}" name="{1}"&gt;\n'.format(c,EPConstructions[c])
+            for l in getLayers(EPConstructions[c])[0]:
+                mats = getMaterials(l)[0]
+                print mats
+                if mats[0] == 'Material': #Check that the material has all properties we need
+                    xml += '&lt;Layer Thickness="{0}" Conductivity="{1}" Cp="{2}" Density="{3}"/&gt;\n'.format(mats[2],mats[3],mats[5],mats[4])
+                else: #This material has no mass
+                    print getMaterials(l)[1]
+                    print mats
+                    try:
+                        i = getMaterials(l)[1].index('Thermal Resistance {m2-K/W}') #Index of resistance
+                    except:
+                        pass
+                    try:
+                        i = getMaterials(l)[1].index('- Thermal Resistance {m2-K/W}') #Index of resistance
+                    except:
+                        pass
+                    UValue = 1/float(mats[i]) #Calculate U-value for 1 meter thickness
+                    xml += '&lt;Layer Thickness="1.0" Conductivity="{0}" Cp="0.1" Density="0.1"/&gt;\n'.format(UValue) #Default values for Cp and Density
+            xml += '&lt;/Composite&gt;\n'
+    return xml
+
 
 #Create XML file in CitySim format
 def createXML(geometry,attributes,terrain,horizon,shading):
@@ -11453,34 +11475,9 @@ def createXML(geometry,attributes,terrain,horizon,shading):
     xml += '&lt;Climate location="' + climatefile + ' "city="Unknown"/&gt;'
     xml += "	&lt;District&gt;"
     xml += horizon
-    xml += ''' &lt;Composite id="12" name="Neuchatel_1981-1990_Double" category="Wall"&gt;
-			    &lt;Layer Thickness="0.0100" Conductivity="0.5000" Cp="1000" Density="1300" nre="0" gwp="0" ubp="0"/&gt;
-			    &lt;Layer Thickness="0.1000" Conductivity="1.1300" Cp="1000" Density="1431" nre="0" gwp="0" ubp="0"/&gt;
-			    &lt;Layer Thickness="0.0800" Conductivity="0.7900" Cp="1000" Density="1329" nre="0" gwp="0" ubp="0"/&gt;
-			    &lt;Layer Thickness="0.1200" Conductivity="0.7900" Cp="1000" Density="1329" nre="0" gwp="0" ubp="0"/&gt;
-			    &lt;Layer Thickness="0.0200" Conductivity="0.8500" Cp="837" Density="1900" nre="0" gwp="0" ubp="0"/&gt;
-		    &lt;/Composite&gt;
-		    &lt;Composite id="21" name="Simple wall" category="Wall"&gt;
-			    &lt;Layer Thickness="0.1500" Conductivity="200.0000" Cp="418" Density="8900" nre="0" gwp="0" ubp="0"/&gt;
-			    &lt;Layer Thickness="0.1500" Conductivity="0.6200" Cp="840" Density="1800" nre="0" gwp="0" ubp="0"/&gt;
-		    &lt;/Composite&gt;
-		    &lt;Composite id="15" name="Neuchatel_1991-2000_Double" category="Wall"&gt;
-			    &lt;Layer Thickness="0.0100" Conductivity="0.5000" Cp="1000" Density="1700" nre="0" gwp="0" ubp="0"/&gt;
-			    &lt;Layer Thickness="0.1500" Conductivity="0.3600" Cp="1000" Density="1500" nre="0" gwp="0" ubp="0"/&gt;
-			    &lt;Layer Thickness="0.1200" Conductivity="0.3600" Cp="1050" Density="700" nre="0" gwp="0" ubp="0"/&gt;
-			    &lt;Layer Thickness="0.1200" Conductivity="0.1600" Cp="1050" Density="2500" nre="0" gwp="0" ubp="0"/&gt;
-			    &lt;Layer Thickness="0.0200" Conductivity="0.1600" Cp="840" Density="577" nre="0" gwp="0" ubp="0"/&gt;
-		    &lt;/Composite&gt;
-		    &lt;Composite id="8" name="Neuchatel_1961-1970_isole" category="Wall"&gt;
-			    &lt;Layer Thickness="0.0100" Conductivity="1.8300" Cp="712" Density="2200" nre="0" gwp="0" ubp="0"/&gt;
-			    &lt;Layer Thickness="0.0600" Conductivity="2.9000" Cp="900" Density="2650" nre="0" gwp="0" ubp="0"/&gt;
-			    &lt;Layer Thickness="0.0600" Conductivity="2.0000" Cp="880" Density="2500" nre="0" gwp="0" ubp="0"/&gt;
-			    &lt;Layer Thickness="0.1700" Conductivity="1.5000" Cp="720" Density="2180" nre="0" gwp="0" ubp="0"/&gt;
-			    &lt;Layer Thickness="0.0200" Conductivity="2.0000" Cp="753" Density="2700" nre="0" gwp="0" ubp="0"/&gt;
-		    &lt;/Composite&gt;
-
-		    &lt;OccupancyDayProfile id="5" name="Day Profile5" p1="0.31" p2="0.35" p3="0.37" p4="0.4" p5="0.42" p6="0.44" p7="0.46" p8="0.49" p9="0.57" p10="0.62" p11="0.69" p12="0.75" p13="0.8" p14="0.77" p15="0.7" p16="0.62" p17="0.59" p18="0.53" p19="0.51" p20="0.51" p21="0.48" p22="0.43" p23="0.47" p24="0.43" /&gt;
-		    &lt;OccupancyDayProfile id="2" name="Day Profile2" p1="0.11" p2="0.16" p3="0.18" p4="0.21" p5="0.24" p6="0.25" p7="0.26" p8="0.28" p9="0.28" p10="0.28" p11="0.28" p12="0.28" p13="0.28" p14="0.28" p15="0.28" p16="0.22" p17="0.21" p18="0.27" p19="0.21" p20="0.21" p21="0.22" p22="0.22" p23="0.24" p24="0.24" /&gt;
+    xml += getConLibrary()
+    xml += '''&lt;OccupancyDayProfile id="5" name="Day Profile5" p1="0.31" p2="0.35" p3="0.37" p4="0.4" p5="0.42" p6="0.44" p7="0.46" p8="0.49" p9="0.57" p10="0.62" p11="0.69" p12="0.75" p13="0.8" p14="0.77" p15="0.7" p16="0.62" p17="0.59" p18="0.53" p19="0.51" p20="0.51" p21="0.48" p22="0.43" p23="0.47" p24="0.43" /&gt;
+		     &lt;OccupancyDayProfile id="2" name="Day Profile2" p1="0.11" p2="0.16" p3="0.18" p4="0.21" p5="0.24" p6="0.25" p7="0.26" p8="0.28" p9="0.28" p10="0.28" p11="0.28" p12="0.28" p13="0.28" p14="0.28" p15="0.28" p16="0.22" p17="0.21" p18="0.27" p19="0.21" p20="0.21" p21="0.22" p22="0.22" p23="0.24" p24="0.24" /&gt;
 		    &lt;OccupancyDayProfile id="3" name="Day Profile3" p1="0.4" p2="0.4" p3="0.39" p4="0.39" p5="0.39" p6="0.39" p7="0.38" p8="0.38" p9="0.38" p10="0.28" p11="0.28" p12="0.28" p13="0.28" p14="0.28" p15="0.28" p16="0.22" p17="0.21" p18="0.08" p19="0.21" p20="0.21" p21="0.22" p22="0.24" p23="0.24" p24="0.24" /&gt;
 		    &lt;OccupancyDayProfile id="4" name="Day Profile4" p1="0.4" p2="0.39" p3="0.39" p4="0.39" p5="0.39" p6="0.39" p7="0.38" p8="0.38" p9="0.38" p10="0.38" p11="0.37" p12="0.37" p13="0.37" p14="0.36" p15="0.35" p16="0.35" p17="0.35" p18="0.35" p19="0.35" p20="0.35" p21="0.36" p22="0.73" p23="0.42" p24="0.44" /&gt;
 		    &lt;OccupancyDayProfile id="1" name="Day Profile1" p1="0.39" p2="0.39" p3="0.39" p4="0.39" p5="0.39" p6="0.39" p7="0.38" p8="0.38" p9="0.38" p10="0.38" p11="0.37" p12="0.37" p13="0.32" p14="0.37" p15="0.35" p16="0.35" p17="0.35" p18="0.35" p19="0.35" p20="0.35" p21="0.36" p22="0.39" p23="0.42" p24="0.44" /&gt;
@@ -11503,7 +11500,7 @@ def createXML(geometry,attributes,terrain,horizon,shading):
 			    &lt;Zone id="1" volume="1123.5" psi="0.2" Tmin="21" Tmax="27" groundFloor="true" &gt;
 				    &lt;Occupants n="9" d="0.06" type="2"/&gt;'''
         for s in xrange(len(geometry[b])):
-            xml += '&lt;' + attributes[1][b][0][s] + ' id="'+str(s)+'" type="21" ShortWaveReflectance="' + attributes[1][b][1][s] + '" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0"&gt;\n'
+            xml += '&lt;' + attributes[1][b][0][s] + ' id="'+str(s)+'" type="'+ str(EPConstructions.index(thermalZonesPyClasses[b].surfaces[s].EPConstruction))+'" ShortWaveReflectance="' + attributes[1][b][1][s] + '" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0"&gt;\n'
             srfpts = rs.CurvePoints(geometry[b][s])
             for i in xrange(len(srfpts)):
                 #print '&lt;V' + str(i) + ' x="' + str(srfpts[i][0]) +'" y="' + str(srfpts[i][1]) +'" z="' + str(srfpts[i][2])+'"/&gt; \n'
@@ -11541,7 +11538,7 @@ if Write:
 if Run:
 
     xmlpath = path+name+'.xml'
-    command = Solver + ' -I ' + xmlpath #Runs only irradiation simulation with -I
+    command = Solver + ' ' + xmlpath #Runs only irradiation simulation with -I
 
     import os
     os.chdir(path)
@@ -18406,14 +18403,14 @@ Provided by Honeybee 0.0.59</item>
                     <chunk name="Attributes">
                       <items count="2">
                         <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                          <X>634</X>
-                          <Y>18</Y>
+                          <X>635</X>
+                          <Y>44</Y>
                           <W>236</W>
                           <H>134</H>
                         </item>
                         <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                          <X>762</X>
-                          <Y>85</Y>
+                          <X>763</X>
+                          <Y>111</Y>
                         </item>
                       </items>
                     </chunk>
@@ -18439,7 +18436,7 @@ Provided by Honeybee 0.0.59</item>
                             <item name="Optional" type_name="gh_bool" type_code="1">true</item>
                             <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">0</item>
                             <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
-                            <item name="Source" index="0" type_name="gh_guid" type_code="9">2de0c99d-02ab-4b44-b2fe-26a865b3e64b</item>
+                            <item name="Source" index="0" type_name="gh_guid" type_code="9">5c20dfd6-61d5-4968-9bc4-075c39f4fb02</item>
                             <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                             <item name="TypeHintID" type_name="gh_guid" type_code="9">2ceb0405-fdfe-403d-a4d6-8786da45fb9d</item>
                           </items>
@@ -18447,14 +18444,14 @@ Provided by Honeybee 0.0.59</item>
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>636</X>
-                                  <Y>20</Y>
+                                  <X>637</X>
+                                  <Y>46</Y>
                                   <W>111</W>
                                   <H>43</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>693</X>
-                                  <Y>41.66666</Y>
+                                  <X>694</X>
+                                  <Y>67.66666</Y>
                                 </item>
                               </items>
                             </chunk>
@@ -18478,14 +18475,14 @@ Provided by Honeybee 0.0.59</item>
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>636</X>
-                                  <Y>63</Y>
+                                  <X>637</X>
+                                  <Y>89</Y>
                                   <W>111</W>
                                   <H>43</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>693</X>
-                                  <Y>85</Y>
+                                  <X>694</X>
+                                  <Y>111</Y>
                                 </item>
                               </items>
                             </chunk>
@@ -18509,14 +18506,14 @@ Provided by Honeybee 0.0.59</item>
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>636</X>
-                                  <Y>106</Y>
+                                  <X>637</X>
+                                  <Y>132</Y>
                                   <W>111</W>
-                                  <H>44</H>
+                                  <H>43</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>693</X>
-                                  <Y>128.3333</Y>
+                                  <X>694</X>
+                                  <Y>154.3333</Y>
                                 </item>
                               </items>
                             </chunk>
@@ -18536,14 +18533,14 @@ Provided by Honeybee 0.0.59</item>
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>777</X>
-                                  <Y>20</Y>
+                                  <X>778</X>
+                                  <Y>46</Y>
                                   <W>91</W>
                                   <H>43</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>814.5</X>
-                                  <Y>41.66666</Y>
+                                  <X>815.5</X>
+                                  <Y>67.66666</Y>
                                 </item>
                               </items>
                             </chunk>
@@ -18563,14 +18560,14 @@ Provided by Honeybee 0.0.59</item>
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>777</X>
-                                  <Y>63</Y>
+                                  <X>778</X>
+                                  <Y>89</Y>
                                   <W>91</W>
                                   <H>43</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>814.5</X>
-                                  <Y>85</Y>
+                                  <X>815.5</X>
+                                  <Y>111</Y>
                                 </item>
                               </items>
                             </chunk>
@@ -18590,14 +18587,14 @@ Provided by Honeybee 0.0.59</item>
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>777</X>
-                                  <Y>106</Y>
+                                  <X>778</X>
+                                  <Y>132</Y>
                                   <W>91</W>
-                                  <H>44</H>
+                                  <H>43</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>814.5</X>
-                                  <Y>128.3333</Y>
+                                  <X>815.5</X>
+                                  <Y>154.3333</Y>
                                 </item>
                               </items>
                             </chunk>
@@ -19438,14 +19435,14 @@ Provided by Honeybee 0.0.59</item>
                     <chunk name="Attributes">
                       <items count="2">
                         <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                          <X>1526</X>
-                          <Y>241</Y>
+                          <X>1524</X>
+                          <Y>246</Y>
                           <W>163</W>
                           <H>113</H>
                         </item>
                         <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                          <X>1588</X>
-                          <Y>298</Y>
+                          <X>1586</X>
+                          <Y>303</Y>
                         </item>
                       </items>
                     </chunk>
@@ -19476,14 +19473,14 @@ Provided by Honeybee 0.0.59</item>
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>1528</X>
-                                  <Y>243</Y>
+                                  <X>1526</X>
+                                  <Y>248</Y>
                                   <W>45</W>
                                   <H>54</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>1552</X>
-                                  <Y>270.25</Y>
+                                  <X>1550</X>
+                                  <Y>275.25</Y>
                                 </item>
                               </items>
                             </chunk>
@@ -19507,14 +19504,14 @@ Provided by Honeybee 0.0.59</item>
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>1528</X>
-                                  <Y>297</Y>
+                                  <X>1526</X>
+                                  <Y>302</Y>
                                   <W>45</W>
                                   <H>55</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>1552</X>
-                                  <Y>324.75</Y>
+                                  <X>1550</X>
+                                  <Y>329.75</Y>
                                 </item>
                               </items>
                             </chunk>
@@ -19533,14 +19530,14 @@ Provided by Honeybee 0.0.59</item>
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>1603</X>
-                                  <Y>243</Y>
+                                  <X>1601</X>
+                                  <Y>248</Y>
                                   <W>84</W>
                                   <H>109</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>1645</X>
-                                  <Y>297.5</Y>
+                                  <X>1643</X>
+                                  <Y>302.5</Y>
                                 </item>
                               </items>
                             </chunk>
@@ -21889,7 +21886,7 @@ Provided by Honeybee 0.0.59</item>
                     <item name="Optional" type_name="gh_bool" type_code="1">false</item>
                     <item name="ScrollRatio" type_name="gh_double" type_code="6">0</item>
                     <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
-                    <item name="UserText" type_name="gh_string" type_code="10">facade</item>
+                    <item name="UserText" type_name="gh_string" type_code="10">customfacade</item>
                   </items>
                   <chunks count="2">
                     <chunk name="Attributes">
@@ -23026,8 +23023,8 @@ Provided by Honeybee 0.0.59</item>
                     <chunk name="Attributes">
                       <items count="5">
                         <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                          <X>938</X>
-                          <Y>-296</Y>
+                          <X>944</X>
+                          <Y>-318</Y>
                           <W>160</W>
                           <H>23</H>
                         </item>
@@ -23035,8 +23032,8 @@ Provided by Honeybee 0.0.59</item>
                         <item name="MarginRight" type_name="gh_int32" type_code="3">0</item>
                         <item name="MarginTop" type_name="gh_int32" type_code="3">0</item>
                         <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                          <X>938.4219</X>
-                          <Y>-295.838</Y>
+                          <X>944.0748</X>
+                          <Y>-317.319</Y>
                         </item>
                       </items>
                     </chunk>
@@ -23071,7 +23068,7 @@ Provided by Honeybee 0.0.59</item>
                     <item name="Optional" type_name="gh_bool" type_code="1">false</item>
                     <item name="ScrollRatio" type_name="gh_double" type_code="6">0</item>
                     <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
-                    <item name="UserText" type_name="gh_string" type_code="10">roof</item>
+                    <item name="UserText" type_name="gh_string" type_code="10">customroof</item>
                   </items>
                   <chunks count="2">
                     <chunk name="Attributes">
@@ -23127,13 +23124,13 @@ Provided by Honeybee 0.0.59</item>
                       <items count="2">
                         <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
                           <X>912</X>
-                          <Y>-226</Y>
+                          <Y>-209</Y>
                           <W>181</W>
                           <H>20</H>
                         </item>
                         <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
                           <X>912.345</X>
-                          <Y>-225.2658</Y>
+                          <Y>-208.3071</Y>
                         </item>
                       </items>
                     </chunk>
@@ -23926,7 +23923,7 @@ Provided by Honeybee 0.0.59</item>
                     <item name="Optional" type_name="gh_bool" type_code="1">false</item>
                     <item name="ScrollRatio" type_name="gh_double" type_code="6">0</item>
                     <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
-                    <item name="UserText" type_name="gh_string" type_code="10">floor</item>
+                    <item name="UserText" type_name="gh_string" type_code="10">customfloor</item>
                   </items>
                   <chunks count="2">
                     <chunk name="Attributes">
@@ -24159,14 +24156,14 @@ Provided by Honeybee 0.0.59</item>
                     <chunk name="Attributes">
                       <items count="2">
                         <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                          <X>2759</X>
-                          <Y>-20</Y>
+                          <X>2764</X>
+                          <Y>-31</Y>
                           <W>119</W>
                           <H>20</H>
                         </item>
                         <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                          <X>2818.906</X>
-                          <Y>-9.714111</Y>
+                          <X>2824.193</X>
+                          <Y>-20.28782</Y>
                         </item>
                       </items>
                     </chunk>
@@ -33102,13 +33099,13 @@ If empty default folder will be set to C:\ladybug or C:\Users\%USERNAME%\AppData
                       <items count="2">
                         <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
                           <X>2824</X>
-                          <Y>2047</Y>
+                          <Y>2061</Y>
                           <W>64</W>
                           <H>20</H>
                         </item>
                         <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
                           <X>2856.75</X>
-                          <Y>2057.927</Y>
+                          <Y>2071.343</Y>
                         </item>
                       </items>
                     </chunk>
@@ -33477,8 +33474,8 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
 @license GPL-3.0+ &lt;http://spdx.org/licenses/GPL-3.0+&gt;
 -</item>
                     <item name="EditorLocation" type_name="gh_drawing_point" type_code="30">
-                      <X>182</X>
-                      <Y>182</Y>
+                      <X>52</X>
+                      <Y>52</Y>
                     </item>
                     <item name="EditorSize" type_name="gh_drawing_size" type_code="32">
                       <W>1358</W>
@@ -34879,7 +34876,7 @@ geometry = same geometry used as simulation input</item>
                     <item name="Optional" type_name="gh_bool" type_code="1">false</item>
                     <item name="ScrollRatio" type_name="gh_double" type_code="6">0</item>
                     <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
-                    <item name="UserText" type_name="gh_string" type_code="10">C:\CitySim.exe</item>
+                    <item name="UserText" type_name="gh_string" type_code="10">C:\CitySimd.exe</item>
                   </items>
                   <chunks count="2">
                     <chunk name="Attributes">
@@ -36133,7 +36130,7 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                     <item name="HideInput" type_name="gh_bool" type_code="1">true</item>
                     <item name="HideOutput" type_name="gh_bool" type_code="1">false</item>
                     <item name="IconOverride" type_name="gh_drawing_bitmap" type_code="37">
-                      <bitmap length="994">iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOvwAADr8BOAVTJAAAA4RJREFUSEvllWlPE2EUhfkH/gQ/a0IwSmaGahxRNG6AUcQlskjQGMAlLqDQOhXFNRLXqLjUFalYUNSGInQsSkXFGhUIolAVUCNurYZIlzneWUCN1Wj9ZLzJ/dK8ec6Z856ZRvwfc7WpY8gGs5OPK7LycYYqZRfutPLVjY+itCPhz5YKV2LSbse9qdtFjF5/BTp9FXT5lYjVWzBn66X38YbyRO1oeBNbVCsKFc1o7XoHtuAS2HWVYPMsYNeYwa46g7F5pUgqMvPa8T8fbkOdmHPShbMNnQS/AHZtBdjccwqcWXEczNIjiF569C8EDDaR018Bm39RhcvuFfgJBf7HAgWn7w7NOOgUuMJagTPS6q0Ck18lMGsrBCb3vDDRYBaZlafALDsGJqcETPYBlFVbTNLrBYLUnSz0d6akaajQk37I6eY2OsAZr4JbbwOrv6zlfh7s6rOq++Umgh8Gk7UfbNY+NNypAnrmAs9nQXqcgL7WZaFFDtvup8VsInihHZxQo8IHotEudSB3JvugAuey9+HmbQvwdCbweDrQNhn9bSvdGvL7SS62UzQiua8FRfO1NbnlBC+FEo0M/8Z96uZSvGrZqMJbJgIPYuF3JUBDfj86Y42cO0VT/RVO7qcYK5Gxy4rM4ovI3HkBmTvKsWjHORhKzGhxHUOwPQlonQTcGwvc0SHYyIUWGGOsFmT4YGtIYJfFhr4XRki96cBb2t5U4OV8ypugT+IpkinkPA5wEfw2BzSMhHR9VGiBnJJ6ag3B5b5THZO2W/Gyo1gFD8B75gBdMjxByRvNE1Tnt1Q46qPgd4wPLeB80MnrCmTnJEC5L95bg8Cbwh/hHTKcnFPeaBoNNDIq/FokUDsMn5uyRA3542TssYlsrlzJMhKwIfBuE/A6Ra3hs1mDTfkZPGiLpJru//WLt+aonY9bd4aPzSuLknrmiehOBtwzgPZpCLbEI9A0Tgg0jhECTk4I3OAEv4NJ9Nk5Xt6+u6uGapjfG+nZTBGdiQp88DIV57Q3eUj2SPjs0eF/i4Lt8SIeTVXhSg1jAGc0RUXd73WQAEM7InwBX9sSk9RML5DSFJbyHgVcH0FPkUZ3sQ3+unHv+1054f/xoGP2EN/D1OX+++nuQH0MJJEus244VXEy/PUzTD5nSvju/+3xer3CR6/XRAt5vR4PPB8+DO7A77Ru+ewnjyfEJzoi4gstbPbWsFiGLQAAAABJRU5ErkJggg==</bitmap>
+                      <bitmap length="994">iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOvQAADr0BR/uQrQAAA4RJREFUSEvllWlPE2EUhfkH/gQ/a0IwSmaGahxRNG6AUcQlskjQGMAlLqDQOhXFNRLXqLjUFalYUNSGInQsSkXFGhUIolAVUCNurYZIlzneWUCN1Wj9ZLzJ/dK8ec6Z856ZRvwfc7WpY8gGs5OPK7LycYYqZRfutPLVjY+itCPhz5YKV2LSbse9qdtFjF5/BTp9FXT5lYjVWzBn66X38YbyRO1oeBNbVCsKFc1o7XoHtuAS2HWVYPMsYNeYwa46g7F5pUgqMvPa8T8fbkOdmHPShbMNnQS/AHZtBdjccwqcWXEczNIjiF569C8EDDaR018Bm39RhcvuFfgJBf7HAgWn7w7NOOgUuMJagTPS6q0Ck18lMGsrBCb3vDDRYBaZlafALDsGJqcETPYBlFVbTNLrBYLUnSz0d6akaajQk37I6eY2OsAZr4JbbwOrv6zlfh7s6rOq++Umgh8Gk7UfbNY+NNypAnrmAs9nQXqcgL7WZaFFDtvup8VsInihHZxQo8IHotEudSB3JvugAuey9+HmbQvwdCbweDrQNhn9bSvdGvL7SS62UzQiua8FRfO1NbnlBC+FEo0M/8Z96uZSvGrZqMJbJgIPYuF3JUBDfj86Y42cO0VT/RVO7qcYK5Gxy4rM4ovI3HkBmTvKsWjHORhKzGhxHUOwPQlonQTcGwvc0SHYyIUWGGOsFmT4YGtIYJfFhr4XRki96cBb2t5U4OV8ypugT+IpkinkPA5wEfw2BzSMhHR9VGiBnJJ6ag3B5b5THZO2W/Gyo1gFD8B75gBdMjxByRvNE1Tnt1Q46qPgd4wPLeB80MnrCmTnJEC5L95bg8Cbwh/hHTKcnFPeaBoNNDIq/FokUDsMn5uyRA3542TssYlsrlzJMhKwIfBuE/A6Ra3hs1mDTfkZPGiLpJru//WLt+aonY9bd4aPzSuLknrmiehOBtwzgPZpCLbEI9A0Tgg0jhECTk4I3OAEv4NJ9Nk5Xt6+u6uGapjfG+nZTBGdiQp88DIV57Q3eUj2SPjs0eF/i4Lt8SIeTVXhSg1jAGc0RUXd73WQAEM7InwBX9sSk9RML5DSFJbyHgVcH0FPkUZ3sQ3+unHv+1054f/xoGP2EN/D1OX+++nuQH0MJJEus244VXEy/PUzTD5nSvju/+3xer3CR6/XRAt5vR4PPB8+DO7A77Ru+ewnjyfEJzoi4gstbPbWsFiGLQAAAABJRU5ErkJggg==</bitmap>
                     </item>
                     <item name="InstanceGuid" type_name="gh_guid" type_code="9">ca97315e-f3bd-4726-9ffc-2e63e02a4c7b</item>
                     <item name="Name" type_name="gh_string" type_code="10">Honeybee_CitySim-Srf</item>
@@ -36636,8 +36633,8 @@ for b in xrange(len(geometry)):
             print geometry[b][s].X[p],geometry[b][s].Y[p],geometry[b][s].Z[p]</item>
                     <item name="Description" type_name="gh_string" type_code="10">A python scriptable component</item>
                     <item name="EditorLocation" type_name="gh_drawing_point" type_code="30">
-                      <X>26</X>
-                      <Y>26</Y>
+                      <X>52</X>
+                      <Y>52</Y>
                     </item>
                     <item name="EditorSize" type_name="gh_drawing_size" type_code="32">
                       <W>558</W>
@@ -36924,6 +36921,1038 @@ for b in xrange(len(geometry)):
                 </chunk>
               </chunks>
             </chunk>
+            <chunk name="Object" index="153">
+              <items count="3">
+                <item name="GUID" type_name="gh_guid" type_code="9">410755b1-224a-4c1e-a407-bf32fb45ea7e</item>
+                <item name="Lib" type_name="gh_guid" type_code="9">16cf80bc-9018-cbdb-2238-976eb17fd30d</item>
+                <item name="Name" type_name="gh_string" type_code="10">Honeybee_Add to EnergyPlus Library</item>
+              </items>
+              <chunks count="1">
+                <chunk name="Container">
+                  <items count="11">
+                    <item name="CodeInput" type_name="gh_string" type_code="10">#
+# Honeybee: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipour Roudsari
+# 
+# This file is part of Honeybee.
+# 
+# Copyright (c) 2013-2016, Mostapha Sadeghipour Roudsari &lt;Sadeghipour@gmail.com&gt; 
+# Honeybee is free software; you can redistribute it and/or modify 
+# it under the terms of the GNU General Public License as published 
+# by the Free Software Foundation; either version 3 of the License, 
+# or (at your option) any later version. 
+# 
+# Honeybee is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of 
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the 
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with Honeybee; If not, see &lt;http://www.gnu.org/licenses/&gt;.
+# 
+# @license GPL-3.0+ &lt;http://spdx.org/licenses/GPL-3.0+&gt;
+
+
+"""
+Add EnergyPlus Material, Construction or Schedule to Library
+
+-
+Provided by Honeybee 0.0.59
+    
+    Args:
+        _EPObject: EnergyPlus material, construction or schedule definition
+        _addToProjectLib: Set to True to add the material to HB library for this project
+        overwrite_: Set to True if you want to overwrite the material with similar name
+        addToHoneybeeLib: Set to True to Honeybee material libaray. Materials in addToHoneybeeLib library will be loaded anytime that you let the 'bee fly. You can add the materials manually to C:\ladybug\HoneybeeRadMaterials.mat
+    Returns:
+        readMe!: ...
+
+"""
+
+ghenv.Component.Name = "Honeybee_Add to EnergyPlus Library"
+ghenv.Component.NickName = 'addToEPLibrary'
+ghenv.Component.Message = 'VER 0.0.59\nJAN_26_2016'
+ghenv.Component.IconDisplayMode = ghenv.Component.IconDisplayMode.application
+ghenv.Component.Category = "Honeybee"
+ghenv.Component.SubCategory = "06 | Energy | Material | Construction"
+#compatibleHBVersion = VER 0.0.56\nFEB_01_2015
+#compatibleLBVersion = VER 0.0.59\nFEB_01_2015
+try: ghenv.Component.AdditionalHelpFromDocStrings = "2"
+except: pass
+
+
+import scriptcontext as sc
+import Grasshopper.Kernel as gh
+
+
+def main(EPObject, addToProjectLib, overwrite):
+    
+    # import the classes
+    w = gh.GH_RuntimeMessageLevel.Warning
+    
+    if not sc.sticky.has_key('ladybug_release')and sc.sticky.has_key('honeybee_release'):
+        print "You should first let both Ladybug and Honeybee to fly..."
+        ghenv.Component.AddRuntimeMessage(w, "You should first let both Ladybug and Honeybee to fly...")
+        return -1
+
+    try:
+        if not sc.sticky['honeybee_release'].isCompatible(ghenv.Component): return -1
+        if sc.sticky['honeybee_release'].isInputMissing(ghenv.Component): return -1
+    except:
+        warning = "You need a newer version of Honeybee to use this compoent." + \
+        " Use updateHoneybee component to update userObjects.\n" + \
+        "If you have already updated userObjects drag Honeybee_Honeybee component " + \
+        "into canvas and try again."
+        w = gh.GH_RuntimeMessageLevel.Warning
+        ghenv.Component.AddRuntimeMessage(w, warning)
+        return -1
+
+    try:
+        if not sc.sticky['ladybug_release'].isCompatible(ghenv.Component): return -1
+    except:
+        warning = "You need a newer version of Ladybug to use this compoent." + \
+        " Use updateLadybug component to update userObjects.\n" + \
+        "If you have already updated userObjects drag Ladybug_Ladybug component " + \
+        "into canvas and try again."
+        w = gh.GH_RuntimeMessageLevel.Warning
+        ghenv.Component.AddRuntimeMessage(w, warning)
+        return -1
+    
+    hb_EPObjectsAux = sc.sticky["honeybee_EPObjectsAUX"]()
+    added, name = hb_EPObjectsAux.addEPObjectToLib(EPObject, overwrite)
+    
+    if not added:
+        msg = name + " is not added to the project library!"
+        ghenv.Component.AddRuntimeMessage(gh.GH_RuntimeMessageLevel.Warning, msg)
+        print msg
+    else:
+        print name + " is added to this project library!"
+        
+if _EPObject and _addToProjectLib:
+    main(_EPObject, _addToProjectLib, overwrite_)</item>
+                    <item name="Description" type_name="gh_string" type_code="10">Add EnergyPlus Material, Construction or Schedule to Library
+-
+Provided by Honeybee 0.0.59</item>
+                    <item name="EditorLocation" type_name="gh_drawing_point" type_code="30">
+                      <X>2112</X>
+                      <Y>36</Y>
+                    </item>
+                    <item name="EditorSize" type_name="gh_drawing_size" type_code="32">
+                      <W>958</W>
+                      <H>959</H>
+                    </item>
+                    <item name="Hidden" type_name="gh_bool" type_code="1">true</item>
+                    <item name="HideInput" type_name="gh_bool" type_code="1">true</item>
+                    <item name="HideOutput" type_name="gh_bool" type_code="1">false</item>
+                    <item name="IconOverride" type_name="gh_drawing_bitmap" type_code="37">
+                      <bitmap length="1257">iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwgAADsIBFShKgAAABItJREFUSEvdVWtQlFUY/pZdlpu464LLxkXcXRb3EmCDOkxTMdDOUGOljQ1lRRb4I5OZbEDMBCESZkCQDE1CUDTiOmiNEYmghDkTgwiTJAVrgN0YlattApFP7zn7QVOR/sjpR8/MM+e83zn7POd733fPJ/xvsICYyenktJXGAk6Z/DUat4vxu8TdxHyFs7SQxkK5XJ4irrE4z9XVlf2WzbcRlcQ5WGUK358U0bE/ut+/ptfVGDLuZgoZp7jHI+KJy26m+yYUq56ddImOHaW9Y8FLF9ifXr/eHh8fb7NarRORkZH2mJiY0YSEhF42V6lUNtoXw5UZJBJJrXb/OYR9Dfg2AdqmGYS0/AZzK2A+C4R0AoF5jQgsaIbh1BiCH43DwPnP8U+w2Wzw8vKqEeUFwUnpnba07Ct4Hx9Fx/UppLSPwP1IPwy1V2A5B3g/kwzaxumXVAgh9wKskQ+Kcn9Hd3c36C3e4+IiyjW7PoJPwxTfUNQzDuFgHwx138N8ZgZSz0VzBjIvXwS2Aa6+OsB+je//K7q6utjeIiY8i6N+2SewuH4Sgzd+RcaFEcgPXYahZhCW1hn4JO6ZM/DZlIuwHkC5owpPxUQh7/UtKM5KReuxCjRVlKIyLxPbN8X/2UDi4p6v3XcWwSd/ga56EHpiMIkzA0PVAEzN0wjc08xrYGqegqFiECGUOiH9BITHt0KwvgxJ3FsQ1iYRKTZHMYMyhzrBaaFqp660E6aGCSypHOAmcwbVA5zGRjuMJ+1zsam8F/5krOymBmgHLI2TMH4GhPUC+vJvIFOqd4ryHFUBu47DRPnmonegpcIGGeuw6n6cWRWDFUd74ETdxp6bTk9jSU49JG6eOaI2xwcB2R/S4p0NjFXfwrnlFsLe78F3fnrKk4AhnyVYefhLbhLaQq3+xhGWohKHNEHiocjSFrXB+OnP84rOkol7URrZ6S9ZIrj4Va2ZjzbDcng23YT6IhCQUsIMDjnUCVIPRaauuJ0MbswrzLisqh8+H49AoOKeD492nFwfgmH/IBpDedy3LBzyS8CisousBqmiPEdlQBal6DY10Nb9wFNw6oE1gMwFb7+YjpsqH4z46zGl9EYBxdOKxeiwvgDhQBsk7gv3itocVORjtzG4wk9e89hGflJznQ2rC04DEoEbsGfrcj5BQMMQn9ep/SHxVBWL2rxN03UlnTBSfuc3GISG0vNSRjXi36yFYANStuynN5E5DKRSpG3Oh9AHxFOxn39yMwRn+QFRnors6nGQ3TthlD92uVm+cNBMfW2h+F6aL6e7TdMBqOhClA2SAaWUnXb2DVJTyyElA80w1aB+DFKlOleU50j2jFgNv7RyaF7dB++4HZz3JBdDk1gwF/tuK4V6YxaEV3ZjXVQsuakdBgoVnntkA4SMKrpW8uAR/jB5CkkO6T+wkriCaCZGizQQw4hRIvXECGIkfVVyQa3JumgmKBSHnZ2z6bmOyH7HNP4doDetHSFxZnCN/nC3dOYN4tLdAaUm8bpowOkXxD6Tdw9DfkERJFo47Bv0Dhuv+hseEpf+SwjC70R8b0dS0dJtAAAAAElFTkSuQmCC</bitmap>
+                    </item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">2dbc6fb4-026f-494e-89d2-e48ec4d04314</item>
+                    <item name="Name" type_name="gh_string" type_code="10">Honeybee_Add to EnergyPlus Library</item>
+                    <item name="NickName" type_name="gh_string" type_code="10">addToEPLibrary</item>
+                  </items>
+                  <chunks count="2">
+                    <chunk name="Attributes">
+                      <items count="2">
+                        <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                          <X>1601</X>
+                          <Y>-473</Y>
+                          <W>174</W>
+                          <H>116</H>
+                        </item>
+                        <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                          <X>1708</X>
+                          <Y>-415</Y>
+                        </item>
+                      </items>
+                    </chunk>
+                    <chunk name="ParameterData">
+                      <items count="6">
+                        <item name="InputCount" type_name="gh_int32" type_code="3">3</item>
+                        <item name="InputId" index="0" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
+                        <item name="InputId" index="1" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
+                        <item name="InputId" index="2" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
+                        <item name="OutputCount" type_name="gh_int32" type_code="3">1</item>
+                        <item name="OutputId" index="0" type_name="gh_guid" type_code="9">3ede854e-c753-40eb-84cb-b48008f14fd4</item>
+                      </items>
+                      <chunks count="4">
+                        <chunk name="InputParam" index="0">
+                          <items count="13">
+                            <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Description" type_name="gh_string" type_code="10">EnergyPlus material, construction or schedule definition</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">760b6f7d-a701-4f54-85d7-25774b90ffa0</item>
+                            <item name="Name" type_name="gh_string" type_code="10">_EPObject</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">_EPObject</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
+                            <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">0</item>
+                            <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Source" index="0" type_name="gh_guid" type_code="9">fd606f56-e903-4b23-a7a1-0f706312aaf7</item>
+                            <item name="Source" index="1" type_name="gh_guid" type_code="9">a6ae5d94-e01f-4b68-9c2e-d188768b9f07</item>
+                            <item name="Source" index="2" type_name="gh_guid" type_code="9">81c06be6-cbce-41a6-ac8e-3eb8d9dbaa33</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">3</item>
+                            <item name="TypeHintID" type_name="gh_guid" type_code="9">37261734-eec7-4f50-b6a8-b8d1f3c4396b</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>1603</X>
+                                  <Y>-471</Y>
+                                  <W>90</W>
+                                  <H>37</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>1649.5</X>
+                                  <Y>-452.3333</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="InputParam" index="1">
+                          <items count="11">
+                            <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Description" type_name="gh_string" type_code="10">Set to True to add the material to HB library for this project</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">ae440626-729f-4c48-ad1b-c9f949dea757</item>
+                            <item name="Name" type_name="gh_string" type_code="10">_addToProjectLib</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">_addToProjectLib</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
+                            <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">0</item>
+                            <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Source" index="0" type_name="gh_guid" type_code="9">02a00eba-2211-4864-b631-3c5d6052aa93</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
+                            <item name="TypeHintID" type_name="gh_guid" type_code="9">d60527f5-b5af-4ef6-8970-5f96fe412559</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>1603</X>
+                                  <Y>-434</Y>
+                                  <W>90</W>
+                                  <H>37</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>1649.5</X>
+                                  <Y>-415</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="InputParam" index="2">
+                          <items count="10">
+                            <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Description" type_name="gh_string" type_code="10">Set to True if you want to overwrite the material with similar name</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">9f815fdf-1272-472e-8c70-2cc283d04155</item>
+                            <item name="Name" type_name="gh_string" type_code="10">overwrite_</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">overwrite_</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
+                            <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">0</item>
+                            <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                            <item name="TypeHintID" type_name="gh_guid" type_code="9">d60527f5-b5af-4ef6-8970-5f96fe412559</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>1603</X>
+                                  <Y>-397</Y>
+                                  <W>90</W>
+                                  <H>38</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>1649.5</X>
+                                  <Y>-377.6667</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="OutputParam" index="0">
+                          <items count="6">
+                            <item name="Description" type_name="gh_string" type_code="10">...</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">9713f2c2-44e6-4d6d-9423-a80d7fbafac0</item>
+                            <item name="Name" type_name="gh_string" type_code="10">out</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">readMe!</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>1723</X>
+                                  <Y>-471</Y>
+                                  <W>50</W>
+                                  <H>112</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>1748</X>
+                                  <Y>-415</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                      </chunks>
+                    </chunk>
+                  </chunks>
+                </chunk>
+              </chunks>
+            </chunk>
+            <chunk name="Object" index="154">
+              <items count="2">
+                <item name="GUID" type_name="gh_guid" type_code="9">2e78987b-9dfb-42a2-8b76-3923ac8bd91a</item>
+                <item name="Name" type_name="gh_string" type_code="10">Boolean Toggle</item>
+              </items>
+              <chunks count="1">
+                <chunk name="Container">
+                  <items count="7">
+                    <item name="Description" type_name="gh_string" type_code="10">Boolean (true/false) toggle</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">02a00eba-2211-4864-b631-3c5d6052aa93</item>
+                    <item name="Name" type_name="gh_string" type_code="10">Boolean Toggle</item>
+                    <item name="NickName" type_name="gh_string" type_code="10">Toggle</item>
+                    <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                    <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                    <item name="ToggleValue" type_name="gh_bool" type_code="1">false</item>
+                  </items>
+                  <chunks count="1">
+                    <chunk name="Attributes">
+                      <items count="1">
+                        <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                          <X>1397</X>
+                          <Y>-412</Y>
+                          <W>104</W>
+                          <H>22</H>
+                        </item>
+                      </items>
+                    </chunk>
+                  </chunks>
+                </chunk>
+              </chunks>
+            </chunk>
+            <chunk name="Object" index="155">
+              <items count="3">
+                <item name="GUID" type_name="gh_guid" type_code="9">410755b1-224a-4c1e-a407-bf32fb45ea7e</item>
+                <item name="Lib" type_name="gh_guid" type_code="9">16cf80bc-9018-cbdb-2238-976eb17fd30d</item>
+                <item name="Name" type_name="gh_string" type_code="10">Honeybee_Call from EP Construction Library</item>
+              </items>
+              <chunks count="1">
+                <chunk name="Container">
+                  <items count="11">
+                    <item name="CodeInput" type_name="gh_string" type_code="10">#
+# Honeybee: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipour Roudsari
+# 
+# This file is part of Honeybee.
+# 
+# Copyright (c) 2013-2016, Mostapha Sadeghipour Roudsari &lt;Sadeghipour@gmail.com&gt; 
+# Honeybee is free software; you can redistribute it and/or modify 
+# it under the terms of the GNU General Public License as published 
+# by the Free Software Foundation; either version 3 of the License, 
+# or (at your option) any later version. 
+# 
+# Honeybee is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of 
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the 
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with Honeybee; If not, see &lt;http://www.gnu.org/licenses/&gt;.
+# 
+# @license GPL-3.0+ &lt;http://spdx.org/licenses/GPL-3.0+&gt;
+
+
+"""
+Call from EP Library
+
+-
+Provided by Honeybee 0.0.59
+    
+    Args:
+        keywords_: List of keywords to filter the list of materials
+            
+    Returns:
+        ThermMaterials: List of THERM materials in Honeybee library.  Note that Therm materials do not contain enough information to be used for EnergyPlus.  They can only be used for THERM polygons with the "Honeybee_Create Therm Polygons" component.
+        EPMaterials: List of EP materials in Honeybee library
+        EPWindowMaterials: List of EP window materials in Honeybee library
+        EPConstructios:  List of EP constructions in Honeybee library
+
+"""
+
+ghenv.Component.Name = "Honeybee_Call from EP Construction Library"
+ghenv.Component.NickName = 'callFromEPConstrLibrary'
+ghenv.Component.Message = 'VER 0.0.59\nJAN_26_2016'
+ghenv.Component.IconDisplayMode = ghenv.Component.IconDisplayMode.application
+ghenv.Component.Category = "Honeybee"
+ghenv.Component.SubCategory = "06 | Energy | Material | Construction"
+#compatibleHBVersion = VER 0.0.56\nFEB_01_2015
+#compatibleLBVersion = VER 0.0.59\nFEB_01_2015
+try: ghenv.Component.AdditionalHelpFromDocStrings = "2"
+except: pass
+
+
+import scriptcontext as sc
+import Grasshopper.Kernel as gh
+
+if sc.sticky.has_key("honeybee_release") and sc.sticky.has_key("honeybee_constructionLib"):
+    
+    hb_EPMaterialAUX = sc.sticky["honeybee_EPMaterialAUX"]()
+    
+    EPConstructions = sc.sticky ["honeybee_constructionLib"].keys()
+    EPMaterials =  sc.sticky ["honeybee_materialLib"].keys()
+    EPWindowMaterials = sc.sticky ["honeybee_windowMaterialLib"].keys()
+    ThermMaterials = sc.sticky["honeybee_thermMaterialLib"].keys()
+    
+    EPConstructions.sort()
+    EPMaterials.sort()
+    EPWindowMaterials.sort()
+    ThermMaterials.sort()
+    
+    if len(keywords_)!=0 and keywords_[0]!=None:
+        EPConstructions = hb_EPMaterialAUX.searchListByKeyword(EPConstructions, keywords_)
+        EPMaterials = hb_EPMaterialAUX.searchListByKeyword(EPMaterials, keywords_)
+        EPWindowMaterials = hb_EPMaterialAUX.searchListByKeyword(EPWindowMaterials, keywords_)
+        ThermMaterials = hb_EPMaterialAUX.searchListByKeyword(ThermMaterials, keywords_)
+else:
+    print "You should first let the Honeybee fly..."
+    w = gh.GH_RuntimeMessageLevel.Warning
+    ghenv.Component.AddRuntimeMessage(w, "You should first let the Honeybee fly...")</item>
+                    <item name="Description" type_name="gh_string" type_code="10">Call from EP Library
+-
+Provided by Honeybee 0.0.59</item>
+                    <item name="EditorLocation" type_name="gh_drawing_point" type_code="30">
+                      <X>375</X>
+                      <Y>364</Y>
+                    </item>
+                    <item name="EditorSize" type_name="gh_drawing_size" type_code="32">
+                      <W>1041</W>
+                      <H>685</H>
+                    </item>
+                    <item name="Hidden" type_name="gh_bool" type_code="1">true</item>
+                    <item name="HideInput" type_name="gh_bool" type_code="1">true</item>
+                    <item name="HideOutput" type_name="gh_bool" type_code="1">true</item>
+                    <item name="IconOverride" type_name="gh_drawing_bitmap" type_code="37">
+                      <bitmap length="1214">iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwgAADsIBFShKgAAABGBJREFUSEvdVGtQlFUYPsu37C535Cq7wC4uC7ssiKU00joqOZWkjtMwI/XHGdAuk5fSVFIStIQKCCwkxk0dIQkUTOlitHJJQtPp4p+E1JKLRJdhBWcJEHSf3vPtJzmE+aN++cw8853vnPd7nnPe9/0Ou2/gRcwh5jM3+SZ6loiUK15mbm5Z0vt7xCJOb3dWypisVKFQ8DU+R++sRKVS8W/5+FWiP3ECj8i9g7t9H17+q8e85R3KmDkDytg5A74L0to9k5ddVMbOHvBd+PiwcsEyO8XazWGejhXp6Y6MjIxLqamp9qSkJIfFYhnMzMzsSElJcQQGBnZS3KOisgiZrDbyzU8x6xIQaruFiIZRJDSPIe4UEPclkPA9oHv3FHS7mxH9xTXoU1fiQqsNd0Nvby/IpE5SZ8zNNyhHZ/0W0+odaOwbQe75QXhUdMFQ24O4NidCny8AhYkMW1cEVnoRyclzJbl/oqenhxu8L4pLqAjLqYbfiZtiwPGuITDrZRjqrsJ8GnAPCZ8wkCk8oP8OkKljgD468hTo7OzksXu58G1UqiWDTsc49rQPwm3/TzAc6UZc6zimv1g6YRD09BbM+hHwy65B2uJFKNu5FYeKd+HcZ3U4+/ER1JcXoSDrJR67jwuLkCk9iyMLG2BovIH4oz0w1nYj+nC3aGA43AVT4ygiCz5HRH49jLY/EVtNxmcBlmcDS8sGW7oR8tWFUDy1DezJLLDZS7nBIZc6gWqwParsDMwnh6H+sAvami7EksltA5fJDZiaxsW6RPO56p9hOnEd5lYgvg0wNN2EoYUaop3Gx36D3D8kV5IXUa3J/oDSQYtc9B5UttzCqpwqOPyDcFWfgCEvH+x4oQjCV0464Qh0e9ogePm+JWmLqNJsrxLbcirByRQobs0rByhHDGOB08VnYeZrYNQQJjKPyDvOU3TQJU2Qefnka0uaYTo5OqXgZLrTv/FcdiWgVOGaRg+4yZD37BuQUapMLU5E7DrGDSpc6gTBZ9pOXWkrTHS8qQQn898MjA1DiNr7DQS/4B2SvIh71sBYcwWa+j8QRIVVNN3FgFKnOQMElH8NmSDwO2kCNfcy0H3UBwv97fP2nQf7AVjLa3CHQcGq18EuAA/ZhmHZWA4mCPslbd6mAbm6stOUouEpxTl5AQ+mrRcLGtw0gMcopZDLXQY0tzbrgGg8HqZFW7AaMv9QqyRPRVZ5WfWVHUikP5R3kpmOySledqTDxzPoegg/B1xZmIaRqJlYt9mK0YAQ0cCp8sCW9e+gbX46kDgfiUd/AdPGFUjyIrZ6Jy+h9qqDmnYSsjpPpHpbBcI2WRHyDI2pDYW3bQjYUIbL7gqAdvm7zgR7eDTskTG0cx2GZQzxa4rBVmzgXbTZJf03kogW4kwiv8s5zcQH7ng3EecKgrB4TKPvHoowiAb99LweEDOa6RO0hNYXER8k/jc4tcbkAb57iU6dcaW09P+hX2sw9YfrP7FrZjwhTd13YOwvyBVnQz9AhIEAAAAASUVORK5CYII=</bitmap>
+                    </item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">b73a55c3-c48d-4dc7-a29e-ec605dc9c0f2</item>
+                    <item name="Name" type_name="gh_string" type_code="10">Honeybee_Call from EP Construction Library</item>
+                    <item name="NickName" type_name="gh_string" type_code="10">callFromEPConstrLibrary</item>
+                  </items>
+                  <chunks count="2">
+                    <chunk name="Attributes">
+                      <items count="2">
+                        <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                          <X>1653</X>
+                          <Y>3560</Y>
+                          <W>197</W>
+                          <H>172</H>
+                        </item>
+                        <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                          <X>1727</X>
+                          <Y>3646</Y>
+                        </item>
+                      </items>
+                    </chunk>
+                    <chunk name="ParameterData">
+                      <items count="7">
+                        <item name="InputCount" type_name="gh_int32" type_code="3">1</item>
+                        <item name="InputId" index="0" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
+                        <item name="OutputCount" type_name="gh_int32" type_code="3">4</item>
+                        <item name="OutputId" index="0" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
+                        <item name="OutputId" index="1" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
+                        <item name="OutputId" index="2" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
+                        <item name="OutputId" index="3" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
+                      </items>
+                      <chunks count="5">
+                        <chunk name="InputParam" index="0">
+                          <items count="11">
+                            <item name="Access" type_name="gh_int32" type_code="3">1</item>
+                            <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Description" type_name="gh_string" type_code="10">List of keywords to filter the list of materials</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">57bca16f-bede-4859-8549-75d3907ea894</item>
+                            <item name="Name" type_name="gh_string" type_code="10">keywords_</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">keywords_</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
+                            <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">1</item>
+                            <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                            <item name="TypeHintID" type_name="gh_guid" type_code="9">37261734-eec7-4f50-b6a8-b8d1f3c4396b</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>1655</X>
+                                  <Y>3562</Y>
+                                  <W>57</W>
+                                  <H>168</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>1685</X>
+                                  <Y>3646</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="OutputParam" index="0">
+                          <items count="6">
+                            <item name="Description" type_name="gh_string" type_code="10">List of THERM materials in Honeybee library.  Note that Therm materials do not contain enough information to be used for EnergyPlus.  They can only be used for THERM polygons with the "Honeybee_Create Therm Polygons" component.</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">1b126cf6-57bb-412e-b447-324443be5431</item>
+                            <item name="Name" type_name="gh_string" type_code="10">ThermMaterials</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">ThermMaterials</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>1742</X>
+                                  <Y>3562</Y>
+                                  <W>106</W>
+                                  <H>42</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>1795</X>
+                                  <Y>3583</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="OutputParam" index="1">
+                          <items count="6">
+                            <item name="Description" type_name="gh_string" type_code="10">List of EP materials in Honeybee library</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">c1218963-2005-4f90-8c99-6215ecf4e51a</item>
+                            <item name="Name" type_name="gh_string" type_code="10">EPMaterials</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">EPMaterials</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>1742</X>
+                                  <Y>3604</Y>
+                                  <W>106</W>
+                                  <H>42</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>1795</X>
+                                  <Y>3625</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="OutputParam" index="2">
+                          <items count="6">
+                            <item name="Description" type_name="gh_string" type_code="10">List of EP window materials in Honeybee library</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">ff5854c9-44a8-48c1-bc19-8738fadf7e0a</item>
+                            <item name="Name" type_name="gh_string" type_code="10">EPWindowMaterials</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">EPWindowMaterials</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>1742</X>
+                                  <Y>3646</Y>
+                                  <W>106</W>
+                                  <H>42</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>1795</X>
+                                  <Y>3667</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="OutputParam" index="3">
+                          <items count="6">
+                            <item name="Description" type_name="gh_string" type_code="10">List of EP constructions in Honeybee library</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">ea662f8d-07cd-490c-990f-81bf53a490a6</item>
+                            <item name="Name" type_name="gh_string" type_code="10">EPConstructions</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">EPConstructions</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>1742</X>
+                                  <Y>3688</Y>
+                                  <W>106</W>
+                                  <H>42</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>1795</X>
+                                  <Y>3709</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                      </chunks>
+                    </chunk>
+                  </chunks>
+                </chunk>
+              </chunks>
+            </chunk>
+            <chunk name="Object" index="156">
+              <items count="2">
+                <item name="GUID" type_name="gh_guid" type_code="9">59e0b89a-e487-49f8-bab8-b5bab16be14c</item>
+                <item name="Name" type_name="gh_string" type_code="10">Panel</item>
+              </items>
+              <chunks count="1">
+                <chunk name="Container">
+                  <items count="9">
+                    <item name="Description" type_name="gh_string" type_code="10">A panel for custom notes and text values</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">5d23e3ee-bafb-41da-8b1d-96ecd3d4d126</item>
+                    <item name="Name" type_name="gh_string" type_code="10">Panel</item>
+                    <item name="NickName" type_name="gh_string" type_code="10"></item>
+                    <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                    <item name="ScrollRatio" type_name="gh_double" type_code="6">1</item>
+                    <item name="Source" index="0" type_name="gh_guid" type_code="9">ea662f8d-07cd-490c-990f-81bf53a490a6</item>
+                    <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
+                    <item name="UserText" type_name="gh_string" type_code="10">Double click to edit panel content…</item>
+                  </items>
+                  <chunks count="2">
+                    <chunk name="Attributes">
+                      <items count="5">
+                        <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                          <X>1939</X>
+                          <Y>3338</Y>
+                          <W>160</W>
+                          <H>464</H>
+                        </item>
+                        <item name="MarginLeft" type_name="gh_int32" type_code="3">0</item>
+                        <item name="MarginRight" type_name="gh_int32" type_code="3">0</item>
+                        <item name="MarginTop" type_name="gh_int32" type_code="3">0</item>
+                        <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                          <X>1939.604</X>
+                          <Y>3338.364</Y>
+                        </item>
+                      </items>
+                    </chunk>
+                    <chunk name="PanelProperties">
+                      <items count="6">
+                        <item name="Colour" type_name="gh_drawing_color" type_code="36">
+                          <ARGB>255;255;250;90</ARGB>
+                        </item>
+                        <item name="DrawIndices" type_name="gh_bool" type_code="1">true</item>
+                        <item name="DrawPaths" type_name="gh_bool" type_code="1">true</item>
+                        <item name="Multiline" type_name="gh_bool" type_code="1">true</item>
+                        <item name="Stream" type_name="gh_bool" type_code="1">false</item>
+                        <item name="Wrap" type_name="gh_bool" type_code="1">true</item>
+                      </items>
+                    </chunk>
+                  </chunks>
+                </chunk>
+              </chunks>
+            </chunk>
+            <chunk name="Object" index="157">
+              <items count="3">
+                <item name="GUID" type_name="gh_guid" type_code="9">410755b1-224a-4c1e-a407-bf32fb45ea7e</item>
+                <item name="Lib" type_name="gh_guid" type_code="9">16cf80bc-9018-cbdb-2238-976eb17fd30d</item>
+                <item name="Name" type_name="gh_string" type_code="10">Honeybee_Decompose EP Construction</item>
+              </items>
+              <chunks count="1">
+                <chunk name="Container">
+                  <items count="11">
+                    <item name="CodeInput" type_name="gh_string" type_code="10"># Decompose EnergyPlus Construction
+#
+# Honeybee: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipour Roudsari
+# 
+# This file is part of Honeybee.
+# 
+# Copyright (c) 2013-2016, Mostapha Sadeghipour Roudsari &lt;Sadeghipour@gmail.com&gt; 
+# Honeybee is free software; you can redistribute it and/or modify 
+# it under the terms of the GNU General Public License as published 
+# by the Free Software Foundation; either version 3 of the License, 
+# or (at your option) any later version. 
+# 
+# Honeybee is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of 
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the 
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with Honeybee; If not, see &lt;http://www.gnu.org/licenses/&gt;.
+# 
+# @license GPL-3.0+ &lt;http://spdx.org/licenses/GPL-3.0+&gt;
+
+
+"""
+Decompose EnergyPlus Construction
+
+-
+Provided by Honeybee 0.0.59
+    
+    Args:
+        _cnstrName: EnergyPlus construction name
+
+    Returns:
+        materials: List of materials (from outside to inside)
+        comments: Comments for each layer of materials if any
+        UValue_SI: U value of the construction in W/m2.K
+        UValue_IP: U value of the construction in Btu/h·ft2·°F
+"""
+
+ghenv.Component.Name = "Honeybee_Decompose EP Construction"
+ghenv.Component.NickName = 'DecomposeEPConstruction'
+ghenv.Component.Message = 'VER 0.0.59\nJAN_26_2016'
+ghenv.Component.IconDisplayMode = ghenv.Component.IconDisplayMode.application
+ghenv.Component.Category = "Honeybee"
+ghenv.Component.SubCategory = "06 | Energy | Material | Construction"
+#compatibleHBVersion = VER 0.0.56\nFEB_01_2015
+#compatibleLBVersion = VER 0.0.59\nFEB_01_2015
+try: ghenv.Component.AdditionalHelpFromDocStrings = "0"
+except: pass
+
+import scriptcontext as sc
+
+
+def main(cnstrName):
+    # Make sure Honeybee is flying
+    if not sc.sticky.has_key('honeybee_release'):
+        print "You should first let Honeybee to fly..."
+        w = gh.GH_RuntimeMessageLevel.Warning
+        ghenv.Component.AddRuntimeMessage(w, "You should first let Honeybee to fly...")
+        return -1
+
+    try:
+        if not sc.sticky['honeybee_release'].isCompatible(ghenv.Component): return -1
+        if sc.sticky['honeybee_release'].isInputMissing(ghenv.Component): return -1
+    except:
+        warning = "You need a newer version of Honeybee to use this compoent." + \
+        " Use updateHoneybee component to update userObjects.\n" + \
+        "If you have already updated userObjects drag Honeybee_Honeybee component " + \
+        "into canvas and try again."
+        w = gh.GH_RuntimeMessageLevel.Warning
+        ghenv.Component.AddRuntimeMessage(w, warning)
+        return -1
+    
+    try:
+        hb_EPMaterialAUX = sc.sticky["honeybee_EPMaterialAUX"]()
+    except:
+        msg = "Failed to load EP constructions!"
+        ghenv.Component.AddRuntimeMessage(w, msg)
+        return -1
+    
+    return hb_EPMaterialAUX.decomposeEPCnstr(cnstrName.upper())
+    
+    
+if _cnstrName != None:
+    data = main(_cnstrName)
+    
+    if data!=-1:
+        materials, comments, UValue_SI, UValue_IP = data
+        
+        if UValue_SI and UValue_IP:
+            RValue_SI = 1/UValue_SI
+            RValue_IP = 1/UValue_IP
+</item>
+                    <item name="Description" type_name="gh_string" type_code="10">Decompose EnergyPlus Construction
+-
+Provided by Honeybee 0.0.59</item>
+                    <item name="EditorLocation" type_name="gh_drawing_point" type_code="30">
+                      <X>206</X>
+                      <Y>21</Y>
+                    </item>
+                    <item name="EditorSize" type_name="gh_drawing_size" type_code="32">
+                      <W>937</W>
+                      <H>793</H>
+                    </item>
+                    <item name="Hidden" type_name="gh_bool" type_code="1">true</item>
+                    <item name="HideInput" type_name="gh_bool" type_code="1">true</item>
+                    <item name="HideOutput" type_name="gh_bool" type_code="1">true</item>
+                    <item name="IconOverride" type_name="gh_drawing_bitmap" type_code="37">
+                      <bitmap length="1020">iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwgAADsIBFShKgAAAA55JREFUSEu9lW1IU2EUxx/xJVuWlUOdOjWno0kh9IISEhiSM/oSSKHpN6U31BiZ2vClF9HUWpptBRpUmgWNoIwyZOkHJZD6IuEooj5EpPkac9F0O53n3uNudqcQVD/4s3vOnnv+7Jx7z9j/JAaVgIpHpZHUKB1Kg+LfpaK2HwoJ0XkSU/buCQpJxngHip+NQ2lRzLNp8/7JmMTb4yrNNh4vUq3T6Yb1er0tLCzsg1Kp/Jidnf1MrVa/1Gq1/RkZGS8iIyPfs4RNduP6DcM/VJrPZeERr/1TU+38bFZm5vNVW3XDBxjTL8Qmv0QDmIzRmKi2wPXS0lL4HZ4rKCigSOR702WYYgzm10YAPHxEWYDumzfdVsYcnlgtFkeD6KQjVFugzWAw0FGJyspKKCwspEhi5sRJmEaTWZTHNgAezC1k6MG5RglfozVokLCF6oqEhoaeslgs8+LtEq2tre6mpiY3hV5arQ+gLy0dvqPBpCoOJrZsg+kABV7HunAGwix+x+yrRSUlJbIWcXIPH4buoUEAUxuMo4kzRAmfsDW7gxT7qJ4My58Y5GHbuu7fBzhhEAxmWSB8UWuhfN3GYqon42J1dTXdLlFTU+PB2fAWL6H+/AV4goV5i6ZT02HmWCl8QxPQbAVPfHIR1ZTAGZTV1dUt0P1eWlpa3I2NjUtmsDA3B670TGHI4+vDwf1lTMjPHOcmCmHIUzGJx6m0F58tKi4ulrVo6uhRLMTAEZ0E8+/eUxZ/7cUGzyXG3kC8DibwMZ2ITmym2gLLGuTn51NEjL6FO2jw6m43JURqr1tgNWM73XG6czP8PVBrDFSbMX9//7MNDQ10VILPoKqqSjaD8suX4PFAP0UiT3t7AUul8Hp44cc/vSgUiora2lpZIW7ARaEXnBf09fVRJNLT08MN+G7yic9VwR9TWYuQ3Nxc6OzspEikvb2dG2SJ5eT8W4Pg4GCjyWSioxLLtchsNsPgIL7Jv2Cz2bjB0h20SEBAQA3uHDoqwYsbjUb5kMvLhZ7/itVq5Qa7xIpyll0Vf2sGPg14zpdBXl4edHV1USTS0dGxvAE+pmdwLdBRCf7o+poBrnYYGhqiSGTFGSBt/K11OBwwNjYGdrtduC4qKhJWhdPpFPIjIyPCdU5ODjQ3N4PL5YLR0VGYw/1UX1+/YosOom6hOlQq1enAwED+f2pGXeOffn5+V6Oiosrw2kI5rht4tgK3wBXK30P5/LP5RzD2E6hMpYHZNA04AAAAAElFTkSuQmCC</bitmap>
+                    </item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">71afbc92-3d7a-4a77-a46a-28db5474a8d7</item>
+                    <item name="Name" type_name="gh_string" type_code="10">Honeybee_Decompose EP Construction</item>
+                    <item name="NickName" type_name="gh_string" type_code="10">DecomposeEPConstruction</item>
+                  </items>
+                  <chunks count="2">
+                    <chunk name="Attributes">
+                      <items count="2">
+                        <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                          <X>2546</X>
+                          <Y>207</Y>
+                          <W>159</W>
+                          <H>188</H>
+                        </item>
+                        <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                          <X>2627</X>
+                          <Y>301</Y>
+                        </item>
+                      </items>
+                    </chunk>
+                    <chunk name="ParameterData">
+                      <items count="9">
+                        <item name="InputCount" type_name="gh_int32" type_code="3">1</item>
+                        <item name="InputId" index="0" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
+                        <item name="OutputCount" type_name="gh_int32" type_code="3">6</item>
+                        <item name="OutputId" index="0" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
+                        <item name="OutputId" index="1" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
+                        <item name="OutputId" index="2" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
+                        <item name="OutputId" index="3" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
+                        <item name="OutputId" index="4" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
+                        <item name="OutputId" index="5" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
+                      </items>
+                      <chunks count="7">
+                        <chunk name="InputParam" index="0">
+                          <items count="11">
+                            <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Description" type_name="gh_string" type_code="10">EnergyPlus construction name</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">4ebd26e2-6aa8-423e-b9f8-39cb6a1566a2</item>
+                            <item name="Name" type_name="gh_string" type_code="10">_cnstrName</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">_cnstrName</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
+                            <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">0</item>
+                            <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Source" index="0" type_name="gh_guid" type_code="9">3729c3d0-951a-4fbd-b3d8-958493171a0a</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
+                            <item name="TypeHintID" type_name="gh_guid" type_code="9">37261734-eec7-4f50-b6a8-b8d1f3c4396b</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>2548</X>
+                                  <Y>209</Y>
+                                  <W>64</W>
+                                  <H>184</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>2581.5</X>
+                                  <Y>301</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="OutputParam" index="0">
+                          <items count="6">
+                            <item name="Description" type_name="gh_string" type_code="10">List of materials (from outside to inside)</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">46893aed-5a50-4d8b-b63c-67d5670fd010</item>
+                            <item name="Name" type_name="gh_string" type_code="10">materials</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">materials</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>2642</X>
+                                  <Y>209</Y>
+                                  <W>61</W>
+                                  <H>30</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>2672.5</X>
+                                  <Y>224.3333</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="OutputParam" index="1">
+                          <items count="6">
+                            <item name="Description" type_name="gh_string" type_code="10">Comments for each layer of materials if any</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">b5bbdf9c-84d1-42ab-806e-4d4f65140f3b</item>
+                            <item name="Name" type_name="gh_string" type_code="10">comments</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">comments</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>2642</X>
+                                  <Y>239</Y>
+                                  <W>61</W>
+                                  <H>31</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>2672.5</X>
+                                  <Y>255</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="OutputParam" index="2">
+                          <items count="6">
+                            <item name="Description" type_name="gh_string" type_code="10">U value of the construction in W/m2.K</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">18b97ab3-5f58-4741-9aff-3f9a8de0b98d</item>
+                            <item name="Name" type_name="gh_string" type_code="10">UValue_SI</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">UValue_SI</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>2642</X>
+                                  <Y>270</Y>
+                                  <W>61</W>
+                                  <H>31</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>2672.5</X>
+                                  <Y>285.6667</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="OutputParam" index="3">
+                          <items count="6">
+                            <item name="Description" type_name="gh_string" type_code="10">U value of the construction in Btu/h·ft2·°F</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">90c85d93-7482-4395-8d90-b7814cb0b2da</item>
+                            <item name="Name" type_name="gh_string" type_code="10">UValue_IP</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">UValue_IP</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>2642</X>
+                                  <Y>301</Y>
+                                  <W>61</W>
+                                  <H>30</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>2672.5</X>
+                                  <Y>316.3333</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="OutputParam" index="4">
+                          <items count="6">
+                            <item name="Description" type_name="gh_string" type_code="10">Script variable DecomposeEPConstruction</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">60ea3b40-f414-4b19-be3e-fdca35095be3</item>
+                            <item name="Name" type_name="gh_string" type_code="10">RValue_SI</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">RValue_SI</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>2642</X>
+                                  <Y>331</Y>
+                                  <W>61</W>
+                                  <H>31</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>2672.5</X>
+                                  <Y>347</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="OutputParam" index="5">
+                          <items count="6">
+                            <item name="Description" type_name="gh_string" type_code="10">Script variable DecomposeEPConstruction</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">af8303bf-80f9-4c64-8f2f-3be0d567205e</item>
+                            <item name="Name" type_name="gh_string" type_code="10">RValue_IP</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">RValue_IP</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>2642</X>
+                                  <Y>362</Y>
+                                  <W>61</W>
+                                  <H>30</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>2672.5</X>
+                                  <Y>377.6667</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                      </chunks>
+                    </chunk>
+                  </chunks>
+                </chunk>
+              </chunks>
+            </chunk>
+            <chunk name="Object" index="158">
+              <items count="2">
+                <item name="GUID" type_name="gh_guid" type_code="9">59e0b89a-e487-49f8-bab8-b5bab16be14c</item>
+                <item name="Name" type_name="gh_string" type_code="10">Panel</item>
+              </items>
+              <chunks count="1">
+                <chunk name="Container">
+                  <items count="8">
+                    <item name="Description" type_name="gh_string" type_code="10">A panel for custom notes and text values</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">3729c3d0-951a-4fbd-b3d8-958493171a0a</item>
+                    <item name="Name" type_name="gh_string" type_code="10">Panel</item>
+                    <item name="NickName" type_name="gh_string" type_code="10"></item>
+                    <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                    <item name="ScrollRatio" type_name="gh_double" type_code="6">0</item>
+                    <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                    <item name="UserText" type_name="gh_string" type_code="10">CUSTOMROOF</item>
+                  </items>
+                  <chunks count="2">
+                    <chunk name="Attributes">
+                      <items count="5">
+                        <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                          <X>2248</X>
+                          <Y>225</Y>
+                          <W>160</W>
+                          <H>100</H>
+                        </item>
+                        <item name="MarginLeft" type_name="gh_int32" type_code="3">0</item>
+                        <item name="MarginRight" type_name="gh_int32" type_code="3">0</item>
+                        <item name="MarginTop" type_name="gh_int32" type_code="3">0</item>
+                        <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                          <X>2248.667</X>
+                          <Y>225.8803</Y>
+                        </item>
+                      </items>
+                    </chunk>
+                    <chunk name="PanelProperties">
+                      <items count="6">
+                        <item name="Colour" type_name="gh_drawing_color" type_code="36">
+                          <ARGB>255;255;250;90</ARGB>
+                        </item>
+                        <item name="DrawIndices" type_name="gh_bool" type_code="1">true</item>
+                        <item name="DrawPaths" type_name="gh_bool" type_code="1">true</item>
+                        <item name="Multiline" type_name="gh_bool" type_code="1">true</item>
+                        <item name="Stream" type_name="gh_bool" type_code="1">false</item>
+                        <item name="Wrap" type_name="gh_bool" type_code="1">true</item>
+                      </items>
+                    </chunk>
+                  </chunks>
+                </chunk>
+              </chunks>
+            </chunk>
           </chunks>
         </chunk>
       </chunks>
@@ -36931,7 +37960,7 @@ for b in xrange(len(geometry)):
     <chunk name="Thumbnail">
       <items count="1">
         <item name="Thumbnail" type_name="gh_drawing_bitmap" type_code="37">
-          <bitmap length="8762">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</bitmap>
+          <bitmap length="8391">iVBORw0KGgoAAAANSUhEUgAAAJYAAABkCAIAAADrOV6nAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAACBcSURBVHhe7Z0JcFTXlf5TlapUZariVCqLY6cmmXgmk/xdseM49rB4wRhhGxvjMQEbYwMCGwyGAbNISAitrbVbLam1tFpba+9N+wba910tCQmhpdGKWYzZwU4yNTXj/0992x0hQAhJlgTpr66fb9933+v7znfPd86RusV3bHgQ8LUN9y3+TuFnM4rz58+fPXv26NGjBoNheHj4888/t5ywYUbxLVIITp8+ffHiRaPRmJyc3N3d/cUXX5w6dcpyzoYZwrdLoQDM9fX1JSUlHTt27MKFCzYWZxazQSFARYeGhlJSUtrb222+OLOYJQrBuXPnRkZGUNSuri7CpGXUhmlj9igE+GJ/fz+KyhFGLaM2TA+zSiHA/zo7O1NTU0lWSXYsozZMA7NNIVGQjKa6ujo7O5uOZdSGaWC2KRSAvJycnNraWlIby5ANU8XcUIiEAo1GYzKZUFTLqA1TwtxQCAiKlIl6vd6WnU4Tc0YhuHjxYkFBQWVlpS0oTgdzSaFVTgcGBs6cOWMZteEeMZcUAlS0paUlKyvL5ohTxhxTCCAPCo1Goy0oTg1zTyEZ6cmTJ7Vara3YnxrmnkKAI5aUlJSVldnkdAqYFxQC0hkcsb+/35bX3CvmC4Uir7H91G0KmC8UAsjLzMxsbW21fUTjnjCPKCSdMZlMOp3O9iO3e8I8ohCIvKa8vNwmp5PH/KKQooJ0RqPRUGbYfHGSmF8UAvIawmFGRobNESeJmyiksDb7wWiFLRr9s2dnO8uHvJycnPr6ettvEyeDmyhsaWltamqpr28wGtva2o7R6uoa+vr6rly5glkvXbqETTniKAKkjhzPnTtHB90TQAmnWdtx+cjISEpKyuDgIDe0jNpwB9xEYVycRiKRBgdHxsQkR0cnq1QJR45Uubt7pqamULHFxcUVFxdj2erq6qqqqoaGBhSPPmzT7zTjxIkThDEqdG4NExBgJRuYyTX7+N3AJZSJ6enpNke8K26i0MFBsn+/x759o23/fs/du13c3YPk8pDy8jKg1+sLCwsVCgV5v1wuV6lUlHFpaWnNzc0FBQUVFRV5Zhw9elSr1TKfY2lp6ZEjRzg2NTXV1dX19PT09vbiYVArSIWqUc+93U9H8fv8/PzKysqLFy/aPnc6AW6isKysory86ptWybGoqHR4eMQqoeKI6QcGBrq7u/HF3NxcjrDIqcuXLyOqkAFJw8PDTIAwo9HIWfgTfMArroxPw3RtbS0jOC4zrbyanXaUV24FyE6PHz/OiGW9UwWrui0sp+9n3EThhQtf3NqQvlt9gEHsK2zd0dEBJTgolAjTC+vQF9PM/vY5HItTsAVnqC6uyVWwCE/wik8XFRXV1NQgzl1m8EbIcmpqKh18URDMTYC4OeCG4gjMSxsPMWFwcGBoaIiNBQixZgyw07iPZd4YcIl4lzvAIiFAvDQfz/EulutnFzdRaBm7R7B6RA+HQ1Rhgg7PZjl3O2AgDAeYJnjl4ZFK3BFeCavcBF6Ra8p8vDwpKSkwMJBBvJmqv729Hc+GYN4IQAWhl20hxHaUSTNn4i0A71JXV9/QgBI0VlRUV1ZWNzUhDK0tLW30u7pOsPhRxz9/XmwFsUg2GetBAIDYT+ZuJ40+u5ZQbTS2msdHBzs7O1Am6+WziRmgUABjYQtSm/j4eNIcuLnX57FaXLgafQZNJhP04J3E4GPHjuG1uCklB4wixeQ7BFrcFLLZQIRkQi+DIhJzJDZHRam8vQNyciqk0jAXF++AgLCgIJWfnyIsLE6jyXVyciotHf09F+EAj8dHzV/FaiWmM1Zfb2xqaudYU9PY2NhmNHa2tXXRDw0NU6vVoaGhBkNma+txTtXVtVRV1cyJI84YhQLC/zAcVqY//UfiDoAAjEoj16K84c6CY7FL4Bjgi/gBR6ogyMA/oJ8ECj9RKmMPHfL38JC7uwe6ukrF0c1N5ukp554nT5qQdFhkf+D6dA4fdktKStHptGlpRdHROmdnibu7VCpVSqURvr6KqCjNxo32cXGxe/bsdnf3Kyioy8wsMxiK8/IKWZRY9mxihikEwnswB7bA+jOlLTCHo5AV0xcbxQreAoj3snZYxij5Z87g00TBtjYEuB0pRiHQQABtjHBbZrIhkA0mswmAVqtXKuNiY5MSE7MjIzVRUdqIiCSlkior1XzUvPXW2wpFyNatHzk6uiMEqan5iYk52dlHKI8ta5pFzDyFAAsiR/giWSgdy+i0gbmxO4UpfkbfMjoJECaB+UcW7UTE1tZjUNnW1lFbW4+/CrcWgO9r1641NTXHxqZpNEfgRqs9otUe1emOGgxFsJWRUapWZ7zzzjqlMsLeftPBgx43UzgH3/X5VigEsIhFcESiFB3L6LSBuckyCH5krSIVspy4MyAPnhIS4oOClHl5Vb6+IV5essBAZUFBTWysTiKREFNJmgTMISDbw8MzMTErJSU/JSVPNFgMDo51dPSk0Vm9eo1Sqdy2beuBA65paSVMiI/Pys4ueKAoBOgSR5yGNITdLQanCfhgQ7A/8G+DwUDAw8uFdE+AoaFBo7HF1zfY2zvMyyv40CE/4qKvb7inZyCbjJwWt7YCIc3IyIyJ0UNMcnKuaPhZRESyXB4dGZlKg0L2xPbtH+/b50IUZIJanZmVlf+gUQgwLkYngJGj39XQkwcU4o4k8mSh5E0k+2wREcwsM24BZ/FFEmauokyg8X/yHWSTTQC4ocCNGzeam1sIeMnJOcRC0ZKScnS6QthCNuPi0l5/fWVoqAIv3Lv3EONMiI1Nz8x8ECkEGJcyAIHCiJahGQIqys1JT7KysjIyMiglKRPZKLwR4yJlxWV5SUJLptrfT80wREVPh6oPbWhoqC8qKqTWRO3JvyhIEFX2hJeXhFgIMQkJWTT4i47Wu7lJXV0D3N1lMpkKClWqyI8++vDTT53RWObExKRlZOQ9mBQCtjaFHfnkDAZFKwRJkFdRUUGFQDxDGynioNZMUgMviZ1FRWW1tVQOVTU1DaWllcXF5Xp9RlpaNuoXH59IgoomIxU49IkTXRqNDi8kvMXHZ5pbFozCXGBgFIEwKCh25co3ZTLp+++vh0KyHuZERxsyMnIfWArxBkxMxY0AAsvoDIEb4nAo4eXLlynM6+rqICwwMDAgIEClUoWZsWvXrvDwBAjAh7y85A4OHt7eIQEBEU5OEo2mwM1NkpycjBfCN/XlV199SWkfFpZE5kmDnoQEtDSHmcnJeRBGmUEsjIyMfO+9dbt3HxRCqlLpMjPzLlyYg78EMRsUAhylvr4epZqpvIawJwSTZMRoNBYXFyOngA4uhWjinSLIXb16lfgXEBDm7x8uk42W53Q4yuUqWPTxURgMmewDEl3kFEEmI5VIfOCJDEWpTBH66eER6OjodeCAOxmpv38EQqpQKNavX7d9+16ZLEoiCVaptP7+QR0d7ZNJkmcWs0QhFsfW5DU4ygRJx8TA0BCDLHMHdI/gR9zKzMzEgVpaWgcHh7744sKlS5cvXLhIgUe9LtqZM5TtF0ZGTpl/ejNIA6JDY4zJ3PDs2TPiziZTH9IaFpaIeJKFBgQoIcmcvgZBHk0qjVy69OWgoKAPP9yydet/+fsrJZKQyEitTKbo6jr+wFII8BjcBUe8p4godBKH4yoYaG5uJuPA28iPKA2JXmYVvdTbO3DiRF9XV29Pj4lOd3dfb4+JY/eJvr5eU0+3qa/3pKmvv6fnZF9fP41Od7el0ecmvJFIf8xC2hYUFBcdrSOLgciYGAMJJ3JKUExNLUBjly9/lazmnXfW7tixj/KRs6GhScRCEtsHVkgBNhoaGtJqtRwndkTOCm/jyOT29nZSElIVHA6dZB8wKFQUo586db68LHm4f9Ppka2fDW9ta9twsm9L9wn71rYNPd2b+/q2NLV80NGx8fjxTRyH+j/s6trUdXzT4MkPT49sOz289fRnH53o3FpVVTo4OEIuQx5EWuTvHxAamog2Iqc0UhX8zMnJ29090MXFz8cnbNWqt+TywBUrXoNCtTqLOQpFok6Xef78zOdrd8VNFJ4+fXnidubMxVvTEexoxqgWfdNGfz5pOT0GGB03Ki0tFRERUs0KZkn9hauRUBCWyCxIYvE2aMNxSVJEwQCvwmPEDRnp7OwPU2z7+uuVX3/9n7Qz55b97a+vf3Fh+cDIS6bhl3oHl3T0PH+i/8Wqlv/o7Hv+6tVXm48vbji28MaN177+erW45C/X3vRwd8zOzsezWRtvrVJFBwfHQYxSmUqDS6lU5eLiL5EoDh8OQEhfeOHFHTu2r1z5BrEwLo6QmRoSkjAvKOw+oTnemdremtLedpvW2prQ1pp3/vxFYW4AE+SBvb19jY1N7e3k8B20tjZS+UbqaPIICjIB0gqsz1FU+oIDYlJPT49I/SnOoArOzAnF6O+ScAhog2PxRndy3DNnLjQ2ZHcf32Hq/fRk76cDfXs5Dpr2jQw4jAw69Jv2i85nQ46nOA47fX7ahXbm1KHPhp1PjzgPDzu0t+xubW2keuSNWOFf//pXhBTOICYiIoUWHp4MnaglikpqGhISv2jRc5GRyvfff+/DD3fFxmYwJzg4XqvNmHsKjY1LBvqW/9//rP6/v/3nre1//3eVsend6JhUfIJUAhCNjh49Ehwcyt7VaDLV6tSEBJ1eT2XWKJcHG0j1zEgzAyWEJKhKTEyMj49ny0MYbBUUFLD3uSeCaTKZWBOEYU088k60jQWbAd3t7Tvd2/vZ6LHvtMlEsjNUW9fe2IgwHm9o7ORY39BZV3+ssLA2N7c8J6c0J7eMApJOdXXrqc8g7wLviE+bBaBeJpPL5bGCPJqZIbWDg6ebm8zZ2dfTM/iVV14LDJS99dYqKIyJSWdOUJBao0mfewpNJ+xOD73231+99d83btP+9reVLQ3vJCdniM/CALynqqrS11fq7R1+4IBk506nvXvdDxzw8vVV+vnJCgpGpQmvolBTq9XR0dExMTH0ARk5gsmWx4nxTuFnYxXyXoEkWxt3a25uKSysyMjIP3q0vLi4Oi+vuKSkur6+bdu2HX/+85+3bdu2cePGDz744I03Vm7b9jFFCErANmKpubm5xEKFIkwmi4YYIiKN/AXPIwp6eQVTWri6yuzsXpFIvN544/UtW6DQwJzAwFgoZONZFjSLuInCrs6Mzo70tta02zajUddxrBixwdwCOAocdHf35OYWFBaWFheXFxWVFRWV8tJkGhVSSEJFmQOwLO+HcpKPQGdcXBz+R7FImSGyebGg6YP9UFVVjd94e4ft2eOyffv+HTscPDyCCForVrz5/POLN23aRD3A8emnn7azW65SRZEusSOpJlmkEFIfn3CIUSgSrC0iIhU5jYlJk8tjFixY6Obmum7du/b2O6Ki9JyVSqNTU9PmnsIzZ0hYJmpnz47/5R+x7dy5s+ZI9/dPTPESUbo1vRb5C3Simenp6YQ6chb0ljqBPrfgKsvUaYCN1dbWHhQUGR6uVihiZLJwjvRpe/bst7ffvHnzli1bPtq8+cMNGza5u3uIIA15HNEG1hYcrPD3j4QYnE80Ek4/v4j9+929vRVuboEvv2wXHByMF27c+LFKpWNCQIAqJcXA7rEsYhZxE4WWsW8fcEk9Tm2Aj9JHkAmWiFif+Xe5U5ZTAXYJ5UFtbS23Hf31fIuR1tTURPBWq+NjYyn4YoSq438EhRs3rsMfLsiSWAZHPz8plBACw8KSRQsPT5HL4wiELi4BOPTSpcucnZ3s7JZt2rSdWMgEmSw2MVH7D0QhJkO7EFKhrkKTMbb4tLEYMU+cClAF9JxsRa3WklvpdNlqtaa4uDY7u3jFihXvv//+jh07tm7dun79+qVLl+7evYcoyEoQg5qaGi6HUYTUyUni7Oxz6JCvaKJPOuPuTkbjs3jxiwsXLnryyT9s2vQxxSIjBw546nQZKJBYw2xibijEUag6SFDHhkBoI6OpqqrSaDQ4x5TdETuSWUgkES4usu3bHeztd+3Y4ejjE+HpqXjqqT8uXLjwzTffXL16tZ2d3b/922/Q0oqKcrwWDRf7CVy/fl0ikfz4xz9+zIxf/eqXf/jDH9avf0+w/vLLLy9evPiZZ5557LF//c1vfvPYY7/++c8f5p7cYQYj+uQxNxQCGGLvs/HxP8uQGYxTL1KKoKtQOO7sZMAltbX1cXEp5Be05GS9RkNWnKZWp3h6Stzc3A8fdnVxcXV1dXN2dikqKoawcTH4yy+/pKr40Y9+JCj8l3/51W9/+9tFixZB2x//+EfofOKJJx5//HEGxYSf/vSna9euFUHBcotZxJxRiMOROJDI3KqZ7GWIhF3KDzJY+pYTk4M5wzpnrlM+J0UUHXP/PEnyWFy7dg3PuzXtgkJfX9/vf//7jz766MMPP7xgwQJKkeeeew7OXnvttSeffBKfW7JkybPPPvvII48w5wc/+MHKlSunLBvTxJxRCDAtpX1HRwcWtwyNARaBv5SUlMbGxntlcZq4cuUKuwfOlpuB6q5Zs+bdd98VHaIp/VWrVkEnZ1955RVmHjx48B+RQhSPyEdecyeGhIpSflB74C6zFmmEH4vYBngJqDfEKTqiD2FiArjtLpwdzCWFwgQ4IqkNHcvozWAc8qAwIyMDm44LWt8qRpmZNObE/wTmkkKAlhIOxYdCLUO3A0U3dR6ZKqXkFBKcBxWYAgPOMYVsXkQpLy8PbibeyIgt6U9SUhIB8rY5yD8OMBQWQJDIEhCnOaYQsI+oH3CyiXMWOGPdvb29sNja2opfWk78IwHFxkpsenIIg8FAYd3d3T33FLIsXHAyjgiQDh5Aq9WivbA4hxFoloHPQV5/f39xcbFery8tLR0YGGCE8bmnEOBeUEhqOhnfGk1pzp7NysrKz8+HUfqWEw8oeEbs09XVVVBQkJaWRrmMIEGedfvOCwpZDcuCEpPJhFNaRu8M5vMM7ESdTjc8PIwUW05MFdxQ7IwJYK4ybo9vQwyEZnJsbm4Wvzmnw3tB57i3mxcUAlZWXl6Ob+GIk0xVmGk0/8uIpDnjRFVYdgyo2yYyNO9IUOnuHv3DDbfgBAGY/5k/6D36ByBunnYCsI1mikXuw47EGn19fexR3I6AhwsyMi4Vh12KUQbnC4WABRUWFsLKuLVOAB6MkEBsIEJwFSBSwhikNjU1G42t7e0dbW3t5l82NYt9jYGYxhyr0Xlf8qOqqvqmprbGxtZxzWjsKC4uDwsLi42NDQ8PLywsZWTshLq65pqaOnaJuNvUwNoEc4ODg/X19Wzl9PR0chZeioAnprFU5gjVgWMek8nzi0J2dXx8PH0eSQzeFTwej8SGJcfp7OyEmPz8vKiohIqK5oiIuOjoxNjYlMrKlrS0fKVS2dBQX4fJm5uZefLkSZyPN7p06VJJSZleX5ibW5WbW2lt+fk1BQU1R4/Wq1Qp9vb2LGz79o8jIhIYGTstM7MsP7/o3Ll7ptBKG4+AcxPkcnJyYI7tiNuxzzgl9hl9iGR3trW1kTEwjVpCfBaJl/OIQsBaWSVLZOli9ZMETwj9PD8xIy8v19tbHhAQffCgz86dTvv3e/r5qdzcAqOiohoaGioqKrARcRcTAGE1NzeP5OS8sd8JTU0t8PUNdXT0cnOT+vgoNmz4gLi7evXbUmmEXl9knUaLj8/KybnL93t5FghjjwrOOArpxocQHnyOlRBHxO+8rG7HVfQ5sufEp5DER1W4EDoFx2B+UQh4PJ5nktnpWAgDUe1mZWWqVNE6XXpFRU1ZWRXSZ/6TVMVMwCLisQEvsSNKNTQ0mJY2+g2Y1NSxFOaFhyfREhKyZLLIVatWxcTEvPfeOqlUmZlZrtMdtc6EQrzw6tUrvDuw3N0MXvIucEC9hJ+xO3G1oqIiHlC4EeJB4GANgg+rYAryuAo7UP/BHJrJOIPcc5xEzTsKWT2rRCKwOk/FS8uJyUE8YUtLC3JaUlJMunHx4oUbN65j4nFPLsD9mUAwi4kx4IjWr/XSNJoCrfaIwVASGBj1+uuvEwjfffddd/eAgAClXB4N32IavhscHFFUVIhEwxBeDjE4Oo+A6+DlCIP4uCUjnG1qasKN2D2Cb8GxZTXfkAepME2Mr6ysFB8PY5plxi2YdxQCbI1Q8NiIxrgnnCTE9mfXY0R0kt0AqdTFDGI1wK5ny/NGZpN9UV1dGx2tT0rKTUrKEe0bIvN0ukKZTPXqq68qFIq1a9e6uQX4+YVBKsyJmXSk0pDc3NF/y6+6uhoiUQKk79ixYySrJB04E29k1T06t91MgGWzHjwP0WY30Gf+XR9/PlIIeEieh/2bm5vLY0ywBycAV7F/2cXwR8gZra3MH+8XrtDR0dHT0wOvp06xXXKionSJiX//Zja6av5CjD4hIdvbO2Tjxo0aTerKlSvhz2AoRj8RWDEzJiYNB7MKKYAkYN0id+UAsFQuJFSLv3jEJTy15dzdME8pBDwGJsARqY1IIMdVfpMHV2FQLIJNIUwEJISOAMP+AGlpBhcXV/O3QS1f68W3FIr4/fvdXFx8XVz8OK5fvz4zM+Ott1ZJJMFIqJgmWnS0gRRqyt/v5RnZZyQyqAWaIaqIe3rS+Ush4EnYm3gMhiZh4/Fg4k4qNBlwQ7HfuQ+AWl4SC/PyjkREpMTFZcTFpVsb0ZEjrklqumTJEhLa1atXe3rKEdix01Qq3dS+os1iYIu6FubYprDIyyk83bymUACL40A4DSkcDkR0EdafYKsy/7a47SVkjuXlVeHhyeKLL6KhoqJBIUIKhaQz5KUeHoFm8bRMo0VEpKan5yCflttNAoI84n1JSQnKiX7yjFMLFuA+oBDwzDwkWRwhjdQOGYRLnJJxIZI8P4AkdjEjPT0kfd0mUx+tt5eQ181/1MvcimlcJWaKq65cuVJVVRsYGKNUporvhCKPuBeMciTH8fIKsrNb5uPjQyykTCQKMs3awsNT0tImSyFvB3msXPyAl6jMMng0y+kp4f6gUEAQifWppci5oZMtXFVVxV5mhAyQkEm0I/8sK6uurKwjGSJKlZRUlJdTIFbX1DTm5ORCJ9oFnZAqrmptNQYFKRISkrVaQ2SkJjAw2tnZx9VVGhAQ6e8fAbWurgHLli3buXPn0qVL3d1lajV1p9baQkOTDIbsCShk2YI5Vk4OJX7hQLXAjmTzWSZNA/cThVZgEfHw1MuEEHY0TkmqiXWg08HhIIHN1zd8925nBwfPQ4dGU5JPPz1M0HJyclOr4zCf8AAcmhBbWlri5uapVKpiYtRkMZC3d6+rg4MHRHL5gQN0vJ977jm5XP7KK8sPH/aHQpiGPI60kJCE9HTS5lFPgi0AVayQ3SYEH59rbW1FOSjneUfqDTyPU8w0P810cV9SaAW2wF4YC0sBDEfiir0CAyNCQqKVyoTQ0BhaeLg6LCxOLo/Mzs5jrrhKWJmrrl+/VlZWGRCgIhyGhSUJORUkRUXpIezw4YAXX3wxJCTEzs7O0dGT8iMsbPRLT+I7pHTU6hTKB24LK9QwaDhlDPKAHlDdwhzbi2JRpGO8o2X1M4T7m8LbAm7Y31R7tzbzqfF7n9K+uLgMwSQxgcVxDRadnLyJgnghQrpzp+PBgxK885NPDuzZ47J79yHmODm5+vh4w7G3tzfTkpKS8DkSaQoYki/hczA3U243Dg8ghQBj3RaW02PAoPBCf3+V+UtMSWMbTkZSgxS/8MILnp6eCCm6itsFB6vl8liZLBri5fLRv1w6MjJ08uRJgjGFLHGaKggvxCNn4VP6DyaFkwGWxTlIf2pra7y9/aBk7HdCIc/dPRA/8/IKpsZ/8cUXhJASI/FL87d/RznmKJVG6/VZFJd4G17OPcHQ0BDheUa+qHVXPAgUjvrXJGCZbYYISKQ/BKqyslIyUqk0KiQkHvcSDRYZEX/lglRoxYoVUAiR+/a5obfWaTTc1/z93ptI4u0gkoiLL6amphKeyUgt52Ya9zeFZmJOmf8BA3KFAXMbpGagarbmOAK8xEXI47mElIeiIiUlBUfh1FdffVlYWOrjE4F7KZXabxrZpk6lokzMOHTIb/HixTt3fvKnP/2JvvmvlFimRUZqAwPj4uM14yi0QlSB4nMFkDpuJ80I7ncvPFVX11BTQwBqMhrbW1raaK2tx3Jy8g4ePHj48GFnZ2c6Tk7Ojo6OTLp27RoShzUpKkg0hGfAYnv7sd27HdaseX/dOntre++9zfb2H+/YsXfDho+eeeY/fve7//fsswuYs379FuuctWs32NtvLykpvxOFAF+EPPHTJd5rxlm8jynEFiMjwxkZ+UlJ2RQMCgWZRaRMFp6fX0VFsWjRos2bN3/yySe7du16++23n3/++b1791GWoZxUhKKoEPc5deqzv/zlL4cOOf/TP33/0Ucfof3iF4/8/OcPP/zwz156acn69euWLn1p+fLlCxcuRE5/+ct//tnPfvqLXzwqZj700A9WrXrz6tWrExMjXJ/6NTMzEz2YWRbvbwqpxMLD47y8wlxcArZvP7Bt274DBzwDAqJ37XJ6/PHHMfqyZXavvvraggUL/v3ffyeVytBYkeJbbvENrl+/7urq+pOf/ORfzfj1r3/9xBNPPPPMM1T0dJ588smnnnrq97//PS8Z5CUTxEx4XrNmzSR/i8K0EvM/nnLrAqaD+5hCgDM1NjYdOVJUWlpBYSBaSUlZQUGhwZCm16dptXqtVkeHRvJ5p8zwxo0bKO13v/vdH5vxwx/+EMLeeOONZcuW0cGhKe2ffvpp6sKXXnrp2Weffeihh8TM733ve7jm5CsHpBtFJU2dwezm/qYQkLVgDsrzsY0U/8otgG/SGctlN4Prjxw5Aotu3wCndHd3pyORSHx8fLy8vPz8/BgZ/X73GBBoExMT76lmwAWR07q6Ot70Tuu5J9z3FM4IMCUG/fLLL3FHK1BXAZIg61HAMuPGDS65fPnyPTGBkgPxL8KR3VhGpwEbhXMAMilUPTk5eXj49v902z3BRuHcADltaWkxGAzTT21sFM4ZSFDJa4qKiuhYhqYEG4VzCfIgvV6PO07HF20UziUIhIRDgiKh0fqjhnvFTRTacJ/CQqEN9zG+853/D0KnXJgWq2qYAAAAAElFTkSuQmCC</bitmap>
         </item>
       </items>
     </chunk>

@@ -139,7 +139,40 @@ def removeTerr(irrS,bIDs,sIDs):
             annIrr.append(sum(irrS[s])/1000)
     return irrS2, bIDs2, sIDs2, annIrr
 
-
+THhead,THres = loadOut(path,name,type="TH")
+def ParseTHhead(THhead):
+    #Parse header
+    import re
+    header = THhead.split()
+    #header.pop(0)
+    print header
+    
+def ParseTHres(THres):
+    nbuildings = (len(THres[0].split())-1)/12
+    heating = []
+    cooling = []
+    for i in THres:
+        values = i.split()
+        heat = []
+        cool = []
+        for h in xrange(2,len(values),len(values)/nbuildings):
+            heat.append(values[h])
+            cool.append(values[h+1])
+        heating.append(heat)
+        cooling.append(cool)
+    #for each building
+    heating2 = []
+    cooling2 = []
+    for b in xrange(nbuildings): #for each surface
+        heat = []
+        cool = []
+        for h in xrange(len(heating)): #for each hour
+            heat.append(heating[h][b])
+            cool.append(cooling[h][b])
+        heating2.append(heat)
+        cooling2.append(cool)
+    return heating2, cooling2
+   
 if Run:
     header, results = loadOut(path,name,"SW")
     bIDs, sIDs = parseHead(header)
@@ -174,6 +207,9 @@ if Run:
         output.append(bldg)
 
     SW = list_to_tree(output,none_and_holes=True, source=[])
+    heating, cooling = ParseTHres(THres)
+    H = list_to_tree(heating,none_and_holes=True, source=[])
+    C = list_to_tree(cooling,none_and_holes=True, source=[])
     #ySW = annIrr
     
     

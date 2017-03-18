@@ -48,10 +48,10 @@
             <chunk name="Projection">
               <items count="2">
                 <item name="Target" type_name="gh_drawing_point" type_code="30">
-                  <X>253</X>
-                  <Y>-1856</Y>
+                  <X>-2229</X>
+                  <Y>-2548</Y>
                 </item>
-                <item name="Zoom" type_name="gh_single" type_code="5">0.85221225</item>
+                <item name="Zoom" type_name="gh_single" type_code="5">1</item>
               </items>
             </chunk>
             <chunk name="Views">
@@ -83,9 +83,9 @@
         </chunk>
         <chunk name="DefinitionObjects">
           <items count="1">
-            <item name="ObjectCount" type_name="gh_int32" type_code="3">170</item>
+            <item name="ObjectCount" type_name="gh_int32" type_code="3">172</item>
           </items>
-          <chunks count="170">
+          <chunks count="172">
             <chunk name="Object" index="0">
               <items count="3">
                 <item name="GUID" type_name="gh_guid" type_code="9">410755b1-224a-4c1e-a407-bf32fb45ea7e</item>
@@ -7072,7 +7072,7 @@ If empty default folder will be set to C:\ladybug or C:\Users\%USERNAME%\AppData
                         <item name="Name" type_name="gh_string" type_code="10">Upper limit</item>
                         <item name="NickName" type_name="gh_string" type_code="10">L1</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                        <item name="Source" index="0" type_name="gh_guid" type_code="9">a8bd6473-51d6-4333-85c4-9ab7a578943b</item>
+                        <item name="Source" index="0" type_name="gh_guid" type_code="9">65645da7-ea04-43c0-b89c-c031ed944a1b</item>
                         <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                       </items>
                       <chunks count="2">
@@ -7372,9 +7372,8 @@ If empty default folder will be set to C:\ladybug or C:\Users\%USERNAME%\AppData
               </items>
               <chunks count="1">
                 <chunk name="Container">
-                  <items count="6">
+                  <items count="5">
                     <item name="Description" type_name="gh_string" type_code="10">Allows for customized geometry previews</item>
-                    <item name="Hidden" type_name="gh_bool" type_code="1">true</item>
                     <item name="InstanceGuid" type_name="gh_guid" type_code="9">504d326a-73c6-4b40-8727-beed9dfea831</item>
                     <item name="Name" type_name="gh_string" type_code="10">Custom Preview</item>
                     <item name="NickName" type_name="gh_string" type_code="10">Preview</item>
@@ -11399,11 +11398,12 @@ def getAttributes(HBZones):
                 type.append('Roof')
             srf.construction = srf.EPConstruction
             materials = EPConstructionStr(srf.construction)
-            srefl.append(str((1 - float(getMaterialProperties(materials[0])[0][4]))))
+            srefl.append(str((1 - float(getMaterialProperties(materials[0])[0][-2]))))
         zoneatt.append([type,srefl])    
     attributes.append(zoneatt)
     return attributes
 
+getAttributes(_HBZones)
 
 def getextraXML():
     horizon = ""
@@ -11600,8 +11600,8 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
 @license GPL-3.0+ &lt;http://spdx.org/licenses/GPL-3.0+&gt;
 -</item>
                     <item name="EditorLocation" type_name="gh_drawing_point" type_code="30">
-                      <X>5</X>
-                      <Y>151</Y>
+                      <X>148</X>
+                      <Y>7</Y>
                     </item>
                     <item name="EditorSize" type_name="gh_drawing_size" type_code="32">
                       <W>1358</W>
@@ -11721,7 +11721,7 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                             <item name="Optional" type_name="gh_bool" type_code="1">true</item>
                             <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">2</item>
                             <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
-                            <item name="Source" index="0" type_name="gh_guid" type_code="9">82eee4dd-2408-46db-b4cc-441e1e7723dd</item>
+                            <item name="Source" index="0" type_name="gh_guid" type_code="9">0c373c1d-3541-4dc4-a1e1-3516823fd2c8</item>
                             <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                             <item name="TypeHintID" type_name="gh_guid" type_code="9">37261734-eec7-4f50-b6a8-b8d1f3c4396b</item>
                           </items>
@@ -12141,7 +12141,40 @@ def removeTerr(irrS,bIDs,sIDs):
             annIrr.append(sum(irrS[s])/1000)
     return irrS2, bIDs2, sIDs2, annIrr
 
-
+THhead,THres = loadOut(path,name,type="TH")
+def ParseTHhead(THhead):
+    #Parse header
+    import re
+    header = THhead.split()
+    #header.pop(0)
+    print header
+    
+def ParseTHres(THres):
+    nbuildings = (len(THres[0].split())-1)/12
+    heating = []
+    cooling = []
+    for i in THres:
+        values = i.split()
+        heat = []
+        cool = []
+        for h in xrange(2,len(values),len(values)/nbuildings):
+            heat.append(values[h])
+            cool.append(values[h+1])
+        heating.append(heat)
+        cooling.append(cool)
+    #for each building
+    heating2 = []
+    cooling2 = []
+    for b in xrange(nbuildings): #for each surface
+        heat = []
+        cool = []
+        for h in xrange(len(heating)): #for each hour
+            heat.append(heating[h][b])
+            cool.append(cooling[h][b])
+        heating2.append(heat)
+        cooling2.append(cool)
+    return heating2, cooling2
+   
 if Run:
     header, results = loadOut(path,name,"SW")
     bIDs, sIDs = parseHead(header)
@@ -12176,6 +12209,9 @@ if Run:
         output.append(bldg)
 
     SW = list_to_tree(output,none_and_holes=True, source=[])
+    heating, cooling = ParseTHres(THres)
+    H = list_to_tree(heating,none_and_holes=True, source=[])
+    C = list_to_tree(cooling,none_and_holes=True, source=[])
     #ySW = annIrr
     
     
@@ -12187,8 +12223,8 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
 @license GPL-3.0+ &lt;http://spdx.org/licenses/GPL-3.0+&gt;
 -</item>
                     <item name="EditorLocation" type_name="gh_drawing_point" type_code="30">
-                      <X>97</X>
-                      <Y>13</Y>
+                      <X>78</X>
+                      <Y>78</Y>
                     </item>
                     <item name="EditorSize" type_name="gh_drawing_size" type_code="32">
                       <W>1175</W>
@@ -12217,17 +12253,19 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                       </items>
                     </chunk>
                     <chunk name="ParameterData">
-                      <items count="8">
+                      <items count="10">
                         <item name="InputCount" type_name="gh_int32" type_code="3">4</item>
                         <item name="InputId" index="0" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
                         <item name="InputId" index="1" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
                         <item name="InputId" index="2" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
                         <item name="InputId" index="3" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
-                        <item name="OutputCount" type_name="gh_int32" type_code="3">2</item>
+                        <item name="OutputCount" type_name="gh_int32" type_code="3">4</item>
                         <item name="OutputId" index="0" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
                         <item name="OutputId" index="1" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
+                        <item name="OutputId" index="2" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
+                        <item name="OutputId" index="3" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
                       </items>
-                      <chunks count="6">
+                      <chunks count="8">
                         <chunk name="InputParam" index="0">
                           <items count="11">
                             <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
@@ -12370,17 +12408,69 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                                   <X>3054</X>
                                   <Y>2333</Y>
                                   <W>50</W>
-                                  <H>71</H>
+                                  <H>35</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
                                   <X>3079</X>
-                                  <Y>2368.5</Y>
+                                  <Y>2350.75</Y>
                                 </item>
                               </items>
                             </chunk>
                           </chunks>
                         </chunk>
                         <chunk name="OutputParam" index="1">
+                          <items count="6">
+                            <item name="Description" type_name="gh_string" type_code="10">Script variable CitySim-LoadResults</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">bb91dfab-dc50-4efb-b174-a54c76a59dbd</item>
+                            <item name="Name" type_name="gh_string" type_code="10">H</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">H</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>3054</X>
+                                  <Y>2368</Y>
+                                  <W>50</W>
+                                  <H>36</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>3079</X>
+                                  <Y>2386.25</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="OutputParam" index="2">
+                          <items count="6">
+                            <item name="Description" type_name="gh_string" type_code="10">Script variable CitySim-LoadResults</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">f76bde21-025c-4b97-9e95-d73d570c216a</item>
+                            <item name="Name" type_name="gh_string" type_code="10">a</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">C</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>3054</X>
+                                  <Y>2404</Y>
+                                  <W>50</W>
+                                  <H>35</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>3079</X>
+                                  <Y>2421.75</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="OutputParam" index="3">
                           <items count="6">
                             <item name="Description" type_name="gh_string" type_code="10">Script variable CitySim-LoadResults</item>
                             <item name="InstanceGuid" type_name="gh_guid" type_code="9">7af39320-373e-4de2-9443-0a3d4b0941f0</item>
@@ -12394,13 +12484,13 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
                                   <X>3054</X>
-                                  <Y>2404</Y>
+                                  <Y>2439</Y>
                                   <W>50</W>
-                                  <H>71</H>
+                                  <H>36</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
                                   <X>3079</X>
-                                  <Y>2439.5</Y>
+                                  <Y>2457.25</Y>
                                 </item>
                               </items>
                             </chunk>
@@ -13658,7 +13748,7 @@ Provided by Honeybee 0.0.59</item>
                         <item name="Name" type_name="gh_string" type_code="10">Brep</item>
                         <item name="NickName" type_name="gh_string" type_code="10">B</item>
                         <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                        <item name="Source" index="0" type_name="gh_guid" type_code="9">5c20dfd6-61d5-4968-9bc4-075c39f4fb02</item>
+                        <item name="Source" index="0" type_name="gh_guid" type_code="9">057fed0f-4d4d-4c64-be2c-08105867b2b5</item>
                         <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                       </items>
                       <chunks count="1">
@@ -15184,14 +15274,14 @@ Provided by Honeybee 0.0.59</item>
                     <chunk name="Attributes">
                       <items count="2">
                         <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                          <X>1877</X>
-                          <Y>1480</Y>
+                          <X>1577</X>
+                          <Y>1473</Y>
                           <W>98</W>
                           <H>20</H>
                         </item>
                         <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                          <X>1926.323</X>
-                          <Y>1490.319</Y>
+                          <X>1626.049</X>
+                          <Y>1483.319</Y>
                         </item>
                       </items>
                     </chunk>
@@ -18171,8 +18261,9 @@ Provided by Honeybee 0.0.59</item>
               </items>
               <chunks count="1">
                 <chunk name="Container">
-                  <items count="4">
+                  <items count="5">
                     <item name="Description" type_name="gh_string" type_code="10">Assign a repeating colour pattern to a mesh object.</item>
+                    <item name="Hidden" type_name="gh_bool" type_code="1">true</item>
                     <item name="InstanceGuid" type_name="gh_guid" type_code="9">defae8e2-e357-4e5e-964e-1f32e0609c5a</item>
                     <item name="Name" type_name="gh_string" type_code="10">Mesh Colours</item>
                     <item name="NickName" type_name="gh_string" type_code="10">MCol</item>
@@ -18552,7 +18643,7 @@ Provided by Honeybee 0.0.59</item>
                             <item name="Optional" type_name="gh_bool" type_code="1">true</item>
                             <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">0</item>
                             <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
-                            <item name="Source" index="0" type_name="gh_guid" type_code="9">5c20dfd6-61d5-4968-9bc4-075c39f4fb02</item>
+                            <item name="Source" index="0" type_name="gh_guid" type_code="9">057fed0f-4d4d-4c64-be2c-08105867b2b5</item>
                             <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                             <item name="TypeHintID" type_name="gh_guid" type_code="9">2ceb0405-fdfe-403d-a4d6-8786da45fb9d</item>
                           </items>
@@ -19243,7 +19334,7 @@ Provided by Honeybee 0.0.59</item>
                             <item name="Optional" type_name="gh_bool" type_code="1">true</item>
                             <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">0</item>
                             <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
-                            <item name="Source" index="0" type_name="gh_guid" type_code="9">81c06be6-cbce-41a6-ac8e-3eb8d9dbaa33</item>
+                            <item name="Source" index="0" type_name="gh_guid" type_code="9">eeff51bc-63c2-4e64-ac79-2d5cc223ffcc</item>
                             <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                             <item name="TypeHintID" type_name="gh_guid" type_code="9">37261734-eec7-4f50-b6a8-b8d1f3c4396b</item>
                           </items>
@@ -20582,7 +20673,7 @@ Provided by Honeybee 0.0.59</item>
                             <item name="Optional" type_name="gh_bool" type_code="1">true</item>
                             <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">0</item>
                             <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
-                            <item name="Source" index="0" type_name="gh_guid" type_code="9">fd606f56-e903-4b23-a7a1-0f706312aaf7</item>
+                            <item name="Source" index="0" type_name="gh_guid" type_code="9">eeff51bc-63c2-4e64-ac79-2d5cc223ffcc</item>
                             <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                             <item name="TypeHintID" type_name="gh_guid" type_code="9">37261734-eec7-4f50-b6a8-b8d1f3c4396b</item>
                           </items>
@@ -21213,7 +21304,7 @@ Provided by Honeybee 0.0.59</item>
                             <item name="Optional" type_name="gh_bool" type_code="1">true</item>
                             <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">0</item>
                             <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
-                            <item name="Source" index="0" type_name="gh_guid" type_code="9">a6ae5d94-e01f-4b68-9c2e-d188768b9f07</item>
+                            <item name="Source" index="0" type_name="gh_guid" type_code="9">eeff51bc-63c2-4e64-ac79-2d5cc223ffcc</item>
                             <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                             <item name="TypeHintID" type_name="gh_guid" type_code="9">37261734-eec7-4f50-b6a8-b8d1f3c4396b</item>
                           </items>
@@ -21621,9 +21712,9 @@ Provided by Honeybee 0.0.59</item>
                     <chunk name="Attributes">
                       <items count="2">
                         <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                          <X>2469</X>
+                          <X>2449</X>
                           <Y>-151</Y>
-                          <W>195</W>
+                          <W>215</W>
                           <H>111</H>
                         </item>
                         <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
@@ -21645,15 +21736,17 @@ Provided by Honeybee 0.0.59</item>
                       </items>
                       <chunks count="6">
                         <chunk name="InputParam" index="0">
-                          <items count="11">
+                          <items count="13">
                             <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
                             <item name="Description" type_name="gh_string" type_code="10">The name of the zone as a string</item>
                             <item name="InstanceGuid" type_name="gh_guid" type_code="9">b51dfcd6-9c08-45a2-ae47-70eb8eb9cde6</item>
+                            <item name="Mapping" type_name="gh_int32" type_code="3">2</item>
                             <item name="Name" type_name="gh_string" type_code="10">_name</item>
                             <item name="NickName" type_name="gh_string" type_code="10">_name</item>
                             <item name="Optional" type_name="gh_bool" type_code="1">true</item>
                             <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">0</item>
                             <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
+                            <item name="SimplifyData" type_name="gh_bool" type_code="1">true</item>
                             <item name="Source" index="0" type_name="gh_guid" type_code="9">54cf5113-cf60-4a8c-b2a3-471bb9204976</item>
                             <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
                             <item name="TypeHintID" type_name="gh_guid" type_code="9">37261734-eec7-4f50-b6a8-b8d1f3c4396b</item>
@@ -21662,9 +21755,9 @@ Provided by Honeybee 0.0.59</item>
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>2471</X>
+                                  <X>2451</X>
                                   <Y>-149</Y>
-                                  <W>95</W>
+                                  <W>115</W>
                                   <H>26</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
@@ -21692,9 +21785,9 @@ Provided by Honeybee 0.0.59</item>
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>2471</X>
+                                  <X>2451</X>
                                   <Y>-123</Y>
-                                  <W>95</W>
+                                  <W>115</W>
                                   <H>27</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
@@ -21706,12 +21799,11 @@ Provided by Honeybee 0.0.59</item>
                           </chunks>
                         </chunk>
                         <chunk name="InputParam" index="2">
-                          <items count="13">
+                          <items count="12">
                             <item name="Access" type_name="gh_int32" type_code="3">1</item>
                             <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
                             <item name="Description" type_name="gh_string" type_code="10">A list of Honeybee Surfaces</item>
                             <item name="InstanceGuid" type_name="gh_guid" type_code="9">ddb90ca8-f265-47f7-aa6b-878670499645</item>
-                            <item name="Mapping" type_name="gh_int32" type_code="3">1</item>
                             <item name="Name" type_name="gh_string" type_code="10">_HBSurfaces</item>
                             <item name="NickName" type_name="gh_string" type_code="10">_HBSurfaces</item>
                             <item name="Optional" type_name="gh_bool" type_code="1">true</item>
@@ -21725,9 +21817,9 @@ Provided by Honeybee 0.0.59</item>
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>2471</X>
+                                  <X>2451</X>
                                   <Y>-96</Y>
-                                  <W>95</W>
+                                  <W>115</W>
                                   <H>27</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
@@ -21755,9 +21847,9 @@ Provided by Honeybee 0.0.59</item>
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>2471</X>
+                                  <X>2451</X>
                                   <Y>-69</Y>
-                                  <W>95</W>
+                                  <W>115</W>
                                   <H>27</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
@@ -24364,14 +24456,14 @@ Provided by Honeybee 0.0.59</item>
                     <chunk name="Attributes">
                       <items count="2">
                         <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                          <X>4291</X>
-                          <Y>2156</Y>
+                          <X>4023</X>
+                          <Y>2261</Y>
                           <W>187</W>
                           <H>20</H>
                         </item>
                         <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                          <X>4291.014</X>
-                          <Y>2156.373</Y>
+                          <X>4023.345</X>
+                          <Y>2261.163</Y>
                         </item>
                       </items>
                     </chunk>
@@ -24383,7 +24475,7 @@ Provided by Honeybee 0.0.59</item>
                         <item name="Max" type_name="gh_double" type_code="6">1000</item>
                         <item name="Min" type_name="gh_double" type_code="6">0</item>
                         <item name="SnapCount" type_name="gh_int32" type_code="3">0</item>
-                        <item name="Value" type_name="gh_double" type_code="6">800</item>
+                        <item name="Value" type_name="gh_double" type_code="6">857</item>
                       </items>
                     </chunk>
                   </chunks>
@@ -37170,14 +37262,14 @@ Provided by Honeybee 0.0.59</item>
                     <chunk name="Attributes">
                       <items count="2">
                         <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                          <X>1601</X>
-                          <Y>-473</Y>
+                          <X>1549</X>
+                          <Y>-497</Y>
                           <W>174</W>
                           <H>116</H>
                         </item>
                         <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                          <X>1708</X>
-                          <Y>-415</Y>
+                          <X>1656</X>
+                          <Y>-439</Y>
                         </item>
                       </items>
                     </chunk>
@@ -37211,14 +37303,14 @@ Provided by Honeybee 0.0.59</item>
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>1603</X>
-                                  <Y>-471</Y>
+                                  <X>1551</X>
+                                  <Y>-495</Y>
                                   <W>90</W>
                                   <H>37</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>1649.5</X>
-                                  <Y>-452.3333</Y>
+                                  <X>1597.5</X>
+                                  <Y>-476.3333</Y>
                                 </item>
                               </items>
                             </chunk>
@@ -37242,14 +37334,14 @@ Provided by Honeybee 0.0.59</item>
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>1603</X>
-                                  <Y>-434</Y>
+                                  <X>1551</X>
+                                  <Y>-458</Y>
                                   <W>90</W>
                                   <H>37</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>1649.5</X>
-                                  <Y>-415</Y>
+                                  <X>1597.5</X>
+                                  <Y>-439</Y>
                                 </item>
                               </items>
                             </chunk>
@@ -37272,14 +37364,14 @@ Provided by Honeybee 0.0.59</item>
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>1603</X>
-                                  <Y>-397</Y>
+                                  <X>1551</X>
+                                  <Y>-421</Y>
                                   <W>90</W>
                                   <H>38</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>1649.5</X>
-                                  <Y>-377.6667</Y>
+                                  <X>1597.5</X>
+                                  <Y>-401.6667</Y>
                                 </item>
                               </items>
                             </chunk>
@@ -37298,14 +37390,14 @@ Provided by Honeybee 0.0.59</item>
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>1723</X>
-                                  <Y>-471</Y>
+                                  <X>1671</X>
+                                  <Y>-495</Y>
                                   <W>50</W>
                                   <H>112</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>1748</X>
-                                  <Y>-415</Y>
+                                  <X>1696</X>
+                                  <Y>-439</Y>
                                 </item>
                               </items>
                             </chunk>
@@ -38078,32 +38170,32 @@ Provided by Honeybee 0.0.59</item>
                 <chunk name="Container">
                   <items count="8">
                     <item name="Description" type_name="gh_string" type_code="10">A panel for custom notes and text values</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">2af1874a-dd18-4bad-b4ef-ae200dd1ca55</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">2dfefd7b-d950-4614-a6e4-84e33c5e211f</item>
                     <item name="Name" type_name="gh_string" type_code="10">Panel</item>
                     <item name="NickName" type_name="gh_string" type_code="10"></item>
                     <item name="Optional" type_name="gh_bool" type_code="1">false</item>
                     <item name="ScrollRatio" type_name="gh_double" type_code="6">0</item>
                     <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
-                    <item name="UserText" type_name="gh_string" type_code="10">0.5
-0.3
-0.45
-0</item>
+                    <item name="UserText" type_name="gh_string" type_code="10">0.4
+0.5
+1.0
+0.0</item>
                   </items>
                   <chunks count="2">
                     <chunk name="Attributes">
                       <items count="5">
                         <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                          <X>2375</X>
-                          <Y>1854</Y>
+                          <X>2489</X>
+                          <Y>1956</Y>
                           <W>160</W>
-                          <H>85</H>
+                          <H>87</H>
                         </item>
                         <item name="MarginLeft" type_name="gh_int32" type_code="3">0</item>
                         <item name="MarginRight" type_name="gh_int32" type_code="3">0</item>
                         <item name="MarginTop" type_name="gh_int32" type_code="3">0</item>
                         <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                          <X>2375.83</X>
-                          <Y>1854.957</Y>
+                          <X>2489.76</X>
+                          <Y>1956.165</Y>
                         </item>
                       </items>
                     </chunk>
@@ -38124,219 +38216,6 @@ Provided by Honeybee 0.0.59</item>
               </chunks>
             </chunk>
             <chunk name="Object" index="160">
-              <items count="2">
-                <item name="GUID" type_name="gh_guid" type_code="9">c9785b8e-2f30-4f90-8ee3-cca710f82402</item>
-                <item name="Name" type_name="gh_string" type_code="10">Entwine</item>
-              </items>
-              <chunks count="1">
-                <chunk name="Container">
-                  <items count="5">
-                    <item name="Description" type_name="gh_string" type_code="10">Flatten and combine a collection of data streams</item>
-                    <item name="FlattenInputs" type_name="gh_bool" type_code="1">true</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">7c64823a-3aae-49fb-89be-b06f2bb5401f</item>
-                    <item name="Name" type_name="gh_string" type_code="10">Entwine</item>
-                    <item name="NickName" type_name="gh_string" type_code="10">Entwine</item>
-                  </items>
-                  <chunks count="2">
-                    <chunk name="Attributes">
-                      <items count="2">
-                        <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                          <X>2665</X>
-                          <Y>1859</Y>
-                          <W>95</W>
-                          <H>65</H>
-                        </item>
-                        <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                          <X>2710</X>
-                          <Y>1892</Y>
-                        </item>
-                      </items>
-                    </chunk>
-                    <chunk name="ParameterData">
-                      <items count="6">
-                        <item name="InputCount" type_name="gh_int32" type_code="3">3</item>
-                        <item name="InputId" index="0" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
-                        <item name="InputId" index="1" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
-                        <item name="InputId" index="2" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
-                        <item name="OutputCount" type_name="gh_int32" type_code="3">1</item>
-                        <item name="OutputId" index="0" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
-                      </items>
-                      <chunks count="4">
-                        <chunk name="InputParam" index="0">
-                          <items count="9">
-                            <item name="Access" type_name="gh_int32" type_code="3">2</item>
-                            <item name="Description" type_name="gh_string" type_code="10">Data to entwine</item>
-                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">746d570c-61d9-4224-a34f-65645ce24ff9</item>
-                            <item name="Mutable" type_name="gh_bool" type_code="1">false</item>
-                            <item name="Name" type_name="gh_string" type_code="10">Branch {0;0}</item>
-                            <item name="NickName" type_name="gh_string" type_code="10">{0;0}</item>
-                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
-                            <item name="Source" index="0" type_name="gh_guid" type_code="9">2af1874a-dd18-4bad-b4ef-ae200dd1ca55</item>
-                            <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
-                          </items>
-                          <chunks count="1">
-                            <chunk name="Attributes">
-                              <items count="2">
-                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>2667</X>
-                                  <Y>1861</Y>
-                                  <W>28</W>
-                                  <H>20</H>
-                                </item>
-                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>2682.5</X>
-                                  <Y>1871.167</Y>
-                                </item>
-                              </items>
-                            </chunk>
-                          </chunks>
-                        </chunk>
-                        <chunk name="InputParam" index="1">
-                          <items count="9">
-                            <item name="Access" type_name="gh_int32" type_code="3">2</item>
-                            <item name="Description" type_name="gh_string" type_code="10">Data to entwine</item>
-                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">6358c1bc-1e71-48b4-ade9-a751beaec26b</item>
-                            <item name="Mutable" type_name="gh_bool" type_code="1">false</item>
-                            <item name="Name" type_name="gh_string" type_code="10">Branch {0;1}</item>
-                            <item name="NickName" type_name="gh_string" type_code="10">{0;1}</item>
-                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
-                            <item name="Source" index="0" type_name="gh_guid" type_code="9">2af1874a-dd18-4bad-b4ef-ae200dd1ca55</item>
-                            <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
-                          </items>
-                          <chunks count="1">
-                            <chunk name="Attributes">
-                              <items count="2">
-                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>2667</X>
-                                  <Y>1881</Y>
-                                  <W>28</W>
-                                  <H>20</H>
-                                </item>
-                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>2682.5</X>
-                                  <Y>1891.5</Y>
-                                </item>
-                              </items>
-                            </chunk>
-                          </chunks>
-                        </chunk>
-                        <chunk name="InputParam" index="2">
-                          <items count="9">
-                            <item name="Access" type_name="gh_int32" type_code="3">2</item>
-                            <item name="Description" type_name="gh_string" type_code="10">Data to entwine</item>
-                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">64ed72b3-a9a8-4226-a9bd-9f83bb86c315</item>
-                            <item name="Mutable" type_name="gh_bool" type_code="1">false</item>
-                            <item name="Name" type_name="gh_string" type_code="10">Branch {0;2}</item>
-                            <item name="NickName" type_name="gh_string" type_code="10">{0;2}</item>
-                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
-                            <item name="Source" index="0" type_name="gh_guid" type_code="9">2af1874a-dd18-4bad-b4ef-ae200dd1ca55</item>
-                            <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
-                          </items>
-                          <chunks count="1">
-                            <chunk name="Attributes">
-                              <items count="2">
-                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>2667</X>
-                                  <Y>1901</Y>
-                                  <W>28</W>
-                                  <H>21</H>
-                                </item>
-                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>2682.5</X>
-                                  <Y>1911.833</Y>
-                                </item>
-                              </items>
-                            </chunk>
-                          </chunks>
-                        </chunk>
-                        <chunk name="OutputParam" index="0">
-                          <items count="7">
-                            <item name="Description" type_name="gh_string" type_code="10">Entwined result</item>
-                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">e834330a-f491-44a2-ae9b-fc6598441a09</item>
-                            <item name="Name" type_name="gh_string" type_code="10">Result</item>
-                            <item name="NickName" type_name="gh_string" type_code="10">R</item>
-                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                            <item name="SimplifyData" type_name="gh_bool" type_code="1">true</item>
-                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
-                          </items>
-                          <chunks count="1">
-                            <chunk name="Attributes">
-                              <items count="2">
-                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>2725</X>
-                                  <Y>1861</Y>
-                                  <W>33</W>
-                                  <H>61</H>
-                                </item>
-                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>2733.5</X>
-                                  <Y>1891.5</Y>
-                                </item>
-                              </items>
-                            </chunk>
-                          </chunks>
-                        </chunk>
-                      </chunks>
-                    </chunk>
-                  </chunks>
-                </chunk>
-              </chunks>
-            </chunk>
-            <chunk name="Object" index="161">
-              <items count="2">
-                <item name="GUID" type_name="gh_guid" type_code="9">59e0b89a-e487-49f8-bab8-b5bab16be14c</item>
-                <item name="Name" type_name="gh_string" type_code="10">Panel</item>
-              </items>
-              <chunks count="1">
-                <chunk name="Container">
-                  <items count="8">
-                    <item name="Description" type_name="gh_string" type_code="10">A panel for custom notes and text values</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">2dfefd7b-d950-4614-a6e4-84e33c5e211f</item>
-                    <item name="Name" type_name="gh_string" type_code="10">Panel</item>
-                    <item name="NickName" type_name="gh_string" type_code="10"></item>
-                    <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                    <item name="ScrollRatio" type_name="gh_double" type_code="6">0</item>
-                    <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
-                    <item name="UserText" type_name="gh_string" type_code="10">0.5
-0.3
-0.45
-0.0</item>
-                  </items>
-                  <chunks count="2">
-                    <chunk name="Attributes">
-                      <items count="5">
-                        <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                          <X>2375</X>
-                          <Y>1964</Y>
-                          <W>160</W>
-                          <H>80</H>
-                        </item>
-                        <item name="MarginLeft" type_name="gh_int32" type_code="3">0</item>
-                        <item name="MarginRight" type_name="gh_int32" type_code="3">0</item>
-                        <item name="MarginTop" type_name="gh_int32" type_code="3">0</item>
-                        <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                          <X>2375.83</X>
-                          <Y>1964.9</Y>
-                        </item>
-                      </items>
-                    </chunk>
-                    <chunk name="PanelProperties">
-                      <items count="6">
-                        <item name="Colour" type_name="gh_drawing_color" type_code="36">
-                          <ARGB>255;255;250;90</ARGB>
-                        </item>
-                        <item name="DrawIndices" type_name="gh_bool" type_code="1">true</item>
-                        <item name="DrawPaths" type_name="gh_bool" type_code="1">true</item>
-                        <item name="Multiline" type_name="gh_bool" type_code="1">false</item>
-                        <item name="Stream" type_name="gh_bool" type_code="1">false</item>
-                        <item name="Wrap" type_name="gh_bool" type_code="1">true</item>
-                      </items>
-                    </chunk>
-                  </chunks>
-                </chunk>
-              </chunks>
-            </chunk>
-            <chunk name="Object" index="162">
               <items count="3">
                 <item name="GUID" type_name="gh_guid" type_code="9">410755b1-224a-4c1e-a407-bf32fb45ea7e</item>
                 <item name="Lib" type_name="gh_guid" type_code="9">16cf80bc-9018-cbdb-2238-976eb17fd30d</item>
@@ -38626,7 +38505,7 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                 </chunk>
               </chunks>
             </chunk>
-            <chunk name="Object" index="163">
+            <chunk name="Object" index="161">
               <items count="2">
                 <item name="GUID" type_name="gh_guid" type_code="9">2e78987b-9dfb-42a2-8b76-3923ac8bd91a</item>
                 <item name="Name" type_name="gh_string" type_code="10">Boolean Toggle</item>
@@ -38657,7 +38536,7 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                 </chunk>
               </chunks>
             </chunk>
-            <chunk name="Object" index="164">
+            <chunk name="Object" index="162">
               <items count="2">
                 <item name="GUID" type_name="gh_guid" type_code="9">3ede854e-c753-40eb-84cb-b48008f14fd4</item>
                 <item name="Name" type_name="gh_string" type_code="10">Text</item>
@@ -38693,7 +38572,7 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                 </chunk>
               </chunks>
             </chunk>
-            <chunk name="Object" index="165">
+            <chunk name="Object" index="163">
               <items count="2">
                 <item name="GUID" type_name="gh_guid" type_code="9">06953bda-1d37-4d58-9b38-4b3c74e54c8f</item>
                 <item name="Name" type_name="gh_string" type_code="10">File Path</item>
@@ -38716,14 +38595,14 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                     <chunk name="Attributes">
                       <items count="2">
                         <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                          <X>2347</X>
-                          <Y>2721</Y>
+                          <X>2340</X>
+                          <Y>2692</Y>
                           <W>50</W>
                           <H>20</H>
                         </item>
                         <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                          <X>2372.283</X>
-                          <Y>2731.251</Y>
+                          <X>2365.283</X>
+                          <Y>2702.251</Y>
                         </item>
                       </items>
                     </chunk>
@@ -38731,7 +38610,7 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                 </chunk>
               </chunks>
             </chunk>
-            <chunk name="Object" index="166">
+            <chunk name="Object" index="164">
               <items count="2">
                 <item name="GUID" type_name="gh_guid" type_code="9">59e0b89a-e487-49f8-bab8-b5bab16be14c</item>
                 <item name="Name" type_name="gh_string" type_code="10">Panel</item>
@@ -38782,7 +38661,7 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                 </chunk>
               </chunks>
             </chunk>
-            <chunk name="Object" index="167">
+            <chunk name="Object" index="165">
               <items count="2">
                 <item name="GUID" type_name="gh_guid" type_code="9">59e0b89a-e487-49f8-bab8-b5bab16be14c</item>
                 <item name="Name" type_name="gh_string" type_code="10">Panel</item>
@@ -38797,7 +38676,7 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                     <item name="Optional" type_name="gh_bool" type_code="1">false</item>
                     <item name="ScrollRatio" type_name="gh_double" type_code="6">0</item>
                     <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
-                    <item name="UserText" type_name="gh_string" type_code="10">20
+                    <item name="UserText" type_name="gh_string" type_code="10">5
 2</item>
                   </items>
                   <chunks count="2">
@@ -38806,7 +38685,7 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                         <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
                           <X>2491</X>
                           <Y>2064</Y>
-                          <W>160</W>
+                          <W>121</W>
                           <H>100</H>
                         </item>
                         <item name="MarginLeft" type_name="gh_int32" type_code="3">0</item>
@@ -38830,160 +38709,815 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
                 </chunk>
               </chunks>
             </chunk>
-            <chunk name="Object" index="168">
-              <items count="2">
-                <item name="GUID" type_name="gh_guid" type_code="9">c9785b8e-2f30-4f90-8ee3-cca710f82402</item>
-                <item name="Name" type_name="gh_string" type_code="10">Entwine</item>
+            <chunk name="Object" index="166">
+              <items count="3">
+                <item name="GUID" type_name="gh_guid" type_code="9">410755b1-224a-4c1e-a407-bf32fb45ea7e</item>
+                <item name="Lib" type_name="gh_guid" type_code="9">16cf80bc-9018-cbdb-2238-976eb17fd30d</item>
+                <item name="Name" type_name="gh_string" type_code="10">Honeybee_Call from EP Construction Library</item>
               </items>
               <chunks count="1">
                 <chunk name="Container">
-                  <items count="5">
-                    <item name="Description" type_name="gh_string" type_code="10">Flatten and combine a collection of data streams</item>
-                    <item name="FlattenInputs" type_name="gh_bool" type_code="1">true</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">5335115a-d292-4c8d-a0b1-7647728de8d8</item>
-                    <item name="Name" type_name="gh_string" type_code="10">Entwine</item>
-                    <item name="NickName" type_name="gh_string" type_code="10">Entwine</item>
+                  <items count="11">
+                    <item name="CodeInput" type_name="gh_string" type_code="10">#
+# Honeybee: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipour Roudsari
+# 
+# This file is part of Honeybee.
+# 
+# Copyright (c) 2013-2016, Mostapha Sadeghipour Roudsari &lt;Sadeghipour@gmail.com&gt; 
+# Honeybee is free software; you can redistribute it and/or modify 
+# it under the terms of the GNU General Public License as published 
+# by the Free Software Foundation; either version 3 of the License, 
+# or (at your option) any later version. 
+# 
+# Honeybee is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of 
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the 
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with Honeybee; If not, see &lt;http://www.gnu.org/licenses/&gt;.
+# 
+# @license GPL-3.0+ &lt;http://spdx.org/licenses/GPL-3.0+&gt;
+
+
+"""
+Call from EP Library
+
+-
+Provided by Honeybee 0.0.59
+    
+    Args:
+        keywords_: List of keywords to filter the list of materials
+            
+    Returns:
+        ThermMaterials: List of THERM materials in Honeybee library.  Note that Therm materials do not contain enough information to be used for EnergyPlus.  They can only be used for THERM polygons with the "Honeybee_Create Therm Polygons" component.
+        EPMaterials: List of EP materials in Honeybee library
+        EPWindowMaterials: List of EP window materials in Honeybee library
+        EPConstructios:  List of EP constructions in Honeybee library
+
+"""
+
+ghenv.Component.Name = "Honeybee_Call from EP Construction Library"
+ghenv.Component.NickName = 'callFromEPConstrLibrary'
+ghenv.Component.Message = 'VER 0.0.59\nJAN_26_2016'
+ghenv.Component.IconDisplayMode = ghenv.Component.IconDisplayMode.application
+ghenv.Component.Category = "Honeybee"
+ghenv.Component.SubCategory = "06 | Energy | Material | Construction"
+#compatibleHBVersion = VER 0.0.56\nFEB_01_2015
+#compatibleLBVersion = VER 0.0.59\nFEB_01_2015
+try: ghenv.Component.AdditionalHelpFromDocStrings = "2"
+except: pass
+
+
+import scriptcontext as sc
+import Grasshopper.Kernel as gh
+
+if sc.sticky.has_key("honeybee_release") and sc.sticky.has_key("honeybee_constructionLib"):
+    
+    hb_EPMaterialAUX = sc.sticky["honeybee_EPMaterialAUX"]()
+    
+    EPConstructions = sc.sticky ["honeybee_constructionLib"].keys()
+    EPMaterials =  sc.sticky ["honeybee_materialLib"].keys()
+    EPWindowMaterials = sc.sticky ["honeybee_windowMaterialLib"].keys()
+    ThermMaterials = sc.sticky["honeybee_thermMaterialLib"].keys()
+    
+    EPConstructions.sort()
+    EPMaterials.sort()
+    EPWindowMaterials.sort()
+    ThermMaterials.sort()
+    
+    if len(keywords_)!=0 and keywords_[0]!=None:
+        EPConstructions = hb_EPMaterialAUX.searchListByKeyword(EPConstructions, keywords_)
+        EPMaterials = hb_EPMaterialAUX.searchListByKeyword(EPMaterials, keywords_)
+        EPWindowMaterials = hb_EPMaterialAUX.searchListByKeyword(EPWindowMaterials, keywords_)
+        ThermMaterials = hb_EPMaterialAUX.searchListByKeyword(ThermMaterials, keywords_)
+else:
+    print "You should first let the Honeybee fly..."
+    w = gh.GH_RuntimeMessageLevel.Warning
+    ghenv.Component.AddRuntimeMessage(w, "You should first let the Honeybee fly...")</item>
+                    <item name="Description" type_name="gh_string" type_code="10">Call from EP Library
+-
+Provided by Honeybee 0.0.59</item>
+                    <item name="EditorLocation" type_name="gh_drawing_point" type_code="30">
+                      <X>375</X>
+                      <Y>364</Y>
+                    </item>
+                    <item name="EditorSize" type_name="gh_drawing_size" type_code="32">
+                      <W>1041</W>
+                      <H>685</H>
+                    </item>
+                    <item name="Hidden" type_name="gh_bool" type_code="1">true</item>
+                    <item name="HideInput" type_name="gh_bool" type_code="1">true</item>
+                    <item name="HideOutput" type_name="gh_bool" type_code="1">true</item>
+                    <item name="IconOverride" type_name="gh_drawing_bitmap" type_code="37">
+                      <bitmap length="1214">iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwgAADsIBFShKgAAABGBJREFUSEvdVGtQlFUYPrvfsrvckavscllcFnZZEEtppHVUcnIkdZyGGak/zoB2mbyUppKSoCVUQFAhMW7qCEmgYEoXo5VLEppOF/8kpJZcJLoMKzRLgKD79J5vP8khjB/1y2fmme9857zf85zzvu932H0DT2IOMZ/JFVvpWSJSoXyRyeVZ0vu7xCJOLzdWypisVKlU8jU+R++sRK1W82/5+GWiH3ECjyi8grp9Hl71i/uCVR2qmHkDqth5Az6L0to9kldeVsXOHfBZvHRYtWilnWLt5lAPx+r0dEdGRsaV1NRUe1JSksNisQxmZmZ2pKSkOAICAjop7lFRWYRMVhvx+ieYcwUIsd1GeMMoEprHEHcGiPsCSPgO0L1zBrq3mhH9+Q3oU9fgUqsN90Jvby/IpE5SZ0zuE5ijs36DGfUONPaNIPfiINwrumCo7UFcmxMhzxaAwkSGbiwCK72M5OT5ktw/0dPTww3eE8UlVITmVMP31C0x4GTXEJj1Kgx112E+C7gFh00YyJTu0H8LyDQxQB8deQp0dnby2P1c+A4qNZJBp2Mc+9oHIT/4IwzHuhHXOo6Zz5dOGAQ+uR1zfgB8s2uQtmwJyvbswJHivbjwaR3Of3QM9eVFKMh6gcce4MIiZCqP4ojCBhgabyL+eA+Mtd2IPtotGhiOdsHUOIqIgs8Qnl8Po+1PxFaT8XmA5dnA0rLBVmyBYl0hlE/sBHs8C2zuCm5wxKVOoBrsiio7B/PpYWg+6EJkTRdiyeSOgcvkJkxN42Jdovlc9U8wnfoD5lYgvg0wNN2CoYUaop3GJ36Fwi84V5IXUa3Nfp/SQYtcdBqqWm5jbU4VHH6BuK5PwJCnN3Y/VwThSyedcAS6fW0QPH3ekLRFVGl3VYltOZXgZAoUt/6lQ5QjhrGAmeKzMPMVMGoIE5mH553kKTrskibIPL3zI0uaYTo9OqXgZLrRv/FMdiWgUuOGVg/IZch7+jXIKFWmFifC957gBhUudYLgPWOPrrQVJjreVIKT+W8GxoYhRO3/GoJv0G5JXsS0NTDWXIO2/ncEUmGVTfcwoNRpzwH+5V9BJgj8TppAzXQGug/7YKG/fcGBi2DfAxt4De4yKFj7Ktgl4CHbMCxbysEE4aCkzdvUP1dXdpZSNDylOCcv4OG0TWJBg5oGsJRSCoXCZUBzG7IOicbjoZFoC9JA5hdileSpyGpPq76yA4n0h/JOMtMxOcXLjnT4eBZdD2EXgGuL0zASNRsbt1kx6h8sGjjV7ti+6W20LUwHEhci8fjPYJFxBZK8iB1eycupveqgoZ0Er8sTqdlZgdCtVgQ/RWNqQ+FNG/w3l+GqmxKgXf6mM8EeFg17RAztXIdhGUP8+mKw1Zt5F21zSf+NJKKFOJvI73JOM/GBu95NxPmCICwb0+q7h8INokE/PQf9Y0YzvQOX0/oS4oPE/wZnpDF5gO9eolNnXCMt/X/ojzSY+sP0H9u1sx6Tpu47MPYXvq9nQVlkjJIAAAAASUVORK5CYII=</bitmap>
+                    </item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">21910b47-d843-4217-8304-7c9929615089</item>
+                    <item name="Name" type_name="gh_string" type_code="10">Honeybee_Call from EP Construction Library</item>
+                    <item name="NickName" type_name="gh_string" type_code="10">callFromEPConstrLibrary</item>
                   </items>
                   <chunks count="2">
                     <chunk name="Attributes">
                       <items count="2">
                         <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                          <X>2706</X>
-                          <Y>2062</Y>
-                          <W>95</W>
-                          <H>65</H>
+                          <X>1821</X>
+                          <Y>-465</Y>
+                          <W>197</W>
+                          <H>172</H>
                         </item>
                         <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                          <X>2751</X>
-                          <Y>2095</Y>
+                          <X>1895</X>
+                          <Y>-379</Y>
                         </item>
                       </items>
                     </chunk>
                     <chunk name="ParameterData">
-                      <items count="6">
-                        <item name="InputCount" type_name="gh_int32" type_code="3">3</item>
-                        <item name="InputId" index="0" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
-                        <item name="InputId" index="1" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
-                        <item name="InputId" index="2" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
-                        <item name="OutputCount" type_name="gh_int32" type_code="3">1</item>
+                      <items count="7">
+                        <item name="InputCount" type_name="gh_int32" type_code="3">1</item>
+                        <item name="InputId" index="0" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
+                        <item name="OutputCount" type_name="gh_int32" type_code="3">4</item>
                         <item name="OutputId" index="0" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
+                        <item name="OutputId" index="1" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
+                        <item name="OutputId" index="2" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
+                        <item name="OutputId" index="3" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
                       </items>
-                      <chunks count="4">
+                      <chunks count="5">
                         <chunk name="InputParam" index="0">
-                          <items count="9">
-                            <item name="Access" type_name="gh_int32" type_code="3">2</item>
-                            <item name="Description" type_name="gh_string" type_code="10">Data to entwine</item>
-                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">4b5134e0-9e62-484c-b2c5-2a3dc9b33ee0</item>
-                            <item name="Mutable" type_name="gh_bool" type_code="1">false</item>
-                            <item name="Name" type_name="gh_string" type_code="10">Branch {0;0}</item>
-                            <item name="NickName" type_name="gh_string" type_code="10">{0;0}</item>
+                          <items count="11">
+                            <item name="Access" type_name="gh_int32" type_code="3">1</item>
+                            <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Description" type_name="gh_string" type_code="10">List of keywords to filter the list of materials</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">30290c80-7d54-4ba5-838c-977789a95fab</item>
+                            <item name="Name" type_name="gh_string" type_code="10">keywords_</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">keywords_</item>
                             <item name="Optional" type_name="gh_bool" type_code="1">true</item>
-                            <item name="Source" index="0" type_name="gh_guid" type_code="9">0c373c1d-3541-4dc4-a1e1-3516823fd2c8</item>
-                            <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
+                            <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">1</item>
+                            <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                            <item name="TypeHintID" type_name="gh_guid" type_code="9">37261734-eec7-4f50-b6a8-b8d1f3c4396b</item>
                           </items>
                           <chunks count="1">
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>2708</X>
-                                  <Y>2064</Y>
-                                  <W>28</W>
-                                  <H>20</H>
+                                  <X>1823</X>
+                                  <Y>-463</Y>
+                                  <W>57</W>
+                                  <H>168</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>2723.5</X>
-                                  <Y>2074.167</Y>
-                                </item>
-                              </items>
-                            </chunk>
-                          </chunks>
-                        </chunk>
-                        <chunk name="InputParam" index="1">
-                          <items count="9">
-                            <item name="Access" type_name="gh_int32" type_code="3">2</item>
-                            <item name="Description" type_name="gh_string" type_code="10">Data to entwine</item>
-                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">2f344596-1e48-4517-bf5f-01bebc0f4a2e</item>
-                            <item name="Mutable" type_name="gh_bool" type_code="1">false</item>
-                            <item name="Name" type_name="gh_string" type_code="10">Branch {0;1}</item>
-                            <item name="NickName" type_name="gh_string" type_code="10">{0;1}</item>
-                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
-                            <item name="Source" index="0" type_name="gh_guid" type_code="9">0c373c1d-3541-4dc4-a1e1-3516823fd2c8</item>
-                            <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
-                          </items>
-                          <chunks count="1">
-                            <chunk name="Attributes">
-                              <items count="2">
-                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>2708</X>
-                                  <Y>2084</Y>
-                                  <W>28</W>
-                                  <H>20</H>
-                                </item>
-                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>2723.5</X>
-                                  <Y>2094.5</Y>
-                                </item>
-                              </items>
-                            </chunk>
-                          </chunks>
-                        </chunk>
-                        <chunk name="InputParam" index="2">
-                          <items count="9">
-                            <item name="Access" type_name="gh_int32" type_code="3">2</item>
-                            <item name="Description" type_name="gh_string" type_code="10">Data to entwine</item>
-                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">4c2bea44-d400-4d09-8850-b11a62892e3e</item>
-                            <item name="Mutable" type_name="gh_bool" type_code="1">false</item>
-                            <item name="Name" type_name="gh_string" type_code="10">Branch {0;2}</item>
-                            <item name="NickName" type_name="gh_string" type_code="10">{0;2}</item>
-                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
-                            <item name="Source" index="0" type_name="gh_guid" type_code="9">0c373c1d-3541-4dc4-a1e1-3516823fd2c8</item>
-                            <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
-                          </items>
-                          <chunks count="1">
-                            <chunk name="Attributes">
-                              <items count="2">
-                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>2708</X>
-                                  <Y>2104</Y>
-                                  <W>28</W>
-                                  <H>21</H>
-                                </item>
-                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>2723.5</X>
-                                  <Y>2114.833</Y>
+                                  <X>1853</X>
+                                  <Y>-379</Y>
                                 </item>
                               </items>
                             </chunk>
                           </chunks>
                         </chunk>
                         <chunk name="OutputParam" index="0">
-                          <items count="7">
-                            <item name="Description" type_name="gh_string" type_code="10">Entwined result</item>
-                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">82eee4dd-2408-46db-b4cc-441e1e7723dd</item>
-                            <item name="Name" type_name="gh_string" type_code="10">Result</item>
-                            <item name="NickName" type_name="gh_string" type_code="10">R</item>
+                          <items count="6">
+                            <item name="Description" type_name="gh_string" type_code="10">List of THERM materials in Honeybee library.  Note that Therm materials do not contain enough information to be used for EnergyPlus.  They can only be used for THERM polygons with the "Honeybee_Create Therm Polygons" component.</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">15f59858-5f39-4506-b732-65706a1345d8</item>
+                            <item name="Name" type_name="gh_string" type_code="10">ThermMaterials</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">ThermMaterials</item>
                             <item name="Optional" type_name="gh_bool" type_code="1">false</item>
-                            <item name="SimplifyData" type_name="gh_bool" type_code="1">true</item>
                             <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
                           </items>
                           <chunks count="1">
                             <chunk name="Attributes">
                               <items count="2">
                                 <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                                  <X>2766</X>
-                                  <Y>2064</Y>
-                                  <W>33</W>
-                                  <H>61</H>
+                                  <X>1910</X>
+                                  <Y>-463</Y>
+                                  <W>106</W>
+                                  <H>42</H>
                                 </item>
                                 <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
-                                  <X>2774.5</X>
-                                  <Y>2094.5</Y>
+                                  <X>1963</X>
+                                  <Y>-442</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="OutputParam" index="1">
+                          <items count="6">
+                            <item name="Description" type_name="gh_string" type_code="10">List of EP materials in Honeybee library</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">9529ad67-2581-470d-8dce-6b06c400e3c0</item>
+                            <item name="Name" type_name="gh_string" type_code="10">EPMaterials</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">EPMaterials</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>1910</X>
+                                  <Y>-421</Y>
+                                  <W>106</W>
+                                  <H>42</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>1963</X>
+                                  <Y>-400</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="OutputParam" index="2">
+                          <items count="6">
+                            <item name="Description" type_name="gh_string" type_code="10">List of EP window materials in Honeybee library</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">5e6e37ed-1294-4fd5-b7eb-47326ddaac55</item>
+                            <item name="Name" type_name="gh_string" type_code="10">EPWindowMaterials</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">EPWindowMaterials</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>1910</X>
+                                  <Y>-379</Y>
+                                  <W>106</W>
+                                  <H>42</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>1963</X>
+                                  <Y>-358</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="OutputParam" index="3">
+                          <items count="6">
+                            <item name="Description" type_name="gh_string" type_code="10">List of EP constructions in Honeybee library</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">ac4fb434-9415-4721-a138-7577508eb654</item>
+                            <item name="Name" type_name="gh_string" type_code="10">EPConstructions</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">EPConstructions</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>1910</X>
+                                  <Y>-337</Y>
+                                  <W>106</W>
+                                  <H>42</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>1963</X>
+                                  <Y>-316</Y>
                                 </item>
                               </items>
                             </chunk>
                           </chunks>
                         </chunk>
                       </chunks>
+                    </chunk>
+                  </chunks>
+                </chunk>
+              </chunks>
+            </chunk>
+            <chunk name="Object" index="167">
+              <items count="2">
+                <item name="GUID" type_name="gh_guid" type_code="9">59e0b89a-e487-49f8-bab8-b5bab16be14c</item>
+                <item name="Name" type_name="gh_string" type_code="10">Panel</item>
+              </items>
+              <chunks count="1">
+                <chunk name="Container">
+                  <items count="9">
+                    <item name="Description" type_name="gh_string" type_code="10">A panel for custom notes and text values</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">6b203c52-a03c-4885-a208-be98b20b0845</item>
+                    <item name="Name" type_name="gh_string" type_code="10">Panel</item>
+                    <item name="NickName" type_name="gh_string" type_code="10"></item>
+                    <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                    <item name="ScrollRatio" type_name="gh_double" type_code="6">0.385897696018219</item>
+                    <item name="Source" index="0" type_name="gh_guid" type_code="9">ac4fb434-9415-4721-a138-7577508eb654</item>
+                    <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
+                    <item name="UserText" type_name="gh_string" type_code="10">Double click to edit panel content…</item>
+                  </items>
+                  <chunks count="2">
+                    <chunk name="Attributes">
+                      <items count="4">
+                        <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                          <X>2091</X>
+                          <Y>-390</Y>
+                          <W>160</W>
+                          <H>100</H>
+                        </item>
+                        <item name="MarginLeft" type_name="gh_int32" type_code="3">0</item>
+                        <item name="MarginRight" type_name="gh_int32" type_code="3">0</item>
+                        <item name="MarginTop" type_name="gh_int32" type_code="3">0</item>
+                      </items>
+                    </chunk>
+                    <chunk name="PanelProperties">
+                      <items count="6">
+                        <item name="Colour" type_name="gh_drawing_color" type_code="36">
+                          <ARGB>255;255;250;90</ARGB>
+                        </item>
+                        <item name="DrawIndices" type_name="gh_bool" type_code="1">true</item>
+                        <item name="DrawPaths" type_name="gh_bool" type_code="1">true</item>
+                        <item name="Multiline" type_name="gh_bool" type_code="1">true</item>
+                        <item name="Stream" type_name="gh_bool" type_code="1">false</item>
+                        <item name="Wrap" type_name="gh_bool" type_code="1">true</item>
+                      </items>
+                    </chunk>
+                  </chunks>
+                </chunk>
+              </chunks>
+            </chunk>
+            <chunk name="Object" index="168">
+              <items count="2">
+                <item name="GUID" type_name="gh_guid" type_code="9">59e0b89a-e487-49f8-bab8-b5bab16be14c</item>
+                <item name="Name" type_name="gh_string" type_code="10">Panel</item>
+              </items>
+              <chunks count="1">
+                <chunk name="Container">
+                  <items count="8">
+                    <item name="Description" type_name="gh_string" type_code="10">A panel for custom notes and text values</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">f822d501-8f2b-4e56-a201-51d7dcce73fd</item>
+                    <item name="Name" type_name="gh_string" type_code="10">Panel</item>
+                    <item name="NickName" type_name="gh_string" type_code="10"></item>
+                    <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                    <item name="ScrollRatio" type_name="gh_double" type_code="6">0.29100489616394043</item>
+                    <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                    <item name="UserText" type_name="gh_string" type_code="10">AIR WALL
+ASHRAE 189.1-2009 ATTICFLOOR CLIMATEZONE 1-8
+ASHRAE 189.1-2009 EXTROOF IEAD CLIMATEZONE 1
+ASHRAE 189.1-2009 EXTROOF IEAD CLIMATEZONE 2-5
+ASHRAE 189.1-2009 EXTROOF IEAD CLIMATEZONE 6
+ASHRAE 189.1-2009 EXTROOF IEAD CLIMATEZONE 7-8
+ASHRAE 189.1-2009 EXTROOF METAL CLIMATEZONE 1
+ASHRAE 189.1-2009 EXTROOF METAL CLIMATEZONE 2-5
+ASHRAE 189.1-2009 EXTROOF METAL CLIMATEZONE 6
+ASHRAE 189.1-2009 EXTROOF METAL CLIMATEZONE 7-8
+ASHRAE 189.1-2009 EXTWALL MASS CLIMATEZONE 1
+ASHRAE 189.1-2009 EXTWALL MASS CLIMATEZONE 2
+ASHRAE 189.1-2009 EXTWALL MASS CLIMATEZONE 3
+ASHRAE 189.1-2009 EXTWALL MASS CLIMATEZONE 4
+ASHRAE 189.1-2009 EXTWALL MASS CLIMATEZONE 5
+ASHRAE 189.1-2009 EXTWALL MASS CLIMATEZONE 6
+ASHRAE 189.1-2009 EXTWALL MASS CLIMATEZONE 7-8
+ASHRAE 189.1-2009 EXTWALL MASS CLIMATEZONE ALT-RES 1
+ASHRAE 189.1-2009 EXTWALL MASS CLIMATEZONE ALT-RES 2
+ASHRAE 189.1-2009 EXTWALL MASS CLIMATEZONE ALT-RES 3
+ASHRAE 189.1-2009 EXTWALL MASS CLIMATEZONE ALT-RES 4
+ASHRAE 189.1-2009 EXTWALL MASS CLIMATEZONE ALT-RES 5
+ASHRAE 189.1-2009 EXTWALL MASS CLIMATEZONE ALT-RES 6
+ASHRAE 189.1-2009 EXTWALL MASS CLIMATEZONE ALT-RES 7
+ASHRAE 189.1-2009 EXTWALL MASS CLIMATEZONE ALT-RES 8
+ASHRAE 189.1-2009 EXTWALL METAL CLIMATEZONE 1-3
+ASHRAE 189.1-2009 EXTWALL METAL CLIMATEZONE 4-8
+ASHRAE 189.1-2009 EXTWALL STEELFRAME CLIMATEZONE 1-3
+ASHRAE 189.1-2009 EXTWALL STEELFRAME CLIMATEZONE 4-8
+ASHRAE 189.1-2009 EXTWALL WOODFRAME CLIMATEZONE 1-4
+ASHRAE 189.1-2009 EXTWALL WOODFRAME CLIMATEZONE 5
+ASHRAE 189.1-2009 EXTWALL WOODFRAME CLIMATEZONE 6-8
+ASHRAE 189.1-2009 EXTWINDOW CLIMATEZONE 1
+ASHRAE 189.1-2009 EXTWINDOW CLIMATEZONE 2
+ASHRAE 189.1-2009 EXTWINDOW CLIMATEZONE 3
+ASHRAE 189.1-2009 EXTWINDOW CLIMATEZONE 4-5
+ASHRAE 189.1-2009 EXTWINDOW CLIMATEZONE 6
+ASHRAE 189.1-2009 EXTWINDOW CLIMATEZONE 7-8
+ASHRAE 189.1-2009 EXTWINDOW CLIMATEZONE ALT-RES 4-5
+ASHRAE 90.1-2004 ATTICFLOOR CLIMATEZONE 1-5
+ASHRAE 90.1-2004 ATTICFLOOR CLIMATEZONE 6-8
+ASHRAE 90.1-2004 EXTROOF IEAD CLIMATEZONE 1-4
+ASHRAE 90.1-2004 EXTROOF IEAD CLIMATEZONE 5-6
+ASHRAE 90.1-2004 EXTROOF IEAD CLIMATEZONE 5-6 1
+ASHRAE 90.1-2004 EXTROOF IEAD CLIMATEZONE 7
+ASHRAE 90.1-2004 EXTROOF IEAD CLIMATEZONE 8
+ASHRAE 90.1-2004 EXTROOF METAL CLIMATEZONE 1
+ASHRAE 90.1-2004 EXTROOF METAL CLIMATEZONE 2
+ASHRAE 90.1-2004 EXTROOF METAL CLIMATEZONE 3-4
+ASHRAE 90.1-2004 EXTROOF METAL CLIMATEZONE 5-6
+ASHRAE 90.1-2004 EXTROOF METAL CLIMATEZONE 7
+ASHRAE 90.1-2004 EXTROOF METAL CLIMATEZONE 8
+ASHRAE 90.1-2004 EXTWALL MASS CLIMATEZONE 1-2
+ASHRAE 90.1-2004 EXTWALL MASS CLIMATEZONE 3-4
+ASHRAE 90.1-2004 EXTWALL MASS CLIMATEZONE 5
+ASHRAE 90.1-2004 EXTWALL MASS CLIMATEZONE 6
+ASHRAE 90.1-2004 EXTWALL MASS CLIMATEZONE 7
+ASHRAE 90.1-2004 EXTWALL MASS CLIMATEZONE 8
+ASHRAE 90.1-2004 EXTWALL MASS CLIMATEZONE ALT-RES 1-2
+ASHRAE 90.1-2004 EXTWALL MASS CLIMATEZONE ALT-RES 3
+ASHRAE 90.1-2004 EXTWALL MASS CLIMATEZONE ALT-RES 4
+ASHRAE 90.1-2004 EXTWALL MASS CLIMATEZONE ALT-RES 5-6
+ASHRAE 90.1-2004 EXTWALL MASS CLIMATEZONE ALT-RES 7
+ASHRAE 90.1-2004 EXTWALL MASS CLIMATEZONE ALT-RES 8
+ASHRAE 90.1-2004 EXTWALL METAL CLIMATEZONE 1
+ASHRAE 90.1-2004 EXTWALL METAL CLIMATEZONE 2-3
+ASHRAE 90.1-2004 EXTWALL METAL CLIMATEZONE 4
+ASHRAE 90.1-2004 EXTWALL METAL CLIMATEZONE 5
+ASHRAE 90.1-2004 EXTWALL METAL CLIMATEZONE 6-8
+ASHRAE 90.1-2004 EXTWALL STEELFRAME CLIMATEZONE 1-4
+ASHRAE 90.1-2004 EXTWALL STEELFRAME CLIMATEZONE 5-6
+ASHRAE 90.1-2004 EXTWALL STEELFRAME CLIMATEZONE 7-8
+ASHRAE 90.1-2004 EXTWALL STEELFRAME CLIMATEZONE ALT-RES 3
+ASHRAE 90.1-2004 EXTWALL STEELFRAME CLIMATEZONE ALT-RES 4-6
+ASHRAE 90.1-2004 EXTWALL STEELFRAME CLIMATEZONE ALT-RES 8
+ASHRAE 90.1-2004 EXTWALL WOODFRAME CLIMATEZONE 1-7
+ASHRAE 90.1-2004 EXTWALL WOODFRAME CLIMATEZONE 8
+ASHRAE 90.1-2004 EXTWINDOW CLIMATEZONE 1-2
+ASHRAE 90.1-2004 EXTWINDOW CLIMATEZONE 3A-3B
+ASHRAE 90.1-2004 EXTWINDOW CLIMATEZONE 3C
+ASHRAE 90.1-2004 EXTWINDOW CLIMATEZONE 4-6
+ASHRAE 90.1-2004 EXTWINDOW CLIMATEZONE 7
+ASHRAE 90.1-2004 EXTWINDOW CLIMATEZONE 8
+ASHRAE 90.1-2004 EXTWINDOW CLIMATEZONE ALT-RES 3C
+ASHRAE 90.1-2004 EXTWINDOW CLIMATEZONE ALT-RES 4-6
+ASHRAE 90.1-2004 EXTWINDOW CLIMATEZONE ALT-RES 7
+ASHRAE 90.1-2004 EXTWINDOW CLIMATEZONE ALT-RES 8
+ASHRAE 90.1-2004 EXTWINDOW CLIMATEZONE ALT-RESA 3A-3B
+ASHRAE 90.1-2004 EXTWINDOW CLIMATEZONE ALT-RESH 3A-3B
+ASHRAE 90.1-2004 EXTWINDOW CLIMATEZONE ALT-WARE 1-8
+ASHRAE 90.1-2007 ATTICFLOOR CLIMATEZONE 1
+ASHRAE 90.1-2007 ATTICFLOOR CLIMATEZONE 1-2 SEMIHEATED
+ASHRAE 90.1-2007 ATTICFLOOR CLIMATEZONE 2-7
+ASHRAE 90.1-2007 ATTICFLOOR CLIMATEZONE 3-5 SEMIHEATED
+ASHRAE 90.1-2007 ATTICFLOOR CLIMATEZONE 6-8 SEMIHEATED
+ASHRAE 90.1-2007 ATTICFLOOR CLIMATEZONE 8
+ASHRAE 90.1-2007 EXTROOF IEAD CLIMATEZONE 1
+ASHRAE 90.1-2007 EXTROOF IEAD CLIMATEZONE 1-2 SEMIHEATED
+ASHRAE 90.1-2007 EXTROOF IEAD CLIMATEZONE 2-8
+ASHRAE 90.1-2007 EXTROOF IEAD CLIMATEZONE 3-4 SEMIHEATED
+ASHRAE 90.1-2007 EXTROOF IEAD CLIMATEZONE 5 SEMIHEATED
+ASHRAE 90.1-2007 EXTROOF IEAD CLIMATEZONE 6-7 SEMIHEATED
+ASHRAE 90.1-2007 EXTROOF IEAD CLIMATEZONE 8 SEMIHEATED
+ASHRAE 90.1-2007 EXTROOF METAL CLIMATEZONE 1 SEMIHEATED
+ASHRAE 90.1-2007 EXTROOF METAL CLIMATEZONE 1-7
+ASHRAE 90.1-2007 EXTROOF METAL CLIMATEZONE 2 SEMIHEATED
+ASHRAE 90.1-2007 EXTROOF METAL CLIMATEZONE 3-7 SEMIHEATED
+ASHRAE 90.1-2007 EXTROOF METAL CLIMATEZONE 8
+ASHRAE 90.1-2007 EXTROOF METAL CLIMATEZONE 8 SEMIHEATED
+ASHRAE 90.1-2007 EXTWALL MASS CLIMATEZONE 1
+ASHRAE 90.1-2007 EXTWALL MASS CLIMATEZONE 1-4 SEMIHEATED
+ASHRAE 90.1-2007 EXTWALL MASS CLIMATEZONE 2
+ASHRAE 90.1-2007 EXTWALL MASS CLIMATEZONE 3
+ASHRAE 90.1-2007 EXTWALL MASS CLIMATEZONE 4
+ASHRAE 90.1-2007 EXTWALL MASS CLIMATEZONE 5
+ASHRAE 90.1-2007 EXTWALL MASS CLIMATEZONE 5-6 SEMIHEATED
+ASHRAE 90.1-2007 EXTWALL MASS CLIMATEZONE 6
+ASHRAE 90.1-2007 EXTWALL MASS CLIMATEZONE 7 SEMIHEATED
+ASHRAE 90.1-2007 EXTWALL MASS CLIMATEZONE 7-8
+ASHRAE 90.1-2007 EXTWALL MASS CLIMATEZONE 8 SEMIHEATED
+ASHRAE 90.1-2007 EXTWALL MASS CLIMATEZONE ALT-RES 1
+ASHRAE 90.1-2007 EXTWALL MASS CLIMATEZONE ALT-RES 2
+ASHRAE 90.1-2007 EXTWALL MASS CLIMATEZONE ALT-RES 3
+ASHRAE 90.1-2007 EXTWALL MASS CLIMATEZONE ALT-RES 4
+ASHRAE 90.1-2007 EXTWALL MASS CLIMATEZONE ALT-RES 5
+ASHRAE 90.1-2007 EXTWALL MASS CLIMATEZONE ALT-RES 6-7
+ASHRAE 90.1-2007 EXTWALL MASS CLIMATEZONE ALT-RES 8
+ASHRAE 90.1-2007 EXTWALL METAL CLIMATEZONE 1 SEMIHEATED
+ASHRAE 90.1-2007 EXTWALL METAL CLIMATEZONE 1-6
+ASHRAE 90.1-2007 EXTWALL METAL CLIMATEZONE 2-3 SEMIHEATED
+ASHRAE 90.1-2007 EXTWALL METAL CLIMATEZONE 4 SEMIHEATED
+ASHRAE 90.1-2007 EXTWALL METAL CLIMATEZONE 5 SEMIHEATED
+ASHRAE 90.1-2007 EXTWALL METAL CLIMATEZONE 6-8 SEMIHEATED
+ASHRAE 90.1-2007 EXTWALL METAL CLIMATEZONE 7-8
+ASHRAE 90.1-2007 EXTWALL STEELFRAME CLIMATEZONE 1 SEMIHEATED
+ASHRAE 90.1-2007 EXTWALL STEELFRAME CLIMATEZONE 1-2
+ASHRAE 90.1-2007 EXTWALL STEELFRAME CLIMATEZONE 2-7 SEMIHEATED
+ASHRAE 90.1-2007 EXTWALL STEELFRAME CLIMATEZONE 3
+ASHRAE 90.1-2007 EXTWALL STEELFRAME CLIMATEZONE 4-8
+ASHRAE 90.1-2007 EXTWALL STEELFRAME CLIMATEZONE 8 SEMIHEATED
+ASHRAE 90.1-2007 EXTWALL STEELFRAME CLIMATEZONE ALT-RES 1
+ASHRAE 90.1-2007 EXTWALL STEELFRAME CLIMATEZONE ALT-RES 2-6
+ASHRAE 90.1-2007 EXTWALL STEELFRAME CLIMATEZONE ALT-RES 7
+ASHRAE 90.1-2007 EXTWALL STEELFRAME CLIMATEZONE ALT-RES 8
+ASHRAE 90.1-2007 EXTWALL WOODFRAME CLIMATEZONE 1 SEMIHEATED
+ASHRAE 90.1-2007 EXTWALL WOODFRAME CLIMATEZONE 1-4
+ASHRAE 90.1-2007 EXTWALL WOODFRAME CLIMATEZONE 2-8 SEMIHEATED
+ASHRAE 90.1-2007 EXTWALL WOODFRAME CLIMATEZONE 5
+ASHRAE 90.1-2007 EXTWALL WOODFRAME CLIMATEZONE 6-7
+ASHRAE 90.1-2007 EXTWALL WOODFRAME CLIMATEZONE 8
+ASHRAE 90.1-2007 EXTWINDOW METAL CLIMATEZONE 1
+ASHRAE 90.1-2007 EXTWINDOW METAL CLIMATEZONE 1-5 SEMIHEATED
+ASHRAE 90.1-2007 EXTWINDOW METAL CLIMATEZONE 2
+ASHRAE 90.1-2007 EXTWINDOW METAL CLIMATEZONE 3
+ASHRAE 90.1-2007 EXTWINDOW METAL CLIMATEZONE 4-6
+ASHRAE 90.1-2007 EXTWINDOW METAL CLIMATEZONE 6-8 SEMIHEATED
+ASHRAE 90.1-2007 EXTWINDOW METAL CLIMATEZONE 7-8
+ASHRAE 90.1-2007 EXTWINDOW NONMETAL CLIMATEZONE 1
+ASHRAE 90.1-2007 EXTWINDOW NONMETAL CLIMATEZONE 1-5 SEMIHEATED
+ASHRAE 90.1-2007 EXTWINDOW NONMETAL CLIMATEZONE 2
+ASHRAE 90.1-2007 EXTWINDOW NONMETAL CLIMATEZONE 3
+ASHRAE 90.1-2007 EXTWINDOW NONMETAL CLIMATEZONE 4
+ASHRAE 90.1-2007 EXTWINDOW NONMETAL CLIMATEZONE 5-6
+ASHRAE 90.1-2007 EXTWINDOW NONMETAL CLIMATEZONE 6-8 SEMIHEATED
+ASHRAE 90.1-2007 EXTWINDOW NONMETAL CLIMATEZONE 7-8
+ASHRAE 90.1-2010 ATTICFLOOR CLIMATEZONE 1
+ASHRAE 90.1-2010 ATTICFLOOR CLIMATEZONE 1-2 SEMIHEATED
+ASHRAE 90.1-2010 ATTICFLOOR CLIMATEZONE 2-7
+ASHRAE 90.1-2010 ATTICFLOOR CLIMATEZONE 3-5 SEMIHEATED
+ASHRAE 90.1-2010 ATTICFLOOR CLIMATEZONE 6-8 SEMIHEATED
+ASHRAE 90.1-2010 ATTICFLOOR CLIMATEZONE 8
+ASHRAE 90.1-2010 EXTROOF IEAD CLIMATEZONE 1
+ASHRAE 90.1-2010 EXTROOF IEAD CLIMATEZONE 1-2 SEMIHEATED
+ASHRAE 90.1-2010 EXTROOF IEAD CLIMATEZONE 2-8
+ASHRAE 90.1-2010 EXTROOF IEAD CLIMATEZONE 3-4 SEMIHEATED
+ASHRAE 90.1-2010 EXTROOF IEAD CLIMATEZONE 5 SEMIHEATED
+ASHRAE 90.1-2010 EXTROOF IEAD CLIMATEZONE 6-7 SEMIHEATED
+ASHRAE 90.1-2010 EXTROOF IEAD CLIMATEZONE 8 SEMIHEATED
+ASHRAE 90.1-2010 EXTROOF METAL CLIMATEZONE 1
+ASHRAE 90.1-2010 EXTROOF METAL CLIMATEZONE 1 SEMIHEATED
+ASHRAE 90.1-2010 EXTROOF METAL CLIMATEZONE 2-4 SEMIHEATED
+ASHRAE 90.1-2010 EXTROOF METAL CLIMATEZONE 2-5
+ASHRAE 90.1-2010 EXTROOF METAL CLIMATEZONE 5 SEMIHEATED
+ASHRAE 90.1-2010 EXTROOF METAL CLIMATEZONE 6-7
+ASHRAE 90.1-2010 EXTROOF METAL CLIMATEZONE 6-7 SEMIHEATED
+ASHRAE 90.1-2010 EXTROOF METAL CLIMATEZONE 8
+ASHRAE 90.1-2010 EXTROOF METAL CLIMATEZONE 8 SEMIHEATED
+ASHRAE 90.1-2010 EXTWALL MASS CLIMATEZONE 1
+ASHRAE 90.1-2010 EXTWALL MASS CLIMATEZONE 1-4 SEMIHEATED
+ASHRAE 90.1-2010 EXTWALL MASS CLIMATEZONE 2
+ASHRAE 90.1-2010 EXTWALL MASS CLIMATEZONE 3
+ASHRAE 90.1-2010 EXTWALL MASS CLIMATEZONE 4
+ASHRAE 90.1-2010 EXTWALL MASS CLIMATEZONE 5
+ASHRAE 90.1-2010 EXTWALL MASS CLIMATEZONE 5-6 SEMIHEATED
+ASHRAE 90.1-2010 EXTWALL MASS CLIMATEZONE 6
+ASHRAE 90.1-2010 EXTWALL MASS CLIMATEZONE 7 SEMIHEATED
+ASHRAE 90.1-2010 EXTWALL MASS CLIMATEZONE 7-8
+ASHRAE 90.1-2010 EXTWALL MASS CLIMATEZONE 8 SEMIHEATED
+ASHRAE 90.1-2010 EXTWALL MASS CLIMATEZONE ALT-RES 1
+ASHRAE 90.1-2010 EXTWALL MASS CLIMATEZONE ALT-RES 2
+ASHRAE 90.1-2010 EXTWALL MASS CLIMATEZONE ALT-RES 3
+ASHRAE 90.1-2010 EXTWALL MASS CLIMATEZONE ALT-RES 4
+ASHRAE 90.1-2010 EXTWALL MASS CLIMATEZONE ALT-RES 5
+ASHRAE 90.1-2010 EXTWALL MASS CLIMATEZONE ALT-RES 6-7
+ASHRAE 90.1-2010 EXTWALL MASS CLIMATEZONE ALT-RES 8
+ASHRAE 90.1-2010 EXTWALL METAL CLIMATEZONE 1-2
+ASHRAE 90.1-2010 EXTWALL METAL CLIMATEZONE 1-8 SEMIHEATED
+ASHRAE 90.1-2010 EXTWALL METAL CLIMATEZONE 3-4
+ASHRAE 90.1-2010 EXTWALL METAL CLIMATEZONE 5-6
+ASHRAE 90.1-2010 EXTWALL METAL CLIMATEZONE 7-8
+ASHRAE 90.1-2010 EXTWALL STEELFRAME CLIMATEZONE 1 SEMIHEATED
+ASHRAE 90.1-2010 EXTWALL STEELFRAME CLIMATEZONE 1-2
+ASHRAE 90.1-2010 EXTWALL STEELFRAME CLIMATEZONE 2-7 SEMIHEATED
+ASHRAE 90.1-2010 EXTWALL STEELFRAME CLIMATEZONE 3
+ASHRAE 90.1-2010 EXTWALL STEELFRAME CLIMATEZONE 4-8
+ASHRAE 90.1-2010 EXTWALL STEELFRAME CLIMATEZONE 8 SEMIHEATED
+ASHRAE 90.1-2010 EXTWALL STEELFRAME CLIMATEZONE ALT-RES 1
+ASHRAE 90.1-2010 EXTWALL STEELFRAME CLIMATEZONE ALT-RES 2-6
+ASHRAE 90.1-2010 EXTWALL STEELFRAME CLIMATEZONE ALT-RES 7
+ASHRAE 90.1-2010 EXTWALL STEELFRAME CLIMATEZONE ALT-RES 8
+ASHRAE 90.1-2010 EXTWALL WOODFRAME CLIMATEZONE 1 SEMIHEATED
+ASHRAE 90.1-2010 EXTWALL WOODFRAME CLIMATEZONE 1-4
+ASHRAE 90.1-2010 EXTWALL WOODFRAME CLIMATEZONE 2-8 SEMIHEATED
+ASHRAE 90.1-2010 EXTWALL WOODFRAME CLIMATEZONE 5
+ASHRAE 90.1-2010 EXTWALL WOODFRAME CLIMATEZONE 6-7
+ASHRAE 90.1-2010 EXTWALL WOODFRAME CLIMATEZONE 8
+ASHRAE 90.1-2010 EXTWINDOW METAL CLIMATEZONE 1
+ASHRAE 90.1-2010 EXTWINDOW METAL CLIMATEZONE 1-5 SEMIHEATED
+ASHRAE 90.1-2010 EXTWINDOW METAL CLIMATEZONE 2
+ASHRAE 90.1-2010 EXTWINDOW METAL CLIMATEZONE 3
+ASHRAE 90.1-2010 EXTWINDOW METAL CLIMATEZONE 4-6
+ASHRAE 90.1-2010 EXTWINDOW METAL CLIMATEZONE 6-8 SEMIHEATED
+ASHRAE 90.1-2010 EXTWINDOW METAL CLIMATEZONE 7-8
+ASHRAE 90.1-2010 EXTWINDOW NONMETAL CLIMATEZONE 1
+ASHRAE 90.1-2010 EXTWINDOW NONMETAL CLIMATEZONE 1-5 SEMIHEATED
+ASHRAE 90.1-2010 EXTWINDOW NONMETAL CLIMATEZONE 2
+ASHRAE 90.1-2010 EXTWINDOW NONMETAL CLIMATEZONE 3
+ASHRAE 90.1-2010 EXTWINDOW NONMETAL CLIMATEZONE 4
+ASHRAE 90.1-2010 EXTWINDOW NONMETAL CLIMATEZONE 5-6
+ASHRAE 90.1-2010 EXTWINDOW NONMETAL CLIMATEZONE 6-8 SEMIHEATED
+ASHRAE 90.1-2010 EXTWINDOW NONMETAL CLIMATEZONE 7-8
+ATTICROOF CLIMATEZONE 1-8
+CBECS 1980-2004 EXTROOF ATTICFLOOR CLIMATEZONE 1
+CBECS 1980-2004 EXTROOF ATTICFLOOR CLIMATEZONE 2A
+CBECS 1980-2004 EXTROOF ATTICFLOOR CLIMATEZONE 2B
+CBECS 1980-2004 EXTROOF ATTICFLOOR CLIMATEZONE 3A
+CBECS 1980-2004 EXTROOF ATTICFLOOR CLIMATEZONE 3B LAS
+CBECS 1980-2004 EXTROOF ATTICFLOOR CLIMATEZONE 3B LAX
+CBECS 1980-2004 EXTROOF ATTICFLOOR CLIMATEZONE 4A
+CBECS 1980-2004 EXTROOF ATTICFLOOR CLIMATEZONE 4B
+CBECS 1980-2004 EXTROOF ATTICFLOOR CLIMATEZONE 4C
+CBECS 1980-2004 EXTROOF ATTICFLOOR CLIMATEZONE 5A
+CBECS 1980-2004 EXTROOF ATTICFLOOR CLIMATEZONE 5B
+CBECS 1980-2004 EXTROOF ATTICFLOOR CLIMATEZONE 6A
+CBECS 1980-2004 EXTROOF ATTICFLOOR CLIMATEZONE 6B
+CBECS 1980-2004 EXTROOF ATTICFLOOR CLIMATEZONE 7
+CBECS 1980-2004 EXTROOF ATTICFLOOR CLIMATEZONE 8
+CBECS 1980-2004 EXTROOF IEAD CLIMATEZONE 1
+CBECS 1980-2004 EXTROOF IEAD CLIMATEZONE 2A
+CBECS 1980-2004 EXTROOF IEAD CLIMATEZONE 2B
+CBECS 1980-2004 EXTROOF IEAD CLIMATEZONE 3A
+CBECS 1980-2004 EXTROOF IEAD CLIMATEZONE 3B LAS
+CBECS 1980-2004 EXTROOF IEAD CLIMATEZONE 3B LAX
+CBECS 1980-2004 EXTROOF IEAD CLIMATEZONE 3C
+CBECS 1980-2004 EXTROOF IEAD CLIMATEZONE 4A
+CBECS 1980-2004 EXTROOF IEAD CLIMATEZONE 4B
+CBECS 1980-2004 EXTROOF IEAD CLIMATEZONE 4C
+CBECS 1980-2004 EXTROOF IEAD CLIMATEZONE 5A
+CBECS 1980-2004 EXTROOF IEAD CLIMATEZONE 5B
+CBECS 1980-2004 EXTROOF IEAD CLIMATEZONE 5B 1
+CBECS 1980-2004 EXTROOF IEAD CLIMATEZONE 6A
+CBECS 1980-2004 EXTROOF IEAD CLIMATEZONE 6B
+CBECS 1980-2004 EXTROOF IEAD CLIMATEZONE 7
+CBECS 1980-2004 EXTROOF IEAD CLIMATEZONE 8
+CBECS 1980-2004 EXTROOF METAL CLIMATEZONE 1
+CBECS 1980-2004 EXTROOF METAL CLIMATEZONE 2A
+CBECS 1980-2004 EXTROOF METAL CLIMATEZONE 2B
+CBECS 1980-2004 EXTROOF METAL CLIMATEZONE 3A
+CBECS 1980-2004 EXTROOF METAL CLIMATEZONE 3B LAS
+CBECS 1980-2004 EXTROOF METAL CLIMATEZONE 3B LAX
+CBECS 1980-2004 EXTROOF METAL CLIMATEZONE 3C
+CBECS 1980-2004 EXTROOF METAL CLIMATEZONE 4A
+CBECS 1980-2004 EXTROOF METAL CLIMATEZONE 4B
+CBECS 1980-2004 EXTROOF METAL CLIMATEZONE 4C
+CBECS 1980-2004 EXTROOF METAL CLIMATEZONE 5A
+CBECS 1980-2004 EXTROOF METAL CLIMATEZONE 5B
+CBECS 1980-2004 EXTROOF METAL CLIMATEZONE 6A
+CBECS 1980-2004 EXTROOF METAL CLIMATEZONE 6B
+CBECS 1980-2004 EXTROOF METAL CLIMATEZONE 7
+CBECS 1980-2004 EXTROOF METAL CLIMATEZONE 8
+CBECS 1980-2004 EXTWALL MASS CLIMATEZONE 1
+CBECS 1980-2004 EXTWALL MASS CLIMATEZONE 2A
+CBECS 1980-2004 EXTWALL MASS CLIMATEZONE 2B
+CBECS 1980-2004 EXTWALL MASS CLIMATEZONE 3A
+CBECS 1980-2004 EXTWALL MASS CLIMATEZONE 3B LAS
+CBECS 1980-2004 EXTWALL MASS CLIMATEZONE 3B LAX
+CBECS 1980-2004 EXTWALL MASS CLIMATEZONE 3C
+CBECS 1980-2004 EXTWALL MASS CLIMATEZONE 4A
+CBECS 1980-2004 EXTWALL MASS CLIMATEZONE 4B
+CBECS 1980-2004 EXTWALL MASS CLIMATEZONE 4C-5A
+CBECS 1980-2004 EXTWALL MASS CLIMATEZONE 5B
+CBECS 1980-2004 EXTWALL MASS CLIMATEZONE 6A
+CBECS 1980-2004 EXTWALL MASS CLIMATEZONE 6B
+CBECS 1980-2004 EXTWALL MASS CLIMATEZONE 7
+CBECS 1980-2004 EXTWALL MASS CLIMATEZONE 8
+CBECS 1980-2004 EXTWALL METAL CLIMATEZONE 1
+CBECS 1980-2004 EXTWALL METAL CLIMATEZONE 2A
+CBECS 1980-2004 EXTWALL METAL CLIMATEZONE 2B
+CBECS 1980-2004 EXTWALL METAL CLIMATEZONE 3A
+CBECS 1980-2004 EXTWALL METAL CLIMATEZONE 3B LAS
+CBECS 1980-2004 EXTWALL METAL CLIMATEZONE 3B LAX
+CBECS 1980-2004 EXTWALL METAL CLIMATEZONE 3C
+CBECS 1980-2004 EXTWALL METAL CLIMATEZONE 4A
+CBECS 1980-2004 EXTWALL METAL CLIMATEZONE 4B
+CBECS 1980-2004 EXTWALL METAL CLIMATEZONE 4C
+CBECS 1980-2004 EXTWALL METAL CLIMATEZONE 5
+CBECS 1980-2004 EXTWALL METAL CLIMATEZONE 6A
+CBECS 1980-2004 EXTWALL METAL CLIMATEZONE 6B
+CBECS 1980-2004 EXTWALL METAL CLIMATEZONE 7
+CBECS 1980-2004 EXTWALL METAL CLIMATEZONE 8
+CBECS 1980-2004 EXTWALL STEELFRAME CLIMATEZONE 1
+CBECS 1980-2004 EXTWALL STEELFRAME CLIMATEZONE 2A
+CBECS 1980-2004 EXTWALL STEELFRAME CLIMATEZONE 2B
+CBECS 1980-2004 EXTWALL STEELFRAME CLIMATEZONE 2B 1
+CBECS 1980-2004 EXTWALL STEELFRAME CLIMATEZONE 3A
+CBECS 1980-2004 EXTWALL STEELFRAME CLIMATEZONE 3B LAS
+CBECS 1980-2004 EXTWALL STEELFRAME CLIMATEZONE 3B LAX
+CBECS 1980-2004 EXTWALL STEELFRAME CLIMATEZONE 3C
+CBECS 1980-2004 EXTWALL STEELFRAME CLIMATEZONE 4A
+CBECS 1980-2004 EXTWALL STEELFRAME CLIMATEZONE 4B
+CBECS 1980-2004 EXTWALL STEELFRAME CLIMATEZONE 4C
+CBECS 1980-2004 EXTWALL STEELFRAME CLIMATEZONE 5
+CBECS 1980-2004 EXTWALL STEELFRAME CLIMATEZONE 6A
+CBECS 1980-2004 EXTWALL STEELFRAME CLIMATEZONE 6B
+CBECS 1980-2004 EXTWALL STEELFRAME CLIMATEZONE 7
+CBECS 1980-2004 EXTWALL STEELFRAME CLIMATEZONE 8
+CBECS 1980-2004 EXTWALL WOODFRAME CLIMATEZONE 1
+CBECS 1980-2004 EXTWALL WOODFRAME CLIMATEZONE 2A
+CBECS 1980-2004 EXTWALL WOODFRAME CLIMATEZONE 2B
+CBECS 1980-2004 EXTWALL WOODFRAME CLIMATEZONE 3A
+CBECS 1980-2004 EXTWALL WOODFRAME CLIMATEZONE 3B LAS
+CBECS 1980-2004 EXTWALL WOODFRAME CLIMATEZONE 3B LAX
+CBECS 1980-2004 EXTWALL WOODFRAME CLIMATEZONE 3C
+CBECS 1980-2004 EXTWALL WOODFRAME CLIMATEZONE 4A
+CBECS 1980-2004 EXTWALL WOODFRAME CLIMATEZONE 4B
+CBECS 1980-2004 EXTWALL WOODFRAME CLIMATEZONE 4C
+CBECS 1980-2004 EXTWALL WOODFRAME CLIMATEZONE 5
+CBECS 1980-2004 EXTWALL WOODFRAME CLIMATEZONE 6A
+CBECS 1980-2004 EXTWALL WOODFRAME CLIMATEZONE 6B
+CBECS 1980-2004 EXTWALL WOODFRAME CLIMATEZONE 7
+CBECS 1980-2004 EXTWALL WOODFRAME CLIMATEZONE 8
+CBECS 1980-2004 EXTWINDOW CLIMATEZONE 1-2
+CBECS 1980-2004 EXTWINDOW CLIMATEZONE 3A
+CBECS 1980-2004 EXTWINDOW CLIMATEZONE 3B LAS
+CBECS 1980-2004 EXTWINDOW CLIMATEZONE 3B LAX
+CBECS 1980-2004 EXTWINDOW CLIMATEZONE 3C
+CBECS 1980-2004 EXTWINDOW CLIMATEZONE 4A
+CBECS 1980-2004 EXTWINDOW CLIMATEZONE 4B
+CBECS 1980-2004 EXTWINDOW CLIMATEZONE 4C
+CBECS 1980-2004 EXTWINDOW CLIMATEZONE 5
+CBECS 1980-2004 EXTWINDOW CLIMATEZONE 6
+CBECS 1980-2004 EXTWINDOW CLIMATEZONE 7
+CBECS 1980-2004 EXTWINDOW CLIMATEZONE 8
+CBECS 1980-2004 EXTWINDOW CLIMATEZONE ALT-LRGOFF HOSP 1-8
+CBECS BEFORE-1980 EXTROOF ATTICFLOOR CLIMATEZONE 1-3
+CBECS BEFORE-1980 EXTROOF ATTICFLOOR CLIMATEZONE 4A
+CBECS BEFORE-1980 EXTROOF ATTICFLOOR CLIMATEZONE 4B
+CBECS BEFORE-1980 EXTROOF ATTICFLOOR CLIMATEZONE 4C
+CBECS BEFORE-1980 EXTROOF ATTICFLOOR CLIMATEZONE 5A
+CBECS BEFORE-1980 EXTROOF ATTICFLOOR CLIMATEZONE 5B
+CBECS BEFORE-1980 EXTROOF ATTICFLOOR CLIMATEZONE 6
+CBECS BEFORE-1980 EXTROOF ATTICFLOOR CLIMATEZONE 7
+CBECS BEFORE-1980 EXTROOF ATTICFLOOR CLIMATEZONE 8
+CBECS BEFORE-1980 EXTROOF IEAD CLIMATEZONE 1-3
+CBECS BEFORE-1980 EXTROOF IEAD CLIMATEZONE 4A
+CBECS BEFORE-1980 EXTROOF IEAD CLIMATEZONE 4B
+CBECS BEFORE-1980 EXTROOF IEAD CLIMATEZONE 4C
+CBECS BEFORE-1980 EXTROOF IEAD CLIMATEZONE 5A
+CBECS BEFORE-1980 EXTROOF IEAD CLIMATEZONE 5B
+CBECS BEFORE-1980 EXTROOF IEAD CLIMATEZONE 6
+CBECS BEFORE-1980 EXTROOF IEAD CLIMATEZONE 7
+CBECS BEFORE-1980 EXTROOF IEAD CLIMATEZONE 7 1
+CBECS BEFORE-1980 EXTROOF IEAD CLIMATEZONE 8
+CBECS BEFORE-1980 EXTWALL MASS CLIMATEZONE 1-2
+CBECS BEFORE-1980 EXTWALL MASS CLIMATEZONE 3A
+CBECS BEFORE-1980 EXTWALL MASS CLIMATEZONE 3B
+CBECS BEFORE-1980 EXTWALL MASS CLIMATEZONE 3C
+CBECS BEFORE-1980 EXTWALL MASS CLIMATEZONE 4A
+CBECS BEFORE-1980 EXTWALL MASS CLIMATEZONE 4B
+CBECS BEFORE-1980 EXTWALL MASS CLIMATEZONE 4C
+CBECS BEFORE-1980 EXTWALL MASS CLIMATEZONE 5A
+CBECS BEFORE-1980 EXTWALL MASS CLIMATEZONE 5B
+CBECS BEFORE-1980 EXTWALL MASS CLIMATEZONE 6
+CBECS BEFORE-1980 EXTWALL MASS CLIMATEZONE 7
+CBECS BEFORE-1980 EXTWALL MASS CLIMATEZONE 8
+CBECS BEFORE-1980 EXTWALL METAL CLIMATEZONE 1-2
+CBECS BEFORE-1980 EXTWALL METAL CLIMATEZONE 3A
+CBECS BEFORE-1980 EXTWALL METAL CLIMATEZONE 3B
+CBECS BEFORE-1980 EXTWALL METAL CLIMATEZONE 3C
+CBECS BEFORE-1980 EXTWALL METAL CLIMATEZONE 4A
+CBECS BEFORE-1980 EXTWALL METAL CLIMATEZONE 4B
+CBECS BEFORE-1980 EXTWALL METAL CLIMATEZONE 4C
+CBECS BEFORE-1980 EXTWALL METAL CLIMATEZONE 5A
+CBECS BEFORE-1980 EXTWALL METAL CLIMATEZONE 5B
+CBECS BEFORE-1980 EXTWALL METAL CLIMATEZONE 6
+CBECS BEFORE-1980 EXTWALL METAL CLIMATEZONE 7
+CBECS BEFORE-1980 EXTWALL METAL CLIMATEZONE 8
+CBECS BEFORE-1980 EXTWALL STEELFRAME CLIMATEZONE 1-3B
+CBECS BEFORE-1980 EXTWALL STEELFRAME CLIMATEZONE 3C
+CBECS BEFORE-1980 EXTWALL STEELFRAME CLIMATEZONE 4A
+CBECS BEFORE-1980 EXTWALL STEELFRAME CLIMATEZONE 4B
+CBECS BEFORE-1980 EXTWALL STEELFRAME CLIMATEZONE 4C
+CBECS BEFORE-1980 EXTWALL STEELFRAME CLIMATEZONE 5A
+CBECS BEFORE-1980 EXTWALL STEELFRAME CLIMATEZONE 5B
+CBECS BEFORE-1980 EXTWALL STEELFRAME CLIMATEZONE 6
+CBECS BEFORE-1980 EXTWALL STEELFRAME CLIMATEZONE 7
+CBECS BEFORE-1980 EXTWALL STEELFRAME CLIMATEZONE 8
+CBECS BEFORE-1980 EXTWINDOW CLIMATEZONE 1-4
+CBECS BEFORE-1980 EXTWINDOW CLIMATEZONE 5-8
+CBECS BEFORE-1980 EXTWINDOW CLIMATEZONE ALT-LRGOFF HOSP 1-8
+CUSTOMFACADE
+CUSTOMFLOOR
+CUSTOMROOF
+EXTERIOR DOOR
+EXTERIOR FLOOR
+EXTERIOR ROOF
+EXTERIOR WALL
+EXTERIOR WINDOW
+EXTSLAB 4IN CLIMATEZONE 1-8
+EXTSLAB 8IN CLIMATEZONE 1-8
+EXTSLABCARPET 4IN CLIMATEZONE 1-8
+EXTSLABCARPET 8IN CLIMATEZONE 1-8
+FACADE
+FLOOR
+INTERIOR CEILING
+INTERIOR DOOR
+INTERIOR FLOOR
+INTERIOR PARTITION
+INTERIOR WALL
+INTERIOR WINDOW
+ROOF
+</item>
+                  </items>
+                  <chunks count="2">
+                    <chunk name="Attributes">
+                      <items count="5">
+                        <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                          <X>2050</X>
+                          <Y>-364</Y>
+                          <W>205</W>
+                          <H>155</H>
+                        </item>
+                        <item name="MarginLeft" type_name="gh_int32" type_code="3">0</item>
+                        <item name="MarginRight" type_name="gh_int32" type_code="3">0</item>
+                        <item name="MarginTop" type_name="gh_int32" type_code="3">0</item>
+                        <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                          <X>2050.107</X>
+                          <Y>-363.6044</Y>
+                        </item>
+                      </items>
+                    </chunk>
+                    <chunk name="PanelProperties">
+                      <items count="6">
+                        <item name="Colour" type_name="gh_drawing_color" type_code="36">
+                          <ARGB>255;255;250;90</ARGB>
+                        </item>
+                        <item name="DrawIndices" type_name="gh_bool" type_code="1">true</item>
+                        <item name="DrawPaths" type_name="gh_bool" type_code="1">true</item>
+                        <item name="Multiline" type_name="gh_bool" type_code="1">false</item>
+                        <item name="Stream" type_name="gh_bool" type_code="1">false</item>
+                        <item name="Wrap" type_name="gh_bool" type_code="1">true</item>
+                      </items>
                     </chunk>
                   </chunks>
                 </chunk>
@@ -38996,29 +39530,513 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
               </items>
               <chunks count="1">
                 <chunk name="Container">
-                  <items count="9">
+                  <items count="8">
                     <item name="Description" type_name="gh_string" type_code="10">A panel for custom notes and text values</item>
-                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">0f5a8acf-0a70-4d01-a96a-976b436ee615</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">eeff51bc-63c2-4e64-ac79-2d5cc223ffcc</item>
                     <item name="Name" type_name="gh_string" type_code="10">Panel</item>
                     <item name="NickName" type_name="gh_string" type_code="10"></item>
                     <item name="Optional" type_name="gh_bool" type_code="1">false</item>
                     <item name="ScrollRatio" type_name="gh_double" type_code="6">0</item>
-                    <item name="Source" index="0" type_name="gh_guid" type_code="9">82eee4dd-2408-46db-b4cc-441e1e7723dd</item>
-                    <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
-                    <item name="UserText" type_name="gh_string" type_code="10">Double click to edit panel content…</item>
+                    <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                    <item name="UserText" type_name="gh_string" type_code="10">ASHRAE 189.1-2009 EXTROOF IEAD CLIMATEZONE 2-5</item>
                   </items>
                   <chunks count="2">
                     <chunk name="Attributes">
-                      <items count="4">
+                      <items count="5">
                         <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
-                          <X>2892</X>
-                          <Y>1858</Y>
+                          <X>1477</X>
+                          <Y>-150</Y>
                           <W>160</W>
-                          <H>150</H>
+                          <H>100</H>
                         </item>
                         <item name="MarginLeft" type_name="gh_int32" type_code="3">0</item>
                         <item name="MarginRight" type_name="gh_int32" type_code="3">0</item>
                         <item name="MarginTop" type_name="gh_int32" type_code="3">0</item>
+                        <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                          <X>1477.76</X>
+                          <Y>-149.7745</Y>
+                        </item>
+                      </items>
+                    </chunk>
+                    <chunk name="PanelProperties">
+                      <items count="6">
+                        <item name="Colour" type_name="gh_drawing_color" type_code="36">
+                          <ARGB>255;255;250;90</ARGB>
+                        </item>
+                        <item name="DrawIndices" type_name="gh_bool" type_code="1">true</item>
+                        <item name="DrawPaths" type_name="gh_bool" type_code="1">true</item>
+                        <item name="Multiline" type_name="gh_bool" type_code="1">true</item>
+                        <item name="Stream" type_name="gh_bool" type_code="1">false</item>
+                        <item name="Wrap" type_name="gh_bool" type_code="1">true</item>
+                      </items>
+                    </chunk>
+                  </chunks>
+                </chunk>
+              </chunks>
+            </chunk>
+            <chunk name="Object" index="170">
+              <items count="3">
+                <item name="GUID" type_name="gh_guid" type_code="9">410755b1-224a-4c1e-a407-bf32fb45ea7e</item>
+                <item name="Lib" type_name="gh_guid" type_code="9">16cf80bc-9018-cbdb-2238-976eb17fd30d</item>
+                <item name="Name" type_name="gh_string" type_code="10">Honeybee_Set EP Zone Construction</item>
+              </items>
+              <chunks count="1">
+                <chunk name="Container">
+                  <items count="11">
+                    <item name="CodeInput" type_name="gh_string" type_code="10"># Update EP
+#
+# Honeybee: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipour Roudsari
+# 
+# This file is part of Honeybee.
+# 
+# Copyright (c) 2013-2016, Mostapha Sadeghipour Roudsari &lt;Sadeghipour@gmail.com&gt; 
+# Honeybee is free software; you can redistribute it and/or modify 
+# it under the terms of the GNU General Public License as published 
+# by the Free Software Foundation; either version 3 of the License, 
+# or (at your option) any later version. 
+# 
+# Honeybee is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of 
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the 
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with Honeybee; If not, see &lt;http://www.gnu.org/licenses/&gt;.
+# 
+# @license GPL-3.0+ &lt;http://spdx.org/licenses/GPL-3.0+&gt;
+
+
+"""
+Update EP construction of zone based on type
+
+-
+Provided by Honeybee 0.0.59
+    
+    Args:
+        _HBZone: Honeybee zone
+        wallEPConstruction_: Optional new construction for walls
+        windowEPConstruction_: Optional new construction for windows
+        roofEPConstruction_: Optional new construction for roofs
+        floorEPConstruction_: Optional new construction for floors
+        expFloorEPConstruction_: Optional new construction for exposed floors
+        skylightEPConstruction_: Optional new construction for skylights
+    Returns:
+        modifiedHBZone:  Honeybee zone with updated constructions
+
+"""
+
+ghenv.Component.Name = "Honeybee_Set EP Zone Construction"
+ghenv.Component.NickName = 'setEPZoneCnstr'
+ghenv.Component.Message = 'VER 0.0.59\nJAN_26_2016'
+ghenv.Component.IconDisplayMode = ghenv.Component.IconDisplayMode.application
+ghenv.Component.Category = "Honeybee"
+ghenv.Component.SubCategory = "08 | Energy | Set Zone Properties"
+#compatibleHBVersion = VER 0.0.56\nFEB_01_2015
+#compatibleLBVersion = VER 0.0.59\nFEB_01_2015
+try: ghenv.Component.AdditionalHelpFromDocStrings = "1"
+except: pass
+
+import scriptcontext as sc
+import Rhino as rc
+import Grasshopper.Kernel as gh
+
+def main(HBZone, wallEPCnst, windowEPCnst, roofEPCnst, flrEPCnst, expFlrEpCnst, \
+        skylightEPCnst):
+            
+    # Make sure Honeybee is flying
+    if not sc.sticky.has_key('honeybee_release'):
+        print "You should first let Honeybee to fly..."
+        w = gh.GH_RuntimeMessageLevel.Warning
+        ghenv.Component.AddRuntimeMessage(w, "You should first let Honeybee to fly...")
+        return -1
+
+    try:
+        if not sc.sticky['honeybee_release'].isCompatible(ghenv.Component): return -1
+        if sc.sticky['honeybee_release'].isInputMissing(ghenv.Component): return -1
+    except:
+        warning = "You need a newer version of Honeybee to use this compoent." + \
+        " Use updateHoneybee component to update userObjects.\n" + \
+        "If you have already updated userObjects drag Honeybee_Honeybee component " + \
+        "into canvas and try again."
+        w = gh.GH_RuntimeMessageLevel.Warning
+        ghenv.Component.AddRuntimeMessage(w, warning)
+        return -1
+    
+    # call the objects from the lib
+    hb_hive = sc.sticky["honeybee_Hive"]()
+    try: HBZoneObject = hb_hive.callFromHoneybeeHive([HBZone])[0]
+    except Exception, e: HBZoneObject = None
+    
+    # here I should check for each construction to be in the library
+    hb_EPObjectsAux = sc.sticky["honeybee_EPObjectsAUX"]()
+    
+    if HBZoneObject != None:
+        for srf in HBZoneObject.surfaces:
+            if srf.BCObject.name == "": # not internal surfaces 
+                if windowEPCnst!=None and srf.type != 1 and srf.type != 1.5 and srf.hasChild:
+                    for childSrf in srf.childSrfs:
+                        hb_EPObjectsAux.assignEPConstruction(childSrf, windowEPCnst, ghenv.Component)
+                
+                # check for slab on grade and roofs
+                if skylightEPCnst!=None and (srf.type == 1 or srf.type == 1.5) and srf.hasChild:
+                    for childSrf in srf.childSrfs:
+                        hb_EPObjectsAux.assignEPConstruction(childSrf, skylightEPCnst, ghenv.Component)
+                
+                if srf.type == 0 and wallEPCnst!=None:
+                    hb_EPObjectsAux.assignEPConstruction(srf, wallEPCnst, ghenv.Component)
+                elif srf.type == 1 and roofEPCnst!=None:
+                    hb_EPObjectsAux.assignEPConstruction(srf, roofEPCnst, ghenv.Component)
+                elif srf.type == 2 and flrEPCnst!=None:
+                    hb_EPObjectsAux.assignEPConstruction(srf, flrEPCnst, ghenv.Component)
+                elif srf.type == 2.75 and expFlrEpCnst!=None:
+                    hb_EPObjectsAux.assignEPConstruction(srf, expFlrEpCnst, ghenv.Component)
+
+        # add zones to dictionary
+        HBZones  = hb_hive.addToHoneybeeHive([HBZoneObject], ghenv.Component.InstanceGuid.ToString())
+        
+        #print HBZones
+        return HBZones
+    
+    else:
+        return -1
+
+if _HBZone:
+    result = main(_HBZone, wallEPConstruction_, windowEPConstruction_, \
+        roofEPConstruction_, floorEPConstruction_, expFloorEPConstruction_, \
+        skylightEPConstruction_)
+    
+    if result!=-1: modifiedHBZone = result</item>
+                    <item name="Description" type_name="gh_string" type_code="10">Update EP construction of zone based on type
+-
+Provided by Honeybee 0.0.59</item>
+                    <item name="EditorLocation" type_name="gh_drawing_point" type_code="30">
+                      <X>130</X>
+                      <Y>130</Y>
+                    </item>
+                    <item name="EditorSize" type_name="gh_drawing_size" type_code="32">
+                      <W>895</W>
+                      <H>812</H>
+                    </item>
+                    <item name="Hidden" type_name="gh_bool" type_code="1">true</item>
+                    <item name="HideInput" type_name="gh_bool" type_code="1">true</item>
+                    <item name="HideOutput" type_name="gh_bool" type_code="1">true</item>
+                    <item name="IconOverride" type_name="gh_drawing_bitmap" type_code="37">
+                      <bitmap length="1145">iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwgAADsIBFShKgAAABBtJREFUSEu9lG1MW1UcxruABBkgtKOM19IBG6XCJg7RED9siVUSFxsTeRHK2KYxftEPBoMmKBAJtswlSAwCcSEoVN3iGzBlm1/8qhEh2RKNCS8dpL29LaWFdWy2j/97718KbZf4ab/kyTnn6bnP6bnn/K/qQdKSnp7+HrXnSYMkW1JSUju1FzIyMt6k9mP2e1JSUt6m9kNSP3s28qRn3yDdl2sjIyOwWq3o6upCf38/hoaGoNfrMTo6ip6eHtkfHByU26qqKvT19aG7u1ueOzExAfojf3NWXKYQh+rqau5FWFhYQGtrK48iFBQULHBWLGq1+hNRFHmqQiAQQFtbW9jpdLKjMD8/j4GBAR5FqK2tvcxxseTl5dl8Ph9PVVhfX0d9fX3I6/WyozA3NwebzcajCDU1Nd9yXFxmFhcXeaqC2+2GwWDA8vIyOwqzs7Mwm808ipCdnf07Z8VlOnoBQRBQVlaGlZUVdhSmZ2ZgOneWRxG0avUfnBVLTk7OBemV7EY6g8bGxpC0k938efMGPjt9Bts/zGB76gruXr0u+ydMJjvHxaLVagei37XH44HFYglL7R4CmwjnFkNUqeAiBVOzgM0tHHvm5E8cF5eppaUlTlCQblVFRUXMGWw6XbhVeBjrj2RDTNfiXuUTwIYfusqKXzkrLjGHLC1gLDfGLLAluHFLdySywNEaeVcHyst/46xYqEisGxsbHKEgnUFr08shL8LsKPxDEkor4NmvgZh6ALeNVfIMzUsvXuS4WNLS0oalW7MbgQ73hddfCzus53G3zgx/y1n4Lefga7BApFfkOVgky1dUBk/TaVw3lAuhrIIrWwWlPwr5JeMcvcN30a9CpMOttjTj5rPPI0iH6VYlyRJVD8ObVwyPtAhJzD1EXjJwUI8ALebOL4GHxLk7fB+9wDpV9pPNTbjR0ILtffvlh/6vXPkly5yrUFhY2Of3+zlawU9n8MrYxZDDXA8f7UCQtY/+bSK8UhDvwJ2jJz8ByCkG9OUQpN3R7xytkJiY+MXa2hpHK7hcLjxd9xxWr17Dva8uUWFNU2HNwP+5HU4K9mryIJK2yo7B/+UlnCk1/jWXnF4fLjI0uHNLTnH0Dt9EfxKkCq6iOljdvsOOwm2Sg66pLy1LvkWhx56SfdVR4y+cFUtCQoJ9dXVVnvgf0rU1mUxhh8PBjkKQ6sOpN8BLNSDVQdD4OK0axPGTJ+5fyTqdzsrP76Gzs5N7exGpDoQUNVxUC3cePS57dZbmrzkuLj+3t7djbGwMdrsdvb296OjogEajkdvJyUmMj4/Lfu8772IlvxjBbB02tYUIHK7ER53vIzE1de/NieJV0khmZmYvfde7qD9M+pQ1TF43LfaB1H+IvMVc/UhId2RU0lruodFkZf5bpAeJSvUvb9ZnKk0uu9YAAAAASUVORK5CYII=</bitmap>
+                    </item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">19da30a3-be2d-45a5-9bbc-b9f2367cd52c</item>
+                    <item name="Name" type_name="gh_string" type_code="10">Honeybee_Set EP Zone Construction</item>
+                    <item name="NickName" type_name="gh_string" type_code="10">setEPZoneCnstr</item>
+                  </items>
+                  <chunks count="2">
+                    <chunk name="Attributes">
+                      <items count="2">
+                        <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                          <X>1817</X>
+                          <Y>1431</Y>
+                          <W>269</W>
+                          <H>144</H>
+                        </item>
+                        <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                          <X>1961</X>
+                          <Y>1503</Y>
+                        </item>
+                      </items>
+                    </chunk>
+                    <chunk name="ParameterData">
+                      <items count="10">
+                        <item name="InputCount" type_name="gh_int32" type_code="3">7</item>
+                        <item name="InputId" index="0" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
+                        <item name="InputId" index="1" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
+                        <item name="InputId" index="2" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
+                        <item name="InputId" index="3" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
+                        <item name="InputId" index="4" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
+                        <item name="InputId" index="5" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
+                        <item name="InputId" index="6" type_name="gh_guid" type_code="9">84fa917c-1ed8-4db3-8be1-7bdc4a6495a2</item>
+                        <item name="OutputCount" type_name="gh_int32" type_code="3">1</item>
+                        <item name="OutputId" index="0" type_name="gh_guid" type_code="9">8ec86459-bf01-4409-baee-174d0d2b13d0</item>
+                      </items>
+                      <chunks count="8">
+                        <chunk name="InputParam" index="0">
+                          <items count="11">
+                            <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Description" type_name="gh_string" type_code="10">Honeybee zone</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">1e184f9f-5376-43e3-89ee-e7986c9e28d5</item>
+                            <item name="Name" type_name="gh_string" type_code="10">_HBZone</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">_HBZone</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
+                            <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">0</item>
+                            <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Source" index="0" type_name="gh_guid" type_code="9">19411c01-b81a-4401-82c9-fbb0c9159f51</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
+                            <item name="TypeHintID" type_name="gh_guid" type_code="9">2ceb0405-fdfe-403d-a4d6-8786da45fb9d</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>1819</X>
+                                  <Y>1433</Y>
+                                  <W>127</W>
+                                  <H>20</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>1884</X>
+                                  <Y>1443</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="InputParam" index="1">
+                          <items count="11">
+                            <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Description" type_name="gh_string" type_code="10">Optional new construction for walls</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">f0a56b87-5592-4ddf-8c0a-952556e5e3fa</item>
+                            <item name="Name" type_name="gh_string" type_code="10">wallEPConstruction_</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">wallEPConstruction_</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
+                            <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">0</item>
+                            <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Source" index="0" type_name="gh_guid" type_code="9">c5ce9f1a-cb98-4fb2-b09b-ccbaaf007234</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
+                            <item name="TypeHintID" type_name="gh_guid" type_code="9">37261734-eec7-4f50-b6a8-b8d1f3c4396b</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>1819</X>
+                                  <Y>1453</Y>
+                                  <W>127</W>
+                                  <H>20</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>1884</X>
+                                  <Y>1463</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="InputParam" index="2">
+                          <items count="10">
+                            <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Description" type_name="gh_string" type_code="10">Optional new construction for windows</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">ce0749d8-e05a-4cd9-9adc-a1a61bcf96d1</item>
+                            <item name="Name" type_name="gh_string" type_code="10">windowEPConstruction_</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">windowEPConstruction_</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
+                            <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">0</item>
+                            <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                            <item name="TypeHintID" type_name="gh_guid" type_code="9">37261734-eec7-4f50-b6a8-b8d1f3c4396b</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>1819</X>
+                                  <Y>1473</Y>
+                                  <W>127</W>
+                                  <H>20</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>1884</X>
+                                  <Y>1483</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="InputParam" index="3">
+                          <items count="11">
+                            <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Description" type_name="gh_string" type_code="10">Optional new construction for roofs</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">5aaeabb9-657a-4f49-a4af-d52995bfc2c3</item>
+                            <item name="Name" type_name="gh_string" type_code="10">roofEPConstruction_</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">roofEPConstruction_</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
+                            <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">0</item>
+                            <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Source" index="0" type_name="gh_guid" type_code="9">c5ce9f1a-cb98-4fb2-b09b-ccbaaf007234</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
+                            <item name="TypeHintID" type_name="gh_guid" type_code="9">37261734-eec7-4f50-b6a8-b8d1f3c4396b</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>1819</X>
+                                  <Y>1493</Y>
+                                  <W>127</W>
+                                  <H>20</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>1884</X>
+                                  <Y>1503</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="InputParam" index="4">
+                          <items count="11">
+                            <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Description" type_name="gh_string" type_code="10">Optional new construction for floors</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">d9f3b674-a604-4574-8a0f-98c1b82b0147</item>
+                            <item name="Name" type_name="gh_string" type_code="10">floorEPConstruction_</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">floorEPConstruction_</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
+                            <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">0</item>
+                            <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Source" index="0" type_name="gh_guid" type_code="9">c5ce9f1a-cb98-4fb2-b09b-ccbaaf007234</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
+                            <item name="TypeHintID" type_name="gh_guid" type_code="9">37261734-eec7-4f50-b6a8-b8d1f3c4396b</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>1819</X>
+                                  <Y>1513</Y>
+                                  <W>127</W>
+                                  <H>20</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>1884</X>
+                                  <Y>1523</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="InputParam" index="5">
+                          <items count="11">
+                            <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Description" type_name="gh_string" type_code="10">Optional new construction for exposed floors</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">f0f61959-5001-4e18-a6c8-98236657248f</item>
+                            <item name="Name" type_name="gh_string" type_code="10">expFloorEPConstruction_</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">expFloorEPConstruction_</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
+                            <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">0</item>
+                            <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Source" index="0" type_name="gh_guid" type_code="9">c5ce9f1a-cb98-4fb2-b09b-ccbaaf007234</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">1</item>
+                            <item name="TypeHintID" type_name="gh_guid" type_code="9">37261734-eec7-4f50-b6a8-b8d1f3c4396b</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>1819</X>
+                                  <Y>1533</Y>
+                                  <W>127</W>
+                                  <H>20</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>1884</X>
+                                  <Y>1543</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="InputParam" index="6">
+                          <items count="10">
+                            <item name="AllowTreeAccess" type_name="gh_bool" type_code="1">true</item>
+                            <item name="Description" type_name="gh_string" type_code="10">Optional new construction for skylights</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">713ee84f-2627-4997-b065-f5083db0cb74</item>
+                            <item name="Name" type_name="gh_string" type_code="10">skylightEPConstruction_</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">skylightEPConstruction_</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">true</item>
+                            <item name="ScriptParamAccess" type_name="gh_int32" type_code="3">0</item>
+                            <item name="ShowTypeHints" type_name="gh_bool" type_code="1">true</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                            <item name="TypeHintID" type_name="gh_guid" type_code="9">37261734-eec7-4f50-b6a8-b8d1f3c4396b</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>1819</X>
+                                  <Y>1553</Y>
+                                  <W>127</W>
+                                  <H>20</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>1884</X>
+                                  <Y>1563</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                        <chunk name="OutputParam" index="0">
+                          <items count="7">
+                            <item name="Description" type_name="gh_string" type_code="10">Honeybee zone with updated constructions</item>
+                            <item name="InstanceGuid" type_name="gh_guid" type_code="9">17c41912-ec9d-4c59-9337-140934235b42</item>
+                            <item name="Name" type_name="gh_string" type_code="10">modifiedHBZone</item>
+                            <item name="NickName" type_name="gh_string" type_code="10">modifiedHBZone</item>
+                            <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                            <item name="SimplifyData" type_name="gh_bool" type_code="1">true</item>
+                            <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                          </items>
+                          <chunks count="1">
+                            <chunk name="Attributes">
+                              <items count="2">
+                                <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                                  <X>1976</X>
+                                  <Y>1433</Y>
+                                  <W>108</W>
+                                  <H>140</H>
+                                </item>
+                                <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                                  <X>2022</X>
+                                  <Y>1503</Y>
+                                </item>
+                              </items>
+                            </chunk>
+                          </chunks>
+                        </chunk>
+                      </chunks>
+                    </chunk>
+                  </chunks>
+                </chunk>
+              </chunks>
+            </chunk>
+            <chunk name="Object" index="171">
+              <items count="2">
+                <item name="GUID" type_name="gh_guid" type_code="9">59e0b89a-e487-49f8-bab8-b5bab16be14c</item>
+                <item name="Name" type_name="gh_string" type_code="10">Panel</item>
+              </items>
+              <chunks count="1">
+                <chunk name="Container">
+                  <items count="8">
+                    <item name="Description" type_name="gh_string" type_code="10">A panel for custom notes and text values</item>
+                    <item name="InstanceGuid" type_name="gh_guid" type_code="9">c5ce9f1a-cb98-4fb2-b09b-ccbaaf007234</item>
+                    <item name="Name" type_name="gh_string" type_code="10">Panel</item>
+                    <item name="NickName" type_name="gh_string" type_code="10"></item>
+                    <item name="Optional" type_name="gh_bool" type_code="1">false</item>
+                    <item name="ScrollRatio" type_name="gh_double" type_code="6">0</item>
+                    <item name="SourceCount" type_name="gh_int32" type_code="3">0</item>
+                    <item name="UserText" type_name="gh_string" type_code="10">ASHRAE 189.1-2009 EXTROOF IEAD CLIMATEZONE 2-5</item>
+                  </items>
+                  <chunks count="2">
+                    <chunk name="Attributes">
+                      <items count="5">
+                        <item name="Bounds" type_name="gh_drawing_rectanglef" type_code="35">
+                          <X>1525</X>
+                          <Y>1521</Y>
+                          <W>160</W>
+                          <H>100</H>
+                        </item>
+                        <item name="MarginLeft" type_name="gh_int32" type_code="3">0</item>
+                        <item name="MarginRight" type_name="gh_int32" type_code="3">0</item>
+                        <item name="MarginTop" type_name="gh_int32" type_code="3">0</item>
+                        <item name="Pivot" type_name="gh_drawing_pointf" type_code="31">
+                          <X>1525.395</X>
+                          <Y>1521.809</Y>
+                        </item>
                       </items>
                     </chunk>
                     <chunk name="PanelProperties">
@@ -39044,7 +40062,7 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
     <chunk name="Thumbnail">
       <items count="1">
         <item name="Thumbnail" type_name="gh_drawing_bitmap" type_code="37">
-          <bitmap length="2771">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</bitmap>
+          <bitmap length="5006">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U2sb28XGi5aZLp/x0YdTPvgAiydNmuTi4oIul1whCL0Uws7ODjqdh/wD87jYHctjYxh74zgREXQOD1vmkSfd6em5MTGsuXM/mTOi2TNmzsR47ieffDJ37pw5c6HZs2cbGy+WyxXDw8MABiGLEr+X0H7Sb9HDhw+VSuWbb745Zcr770+e/O6UDzcEBIYEhwT4+cdGfWFhushlnV9gUEDg9mAHe1s3lzXzZn787uTJWPzXv/5l586djx8/1l6IPPrvEWrSWr9QKI6PZ9NoHDqdg1cmU8BkpLFYAryl07l4TU7mxcUxvLx8163zIezp6T1qvPXwWLdrVyjxq1/tpV9CDx48QNf69ttvvffee5MnT570j38sMFq00GCBmZm5iZHxjGkffWpguNzczMLK2sho4dzZc6dOef/dd9/95z//9eZbb23btm1oaEh7IfLov0cIobMAx56e7osXe37Gly5dxMr/JHwVkLsw0F705aRBmPO3v0+aP28e4ttg/vzp02cYGi3699T335sydb6BAbaDs6Z99P4HHy7UaMECgwULDM3Mlk/629voqiYcQkjTB76sfrFP+fUCwpycrLfemRwaGhkWErInJHRPaHji3vilhnP+9cFMn7VeLi5uRp/N+vesz4KCd27dGrRpU4CDrb27m9s7b/1lgiL8owkMRCLh//zv/5ksNrU0t1y+bJmpmYWlqZmh4cKPP/545ozZc2bNnj5t2jILSwsrS3Nzs7mzZs+d/en0jz/685/+7O/vj3qsvRB59LohRB9UX1+/Zs0aBwd7R60c7O3t128MCAzY6OTs5OTs7L95ywY/HycMnZzRhbq4wq4ODg65ubloprQXIo9eN4T9/f3Yity7d++uvkaeiw/eJsaDg7cGb2vHo8IpWIHTtRcij143hKNCff2t0p5JNr22CCeOKISkF4WQ9KIQkl4UQtKLQkh6UQhJLwoh6UUhJL0ohKQXhZD0ohCSXhRC0otCSHpRCEkvCiHpRSEkvSiEpBeFkPSiEJJeFELSi0JIelEISS8KIemlh1D7X2IpkUp6CC9SIqH0EA4NDVMmnfUQ9vUNUiad9RAer9pGmXTWQ9ittqBMOushVLd+Tpl01kN44ZwNZdJZD+Gdm46USWc9hE+/96BMPush/MadMvn82xB++2zwncePk5TH17oIHw+7fPu16/eP3eBvv3L9+oHzk4euj4Zcvn7g8vWQy1f3nR/cccJbTA7fdRqZpPwHsB7Cxgar+irz6mMWZ+st1W2rHj90vXJx1d1Bp6/vOwNtW4Pl/oIlT554dDSay6TGjx66AirlcbcewiOHlxwrWV52eJkqe8H586u+e+Ta024zeNMRCL/5yrXrrPXRo8uvXbFvPm0uk5t8pYnLh/coj7P1ECJzIvK+eejS27lq+L7Lk2HEqTMyJxIskT+fILtqcCIoHw2PzFMed+shHOlWCD9do+1cRvsXYqzr0XnK42s9hD85RpkUfnEUUiaRdRFiL/GDBuwPT9zQyyDPfvfIDZUPVRDjbx+5YR4FEpMYYGakOlIeb+sh7OlY2d36eXvryr4e26t9dthz3Lpqd/+2EzrPJw9dLl2wqT5m/uSx+/XuzyvLzYid4k+6I8q/v/UQFhaaHMpbnK8wyZMsPHPG5rsnbp2tK27ddHz0wBlB2XLKIi938a1bTnXHlqZwFjwaHtn7E1sTyuNoPYRXe1ffuuFw57pdQ43F4IATUuXdAYfhu85AhZgbGnQcuO5wZ8DhwW2ngWv2X2GS8h/AeghHHnt/p7FmU/HDE021HCmNz8Y4RJTQ7z2IScrjbn2Euq0qZbJYDyERYZTJZT2ElMgpLUJKJNYbb/w/4cOcnt7czFYAAAAASUVORK5CYII=</bitmap>
         </item>
       </items>
     </chunk>

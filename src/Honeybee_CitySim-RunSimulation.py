@@ -179,11 +179,12 @@ def getAttributes(HBZones):
                 type.append('Roof')
             srf.construction = srf.EPConstruction
             materials = EPConstructionStr(srf.construction)
-            srefl.append(str((1 - float(getMaterialProperties(materials[0])[0][4]))))
+            srefl.append(str((1 - float(getMaterialProperties(materials[0])[0][-2]))))
         zoneatt.append([type,srefl])    
     attributes.append(zoneatt)
     return attributes
 
+getAttributes(_HBZones)
 
 def getextraXML():
     horizon = ""

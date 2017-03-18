@@ -6,7 +6,7 @@
 # 
 
 """
-This component imports the geometry and produces the XML code representing shading surfaces or terrain (simulated but excluded from results)
+This component produces the XML code for the occupancy schedules
 
 -
 This component will hopefully be part of
@@ -18,11 +18,7 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
 
     
     Args:
-        S: List of  meshes
-        R: List (or single value) for SW reflectance; Default = 0.1
-        type = either "Surface" or "Terrain" - default = "Surface"
-        Dup: Boolean to duplicate obstructing surfaces with reversed normals: Default = True
-        Sim: Boolean to include the surfaces in the results: Default = False
+        day: occupancy profiles [0,1]for each hour of the day
         path: path of project
         name: title of project
         Write: Boolean to start
@@ -36,72 +32,59 @@ ghenv.Component.Category = "Honeybee"
 ghenv.Component.SubCategory = "14 | CitySim"
 ghenv.Component.AdditionalHelpFromDocStrings = "1"
 
-if len(R) == 0:
-    R.append(0.1) #Default reflectance
-while len(R) < len(S):
-    R.append(R[0])
+def tree_to_list(input, retrieve_base = lambda x: x[0]):
+    """Returns a list representation of a Grasshopper DataTree"""
+    def extend_at(path, index, simple_input, rest_list):
+        target = path[index]
+        if len(rest_list) <= target: rest_list.extend([None]*(target-len(rest_list)+1))
+        if index == path.Length - 1:
+            rest_list[target] = list(simple_input)
+        else:
+            if rest_list[target] is None: rest_list[target] = []
+            extend_at(path, index+1, simple_input, rest_list[target])
+    all = []
+    for i in range(input.BranchCount):
+        path = input.Path(i)
+        extend_at(path, 0, input.Branch(path), all)
+    return retrieve_base(all)
 
 ReqInputs = True
-
-if Dup == None:
-    Dup = True # By default duplicate surfaces
-   
-if type == None:
-    type = "shading" # By default surfaces are considered as shading
-
-if name == None:
-    name = "simulation" #default name
     
 if path == None:
     print "Select a path" #this is mandatory: no default
     ReqInputs = False
     
-if Sim == None:
-    Sim = False #by default do not simulate surfaces
+if name == None:
+    name = "simulation" #default name
+
+wday = tree_to_list(day, lambda x: x)
+
+
+def makeDay(d):
+    xml = ""
+    for p in xrange(len(d)):
+        xml += '<OccupancyDayProfile id="{0}" '.format(p)
+        for h in xrange(len(d[p])):
+            #<OccupancyDayProfile id="5" p1="0.31" p2="0.35" p3="0.37" p4="0.4" p5="0.42" p6="0.44" p7="0.46" p8="0.49" p9="0.57" p10="0.62" p11="0.69" p12="0.75" p13="0.8" p14="0.77" p15="0.7" p16="0.62" p17="0.59" p18="0.53" p19="0.51" p20="0.51" p21="0.48" p22="0.43" p23="0.47" p24="0.43" />
+            xml += 'p{0}="{1}" '.format(h+1,float(d[p][h]))
+        xml += "/>\n"
+    return xml
+    
+def makeYear():
+    xml = ""
+    for p in xrange(len(wday)):
+        xml += '<OccupancyYearProfile id="{0}" '.format(p)
+        for d in xrange(365):
+            xml += 'd{0}="{1}" '.format(d+1,p)
+        xml += "/>\n"
+    return xml
+
 
 if Write == False and ReqInputs == True:
     print "Set Write to True"     
 elif Write == True and ReqInputs == True:
-    if type == "terrain":
-        FilePath = path + name + "_terrain.xml"
-    else:
-        FilePath = path + name + "_shading.xml"
+    FilePath = path + name + "_schedule.xml"
     with open(FilePath, "w") as outfile:
-        if type == "terrain":
-            outfile.write("<GroundSurface>\n")
-        else:
-            outfile.write("<ShadingSurface>\n")         
-        for meshcount, Tmesh in enumerate(S):
-            #for v in Tmesh.Vertices:
-            facecount = 0
-            for face in Tmesh.Faces:
-                if type == "terrain":
-                    s = "Ground"
-                else:
-                    s = "Surface"
-                if Sim:
-                    simstring = ""
-                else:
-                    simstring = ' Simulate="False"'
-                outfile.write('<{0} id="s{1}" ShortWaveReflectance="{2}"{3}>\n'.format(s,str(meshcount)+'-'+str(facecount),str(R[0]),simstring))
-                outfile.write('<V0 x ="{0}" y="{1}" z ="{2}"/>\n'.format(Tmesh.Vertices[face.A].X,Tmesh.Vertices[face.A].Y,Tmesh.Vertices[face.A].Z))
-                outfile.write('<V1 x ="{0}" y="{1}" z ="{2}"/>\n'.format(Tmesh.Vertices[face.B].X,Tmesh.Vertices[face.B].Y,Tmesh.Vertices[face.B].Z))
-                outfile.write('<V2 x ="{0}" y="{1}" z ="{2}"/>\n'.format(Tmesh.Vertices[face.C].X,Tmesh.Vertices[face.C].Y,Tmesh.Vertices[face.C].Z))
-                if face.IsQuad:
-                    outfile.write('<V3 x ="{0}" y="{1}" z ="{2}"/>\n'.format(Tmesh.Vertices[face.D].X,Tmesh.Vertices[face.D].Y,Tmesh.Vertices[face.D].Z))
-                outfile.write('</{0}>'.format(s))
-            
-                if Dup: #Duplicate surfaces with reversed normals
-                    outfile.write('<{0} id="s{1}-verso" ShortWaveReflectance="{2}"{3}>\n'.format(s,str(meshcount)+'-'+str(facecount),str(R[0]),simstring))
-                    if face.IsQuad:
-                        outfile.write('<V3 x ="{0}" y="{1}" z ="{2}"/>\n'.format(Tmesh.Vertices[face.D].X,Tmesh.Vertices[face.D].Y,Tmesh.Vertices[face.D].Z))
-                    outfile.write('<V0 x ="{0}" y="{1}" z ="{2}"/>\n'.format(Tmesh.Vertices[face.C].X,Tmesh.Vertices[face.C].Y,Tmesh.Vertices[face.C].Z))
-                    outfile.write('<V1 x ="{0}" y="{1}" z ="{2}"/>\n'.format(Tmesh.Vertices[face.B].X,Tmesh.Vertices[face.B].Y,Tmesh.Vertices[face.B].Z))
-                    outfile.write('<V2 x ="{0}" y="{1}" z ="{2}"/>\n'.format(Tmesh.Vertices[face.A].X,Tmesh.Vertices[face.A].Y,Tmesh.Vertices[face.A].Z))
-                    outfile.write('</{0}>'.format(s))
-                facecount += 1
-        if type == "terrain":
-            outfile.write("</GroundSurface>")
-        else:
-            outfile.write("</ShadingSurface>")
+        outfile.write(makeDay(wday))
+        outfile.write(makeYear())
     print "XML file created"

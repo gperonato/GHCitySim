@@ -20,7 +20,7 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
     Args:
         S: List of  meshes
         R: List (or single value) for SW reflectance; Default = 0.1
-        type = either "Surface" or "Terrain" - default = "Surface"
+        type: either "Surface" or "Terrain" - default = "Surface"
         Dup: Boolean to duplicate obstructing surfaces with reversed normals: Default = True
         Sim: Boolean to include the surfaces in the results: Default = False
         path: path of project
@@ -30,7 +30,7 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
 
 ghenv.Component.Name = "Honeybee_CitySim-Srf"
 ghenv.Component.NickName = 'CitySim-Srf'
-ghenv.Component.Message = 'VER 0.0.2\nJAN_23_2016'
+ghenv.Component.Message = 'VER 0.0.3\nMAR_24_2017'
 ghenv.Component.IconDisplayMode = ghenv.Component.IconDisplayMode.application
 ghenv.Component.Category = "Honeybee"
 ghenv.Component.SubCategory = "14 | CitySim"
@@ -55,9 +55,6 @@ if name == None:
 if path == None:
     print "Select a path" #this is mandatory: no default
     ReqInputs = False
-    
-if Sim == None:
-    Sim = False #by default do not simulate surfaces
 
 if Write == False and ReqInputs == True:
     print "Set Write to True"     
@@ -79,11 +76,7 @@ elif Write == True and ReqInputs == True:
                     s = "Ground"
                 else:
                     s = "Surface"
-                if Sim:
-                    simstring = ""
-                else:
-                    simstring = ' Simulate="False"'
-                outfile.write('<{0} id="s{1}" ShortWaveReflectance="{2}"{3}>\n'.format(s,str(meshcount)+'-'+str(facecount),str(R[0]),simstring))
+                outfile.write('<{0} id="s{1}" ShortWaveReflectance="{2}">\n'.format(s,str(meshcount)+'-'+str(facecount),str(R[0])))
                 outfile.write('<V0 x ="{0}" y="{1}" z ="{2}"/>\n'.format(Tmesh.Vertices[face.A].X,Tmesh.Vertices[face.A].Y,Tmesh.Vertices[face.A].Z))
                 outfile.write('<V1 x ="{0}" y="{1}" z ="{2}"/>\n'.format(Tmesh.Vertices[face.B].X,Tmesh.Vertices[face.B].Y,Tmesh.Vertices[face.B].Z))
                 outfile.write('<V2 x ="{0}" y="{1}" z ="{2}"/>\n'.format(Tmesh.Vertices[face.C].X,Tmesh.Vertices[face.C].Y,Tmesh.Vertices[face.C].Z))
@@ -92,7 +85,7 @@ elif Write == True and ReqInputs == True:
                 outfile.write('</{0}>'.format(s))
             
                 if Dup: #Duplicate surfaces with reversed normals
-                    outfile.write('<{0} id="s{1}-verso" ShortWaveReflectance="{2}"{3}>\n'.format(s,str(meshcount)+'-'+str(facecount),str(R[0]),simstring))
+                    outfile.write('<{0} id="s{1}-verso" ShortWaveReflectance="{2}">\n'.format(s,str(meshcount)+'-'+str(facecount),str(R[0])))
                     if face.IsQuad:
                         outfile.write('<V3 x ="{0}" y="{1}" z ="{2}"/>\n'.format(Tmesh.Vertices[face.D].X,Tmesh.Vertices[face.D].Y,Tmesh.Vertices[face.D].Z))
                     outfile.write('<V0 x ="{0}" y="{1}" z ="{2}"/>\n'.format(Tmesh.Vertices[face.C].X,Tmesh.Vertices[face.C].Y,Tmesh.Vertices[face.C].Z))

@@ -26,7 +26,7 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
 
 ghenv.Component.Name = "Honeybee_CitySim-Schedules"
 ghenv.Component.NickName = 'CitySim-Schedules'
-ghenv.Component.Message = 'VER 0.0.1\nMAR_17_2017'
+ghenv.Component.Message = 'VER 0.0.2\nMAR_24_2017'
 ghenv.Component.IconDisplayMode = ghenv.Component.IconDisplayMode.application
 ghenv.Component.Category = "Honeybee"
 ghenv.Component.SubCategory = "14 | CitySim"
@@ -66,7 +66,7 @@ def makeDay(d):
         xml += '<OccupancyDayProfile id="{0}" '.format(p)
         for h in xrange(len(d[p])):
             #<OccupancyDayProfile id="5" p1="0.31" p2="0.35" p3="0.37" p4="0.4" p5="0.42" p6="0.44" p7="0.46" p8="0.49" p9="0.57" p10="0.62" p11="0.69" p12="0.75" p13="0.8" p14="0.77" p15="0.7" p16="0.62" p17="0.59" p18="0.53" p19="0.51" p20="0.51" p21="0.48" p22="0.43" p23="0.47" p24="0.43" />
-            xml += 'p{0}="{1}" '.format(h+1,float(d[p][h]))
+            xml += 'p{0}="{1}" '.format(h+1,d[p][h])
         xml += "/>\n"
     return xml
     

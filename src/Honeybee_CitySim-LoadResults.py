@@ -29,7 +29,7 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
 
 ghenv.Component.Name = "Honeybee_CitySim-LoadResults"
 ghenv.Component.NickName = 'CitySim-LoadResults'
-ghenv.Component.Message = 'VER 0.1.1\nMAR_17_2017'
+ghenv.Component.Message = 'VER 0.1.2\nMAR_24_2017'
 ghenv.Component.Category = "Honeybee"
 ghenv.Component.SubCategory = "14 | CitySim"
 try: ghenv.Component.AdditionalHelpFromDocStrings = "2"
@@ -139,7 +139,7 @@ def removeTerr(irrS,bIDs,sIDs):
             annIrr.append(sum(irrS[s])/1000)
     return irrS2, bIDs2, sIDs2, annIrr
 
-THhead,THres = loadOut(path,name,type="TH")
+
 def ParseTHhead(THhead):
     #Parse header
     import re
@@ -147,7 +147,7 @@ def ParseTHhead(THhead):
     #header.pop(0)
     print header
     
-def ParseTHres(THres):
+def ParseTHres(THres,yrl=False):
     nbuildings = (len(THres[0].split())-1)/12
     heating = []
     cooling = []
@@ -156,8 +156,8 @@ def ParseTHres(THres):
         heat = []
         cool = []
         for h in xrange(2,len(values),len(values)/nbuildings):
-            heat.append(values[h])
-            cool.append(values[h+1])
+            heat.append(float(values[h]))
+            cool.append(float(values[h+1]))
         heating.append(heat)
         cooling.append(cool)
     #for each building
@@ -167,14 +167,19 @@ def ParseTHres(THres):
         heat = []
         cool = []
         for h in xrange(len(heating)): #for each hour
-            heat.append(heating[h][b])
-            cool.append(cooling[h][b])
-        heating2.append(heat)
-        cooling2.append(cool)
+              heat.append(heating[h][b])
+              cool.append(cooling[h][b])
+        if yrl:
+            heating2.append([sum(heat)])
+            cooling2.append([sum(cool)])
+        else:
+            heating2.append(heat)
+            cooling2.append(cool)
     return heating2, cooling2
    
 if Run:
     header, results = loadOut(path,name,"SW")
+    THhead, THres = loadOut(path,name,type="TH")
     bIDs, sIDs = parseHead(header)
     irrS = parseRes(results,sIDs)
     irrS2, bIDs2, sIDs2, annIrr = removeTerr(irrS,bIDs,sIDs)
@@ -196,21 +201,28 @@ if Run:
     bIDs3set = list(set(bIDs3)) #create a set of unique building IDs from geometry data tree
     
     #Iterate over the geometry IDs
-    output = []
+    hSW = []
+    ySW = []
     for b in bIDs3set:
-        bldg = []
+        hrl = []
+        yrl = []
         for s in xrange(len(sIDs3)):
             if bIDs3[s] == b:
                 #print b, sIDs2[s]
                 #print str(b)+'-'+str(sIDs3[s])
-                bldg.append(diction.get(str(b)+'-'+str(sIDs3[s]),[-1])) #if the key is valid retun list of hourly values, otherwise empty list
-        output.append(bldg)
-
-    SW = list_to_tree(output,none_and_holes=True, source=[])
-    heating, cooling = ParseTHres(THres)
-    H = list_to_tree(heating,none_and_holes=True, source=[])
-    C = list_to_tree(cooling,none_and_holes=True, source=[])
-    #ySW = annIrr
-    
+                hrl.append(diction.get(str(b)+'-'+str(sIDs3[s]),[-1])) #if the key is valid retun list of hourly values, otherwise empty list
+                yrl.append([sum(diction.get(str(b)+'-'+str(sIDs3[s]),[-1]))])
+        ySW.append(yrl)
+        hSW.append(hrl)
+    if yearly:
+        SW = list_to_tree(ySW,none_and_holes=True, source=[])
+        heating, cooling = ParseTHres(THres,yrl=True)
+        H = list_to_tree(heating,none_and_holes=True, source=[])
+        C = list_to_tree(cooling,none_and_holes=True, source=[])
+    else:
+        SW = list_to_tree(hSW,none_and_holes=True, source=[])
+        heating, cooling = ParseTHres(THres)
+        H = list_to_tree(heating,none_and_holes=True, source=[])
+        C = list_to_tree(cooling,none_and_holes=True, source=[]) 
     
     Surfaces = list_to_tree(geometry, source=[])

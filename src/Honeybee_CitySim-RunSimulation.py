@@ -32,7 +32,7 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
 
 ghenv.Component.Name = "Honeybee_CitySim-RunSimulation"
 ghenv.Component.NickName = 'CitySim-RunSimulation'
-ghenv.Component.Message = 'VER 0.2.0\nMAR_18_2017'
+ghenv.Component.Message = 'VER 0.2.1\nMAR_24_2017'
 ghenv.Component.IconDisplayMode = ghenv.Component.IconDisplayMode.application
 ghenv.Component.Category = "Honeybee"
 ghenv.Component.SubCategory = "14 | CitySim"
@@ -165,26 +165,28 @@ def getSurfaces(HBZones):
 def getAttributes(HBZones):
     # call the objects from the lib
     thermalZonesPyClasses = hb_hive.callFromHoneybeeHive(HBZones)
-    attributes = [['Type of surface','Solar Reflectance']] #when you add an attribute, list here what it means. 
+    attributes = [['Type of surface','Solar Reflectance','Boundary Condition']] #when you add an attribute, list here what it means. 
     zoneatt = []
     for zone in thermalZonesPyClasses:
         type = []
         srefl = []
+        BC = []
         for srf in zone.surfaces:
             if srf.type == 0:
                 type.append('Wall')
-            elif srf.type == 2.5:
+            elif srf.type >= 2.0 and srf.type < 3.0: #Floor
                 type.append('Floor')
             elif srf.type == 1:
                 type.append('Roof')
             srf.construction = srf.EPConstruction
             materials = EPConstructionStr(srf.construction)
             srefl.append(str((1 - float(getMaterialProperties(materials[0])[0][-2]))))
-        zoneatt.append([type,srefl])    
+            BC.append(srf.BC)
+        zoneatt.append([type,srefl,BC])    
     attributes.append(zoneatt)
     return attributes
 
-getAttributes(_HBZones)
+
 
 def getextraXML():
     horizon = ""
@@ -314,7 +316,12 @@ def createXML(geometry,attributes,terrain,horizon,shading,schedule):
 			    <CoolSource beginDay="1" endDay="365">
 				    <HeatPump Pmax="10000000" eta_tech="0.3" Ttarget="5" Tsource="ground" depth="5" alpha="0.0700000003" position="vertical" z1="10" />
 			    </CoolSource>'''
-        xml += '<Zone id="1" volume="{0}" psi="0.2" Tmin="20" Tmax="26" groundFloor="true" >'.format(getVolume(b))
+        #Check if there is a surface with BC=Ground
+        GroundFloor = False #default no ground
+        for BC in attributes[1][b][2]:
+            if BC =="Ground":
+                GroundFloor = True
+        xml += '<Zone id="1" volume="{0}" psi="0.2" Tmin="20" Tmax="26" groundFloor="{1}" >'.format(getVolume(b),str(GroundFloor))
         occupancy = getOccupancy()
         if len(occupancy) == 1:
             occ = occupancy[0]

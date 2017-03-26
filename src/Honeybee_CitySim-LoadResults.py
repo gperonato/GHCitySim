@@ -23,8 +23,10 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
         name: name of the project
         Run: set Boolean to True to load the results
     Returns:
-        SW = Tree of results for shortwave radiation (hourly irradiance in W/m2)
-        Surfaces = Tree of curves of input geometry {Building;Surface}
+        SW: Shortwave irradiation {Building;Surface}
+        H: Heating needs {Building}
+        C: Cooling needs {Building}
+        Geometry: Curves of input geometry {Building;Surface}
 """
 
 ghenv.Component.Name = "Honeybee_CitySim-LoadResults"
@@ -225,4 +227,4 @@ if Run:
         H = list_to_tree(heating,none_and_holes=True, source=[])
         C = list_to_tree(cooling,none_and_holes=True, source=[]) 
     
-    Surfaces = list_to_tree(geometry, source=[])
+    Geometry = list_to_tree(geometry, source=[])

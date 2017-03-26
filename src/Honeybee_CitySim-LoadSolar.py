@@ -21,11 +21,11 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
         path: Directory
         name: name of the project
         yearly: Loads yearly results (default = False)
-        geometry = same geometry used as simulation input
-        type: choose between SW or DC (sefault = SW)
+        geometry: same geometry used as simulation input
+        type: choose between SW or DC (default = SW)
         Run: set Boolean to True to load the results
     Returns:
-        results = Tree of results
+        results: SW radiation
 """
 
 ghenv.Component.Name = "Honeybee_CitySim-LoadSolar"
@@ -42,7 +42,7 @@ import uuid
 
 #Default values
 type = "SW"
-yeearly = False
+yearly = False
 
 #Get surfaces from Honeybee zones
 # written by Giulio Piacentino, giulio@mcneel.com

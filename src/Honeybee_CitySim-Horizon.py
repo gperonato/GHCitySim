@@ -1,9 +1,12 @@
-# Interface to CitySim Solver
-# http://citysim.epfl.ch/
+# GH-CitySim: an interface to CitySim started by Giuseppe Peronato
 #
-# GH-Python component initiated by
-# Giuseppe Peronato <giuseppe.peronato@epfl.ch> 
-# 
+#  All rights reserved. Ecole polytechnique fdrale de Lausanne (EPFL), Switzerland,
+# Interdisciplinary Laboratory of Performance-Integrated Design (LIPID), 2016-2017
+# Author: Giuseppe Peronato, <giuseppe.peronato@epfl.ch
+#
+# CitySim is a software developed and distributed by the
+# Laboratory of Solar Energy and Building Physics (LESO-PB)
+# http://citysim.epfl.ch/
 
 """
 This component transforms a list of horizontal and vertical angles representing far field obstructions in CitySim format.

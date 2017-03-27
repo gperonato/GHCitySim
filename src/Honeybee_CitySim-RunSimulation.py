@@ -1,9 +1,14 @@
-# Interface to CitySim Solver
+# GH-CitySim: an interface to CitySim started by Giuseppe Peronato
+#
+#  All rights reserved. Ecole polytechnique fdrale de Lausanne (EPFL), Switzerland,
+# Interdisciplinary Laboratory of Performance-Integrated Design (LIPID), 2016-2017
+# Author: Giuseppe Peronato, <giuseppe.peronato@epfl.ch
+#
+# CitySim is a software developed and distributed by the
+# Laboratory of Solar Energy and Building Physics (LESO-PB)
 # http://citysim.epfl.ch/
 #
-# GH-Python component initiated by
-# Giuseppe Peronato <giuseppe.peronato@epfl.ch> 
-# 
+# This component relies on Honeybee: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipour Roudsari
 
 """
 This component imports the geometry and runs the simulation.

@@ -37,13 +37,14 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
 
 ghenv.Component.Name = "Honeybee_CitySim-RunSimulation"
 ghenv.Component.NickName = 'CitySim-RunSimulation'
-ghenv.Component.Message = 'VER 0.2.1\nMAR_24_2017'
+ghenv.Component.Message = 'VER 0.2.1\nMAR_27_2017'
 ghenv.Component.IconDisplayMode = ghenv.Component.IconDisplayMode.application
 ghenv.Component.Category = "Honeybee"
 ghenv.Component.SubCategory = "14 | CitySim"
-#compatibleHBVersion = VER 0.0.56\nFEB_03_2016
+#compatibleHBVersion = VER 0.0.56\nNOV_04_2016
 #compatibleLBVersion = VER 0.0.59\nFEB_01_2015
-ghenv.Component.AdditionalHelpFromDocStrings = "1"
+try: ghenv.Component.AdditionalHelpFromDocStrings = "3"
+except: pass
 
 
 
@@ -76,11 +77,6 @@ EPMaterials =  sc.sticky ["honeybee_materialLib"].keys()
 EPWindowMaterials = sc.sticky ["honeybee_windowMaterialLib"].keys()
 ThermMaterials = sc.sticky["honeybee_thermMaterialLib"].keys()   
 thermalZonesPyClasses = hb_hive.callFromHoneybeeHive(_HBZones)
-
-
-    
-    
-
     
 EPConstructions.sort()
 EPMaterials.sort()
@@ -112,31 +108,19 @@ def EPConstructionStr(constructionName):
             ghenv.Component.AddRuntimeMessage(gh.GH_RuntimeMessageLevel.Warning, warning)
             return None, None
             
- 
 def getMaterialProperties(matName):
     if not sc.sticky["honeybee_release"]:
         print "You should first let Honeybee to fly..."
         w = gh.GH_RuntimeMessageLevel.Warning
         ghenv.Component.AddRuntimeMessage(w, "You should first let Honeybee to fly...")
         return -1
-
-    try:
-        if not sc.sticky['honeybee_release'].isCompatible(ghenv.Component): return -1
-        if sc.sticky['honeybee_release'].isInputMissing(ghenv.Component): return -1
-    except:
-        warning = "You need a newer version of Honeybee to use this compoent." + \
-        " Use updateHoneybee component to update userObjects.\n" + \
-        "If you have already updated userObjects drag Honeybee_Honeybee component " + \
-        "into canvas and try again."
-        w = gh.GH_RuntimeMessageLevel.Warning
-        ghenv.Component.AddRuntimeMessage(w, warning)
-        return -1
-    
+        
     # get the constuction
     try:
         hb_EPMaterialAUX = sc.sticky["honeybee_EPMaterialAUX"]()
     except:
         msg = "Failed to load EP constructions!"
+        print msg
         ghenv.Component.AddRuntimeMessage(w, msg)
         return -1
     
@@ -147,17 +131,12 @@ def getMaterialProperties(matName):
             print warning
             ghenv.Component.AddRuntimeMessage(gh.GH_RuntimeMessageLevel.Warning, warning)
         return result
-        
-
-
-
-
 
 #Get surfaces from Honeybee zones
 def getSurfaces(HBZones):
     hb_hive = sc.sticky["honeybee_Hive"]()
     geometry = []
-    HBO = hb_hive.callFromHoneybeeHive(_HBZones)
+    HBO = hb_hive.callFromHoneybeeHive(HBZones)
     for b in HBO:
         crvs = []
         HBSurfaces  = hb_hive.addToHoneybeeHive(b.surfaces, ghenv.Component.InstanceGuid.ToString())
@@ -190,8 +169,6 @@ def getAttributes(HBZones):
         zoneatt.append([type,srefl,BC])    
     attributes.append(zoneatt)
     return attributes
-
-
 
 def getextraXML():
     horizon = ""
@@ -236,7 +213,6 @@ def getLayers(cnstrName):
 def getMaterials(matName):
     return hb_EPMaterialAUX.decomposeMaterial(matName.upper(), ghenv.Component)
 
-
 def getVolume(b):
     volume = _HBZones[b].GetVolume()
     return volume
@@ -244,24 +220,27 @@ def getVolume(b):
 def getConLibrary():
     xml = ''
     for c in range(len(EPConstructions)):
-        if getMaterials(getLayers(EPConstructions[c])[0][0])[0][0] == 'Material' or getMaterials(getLayers(EPConstructions[c])[0][0])[0][0] == 'Material:NoMass': #Exclude and windows
+        if getMaterials(getLayers(EPConstructions[c])[0][0])[0][0] == 'Material': 
             xml += '<Composite id="{0}" name="{1}">\n'.format(c,EPConstructions[c])
             for l in getLayers(EPConstructions[c])[0]:
                 mats = getMaterials(l)[0]
                 if mats[0] == 'Material': #Check that the material has all properties we need
                     xml += '<Layer Thickness="{0}" Conductivity="{1}" Cp="{2}" Density="{3}"/>\n'.format(mats[2],mats[3],mats[5],mats[4])
-                else: #This material has no mass
-                    try:
-                        i = getMaterials(l)[1].index('Thermal Resistance {m2-K/W}') #Index of resistance
-                    except:
-                        pass
-                    try:
-                        i = getMaterials(l)[1].index('- Thermal Resistance {m2-K/W}') #Index of resistance
-                    except:
-                        pass
-                    UValue = 1/float(mats[i]) #Calculate U-value for 1 meter thickness
-                    xml += '<Layer Thickness="1.0" Conductivity="{0}" Cp="0.1" Density="0.1"/>\n'.format(UValue) #Default values for Cp and Density
             xml += '</Composite>\n'
+        elif getMaterials(getLayers(EPConstructions[c])[0][0])[0][0] == 'Material:NoMass': #This material has no mass
+               l = getLayers(EPConstructions[c])[0][0] #Take the external layer in a construction without mass
+               mats = getMaterials(l)[0]
+               try:
+                    i = getMaterials(l)[1].index('Thermal Resistance {m2-K/W}') #Index of resistance
+               except:
+                    pass
+               try:
+                    i = getMaterials(l)[1].index('- Thermal Resistance {m2-K/W}') #Index of resistance
+               except:
+                    pass
+               UValue = 1/float(mats[i]) #Calculate U-value from R-Value
+               xml += '<Composite id="{0}" name="{1}" Uvalue="{2}">\n'.format(c,EPConstructions[c],UValue)
+               xml += '</Composite>\n'
     return xml
 
 def tree_to_list(input, retrieve_base = lambda x: x[0]):
@@ -320,7 +299,7 @@ def createXML(geometry,attributes,terrain,horizon,shading,schedule):
 			    </HeatSource>
 			    <CoolSource beginDay="1" endDay="365">
 				    <HeatPump Pmax="10000000" eta_tech="0.3" Ttarget="5" Tsource="ground" depth="5" alpha="0.0700000003" position="vertical" z1="10" />
-			    </CoolSource>'''
+			    </CoolSource>\n'''
         #Check if there is a surface with BC=Ground
         GroundFloor = False #default no ground
         for BC in attributes[1][b][2]:
@@ -332,7 +311,7 @@ def createXML(geometry,attributes,terrain,horizon,shading,schedule):
             occ = occupancy[0]
         else:
             occ = occupancy[b]
-        xml +=	'<Occupants n="{0}" type="{1}"/>'.format(occ[0],occ[1])
+        xml +=	'<Occupants n="{0}" type="{1}"/>\n'.format(occ[0],occ[1])
         for s in xrange(len(geometry[b])):
             #xml += '<' + attributes[1][b][0][s] + ' id="'+str(s)+'" type="'+ str(EPConstructions.index(thermalZonesPyClasses[b].surfaces[s].EPConstruction))+'" ShortWaveReflectance="' + attributes[1][b][1][s] + '" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">\n'
             if attributes[1][b][0][s] == 'Wall' and len(wratios)>1: #Use windows ratios only for walls
@@ -359,8 +338,6 @@ def createXML(geometry,attributes,terrain,horizon,shading,schedule):
 		   </CitySim> '''
     return xml
 
-
-
 #Write XML file
 def writeXML(xml, path, name):
     xmlpath = path+name+".xml"
@@ -379,8 +356,7 @@ if Write:
 if Run:
 
     xmlpath = path+name+'.xml'
-    command = Solver + ' ' + xmlpath #Runs only irradiation simulation with -I
+    command = Solver + ' ' + xmlpath
 
-    import os
     os.chdir(path)
     os.system(command)

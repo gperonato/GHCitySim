@@ -104,8 +104,8 @@ def EPConstructionStr(constructionName):
             return materials
         else:
             warning = "Failed to find " + constructionName + " in library."
-            print warning
-            ghenv.Component.AddRuntimeMessage(gh.GH_RuntimeMessageLevel.Warning, warning)
+            if constructionName != "Interior Wall": #Do not raise exception with interior wall, as this is automatically defined for adjacent srfs
+                ghenv.Component.AddRuntimeMessage(gh.GH_RuntimeMessageLevel.Warning, warning)
             return None, None
             
 def getMaterialProperties(matName):
@@ -164,7 +164,10 @@ def getAttributes(HBZones):
                 type.append('Roof')
             srf.construction = srf.EPConstruction
             materials = EPConstructionStr(srf.construction)
-            srefl.append(str((1 - float(getMaterialProperties(materials[0])[0][-2]))))
+            if srf.BC =="Outdoors" or srf.BC=="Ground":
+                srefl.append(str((1 - float(getMaterialProperties(materials[0])[0][-2]))))
+            else:
+                srefl.append('None')
             BC.append(srf.BC)
         zoneatt.append([type,srefl,BC])    
     attributes.append(zoneatt)
@@ -300,18 +303,21 @@ def createXML(geometry,attributes,terrain,horizon,shading,schedule):
 			    <CoolSource beginDay="1" endDay="365">
 				    <HeatPump Pmax="10000000" eta_tech="0.3" Ttarget="5" Tsource="ground" depth="5" alpha="0.0700000003" position="vertical" z1="10" />
 			    </CoolSource>\n'''
+
         #Check if there is a surface with BC=Ground
         GroundFloor = False #default no ground
         for BC in attributes[1][b][2]:
             if BC =="Ground":
                 GroundFloor = True
         xml += '<Zone id="1" volume="{0}" psi="0.2" Tmin="20" Tmax="26" groundFloor="{1}" >'.format(getVolume(b),str(GroundFloor))
+        
         occupancy = getOccupancy()
         if len(occupancy) == 1:
             occ = occupancy[0]
         else:
             occ = occupancy[b]
         xml +=	'<Occupants n="{0}" type="{1}"/>\n'.format(occ[0],occ[1])
+        
         for s in xrange(len(geometry[b])):
             #xml += '<' + attributes[1][b][0][s] + ' id="'+str(s)+'" type="'+ str(EPConstructions.index(thermalZonesPyClasses[b].surfaces[s].EPConstruction))+'" ShortWaveReflectance="' + attributes[1][b][1][s] + '" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">\n'
             if attributes[1][b][0][s] == 'Wall' and len(wratios)>1: #Use windows ratios only for walls
@@ -320,12 +326,14 @@ def createXML(geometry,attributes,terrain,horizon,shading,schedule):
                 windows = wratios[0]
             else:
                 windows = [0,0,0,0] #default values for windows ratios for non-wall surfaces
-            xml += '<{0} id="{1}" type="{2}" ShortWaveReflectance="{3}" GlazingRatio="{4}" GlazingGValue="{5}" GlazingUValue="{6}" OpenableRatio="{7}">\n'.format(attributes[1][b][0][s],s,EPConstructions.index(thermalZonesPyClasses[b].surfaces[s].EPConstruction),attributes[1][b][1][s],windows[0],windows[1],windows[2],windows[3])
-            srfpts = rs.CurvePoints(geometry[b][s])
-            for i in xrange(len(srfpts)):
-                #print '<V' + str(i) + ' x="' + str(srfpts[i][0]) +'" y="' + str(srfpts[i][1]) +'" z="' + str(srfpts[i][2])+'"/> \n'
-                xml+= '<V' + str(i) + ' x="' + str(srfpts[i][0]) +'" y="' + str(srfpts[i][1]) +'" z="' + str(srfpts[i][2])+'"/> \n'
-            xml+= '</' + attributes[1][b][0][s] + '>'
+            
+            if attributes[1][b][2][s] == 'Outdoors' or attributes[1][b][2][s] == 'Ground': #Do not write surface with adjacent BC
+                xml += '<{0} id="{1}" type="{2}" ShortWaveReflectance="{3}" GlazingRatio="{4}" GlazingGValue="{5}" GlazingUValue="{6}" OpenableRatio="{7}">\n'.format(attributes[1][b][0][s],s,EPConstructions.index(thermalZonesPyClasses[b].surfaces[s].EPConstruction),attributes[1][b][1][s],windows[0],windows[1],windows[2],windows[3])
+                srfpts = rs.CurvePoints(geometry[b][s])
+                for i in xrange(len(srfpts)):
+                    #print '<V' + str(i) + ' x="' + str(srfpts[i][0]) +'" y="' + str(srfpts[i][1]) +'" z="' + str(srfpts[i][2])+'"/> \n'
+                    xml+= '<V' + str(i) + ' x="' + str(srfpts[i][0]) +'" y="' + str(srfpts[i][1]) +'" z="' + str(srfpts[i][2])+'"/> \n'
+                xml+= '</' + attributes[1][b][0][s] + '>'
         xml+= '''   </Zone>
                 </Building>'''
             

@@ -72,6 +72,29 @@ def tree_to_list(input, retrieve_base = lambda x: x[0]):
         extend_at(path, 0, input.Branch(path), all)
     return retrieve_base(all)
     
+def getCSobjs(CSobjs):
+    climate = ""
+    horizon = ""
+    shading = ""
+    terrain = ""
+    for path in CSobjs:
+        if path != None and path.split(".")[1] == "cli":
+            climate = path
+        elif path != None and path.split(".")[1] == "hor":
+            horizon = path
+        elif path != None and path.split(".")[1] == "shd":
+            shading = path
+        elif path != None and path.split(".")[1] == "gnd":
+            terrain = path
+    return terrain,horizon,shading,climate
+ 
+terrain,horizon,shading,climate = getCSobjs(_CSobjs)
+dir += "\\" #Add \ in case is missing
+
+if climate == "":
+    warning = "Missing climate file: add one as CSobj."
+    ghenv.Component.AddRuntimeMessage(gh.GH_RuntimeMessageLevel.Warning, warning)
+    print warning
 
 #Create XML files in CitySim format
 def createXML(geometry,reflectance):
@@ -113,7 +136,7 @@ def createHeader():
     <CitySim name="test">
 	    <Simulation beginMonth="1" endMonth="12" beginDay="1" endDay="31"/>'''
 
-    xml += '<Climate location="' + climatefile + ' "city="Unknown"/>'
+    xml += '<Climate location="' + climate + ' "city="Unknown"/>'
     xml += "	<District>"
     return xml
     
@@ -130,30 +153,6 @@ def writeXML(xml, path, name):
     out_file = open(xmlpath,"w")
     out_file.write(xml)
     out_file.close()
-
-def getCSobjs(CSobjs):
-    climate = ""
-    horizon = ""
-    shading = ""
-    terrain = ""
-    for path in CSobjs:
-        if path != None and path.split(".")[1] == "cli":
-            climate = path
-        elif path != None and path.split(".")[1] == "hor":
-            horizon = path
-        elif path != None and path.split(".")[1] == "shd":
-            shading = path
-        elif path != None and path.split(".")[1] == "gnd":
-            terrain = path
-    return terrain,horizon,shading,climate
- 
-terrain,horizon,shading,climate = getCSobjs(_CSobjs)
-dir += "\\" #Add \ in case is missing
-
-if climate == "":
-    warning = "Missing climate file: add one as CSobj."
-    ghenv.Component.AddRuntimeMessage(gh.GH_RuntimeMessageLevel.Warning, warning)
-    print warning
     
 geometry = tree_to_list(geometry, lambda x: x)
 reflectance = tree_to_list(reflectance, lambda x: x)

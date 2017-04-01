@@ -245,7 +245,31 @@ def getOccupancy():
        occupancy = tree_to_list(_Occupancy, lambda x: x)
     else:
        print 'Error'
-    return occupancy 
+    return occupancy
+    
+def getCSobjs(CSobjs):
+    climate = ""
+    horizon = ""
+    shading = ""
+    schedule = ""
+    terrain = ""
+    for path in CSobjs:
+        if path != None and path.split(".")[1] == "cli":
+            climate = path
+        elif path != None and path.split(".")[1] == "hor":
+            horizon = path
+        elif path != None and path.split(".")[1] == "shd":
+            shading = path
+        elif path != None and path.split(".")[1] == "sch":
+            schedule = path
+        elif path != None and path.split(".")[1] == "gnd":
+            terrain = path
+    return terrain,horizon,shading,schedule,climate
+
+
+terrain,horizon,shading,schedule,climate = getCSobjs(_CSobjs)
+dir += "\\" #Add \ in case is missing
+
 
 #Create XML files in CitySim format
 def createXML(geometry,attributes):
@@ -305,7 +329,7 @@ def createHeader():
     <CitySim name="test">
 	    <Simulation beginMonth="1" endMonth="12" beginDay="1" endDay="31"/>'''
 
-    xml += '<Climate location="' + climatefile + ' "city="Unknown"/>'
+    xml += '<Climate location="' + climate + ' "city="Unknown"/>'
     xml += "	<District>"
     return xml
     
@@ -322,28 +346,7 @@ def writeXML(xml, path, name):
     out_file = open(xmlpath,"w")
     out_file.write(xml)
     out_file.close()
-    
-def getCSobjs(CSobjs):
-    climate = ""
-    horizon = ""
-    shading = ""
-    schedule = ""
-    terrain = ""
-    for path in CSobjs:
-        if path != None and path.split(".")[1] == "cli":
-            climate = path
-        elif path != None and path.split(".")[1] == "hor":
-            horizon = path
-        elif path != None and path.split(".")[1] == "shd":
-            shading = path
-        elif path != None and path.split(".")[1] == "sch":
-            schedule = path
-        elif path != None and path.split(".")[1] == "gnd":
-            terrain = path
-    return terrain,horizon,shading,schedule,climate
- 
-terrain,horizon,shading,schedule,climate = getCSobjs(_CSobjs)
-dir += "\\" #Add \ in case is missing
+
 
 if climate == "":
     warning = "Missing climate file: add one as CSobj."

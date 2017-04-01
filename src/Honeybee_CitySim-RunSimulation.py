@@ -1,6 +1,6 @@
-# GH-CitySim: an interface to CitySim started by Giuseppe Peronato
+﻿# GH-CitySim: an interface to CitySim started by Giuseppe Peronato
 #
-#  All rights reserved. Ecole polytechnique fdrale de Lausanne (EPFL), Switzerland,
+# © All rights reserved. Ecole polytechnique fédérale de Lausanne (EPFL), Switzerland,
 # Interdisciplinary Laboratory of Performance-Integrated Design (LIPID), 2016-2017
 # Author: Giuseppe Peronato, <giuseppe.peronato@epfl.ch
 #
@@ -26,9 +26,10 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
         _HBZones: List of Honeybee zones
         _Windows: List of Window ratios for walls (or tree in which each branch is a building): GlazingRatio, GValue, GlazingUValue, OpenableRatio
         _Occupancy: List of (or tree in which each branch is a building): Number of occupants and ScheduleProfileID
-        path: Directory
+        _CSobjs: List of CitySim objects (e.g. climate file, schedules)
+        type: type of simulation (F = Full thermal + SW, I = SW-only). Default = F
+        dir: Directory of simulation
         name: name of the project
-        climatefile: name of climate file (with extension)
         Write: Boolean to write the XML file
         Run: Boolean to start the simulation
     Returns:
@@ -37,7 +38,7 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
 
 ghenv.Component.Name = "Honeybee_CitySim-RunSimulation"
 ghenv.Component.NickName = 'CitySim-RunSimulation'
-ghenv.Component.Message = 'VER 0.2.1\nMAR_27_2017'
+ghenv.Component.Message = 'VER 0.2.2\nAVR_01_2017'
 ghenv.Component.IconDisplayMode = ghenv.Component.IconDisplayMode.application
 ghenv.Component.Category = "Honeybee"
 ghenv.Component.SubCategory = "14 | CitySim"
@@ -62,9 +63,14 @@ import copy
 
 rc.Runtime.HostUtils.DisplayOleAlerts(False)
 
+#Default values
+
+type = "F"
+
 if _Occupancy.BranchCount == 0:
-    print "Add Occupancy"
-    raise SystemExit(0)
+    warning = "Missing Occupancy: Add list or Tree"
+    ghenv.Component.AddRuntimeMessage(gh.GH_RuntimeMessageLevel.Warning, warning)
+    print warning
     
 lb_preparation = sc.sticky["ladybug_Preparation"]()
 hb_reEvaluateHBZones= sc.sticky["honeybee_reEvaluateHBZones"]
@@ -172,43 +178,6 @@ def getAttributes(HBZones):
         zoneatt.append([type,srefl,BC])    
     attributes.append(zoneatt)
     return attributes
-
-def getextraXML():
-    horizon = ""
-    terrain = ""
-    shading = ""
-    schedule = ""
-    import os.path
-    terrainf = path+name+"_terrain.xml"
-    horizonf = path+name+"_horizon.xml"
-    shadingf = path+name+"_shading.xml"
-    schedulef = path+name+"_schedule.xml"
-    if os.path.isfile(terrainf):
-        file = open(terrainf, 'r')
-        terrain = file.read()
-        file.close()
-    if os.path.isfile(horizonf):
-        file  = open(horizonf, 'r')
-        horizon = file.read()
-        file.close()
-    if os.path.isfile(shadingf):
-        file  = open(shadingf, 'r')
-        shading = file.read()
-        file.close()
-    if os.path.isfile(schedulef):
-        file  = open(schedulef, 'r')
-        schedule = file.read()
-        file.close()
-    #Old code to retrieve XML from input
-    #if len(XML) > 0:
-        #for i in XML:
-            #if i[1:7] == "Ground":
-                #terrain = i
-            #if i[1:9] == "FarField":
-                #horizon = i
-            #if i[1:8] == "Shading":
-                #shading = i
-    return terrain, horizon, shading, schedule
      
 def getLayers(cnstrName):
     return hb_EPMaterialAUX.decomposeEPCnstr(cnstrName.upper())
@@ -278,18 +247,11 @@ def getOccupancy():
        print 'Error'
     return occupancy 
 
-#Create XML file in CitySim format
-def createXML(geometry,attributes,terrain,horizon,shading,schedule):
+#Create XML files in CitySim format
+def createXML(geometry,attributes):
     #Header and default values
-    xml = '''<?xml version="1.0" encoding="ISO-8859-1"?>
-    <CitySim name="test">
-	    <Simulation beginMonth="1" endMonth="12" beginDay="1" endDay="31"/>'''
-
-    xml += '<Climate location="' + climatefile + ' "city="Unknown"/>'
-    xml += "	<District>"
-    xml += horizon
+    xml = ""
     xml += getConLibrary()
-    xml += schedule
     #Windows ratios
     wratios = getWindows()
     #Add geometry to the XML file
@@ -336,15 +298,23 @@ def createXML(geometry,attributes,terrain,horizon,shading,schedule):
                 xml+= '</' + attributes[1][b][0][s] + '>'
         xml+= '''   </Zone>
                 </Building>'''
-            
-    #Add sample footer to the XML file
-    if len(shading) > 0:
-        xml+= shading
-    if len(terrain) > 0:
-        xml+= terrain
+    return xml
+    
+def createHeader():
+    xml = '''<?xml version="1.0" encoding="ISO-8859-1"?>
+    <CitySim name="test">
+	    <Simulation beginMonth="1" endMonth="12" beginDay="1" endDay="31"/>'''
+
+    xml += '<Climate location="' + climatefile + ' "city="Unknown"/>'
+    xml += "	<District>"
+    return xml
+    
+def createFooter():
+    xml = ""
     xml+= '''</District>
 		   </CitySim> '''
     return xml
+    
 
 #Write XML file
 def writeXML(xml, path, name):
@@ -352,19 +322,73 @@ def writeXML(xml, path, name):
     out_file = open(xmlpath,"w")
     out_file.write(xml)
     out_file.close()
+    
+def getCSobjs(CSobjs):
+    climate = ""
+    horizon = ""
+    shading = ""
+    schedule = ""
+    terrain = ""
+    for path in CSobjs:
+        if path != None and path.split(".")[1] == "cli":
+            climate = path
+        elif path != None and path.split(".")[1] == "hor":
+            horizon = path
+        elif path != None and path.split(".")[1] == "shd":
+            shading = path
+        elif path != None and path.split(".")[1] == "sch":
+            schedule = path
+        elif path != None and path.split(".")[1] == "gnd":
+            terrain = path
+    return terrain,horizon,shading,schedule,climate
+ 
+terrain,horizon,shading,schedule,climate = getCSobjs(_CSobjs)
+dir += "\\" #Add \ in case is missing
+
+if climate == "":
+    warning = "Missing climate file: add one as CSobj."
+    ghenv.Component.AddRuntimeMessage(gh.GH_RuntimeMessageLevel.Warning, warning)
+    print warning
 
 if Write:
     geometry = getSurfaces(_HBZones)
     attributes = getAttributes(_HBZones)
-    terrain, horizon,shading,schedule = getextraXML()
-    xml = createXML(geometry,attributes,terrain,horizon,shading,schedule)
-    writeXML(xml,path,name)
+    #terrain, horizon,shading,schedule = getextraXML()
+    xml = createXML(geometry,attributes)
+    writeXML(xml,dir,name+"_main")
+    header = createHeader()
+    footer = createFooter()
+    writeXML(header,dir,name+"_head")
+    writeXML(footer,dir,name+"_foot")
+
+xmlpath = dir+name+'.xml'
+
+#Create copy command
+join = "copy "+dir+name+"_head.xml"
+if horizon != "":
+    join += "+" + horizon 
+if schedule != "":
+    join += "+" + schedule
+else:
+    warning = "Missing occupancy schedule: add one as CSobj."
+    ghenv.Component.AddRuntimeMessage(gh.GH_RuntimeMessageLevel.Warning, warning)
+    print warning
+join += "+" +dir+name+"_main.xml"
+if terrain != "":
+    join += "+" + terrain
+if shading != "":
+    join += "+" + shading
+join += "+" +dir+name+"_foot.xml"
+join += " " +dir+name+".xml"
+
+#Create simulation command
+if type == "F": 
+    simulation = Solver + ' ' + xmlpath
+elif type =="I":
+    imulation = Solver + ' -I ' + xmlpath
 
 #Run the simulation
 if Run:
-
-    xmlpath = path+name+'.xml'
-    command = Solver + ' ' + xmlpath
-
-    os.chdir(path)
-    os.system(command)
+    os.chdir(dir)
+    os.system(join)
+    os.system(simulation)

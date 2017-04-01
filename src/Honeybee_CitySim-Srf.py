@@ -1,6 +1,6 @@
-# GH-CitySim: an interface to CitySim started by Giuseppe Peronato
+﻿# GH-CitySim: an interface to CitySim started by Giuseppe Peronato
 #
-#  All rights reserved. Ecole polytechnique fdrale de Lausanne (EPFL), Switzerland,
+# © All rights reserved. Ecole polytechnique fédérale de Lausanne (EPFL), Switzerland,
 # Interdisciplinary Laboratory of Performance-Integrated Design (LIPID), 2016-2017
 # Author: Giuseppe Peronato, <giuseppe.peronato@epfl.ch
 #
@@ -26,14 +26,14 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
         type: either "Surface" or "Terrain" - default = "Surface"
         Dup: Boolean to duplicate obstructing surfaces with reversed normals: Default = True
         Sim: Boolean to include the surfaces in the results: Default = False
-        path: path of project
+        dir: directory of project
         name: title of project
         Write: Boolean to start
 """
 
 ghenv.Component.Name = "Honeybee_CitySim-Srf"
 ghenv.Component.NickName = 'CitySim-Srf'
-ghenv.Component.Message = 'VER 0.0.3\nMAR_24_2017'
+ghenv.Component.Message = 'VER 0.0.4\nAVR_01_2017'
 ghenv.Component.IconDisplayMode = ghenv.Component.IconDisplayMode.application
 ghenv.Component.Category = "Honeybee"
 ghenv.Component.SubCategory = "14 | CitySim"
@@ -55,18 +55,21 @@ if type == None:
 if name == None:
     name = "simulation" #default name
     
-if path == None:
-    print "Select a path" #this is mandatory: no default
+if dir == None:
+    print "Select a directory" #this is mandatory: no default
     ReqInputs = False
+else:
+    dir += "\\" #Add \ in case is missing  
 
 if Write == False and ReqInputs == True:
     print "Set Write to True"     
 elif Write == True and ReqInputs == True:
     if type == "terrain":
-        FilePath = path + name + "_terrain.xml"
+        FilePath = dir + name + ".gnd"
     else:
-        FilePath = path + name + "_shading.xml"
+        FilePath = dir + name + ".shd"
     with open(FilePath, "w") as outfile:
+        obj = FilePath
         if type == "terrain":
             outfile.write("<GroundSurface>\n")
         else:
@@ -101,3 +104,8 @@ elif Write == True and ReqInputs == True:
         else:
             outfile.write("</ShadingSurface>")
     print "XML file created"
+
+try:
+    CSobj = obj
+except:
+    pass

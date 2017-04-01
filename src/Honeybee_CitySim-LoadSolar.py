@@ -1,6 +1,6 @@
-# GH-CitySim: an interface to CitySim started by Giuseppe Peronato
+﻿# GH-CitySim: an interface to CitySim started by Giuseppe Peronato
 #
-#  All rights reserved. Ecole polytechnique fdrale de Lausanne (EPFL), Switzerland,
+# © All rights reserved. Ecole polytechnique fédérale de Lausanne (EPFL), Switzerland,
 # Interdisciplinary Laboratory of Performance-Integrated Design (LIPID), 2016-2017
 # Author: Giuseppe Peronato, <giuseppe.peronato@epfl.ch
 #
@@ -21,7 +21,7 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
 
     
     Args:
-        path: Directory
+        dir: Directory
         name: name of the project
         yearly: Loads yearly results (default = False)
         geometry: same geometry used as simulation input
@@ -33,7 +33,7 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
 
 ghenv.Component.Name = "Honeybee_CitySim-LoadSolar"
 ghenv.Component.NickName = 'CitySim-LoadSolar'
-ghenv.Component.Message = 'VER 0.0.1\nJAN_17_2017'
+ghenv.Component.Message = 'VER 0.0.2\nAVR_01_2017'
 ghenv.Component.Category = "Honeybee"
 ghenv.Component.SubCategory = "14 | CitySim"
 try: ghenv.Component.AdditionalHelpFromDocStrings = "2"
@@ -46,6 +46,9 @@ import uuid
 #Default values
 type = "SW"
 yearly = False
+
+if dir != None:
+    dir += "\\" #Add \ in case is missing
 
 #Get surfaces from Honeybee zones
 # written by Giulio Piacentino, giulio@mcneel.com
@@ -159,7 +162,7 @@ def removeTerr(irrS,bIDs,sIDs):
 
 
 if Run:
-    header, results = loadOut(path,name,type,yearly)
+    header, results = loadOut(dir,name,type,yearly)
     bIDs, sIDs = parseHead(header)
     irrS = parseRes(results,sIDs)
     irrS2, bIDs2, sIDs2 = removeTerr(irrS,bIDs,sIDs)

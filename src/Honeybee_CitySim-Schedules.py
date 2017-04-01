@@ -1,6 +1,6 @@
-# GH-CitySim: an interface to CitySim started by Giuseppe Peronato
+﻿# GH-CitySim: an interface to CitySim started by Giuseppe Peronato
 #
-#  All rights reserved. Ecole polytechnique fdrale de Lausanne (EPFL), Switzerland,
+# © All rights reserved. Ecole polytechnique fédérale de Lausanne (EPFL), Switzerland,
 # Interdisciplinary Laboratory of Performance-Integrated Design (LIPID), 2016-2017
 # Author: Giuseppe Peronato, <giuseppe.peronato@epfl.ch
 #
@@ -22,14 +22,14 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
     
     Args:
         day: occupancy profiles [0,1]for each hour of the day
-        path: path of project
+        dir: directory of project
         name: title of project
         Write: Boolean to start
 """
 
 ghenv.Component.Name = "Honeybee_CitySim-Schedules"
 ghenv.Component.NickName = 'CitySim-Schedules'
-ghenv.Component.Message = 'VER 0.0.2\nMAR_24_2017'
+ghenv.Component.Message = 'VER 0.0.3\nAVR_01_2017'
 ghenv.Component.IconDisplayMode = ghenv.Component.IconDisplayMode.application
 ghenv.Component.Category = "Honeybee"
 ghenv.Component.SubCategory = "14 | CitySim"
@@ -53,9 +53,11 @@ def tree_to_list(input, retrieve_base = lambda x: x[0]):
 
 ReqInputs = True
     
-if path == None:
-    print "Select a path" #this is mandatory: no default
+if dir == None:
+    print "Select a directory" #this is mandatory: no default
     ReqInputs = False
+else:
+    dir += "\\" #Add \ in case is missing
     
 if name == None:
     name = "simulation" #default name
@@ -86,8 +88,13 @@ def makeYear():
 if Write == False and ReqInputs == True:
     print "Set Write to True"     
 elif Write == True and ReqInputs == True:
-    FilePath = path + name + "_schedule.xml"
+    FilePath = path + name + ".sch"
     with open(FilePath, "w") as outfile:
         outfile.write(makeDay(wday))
         outfile.write(makeYear())
     print "XML file created"
+    
+try:
+    CSobj = FilePath
+except:
+    pass 

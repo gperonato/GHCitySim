@@ -1,6 +1,6 @@
-# GH-CitySim: an interface to CitySim started by Giuseppe Peronato
+﻿# GH-CitySim: an interface to CitySim started by Giuseppe Peronato
 #
-#  All rights reserved. Ecole polytechnique fdrale de Lausanne (EPFL), Switzerland,
+# © All rights reserved. Ecole polytechnique fédérale de Lausanne (EPFL), Switzerland,
 # Interdisciplinary Laboratory of Performance-Integrated Design (LIPID), 2016-2017
 # Author: Giuseppe Peronato, <giuseppe.peronato@epfl.ch
 #
@@ -25,7 +25,7 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
     
     Args:
         _epwFile: EPW file
-        path: Directory
+        dir: Directory
         Run: Boolean
     Returns:
         climatefile: name of climate file (with extension)
@@ -41,13 +41,13 @@ from clr import AddReference
 AddReference('Grasshopper')
 import Grasshopper.Kernel as gh
 
-ghenv.Component.Name = "Ladybug_Epw to Clim"
+ghenv.Component.Name = "Honeybee_Epw to Clim"
 ghenv.Component.NickName = 'EPW-to-Clim'
-ghenv.Component.Message = 'VER 0.0.1\nNOV_10_2016'
+ghenv.Component.Message = 'VER 0.0.2\nAVR_01_2017'
 #compatibleLBVersion = VER 0.0.59\nJUN_07_2015
 ghenv.Component.IconDisplayMode = ghenv.Component.IconDisplayMode.application
-ghenv.Component.Category = "Ladybug"
-ghenv.Component.SubCategory = "0 | Ladybug"
+ghenv.Component.Category = "Honeybee"
+ghenv.Component.SubCategory = "0 | Honeybee"
 
 try: ghenv.Component.AdditionalHelpFromDocStrings = "2"
 except: pass
@@ -127,6 +127,9 @@ def datetime_range(start, end, delta):
 precipitation  = 0
 nebulosity = 0 #clear sky
 
+
+dir += "\\" #Add \ in case is missing
+
 if Run:
     data = ""
     for h in xrange(7,len(diffuseHorizontalRadiation)):
@@ -134,7 +137,7 @@ if Run:
 
 
     #Write CLI file
-    clipath = path+locName+".cli"
+    clipath = dir+locName+".cli"
     print clipath
     out_file = open(clipath,"w")
     out_file.write(header + data)
@@ -142,6 +145,6 @@ if Run:
 
 
 #Retrieve the name of the climate file  
-climatefile = locName.lower()+".cli"
+CSobj = dir+locName.lower()+".cli"
 
  

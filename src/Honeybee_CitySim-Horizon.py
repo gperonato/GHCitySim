@@ -23,7 +23,7 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
     Args:
         H: List of horizontal angles
         V: List of vertical angles (obstructions)
-        path: path of project
+        dir: directory of project
         name: title of project
         Write: Boolean to start
 """
@@ -68,7 +68,7 @@ def writeXML(xml, path, name):
     return xmlpath
 
 if ReqInputs and Write:
-    obj = writeXML(XML,path,name)
+    obj = writeXML(XML,dir,name)
     print "XML file created"
 else:
     print "Set Write to true"

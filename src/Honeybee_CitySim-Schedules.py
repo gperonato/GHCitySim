@@ -88,7 +88,7 @@ def makeYear():
 if Write == False and ReqInputs == True:
     print "Set Write to True"     
 elif Write == True and ReqInputs == True:
-    FilePath = path + name + ".sch"
+    FilePath = dir + name + ".sch"
     with open(FilePath, "w") as outfile:
         outfile.write(makeDay(wday))
         outfile.write(makeYear())

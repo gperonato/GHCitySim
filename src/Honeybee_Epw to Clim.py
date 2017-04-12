@@ -43,7 +43,7 @@ import Grasshopper.Kernel as gh
 
 ghenv.Component.Name = "Honeybee_Epw to Clim"
 ghenv.Component.NickName = 'EPW-to-Clim'
-ghenv.Component.Message = 'VER 0.0.2\nAVR_01_2017'
+ghenv.Component.Message = 'VER 0.0.3\nAVR_12_2017'
 #compatibleLBVersion = VER 0.0.59\nJUN_07_2015
 ghenv.Component.IconDisplayMode = ghenv.Component.IconDisplayMode.application
 ghenv.Component.Category = "Honeybee"
@@ -78,8 +78,9 @@ def main(_epw_file):
         
         locationData = lb_preparation.epwLocation(_epw_file)
         weatherData = lb_preparation.epwDataReader(_epw_file, locationData[0])
+        groundtemp = lb_preparation.groundTempData(_epwFile,[]);
         
-        return locationData, weatherData
+        return locationData, weatherData, groundtemp
     
     else:
         warningM = "First please let the Ladybug fly..."
@@ -94,18 +95,53 @@ result = main(_epwFile)
 if result!= -1:
     location, locName, latitude, longitude, meridian, altitude = result[0][-1], result[0][0], result[0][1], result[0][2], result[0][3], result[0][4]
     dryBulbTemperature, dewPointTemperature, relativeHumidity, windSpeed, windDirection, directNormalRadiation, diffuseHorizontalRadiation, globalHorizontalRadiation, directNormalIlluminance, diffuseHorizontalIlluminance, globalHorizontalIlluminance, totalSkyCover, horizontalInfraredRadiation, barometricPressure, modelYear = result[1][:]
+    groundtemp = result[2]
     print 'Hourly weather data for ' + locName + ' is imported successfully!'
 
+#Ground Temperatures.
+for d in groundtemp:
+    if len(d) > 7:
+        groundData = True
+        groundtempNum = d[7:]
+    
+yearlyGroundTemp = []
+if groundData: #Use groundtemperature is exists
+    for d in xrange(31*24):
+        yearlyGroundTemp.append(groundtempNum[0])
+    for d in xrange(28*24):
+        yearlyGroundTemp.append(groundtempNum[1])
+    for d in xrange(31*24):
+        yearlyGroundTemp.append(groundtempNum[2])
+    for d in xrange(30*24):
+        yearlyGroundTemp.append(groundtempNum[3])
+    for d in xrange(31*24):
+        yearlyGroundTemp.append(groundtempNum[4])
+    for d in xrange(30*24):
+        yearlyGroundTemp.append(groundtempNum[5])
+    for d in xrange(31*24):
+        yearlyGroundTemp.append(groundtempNum[6])
+    for d in xrange(31*24):
+        yearlyGroundTemp.append(groundtempNum[7])
+    for d in xrange(30*24):
+        yearlyGroundTemp.append(groundtempNum[8])
+    for d in xrange(31*24):
+        yearlyGroundTemp.append(groundtempNum[9])
+    for d in xrange(30*24):
+        yearlyGroundTemp.append(groundtempNum[10])
+    for d in xrange(31*24):
+        yearlyGroundTemp.append(groundtempNum[11])   
+else: #Use meanDryBulbTemperature
+    meanDryBulbTemperature = round(float(sum(dryBulbTemperature[7:])) / float(len(dryBulbTemperature[7:])),1)
+    for d in xrange(8760):
+        yearlyGroundTemp.append(meanDryBulbTemperature)
 
-   
 #Create the header
 locName = locName.strip()
 header = locName
 header += "\n\n" + str(latitude) + "," + str(longitude) + "," + str(altitude) + "," + str(meridian) + "\n\n\n\n"
-header += "dm\tm\th\tG_Dh\tG_Bn\tTa\tFF\tDD\tRH\tRR\tN\n\n"
+header += "dm\tm\th\tG_Dh\tG_Bn\tTa\tTs\tFF\tDD\tRH\tRR\tN\n\n"
 
 
-print(header)
 # Create time stamps
 def datetime_range(start, end, delta):
     current = start
@@ -133,12 +169,11 @@ dir += "\\" #Add \ in case is missing
 if Run:
     data = ""
     for h in xrange(7,len(diffuseHorizontalRadiation)):
-        data += "{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n\n".format(1,1,1,int(diffuseHorizontalRadiation[h]),int(directNormalRadiation[h]),dryBulbTemperature[h],windSpeed[h],int(windDirection[h]),int(relativeHumidity[h]),precipitation,nebulosity)
+        data += "{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n".format(1,1,1,int(diffuseHorizontalRadiation[h]),int(directNormalRadiation[h]),dryBulbTemperature[h],yearlyGroundTemp[h-7],windSpeed[h],int(windDirection[h]),int(relativeHumidity[h]),precipitation,nebulosity)
 
 
     #Write CLI file
     clipath = dir+locName+".cli"
-    print clipath
     out_file = open(clipath,"w")
     out_file.write(header + data)
     out_file.close()
@@ -146,5 +181,3 @@ if Run:
 
 #Retrieve the name of the climate file  
 CSobj = dir+locName.lower()+".cli"
-
- 

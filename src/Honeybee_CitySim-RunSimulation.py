@@ -2,7 +2,7 @@
 #
 # © All rights reserved. Ecole polytechnique fédérale de Lausanne (EPFL), Switzerland,
 # Interdisciplinary Laboratory of Performance-Integrated Design (LIPID), 2016-2017
-# Author: Giuseppe Peronato, <giuseppe.peronato@epfl.ch
+# Author: Giuseppe Peronato, <giuseppe.peronato@epfl.ch>
 #
 # CitySim is a software developed and distributed by the
 # Laboratory of Solar Energy and Building Physics (LESO-PB)
@@ -267,10 +267,6 @@ def getCSobjs(CSobjs):
     return terrain,horizon,shading,schedule,climate
 
 
-terrain,horizon,shading,schedule,climate = getCSobjs(_CSobjs)
-dir += "\\" #Add \ in case is missing
-
-
 #Create XML files in CitySim format
 def createXML(geometry,attributes):
     #Header and default values
@@ -347,7 +343,10 @@ def writeXML(xml, path, name):
     out_file.write(xml)
     out_file.close()
 
-
+terrain,horizon,shading,schedule,climate = getCSobjs(_CSobjs)
+if dir != None:
+    dir += "\\" #Add \ in case is missing
+    
 if climate == "":
     warning = "Missing climate file: add one as CSobj."
     ghenv.Component.AddRuntimeMessage(gh.GH_RuntimeMessageLevel.Warning, warning)
@@ -364,34 +363,38 @@ if Write:
     writeXML(header,dir,name+"_head")
     writeXML(footer,dir,name+"_foot")
 
-xmlpath = dir+name+'.xml'
+    xmlpath = dir+name+'.xml'
 
-#Create copy command
-join = "copy "+dir+name+"_head.xml"
-if horizon != "":
-    join += "+" + horizon 
-if schedule != "":
-    join += "+" + schedule
-else:
-    warning = "Missing occupancy schedule: add one as CSobj."
-    ghenv.Component.AddRuntimeMessage(gh.GH_RuntimeMessageLevel.Warning, warning)
-    print warning
-join += "+" +dir+name+"_main.xml"
-if terrain != "":
-    join += "+" + terrain
-if shading != "":
-    join += "+" + shading
-join += "+" +dir+name+"_foot.xml"
-join += " " +dir+name+".xml"
+    #Create copy command
+    join = "copy "+dir+name+"_head.xml"
+    if horizon != "":
+        join += "+" + horizon 
+    if schedule != "":
+        join += "+" + schedule
+    else:
+        warning = "Missing occupancy schedule: add one as CSobj."
+        ghenv.Component.AddRuntimeMessage(gh.GH_RuntimeMessageLevel.Warning, warning)
+        print warning
+    join += "+" +dir+name+"_main.xml"
+    if terrain != "":
+        join += "+" + terrain
+    if shading != "":
+        join += "+" + shading
+    join += "+" +dir+name+"_foot.xml"
+    join += " " +dir+name+".xml"
+        
+    #Copy and join files
+    os.chdir(dir)
+    os.system(join)
+    
 
-#Create simulation command
-if type == "F": 
-    simulation = Solver + ' ' + xmlpath
-elif type =="I":
-    imulation = Solver + ' -I ' + xmlpath
-
-#Run the simulation
 if Run:
+    #Create simulation command
+    if type == "F": 
+        simulation = Solver + ' ' + xmlpath
+    elif type =="I":
+        simulation = Solver + ' -I ' + xmlpath
+    #Run the simulation
     os.chdir(dir)
     os.system(join)
     os.system(simulation)

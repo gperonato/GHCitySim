@@ -2,7 +2,7 @@
 #
 # © All rights reserved. Ecole polytechnique fédérale de Lausanne (EPFL), Switzerland,
 # Interdisciplinary Laboratory of Performance-Integrated Design (LIPID), 2016-2017
-# Author: Giuseppe Peronato, <giuseppe.peronato@epfl.ch
+# Author: Giuseppe Peronato, <giuseppe.peronato@epfl.ch>
 #
 # CitySim is a software developed and distributed by the
 # Laboratory of Solar Energy and Building Physics (LESO-PB)
@@ -87,14 +87,6 @@ def getCSobjs(CSobjs):
         elif path != None and path.split(".")[1] == "gnd":
             terrain = path
     return terrain,horizon,shading,climate
- 
-terrain,horizon,shading,climate = getCSobjs(_CSobjs)
-dir += "\\" #Add \ in case is missing
-
-if climate == "":
-    warning = "Missing climate file: add one as CSobj."
-    ghenv.Component.AddRuntimeMessage(gh.GH_RuntimeMessageLevel.Warning, warning)
-    print warning
 
 #Create XML files in CitySim format
 def createXML(geometry,reflectance):
@@ -157,6 +149,15 @@ def writeXML(xml, path, name):
 geometry = tree_to_list(geometry, lambda x: x)
 reflectance = tree_to_list(reflectance, lambda x: x)
 
+terrain,horizon,shading,climate = getCSobjs(_CSobjs)
+if dir != None:
+    dir += "\\" #Add \ in case is missing
+
+if climate == "":
+    warning = "Missing climate file: add one as CSobj."
+    ghenv.Component.AddRuntimeMessage(gh.GH_RuntimeMessageLevel.Warning, warning)
+    print warning
+    
 if Write:
     xml = createXML(geometry,reflectance)
     writeXML(xml,dir,name+"_main")
@@ -165,25 +166,26 @@ if Write:
     writeXML(header,dir,name+"_head")
     writeXML(footer,dir,name+"_foot")
 
-xmlpath = dir+name+'.xml'
+    xmlpath = dir+name+'.xml'
 
-#Create copy command
-join = "copy "+dir+name+"_head.xml"
-if horizon != "":
-    join += "+" + horizon 
-join += "+" +dir+name+"_main.xml"
-if terrain != "":
-    join += "+" + terrain
-if shading != "":
-    join += "+" + shading
-join += "+" +dir+name+"_foot.xml"
-join += " " +dir+name+".xml"
-
-#Create simulation command
-simulation = Solver + ' -I ' + xmlpath #only solar irradiation
+    #Create copy command
+    join = "copy "+dir+name+"_head.xml"
+    if horizon != "":
+        join += "+" + horizon 
+    join += "+" +dir+name+"_main.xml"
+    if terrain != "":
+        join += "+" + terrain
+    if shading != "":
+        join += "+" + shading
+    join += "+" +dir+name+"_foot.xml"
+    join += " " +dir+name+".xml"
+    
+    #Merge files
+    os.chdir(dir)
+    os.system(join)
 
 #Run the simulation
 if Run:
+    simulation = Solver + ' -I ' + xmlpath #only solar irradiation
     os.chdir(dir)
-    os.system(join)
     os.system(simulation)

@@ -1,6 +1,6 @@
-# GH-CitySim: an interface to CitySim started by Giuseppe Peronato
+﻿# GH-CitySim: an interface to CitySim started by Giuseppe Peronato
 #
-#  All rights reserved. Ecole polytechnique fdrale de Lausanne (EPFL), Switzerland,
+# © All rights reserved. Ecole polytechnique fédérale de Lausanne (EPFL), Switzerland,
 # Interdisciplinary Laboratory of Performance-Integrated Design (LIPID), 2016-2017
 # Author: Giuseppe Peronato, <giuseppe.peronato@epfl.ch
 #
@@ -23,9 +23,10 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
 
     
     Args:
-        path: Directory
-        paths: List of Paths of the DataTree
+        directory: Directory
         name: name of the project
+        yearly: calculate yearly values
+        _HBZones: Import _HBZones
         Run: set Boolean to True to load the results
     Returns:
         SW: Shortwave irradiation {Building;Surface}
@@ -36,7 +37,7 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
 
 ghenv.Component.Name = "Honeybee_CitySim-LoadResults"
 ghenv.Component.NickName = 'CitySim-LoadResults'
-ghenv.Component.Message = 'VER 0.1.2\nMAR_24_2017'
+ghenv.Component.Message = 'VER 0.1.2\nAVR_01_2017'
 ghenv.Component.Category = "Honeybee"
 ghenv.Component.SubCategory = "14 | CitySim"
 try: ghenv.Component.AdditionalHelpFromDocStrings = "2"
@@ -49,7 +50,8 @@ import uuid
 hb_hive = sc.sticky["honeybee_Hive"]()
 
 geometry = []
-
+if dir != None:
+    dir += "\\" #Add \ in case is missing
 
 HBO = hb_hive.callFromHoneybeeHive(_HBZones)
 for b in HBO:
@@ -185,8 +187,8 @@ def ParseTHres(THres,yrl=False):
     return heating2, cooling2
    
 if Run:
-    header, results = loadOut(path,name,"SW")
-    THhead, THres = loadOut(path,name,type="TH")
+    header, results = loadOut(dir,name,"SW")
+    THhead, THres = loadOut(dir,name,type="TH")
     bIDs, sIDs = parseHead(header)
     irrS = parseRes(results,sIDs)
     irrS2, bIDs2, sIDs2, annIrr = removeTerr(irrS,bIDs,sIDs)

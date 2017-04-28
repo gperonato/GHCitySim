@@ -1,8 +1,8 @@
-# GH-CitySim: an interface to CitySim started by Giuseppe Peronato
+﻿# GH-CitySim: an interface to CitySim started by Giuseppe Peronato
 #
-#  All rights reserved. Ecole polytechnique fdrale de Lausanne (EPFL), Switzerland,
+# © All rights reserved. Ecole polytechnique fédérale de Lausanne (EPFL), Switzerland,
 # Interdisciplinary Laboratory of Performance-Integrated Design (LIPID), 2016-2017
-# Author: Giuseppe Peronato, <giuseppe.peronato@epfl.ch
+# Author: Giuseppe Peronato, <giuseppe.peronato@epfl.ch>
 #
 # CitySim is a software developed and distributed by the
 # Laboratory of Solar Energy and Building Physics (LESO-PB)
@@ -26,9 +26,10 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
         _HBZones: List of Honeybee zones
         _Windows: List of Window ratios for walls (or tree in which each branch is a building): GlazingRatio, GValue, GlazingUValue, OpenableRatio
         _Occupancy: List of (or tree in which each branch is a building): Number of occupants and ScheduleProfileID
-        path: Directory
+        _CSobjs: List of CitySim objects (e.g. climate file, schedules)
+        type: type of simulation (F = Full thermal + SW, I = SW-only). Default = F
+        dir: Directory of simulation
         name: name of the project
-        climatefile: name of climate file (with extension)
         Write: Boolean to write the XML file
         Run: Boolean to start the simulation
     Returns:
@@ -37,7 +38,7 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
 
 ghenv.Component.Name = "Honeybee_CitySim-RunSimulation"
 ghenv.Component.NickName = 'CitySim-RunSimulation'
-ghenv.Component.Message = 'VER 0.2.1\nMAR_27_2017'
+ghenv.Component.Message = 'VER 0.2.2\nAVR_01_2017'
 ghenv.Component.IconDisplayMode = ghenv.Component.IconDisplayMode.application
 ghenv.Component.Category = "Honeybee"
 ghenv.Component.SubCategory = "14 | CitySim"
@@ -62,9 +63,14 @@ import copy
 
 rc.Runtime.HostUtils.DisplayOleAlerts(False)
 
+#Default values
+
+type = "F"
+
 if _Occupancy.BranchCount == 0:
-    print "Add Occupancy"
-    raise SystemExit(0)
+    warning = "Missing Occupancy: Add list or Tree"
+    ghenv.Component.AddRuntimeMessage(gh.GH_RuntimeMessageLevel.Warning, warning)
+    print warning
     
 lb_preparation = sc.sticky["ladybug_Preparation"]()
 hb_reEvaluateHBZones= sc.sticky["honeybee_reEvaluateHBZones"]
@@ -104,8 +110,8 @@ def EPConstructionStr(constructionName):
             return materials
         else:
             warning = "Failed to find " + constructionName + " in library."
-            print warning
-            ghenv.Component.AddRuntimeMessage(gh.GH_RuntimeMessageLevel.Warning, warning)
+            if constructionName != "Interior Wall": #Do not raise exception with interior wall, as this is automatically defined for adjacent srfs
+                ghenv.Component.AddRuntimeMessage(gh.GH_RuntimeMessageLevel.Warning, warning)
             return None, None
             
 def getMaterialProperties(matName):
@@ -164,48 +170,14 @@ def getAttributes(HBZones):
                 type.append('Roof')
             srf.construction = srf.EPConstruction
             materials = EPConstructionStr(srf.construction)
-            srefl.append(str((1 - float(getMaterialProperties(materials[0])[0][-2]))))
+            if srf.BC =="Outdoors" or srf.BC=="Ground":
+                srefl.append(str((1 - float(getMaterialProperties(materials[0])[0][-2]))))
+            else:
+                srefl.append('None')
             BC.append(srf.BC)
         zoneatt.append([type,srefl,BC])    
     attributes.append(zoneatt)
     return attributes
-
-def getextraXML():
-    horizon = ""
-    terrain = ""
-    shading = ""
-    schedule = ""
-    import os.path
-    terrainf = path+name+"_terrain.xml"
-    horizonf = path+name+"_horizon.xml"
-    shadingf = path+name+"_shading.xml"
-    schedulef = path+name+"_schedule.xml"
-    if os.path.isfile(terrainf):
-        file = open(terrainf, 'r')
-        terrain = file.read()
-        file.close()
-    if os.path.isfile(horizonf):
-        file  = open(horizonf, 'r')
-        horizon = file.read()
-        file.close()
-    if os.path.isfile(shadingf):
-        file  = open(shadingf, 'r')
-        shading = file.read()
-        file.close()
-    if os.path.isfile(schedulef):
-        file  = open(schedulef, 'r')
-        schedule = file.read()
-        file.close()
-    #Old code to retrieve XML from input
-    #if len(XML) > 0:
-        #for i in XML:
-            #if i[1:7] == "Ground":
-                #terrain = i
-            #if i[1:9] == "FarField":
-                #horizon = i
-            #if i[1:8] == "Shading":
-                #shading = i
-    return terrain, horizon, shading, schedule
      
 def getLayers(cnstrName):
     return hb_EPMaterialAUX.decomposeEPCnstr(cnstrName.upper())
@@ -273,20 +245,33 @@ def getOccupancy():
        occupancy = tree_to_list(_Occupancy, lambda x: x)
     else:
        print 'Error'
-    return occupancy 
+    return occupancy
+    
+def getCSobjs(CSobjs):
+    climate = ""
+    horizon = ""
+    shading = ""
+    schedule = ""
+    terrain = ""
+    for path in CSobjs:
+        if path != None and path.split(".")[1] == "cli":
+            climate = path
+        elif path != None and path.split(".")[1] == "hor":
+            horizon = path
+        elif path != None and path.split(".")[1] == "shd":
+            shading = path
+        elif path != None and path.split(".")[1] == "sch":
+            schedule = path
+        elif path != None and path.split(".")[1] == "gnd":
+            terrain = path
+    return terrain,horizon,shading,schedule,climate
 
-#Create XML file in CitySim format
-def createXML(geometry,attributes,terrain,horizon,shading,schedule):
+
+#Create XML files in CitySim format
+def createXML(geometry,attributes):
     #Header and default values
-    xml = '''<?xml version="1.0" encoding="ISO-8859-1"?>
-    <CitySim name="test">
-	    <Simulation beginMonth="1" endMonth="12" beginDay="1" endDay="31"/>'''
-
-    xml += '<Climate location="' + climatefile + ' "city="Unknown"/>'
-    xml += "	<District>"
-    xml += horizon
+    xml = ""
     xml += getConLibrary()
-    xml += schedule
     #Windows ratios
     wratios = getWindows()
     #Add geometry to the XML file
@@ -300,18 +285,21 @@ def createXML(geometry,attributes,terrain,horizon,shading,schedule):
 			    <CoolSource beginDay="1" endDay="365">
 				    <HeatPump Pmax="10000000" eta_tech="0.3" Ttarget="5" Tsource="ground" depth="5" alpha="0.0700000003" position="vertical" z1="10" />
 			    </CoolSource>\n'''
+
         #Check if there is a surface with BC=Ground
         GroundFloor = False #default no ground
         for BC in attributes[1][b][2]:
             if BC =="Ground":
                 GroundFloor = True
         xml += '<Zone id="1" volume="{0}" psi="0.2" Tmin="20" Tmax="26" groundFloor="{1}" >'.format(getVolume(b),str(GroundFloor))
+        
         occupancy = getOccupancy()
         if len(occupancy) == 1:
             occ = occupancy[0]
         else:
             occ = occupancy[b]
         xml +=	'<Occupants n="{0}" type="{1}"/>\n'.format(occ[0],occ[1])
+        
         for s in xrange(len(geometry[b])):
             #xml += '<' + attributes[1][b][0][s] + ' id="'+str(s)+'" type="'+ str(EPConstructions.index(thermalZonesPyClasses[b].surfaces[s].EPConstruction))+'" ShortWaveReflectance="' + attributes[1][b][1][s] + '" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">\n'
             if attributes[1][b][0][s] == 'Wall' and len(wratios)>1: #Use windows ratios only for walls
@@ -320,23 +308,33 @@ def createXML(geometry,attributes,terrain,horizon,shading,schedule):
                 windows = wratios[0]
             else:
                 windows = [0,0,0,0] #default values for windows ratios for non-wall surfaces
-            xml += '<{0} id="{1}" type="{2}" ShortWaveReflectance="{3}" GlazingRatio="{4}" GlazingGValue="{5}" GlazingUValue="{6}" OpenableRatio="{7}">\n'.format(attributes[1][b][0][s],s,EPConstructions.index(thermalZonesPyClasses[b].surfaces[s].EPConstruction),attributes[1][b][1][s],windows[0],windows[1],windows[2],windows[3])
-            srfpts = rs.CurvePoints(geometry[b][s])
-            for i in xrange(len(srfpts)):
-                #print '<V' + str(i) + ' x="' + str(srfpts[i][0]) +'" y="' + str(srfpts[i][1]) +'" z="' + str(srfpts[i][2])+'"/> \n'
-                xml+= '<V' + str(i) + ' x="' + str(srfpts[i][0]) +'" y="' + str(srfpts[i][1]) +'" z="' + str(srfpts[i][2])+'"/> \n'
-            xml+= '</' + attributes[1][b][0][s] + '>'
+            
+            if attributes[1][b][2][s] == 'Outdoors' or attributes[1][b][2][s] == 'Ground': #Do not write surface with adjacent BC
+                xml += '<{0} id="{1}" type="{2}" ShortWaveReflectance="{3}" GlazingRatio="{4}" GlazingGValue="{5}" GlazingUValue="{6}" OpenableRatio="{7}">\n'.format(attributes[1][b][0][s],s,EPConstructions.index(thermalZonesPyClasses[b].surfaces[s].EPConstruction),attributes[1][b][1][s],windows[0],windows[1],windows[2],windows[3])
+                srfpts = rs.CurvePoints(geometry[b][s])
+                for i in xrange(len(srfpts)):
+                    #print '<V' + str(i) + ' x="' + str(srfpts[i][0]) +'" y="' + str(srfpts[i][1]) +'" z="' + str(srfpts[i][2])+'"/> \n'
+                    xml+= '<V' + str(i) + ' x="' + str(srfpts[i][0]) +'" y="' + str(srfpts[i][1]) +'" z="' + str(srfpts[i][2])+'"/> \n'
+                xml+= '</' + attributes[1][b][0][s] + '>'
         xml+= '''   </Zone>
                 </Building>'''
-            
-    #Add sample footer to the XML file
-    if len(shading) > 0:
-        xml+= shading
-    if len(terrain) > 0:
-        xml+= terrain
+    return xml
+    
+def createHeader():
+    xml = '''<?xml version="1.0" encoding="ISO-8859-1"?>
+    <CitySim name="test">
+	    <Simulation beginMonth="1" endMonth="12" beginDay="1" endDay="31"/>'''
+
+    xml += '<Climate location="' + climate + ' "city="Unknown"/>'
+    xml += "	<District>"
+    return xml
+    
+def createFooter():
+    xml = ""
     xml+= '''</District>
 		   </CitySim> '''
     return xml
+    
 
 #Write XML file
 def writeXML(xml, path, name):
@@ -345,18 +343,58 @@ def writeXML(xml, path, name):
     out_file.write(xml)
     out_file.close()
 
+terrain,horizon,shading,schedule,climate = getCSobjs(_CSobjs)
+if dir != None:
+    dir += "\\" #Add \ in case is missing
+    
+if climate == "":
+    warning = "Missing climate file: add one as CSobj."
+    ghenv.Component.AddRuntimeMessage(gh.GH_RuntimeMessageLevel.Warning, warning)
+    print warning
+
 if Write:
     geometry = getSurfaces(_HBZones)
     attributes = getAttributes(_HBZones)
-    terrain, horizon,shading,schedule = getextraXML()
-    xml = createXML(geometry,attributes,terrain,horizon,shading,schedule)
-    writeXML(xml,path,name)
+    #terrain, horizon,shading,schedule = getextraXML()
+    xml = createXML(geometry,attributes)
+    writeXML(xml,dir,name+"_main")
+    header = createHeader()
+    footer = createFooter()
+    writeXML(header,dir,name+"_head")
+    writeXML(footer,dir,name+"_foot")
 
-#Run the simulation
+    xmlpath = dir+name+'.xml'
+
+    #Create copy command
+    join = "copy "+dir+name+"_head.xml"
+    if horizon != "":
+        join += "+" + horizon 
+    if schedule != "":
+        join += "+" + schedule
+    else:
+        warning = "Missing occupancy schedule: add one as CSobj."
+        ghenv.Component.AddRuntimeMessage(gh.GH_RuntimeMessageLevel.Warning, warning)
+        print warning
+    join += "+" +dir+name+"_main.xml"
+    if terrain != "":
+        join += "+" + terrain
+    if shading != "":
+        join += "+" + shading
+    join += "+" +dir+name+"_foot.xml"
+    join += " " +dir+name+".xml"
+        
+    #Copy and join files
+    os.chdir(dir)
+    os.system(join)
+    
+
 if Run:
-
-    xmlpath = path+name+'.xml'
-    command = Solver + ' ' + xmlpath
-
-    os.chdir(path)
-    os.system(command)
+    #Create simulation command
+    if type == "F": 
+        simulation = Solver + ' ' + xmlpath
+    elif type =="I":
+        simulation = Solver + ' -I ' + xmlpath
+    #Run the simulation
+    os.chdir(dir)
+    os.system(join)
+    os.system(simulation)

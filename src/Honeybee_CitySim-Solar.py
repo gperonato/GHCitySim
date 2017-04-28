@@ -1,8 +1,8 @@
-# GH-CitySim: an interface to CitySim started by Giuseppe Peronato
+﻿# GH-CitySim: an interface to CitySim started by Giuseppe Peronato
 #
-#  All rights reserved. Ecole polytechnique fdrale de Lausanne (EPFL), Switzerland,
+# © All rights reserved. Ecole polytechnique fédérale de Lausanne (EPFL), Switzerland,
 # Interdisciplinary Laboratory of Performance-Integrated Design (LIPID), 2016-2017
-# Author: Giuseppe Peronato, <giuseppe.peronato@epfl.ch
+# Author: Giuseppe Peronato, <giuseppe.peronato@epfl.ch>
 #
 # CitySim is a software developed and distributed by the
 # Laboratory of Solar Energy and Building Physics (LESO-PB)
@@ -21,12 +21,11 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
 
     
     Args:
-        geometry: Tree of curves {building;surfaces}
-        reflectance: Tree of reflectance (same structure as geometry)
-        path: Directory
+        _Geometry: Tree of curves {building;surfaces}
+        _Reflectance: Tree of reflectance (same structure as geometry)
+        _CSobjs: list of CitySim objects
+        dir: Directory
         name: name of the project
-        climatefile: name of climate file (with extension)
-        XML: extra XML strings (e.g. terrain, far-field obstructions)
         Write: Boolean to write the XML file
         Run: Boolean to start the simulation
     Returns:
@@ -35,7 +34,7 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
 
 ghenv.Component.Name = "Honeybee_CitySim-Solar"
 ghenv.Component.NickName = 'CitySim-Solar'
-ghenv.Component.Message = 'VER 0.0.2\nJAN_19_2017'
+ghenv.Component.Message = 'VER 0.0.3\nAVR_01_2017'
 ghenv.Component.IconDisplayMode = ghenv.Component.IconDisplayMode.application
 ghenv.Component.Category = "Honeybee"
 ghenv.Component.SubCategory = "14 | CitySim"
@@ -56,10 +55,6 @@ import subprocess
 import copy
 
 
-
-
-
-
 # written by Giulio Piacentino, giulio@mcneel.com
 def tree_to_list(input, retrieve_base = lambda x: x[0]):
     """Returns a list representation of a Grasshopper DataTree"""
@@ -77,53 +72,25 @@ def tree_to_list(input, retrieve_base = lambda x: x[0]):
         extend_at(path, 0, input.Branch(path), all)
     return retrieve_base(all)
     
-geometry = tree_to_list(geometry, lambda x: x)
-reflectance = tree_to_list(reflectance, lambda x: x)
-
-
-def getextraXML():
+def getCSobjs(CSobjs):
+    climate = ""
     horizon = ""
-    terrain = ""
     shading = ""
-    import os.path
-    terrainf = path+name+"_terrain.xml"
-    horizonf = path+name+"_horizon.xml"
-    shadingf = path+name+"_shading.xml"
-    if os.path.isfile(terrainf):
-        file = file = open(terrainf, 'r')
-        terrain = file.read()
-        file.close()
-    if os.path.isfile(horizonf):
-        file = file = open(horizonf, 'r')
-        horizon = file.read()
-        file.close()
-    if os.path.isfile(shadingf):
-        file = file = open(shadingf, 'r')
-        shading = file.read()
-        file.close()
-    #Old code to retrieve XML from input
-    #if len(XML) > 0:
-        #for i in XML:
-            #if i[1:7] == "Ground":
-                #terrain = i
-            #if i[1:9] == "FarField":
-                #horizon = i
-            #if i[1:8] == "Shading":
-                #shading = i
-    return terrain, horizon, shading
-        
+    terrain = ""
+    for path in CSobjs:
+        if path != None and path.split(".")[1] == "cli":
+            climate = path
+        elif path != None and path.split(".")[1] == "hor":
+            horizon = path
+        elif path != None and path.split(".")[1] == "shd":
+            shading = path
+        elif path != None and path.split(".")[1] == "gnd":
+            terrain = path
+    return terrain,horizon,shading,climate
 
-#Create XML file in CitySim format
-def createXML(geometry,terrain,horizon,shading,reflectance):
-    #Header and default values
-    xml = '''<?xml version="1.0" encoding="ISO-8859-1"?>
-    <CitySim name="test">
-	    <Simulation beginMonth="1" endMonth="12" beginDay="1" endDay="31"/>'''
-
-    xml += '<Climate location="' + climatefile + ' "city="Unknown"/>'
-    xml += "	<District>"
-    xml += horizon
-    xml += '''
+#Create XML files in CitySim format
+def createXML(geometry,reflectance):
+    xml = '''
 		    <Composite id="21" name="Simple wall" category="Wall">
 			    <Layer Thickness="0.1500" Conductivity="200.0000" Cp="418" Density="8900" nre="0" gwp="0" ubp="0"/>
 		    </Composite>
@@ -154,16 +121,22 @@ def createXML(geometry,terrain,horizon,shading,reflectance):
             #xml+= '</' + attributes[1][b][0][s] + '>'
         xml+= '''   </Zone>
                 </Building>'''
-            
-    #Add sample footer to the XML file
-    if len(shading) > 0:
-        xml+= shading
-    if len(terrain) > 0:
-        xml+= terrain
+    return xml
+
+def createHeader():
+    xml = '''<?xml version="1.0" encoding="ISO-8859-1"?>
+    <CitySim name="test">
+	    <Simulation beginMonth="1" endMonth="12" beginDay="1" endDay="31"/>'''
+
+    xml += '<Climate location="' + climate + ' "city="Unknown"/>'
+    xml += "	<District>"
+    return xml
+    
+def createFooter():
+    xml = ""
     xml+= '''</District>
 		   </CitySim> '''
     return xml
-
 
 
 #Write XML file
@@ -172,18 +145,47 @@ def writeXML(xml, path, name):
     out_file = open(xmlpath,"w")
     out_file.write(xml)
     out_file.close()
+    
+geometry = tree_to_list(geometry, lambda x: x)
+reflectance = tree_to_list(reflectance, lambda x: x)
 
+terrain,horizon,shading,climate = getCSobjs(_CSobjs)
+if dir != None:
+    dir += "\\" #Add \ in case is missing
+
+if climate == "":
+    warning = "Missing climate file: add one as CSobj."
+    ghenv.Component.AddRuntimeMessage(gh.GH_RuntimeMessageLevel.Warning, warning)
+    print warning
+    
 if Write:
-    terrain, horizon,shading = getextraXML()
-    xml = createXML(geometry,terrain,horizon,shading,reflectance)
-    writeXML(xml,path,name)
+    xml = createXML(geometry,reflectance)
+    writeXML(xml,dir,name+"_main")
+    header = createHeader()
+    footer = createFooter()
+    writeXML(header,dir,name+"_head")
+    writeXML(footer,dir,name+"_foot")
+
+    xmlpath = dir+name+'.xml'
+
+    #Create copy command
+    join = "copy "+dir+name+"_head.xml"
+    if horizon != "":
+        join += "+" + horizon 
+    join += "+" +dir+name+"_main.xml"
+    if terrain != "":
+        join += "+" + terrain
+    if shading != "":
+        join += "+" + shading
+    join += "+" +dir+name+"_foot.xml"
+    join += " " +dir+name+".xml"
+    
+    #Merge files
+    os.chdir(dir)
+    os.system(join)
 
 #Run the simulation
 if Run:
-
-    xmlpath = path+name+'.xml'
-    command = Solver + ' -I ' + xmlpath #Runs only irradiation simulation with -I
-
-    import os
-    os.chdir(path)
-    os.system(command)
+    simulation = Solver + ' -I ' + xmlpath #only solar irradiation
+    os.chdir(dir)
+    os.system(simulation)

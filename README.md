@@ -16,7 +16,7 @@ In the resources folder you will find:
 
 About CitySim
 ========================================
-CitySim is a software developed and distributed by the Laboratory of Solar Energy and Building Physics (LESO-PB).
+CitySim is a software developed and distributed by the Laboratory of Solar Energy and Building Physics (LESO-PB) of the Ecole polytechnique fédérale de Lausanne (EPFL).
 The CitySim Solver can be downloaded from [here](https://citysim.epfl.ch).
 
 
@@ -39,8 +39,12 @@ Licence
 ========================================
 GHCitySim: set of Grasshopper components for interfacing with CitySim, started by Giuseppe Peronato
  
-Copyright (c) 2016-2017, Ecole polytechnique fédérale de Lausanne (EPFL) - Laboratory of Integrated Performance in Design (LIPID)
+Copyright (c) 2016-2017, Ecole polytechnique fédérale de Lausanne (EPFL)
+
+Laboratory of Integrated Performance in Design (LIPID)
+
 Developer: Giuseppe Peronato, giuseppe.peronato@epfl.ch
+
 
 GHCitySim is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version. 
  

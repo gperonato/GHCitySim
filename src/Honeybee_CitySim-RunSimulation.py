@@ -2,7 +2,7 @@
 #
 # © All rights reserved. Ecole polytechnique fédérale de Lausanne (EPFL), Switzerland,
 # Laboratory of Integrated Performance in Design (LIPID), 2016-2017
-# Author: Giuseppe Peronato, <giuseppe.peronato@epfl.ch
+# Author: Giuseppe Peronato, <giuseppe.peronato@epfl.ch>
 #
 # CitySim is a software developed and distributed by the
 # Laboratory of Solar Energy and Building Physics (LESO-PB)

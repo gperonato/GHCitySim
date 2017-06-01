@@ -35,7 +35,7 @@ Please cite the following paper ([PDF](https://infoscience.epfl.ch/record/228832
 	}
 
 
-Licence
+License
 ========================================
 GHCitySim: set of Grasshopper components for interfacing with CitySim, started by Giuseppe Peronato  
 Copyright (c) 2016-2017, Ecole polytechnique fédérale de Lausanne (EPFL)  

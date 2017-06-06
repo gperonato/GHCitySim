@@ -27,7 +27,8 @@ Please cite the following paper ([PDF](https://infoscience.epfl.ch/record/228832
     
 	@inproceedings{peronato_integrating_2017,
 		address = {Edinburgh},
-		title = {Integrating urban energy simulation in a parametric environment: a {Grasshopper} interface for {CitySim}},
+		title = {Integrating urban energy simulation in a parametric environment:
+		a {Grasshopper} interface for {CitySim}},
 		url = {https://infoscience.epfl.ch/record/228832?ln=en},
 		booktitle = {Proceedings of {PLEA} 2017},
 		author = {Peronato, Giuseppe and Kämpf, Jérôme and Rey, Emmanuel and Andersen, Marilyne},

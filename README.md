@@ -15,13 +15,13 @@ In the resources folder you will find:
 
 
 About CitySim
-========================================
+---------------------
 CitySim is a software developed and distributed by the Laboratory of Solar Energy and Building Physics (LESO-PB) of the Ecole polytechnique fédérale de Lausanne (EPFL).
 The CitySim Solver can be downloaded from [here](https://citysim.epfl.ch).
 
 
 Citation
-========================================
+---------------------
 GHCitySim is free to use. You are kindly invited to acknowledge its use by citing it in a research paper you are writing, reports, and/or other applicable materials.
 Please cite the following paper ([PDF](https://infoscience.epfl.ch/record/228832/files/Peronato_PLEA2017_paper_final_1.pdf)):
     
@@ -36,7 +36,7 @@ Please cite the following paper ([PDF](https://infoscience.epfl.ch/record/228832
 
 
 License
-========================================
+---------------------
 GHCitySim: set of Grasshopper components for interfacing with CitySim, started by Giuseppe Peronato  
 Copyright (c) 2016-2017, Ecole polytechnique fédérale de Lausanne (EPFL)  
 Laboratory of Integrated Performance in Design (LIPID)  
@@ -53,19 +53,19 @@ You should have received a copy of the GNU General Public License along with GHC
 
 
 Useful links
-========================================
+---------------------
 [CitySim webpage ](http://citysim.epfl.ch)
 
 
 Contributors(a-z):
-========================================
+---------------------
 [Aymeric Delmas](https://github.com/AymericDelmas)
 
 [Giuseppe Peronato](https://github.com/gperonato)
 
 
 Acknowledgments
-========================================
+---------------------
 These components have been developed in the framework of the [ACTIVE INTERFACES](http://www.activeinterfaces.ch) research project, which is part of the National Research Programme "Energy Turnaround" (NRP 70) of the Swiss National Science Foundation (SNSF). Further information on the National Research Programme can be found at www.nrp70.ch.
 
 

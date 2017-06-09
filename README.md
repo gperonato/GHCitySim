@@ -69,3 +69,7 @@ Acknowledgments
 ---------------------
 These components have been developed in the framework of the [ACTIVE INTERFACES](http://www.activeinterfaces.ch) research project, which is part of the National Research Programme "Energy Turnaround" (NRP 70) of the Swiss National Science Foundation (SNSF). Further information on the National Research Programme can be found at www.nrp70.ch.
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master

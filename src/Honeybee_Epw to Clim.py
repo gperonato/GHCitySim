@@ -1,8 +1,8 @@
 ﻿# GH-CitySim: an interface to CitySim started by Giuseppe Peronato
 #
 # © All rights reserved. Ecole polytechnique fédérale de Lausanne (EPFL), Switzerland,
-# Laboratory of Integrated Performance in Design (LIPID), 2016-2017
-# Developer: Giuseppe Peronato, <giuseppe.peronato@epfl.ch>
+# Interdisciplinary Laboratory of Performance-Integrated Design (LIPID), 2016-2017
+# Author: Giuseppe Peronato, <giuseppe.peronato@epfl.ch
 #
 # CitySim is a software developed and distributed by the
 # Laboratory of Solar Energy and Building Physics (LESO-PB)
@@ -54,6 +54,10 @@ except: pass
 
 
 def main(_epw_file):
+    #This function has been copied (with some adaptations)
+    #from Ladybug's "Import epw" component, version VER 0.0.63\nAUG_10_2016'
+    #All credits to the authors.
+    
     # import the classes
     if sc.sticky.has_key('ladybug_release'):
         try:

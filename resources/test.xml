@@ -1,0 +1,2037 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+    <CitySim name="test">
+	    <Simulation beginMonth="1" endMonth="12" beginDay="1" endDay="31"/><Climate location="C:\Users\peronato\Desktop\CitySimGH\neuchatel.cli "city="Unknown"/>	<District><OccupancyDayProfile id="0" p1="1.0" p2="1.0" p3="1.0" p4="1.0" p5="1.0" p6="1.0" p7="1.0" p8="1.0" p9="1.0" p10="1.0" p11="1.0" p12="1.0" p13="1.0" p14="1.0" p15="1.0" p16="1.0" p17="1.0" p18="1.0" p19="1.0" p20="1.0" p21="1.0" p22="1.0" p23="1.0" p24="1.0" />
+<OccupancyYearProfile id="0" d1="0" d2="0" d3="0" d4="0" d5="0" d6="0" d7="0" d8="0" d9="0" d10="0" d11="0" d12="0" d13="0" d14="0" d15="0" d16="0" d17="0" d18="0" d19="0" d20="0" d21="0" d22="0" d23="0" d24="0" d25="0" d26="0" d27="0" d28="0" d29="0" d30="0" d31="0" d32="0" d33="0" d34="0" d35="0" d36="0" d37="0" d38="0" d39="0" d40="0" d41="0" d42="0" d43="0" d44="0" d45="0" d46="0" d47="0" d48="0" d49="0" d50="0" d51="0" d52="0" d53="0" d54="0" d55="0" d56="0" d57="0" d58="0" d59="0" d60="0" d61="0" d62="0" d63="0" d64="0" d65="0" d66="0" d67="0" d68="0" d69="0" d70="0" d71="0" d72="0" d73="0" d74="0" d75="0" d76="0" d77="0" d78="0" d79="0" d80="0" d81="0" d82="0" d83="0" d84="0" d85="0" d86="0" d87="0" d88="0" d89="0" d90="0" d91="0" d92="0" d93="0" d94="0" d95="0" d96="0" d97="0" d98="0" d99="0" d100="0" d101="0" d102="0" d103="0" d104="0" d105="0" d106="0" d107="0" d108="0" d109="0" d110="0" d111="0" d112="0" d113="0" d114="0" d115="0" d116="0" d117="0" d118="0" d119="0" d120="0" d121="0" d122="0" d123="0" d124="0" d125="0" d126="0" d127="0" d128="0" d129="0" d130="0" d131="0" d132="0" d133="0" d134="0" d135="0" d136="0" d137="0" d138="0" d139="0" d140="0" d141="0" d142="0" d143="0" d144="0" d145="0" d146="0" d147="0" d148="0" d149="0" d150="0" d151="0" d152="0" d153="0" d154="0" d155="0" d156="0" d157="0" d158="0" d159="0" d160="0" d161="0" d162="0" d163="0" d164="0" d165="0" d166="0" d167="0" d168="0" d169="0" d170="0" d171="0" d172="0" d173="0" d174="0" d175="0" d176="0" d177="0" d178="0" d179="0" d180="0" d181="0" d182="0" d183="0" d184="0" d185="0" d186="0" d187="0" d188="0" d189="0" d190="0" d191="0" d192="0" d193="0" d194="0" d195="0" d196="0" d197="0" d198="0" d199="0" d200="0" d201="0" d202="0" d203="0" d204="0" d205="0" d206="0" d207="0" d208="0" d209="0" d210="0" d211="0" d212="0" d213="0" d214="0" d215="0" d216="0" d217="0" d218="0" d219="0" d220="0" d221="0" d222="0" d223="0" d224="0" d225="0" d226="0" d227="0" d228="0" d229="0" d230="0" d231="0" d232="0" d233="0" d234="0" d235="0" d236="0" d237="0" d238="0" d239="0" d240="0" d241="0" d242="0" d243="0" d244="0" d245="0" d246="0" d247="0" d248="0" d249="0" d250="0" d251="0" d252="0" d253="0" d254="0" d255="0" d256="0" d257="0" d258="0" d259="0" d260="0" d261="0" d262="0" d263="0" d264="0" d265="0" d266="0" d267="0" d268="0" d269="0" d270="0" d271="0" d272="0" d273="0" d274="0" d275="0" d276="0" d277="0" d278="0" d279="0" d280="0" d281="0" d282="0" d283="0" d284="0" d285="0" d286="0" d287="0" d288="0" d289="0" d290="0" d291="0" d292="0" d293="0" d294="0" d295="0" d296="0" d297="0" d298="0" d299="0" d300="0" d301="0" d302="0" d303="0" d304="0" d305="0" d306="0" d307="0" d308="0" d309="0" d310="0" d311="0" d312="0" d313="0" d314="0" d315="0" d316="0" d317="0" d318="0" d319="0" d320="0" d321="0" d322="0" d323="0" d324="0" d325="0" d326="0" d327="0" d328="0" d329="0" d330="0" d331="0" d332="0" d333="0" d334="0" d335="0" d336="0" d337="0" d338="0" d339="0" d340="0" d341="0" d342="0" d343="0" d344="0" d345="0" d346="0" d347="0" d348="0" d349="0" d350="0" d351="0" d352="0" d353="0" d354="0" d355="0" d356="0" d357="0" d358="0" d359="0" d360="0" d361="0" d362="0" d363="0" d364="0" d365="0" />
+<Composite id="0" name="AIR WALL">
+<Layer Thickness="0.01" Conductivity="0.6" Cp="1000" Density="800"/>
+</Composite>
+<Composite id="1" name="ASHRAE 189.1-2009 ATTICFLOOR CLIMATEZONE 1-8">
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+<Layer Thickness="0.2379" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="2" name="ASHRAE 189.1-2009 EXTROOF IEAD CLIMATEZONE 1">
+<Layer Thickness="0.0095" Conductivity="0.16" Cp="1460" Density="1121.29"/>
+<Layer Thickness="0.1693" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="3" name="ASHRAE 189.1-2009 EXTROOF IEAD CLIMATEZONE 2-5">
+<Layer Thickness="0.0095" Conductivity="0.16" Cp="1460" Density="1121.29"/>
+<Layer Thickness="0.2105" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="4" name="ASHRAE 189.1-2009 EXTROOF IEAD CLIMATEZONE 6">
+<Layer Thickness="0.0095" Conductivity="0.16" Cp="1460" Density="1121.29"/>
+<Layer Thickness="0.260100000000001" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="5" name="ASHRAE 189.1-2009 EXTROOF IEAD CLIMATEZONE 7-8">
+<Layer Thickness="0.0095" Conductivity="0.16" Cp="1460" Density="1121.29"/>
+<Layer Thickness="0.2941" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="6" name="ASHRAE 189.1-2009 EXTROOF METAL CLIMATEZONE 1">
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+<Layer Thickness="0.1868" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="7" name="ASHRAE 189.1-2009 EXTROOF METAL CLIMATEZONE 2-5">
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+<Layer Thickness="0.2358" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="8" name="ASHRAE 189.1-2009 EXTROOF METAL CLIMATEZONE 6">
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+<Layer Thickness="0.263" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="9" name="ASHRAE 189.1-2009 EXTROOF METAL CLIMATEZONE 7-8">
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+<Layer Thickness="0.297000000000001" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="10" name="ASHRAE 189.1-2009 EXTWALL MASS CLIMATEZONE 1">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2033" Conductivity="1.72959999999999" Cp="836.999999999999" Density="2242.99999999999"/>
+<Layer Thickness="0.0337000000000001" Conductivity="0.0432" Cp="836.999999999999" Density="91"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="11" name="ASHRAE 189.1-2009 EXTWALL MASS CLIMATEZONE 2">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2033" Conductivity="1.72959999999999" Cp="836.999999999999" Density="2242.99999999999"/>
+<Layer Thickness="0.0452" Conductivity="0.0432" Cp="836.999999999999" Density="91"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="12" name="ASHRAE 189.1-2009 EXTWALL MASS CLIMATEZONE 3">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2033" Conductivity="1.72959999999999" Cp="836.999999999999" Density="2242.99999999999"/>
+<Layer Thickness="0.0565999999999999" Conductivity="0.0432" Cp="836.999999999999" Density="91"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="13" name="ASHRAE 189.1-2009 EXTWALL MASS CLIMATEZONE 4">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2033" Conductivity="1.72959999999999" Cp="836.999999999999" Density="2242.99999999999"/>
+<Layer Thickness="0.0680999999999999" Conductivity="0.0432" Cp="836.999999999999" Density="91"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="14" name="ASHRAE 189.1-2009 EXTWALL MASS CLIMATEZONE 5">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2033" Conductivity="1.72959999999999" Cp="836.999999999999" Density="2242.99999999999"/>
+<Layer Thickness="0.0793999999999999" Conductivity="0.0432" Cp="836.999999999999" Density="91"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="15" name="ASHRAE 189.1-2009 EXTWALL MASS CLIMATEZONE 6">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2033" Conductivity="1.72959999999999" Cp="836.999999999999" Density="2242.99999999999"/>
+<Layer Thickness="0.0913999999999999" Conductivity="0.0432" Cp="836.999999999999" Density="91"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="16" name="ASHRAE 189.1-2009 EXTWALL MASS CLIMATEZONE 7-8">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2033" Conductivity="1.72959999999999" Cp="836.999999999999" Density="2242.99999999999"/>
+<Layer Thickness="0.1104" Conductivity="0.0432" Cp="836.999999999999" Density="91"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="17" name="ASHRAE 189.1-2009 EXTWALL MASS CLIMATEZONE ALT-RES 1">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2033" Conductivity="1.72959999999999" Cp="836.999999999999" Density="2242.99999999999"/>
+<Layer Thickness="0.0452" Conductivity="0.0432" Cp="836.999999999999" Density="91"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="18" name="ASHRAE 189.1-2009 EXTWALL MASS CLIMATEZONE ALT-RES 2">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2033" Conductivity="1.72959999999999" Cp="836.999999999999" Density="2242.99999999999"/>
+<Layer Thickness="0.0565999999999999" Conductivity="0.0432" Cp="836.999999999999" Density="91"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="19" name="ASHRAE 189.1-2009 EXTWALL MASS CLIMATEZONE ALT-RES 3">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2033" Conductivity="1.72959999999999" Cp="836.999999999999" Density="2242.99999999999"/>
+<Layer Thickness="0.0680999999999999" Conductivity="0.0432" Cp="836.999999999999" Density="91"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="20" name="ASHRAE 189.1-2009 EXTWALL MASS CLIMATEZONE ALT-RES 4">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2033" Conductivity="1.72959999999999" Cp="836.999999999999" Density="2242.99999999999"/>
+<Layer Thickness="0.0793999999999999" Conductivity="0.0432" Cp="836.999999999999" Density="91"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="21" name="ASHRAE 189.1-2009 EXTWALL MASS CLIMATEZONE ALT-RES 5">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2033" Conductivity="1.72959999999999" Cp="836.999999999999" Density="2242.99999999999"/>
+<Layer Thickness="0.0913999999999999" Conductivity="0.0432" Cp="836.999999999999" Density="91"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="22" name="ASHRAE 189.1-2009 EXTWALL MASS CLIMATEZONE ALT-RES 6">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2033" Conductivity="1.72959999999999" Cp="836.999999999999" Density="2242.99999999999"/>
+<Layer Thickness="0.1104" Conductivity="0.0432" Cp="836.999999999999" Density="91"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="23" name="ASHRAE 189.1-2009 EXTWALL MASS CLIMATEZONE ALT-RES 7">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2033" Conductivity="1.72959999999999" Cp="836.999999999999" Density="2242.99999999999"/>
+<Layer Thickness="0.1104" Conductivity="0.0432" Cp="836.999999999999" Density="91"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="24" name="ASHRAE 189.1-2009 EXTWALL MASS CLIMATEZONE ALT-RES 8">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2033" Conductivity="1.72959999999999" Cp="836.999999999999" Density="2242.99999999999"/>
+<Layer Thickness="0.1634" Conductivity="0.0432" Cp="836.999999999999" Density="91"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="25" name="ASHRAE 189.1-2009 EXTWALL METAL CLIMATEZONE 1-3">
+<Layer Thickness="0.0015" Conductivity="44.9599999999999" Cp="410" Density="7688.86"/>
+<Layer Thickness="0.0897000000000001" Conductivity="0.045" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="26" name="ASHRAE 189.1-2009 EXTWALL METAL CLIMATEZONE 4-8">
+<Layer Thickness="0.0015" Conductivity="44.9599999999999" Cp="410" Density="7688.86"/>
+<Layer Thickness="0.1396" Conductivity="0.045" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="27" name="ASHRAE 189.1-2009 EXTWALL STEELFRAME CLIMATEZONE 1-3" Uvalue="10.0">
+</Composite>
+<Composite id="28" name="ASHRAE 189.1-2009 EXTWALL STEELFRAME CLIMATEZONE 4-8" Uvalue="10.0">
+</Composite>
+<Composite id="29" name="ASHRAE 189.1-2009 EXTWALL WOODFRAME CLIMATEZONE 1-4">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.1104" Conductivity="0.045" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="30" name="ASHRAE 189.1-2009 EXTWALL WOODFRAME CLIMATEZONE 5">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.1405" Conductivity="0.045" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="31" name="ASHRAE 189.1-2009 EXTWALL WOODFRAME CLIMATEZONE 6-8">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.1583" Conductivity="0.045" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="39" name="ASHRAE 90.1-2004 ATTICFLOOR CLIMATEZONE 1-5">
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+<Layer Thickness="0.302609558350618" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="40" name="ASHRAE 90.1-2004 ATTICFLOOR CLIMATEZONE 6-8">
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+<Layer Thickness="0.30260955835062" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="41" name="ASHRAE 90.1-2004 EXTROOF IEAD CLIMATEZONE 1-4">
+<Layer Thickness="0.0095" Conductivity="0.16" Cp="1460" Density="1121.29"/>
+<Layer Thickness="0.124663450809702" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="42" name="ASHRAE 90.1-2004 EXTROOF IEAD CLIMATEZONE 5-6">
+<Layer Thickness="0.0095" Conductivity="0.16" Cp="1460" Density="1121.29"/>
+<Layer Thickness="0.127338688569477" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="43" name="ASHRAE 90.1-2004 EXTROOF IEAD CLIMATEZONE 5-6 1">
+<Layer Thickness="0.0095" Conductivity="0.16" Cp="1460" Density="1121.29"/>
+<Layer Thickness="0.127338688569477" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="44" name="ASHRAE 90.1-2004 EXTROOF IEAD CLIMATEZONE 7">
+<Layer Thickness="0.0095" Conductivity="0.16" Cp="1460" Density="1121.29"/>
+<Layer Thickness="0.124663450809702" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="45" name="ASHRAE 90.1-2004 EXTROOF IEAD CLIMATEZONE 8">
+<Layer Thickness="0.0095" Conductivity="0.16" Cp="1460" Density="1121.29"/>
+<Layer Thickness="0.170145232344671" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="46" name="ASHRAE 90.1-2004 EXTROOF METAL CLIMATEZONE 1">
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="47" name="ASHRAE 90.1-2004 EXTROOF METAL CLIMATEZONE 2">
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+<Layer Thickness="0.0422673301906313" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="48" name="ASHRAE 90.1-2004 EXTROOF METAL CLIMATEZONE 3-4">
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+<Layer Thickness="0.0795588880494838" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="49" name="ASHRAE 90.1-2004 EXTROOF METAL CLIMATEZONE 5-6">
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+<Layer Thickness="0.0822341258092582" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="50" name="ASHRAE 90.1-2004 EXTROOF METAL CLIMATEZONE 7">
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+<Layer Thickness="0.0795588880494838" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="51" name="ASHRAE 90.1-2004 EXTROOF METAL CLIMATEZONE 8">
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+<Layer Thickness="0.113125446059399" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="52" name="ASHRAE 90.1-2004 EXTWALL MASS CLIMATEZONE 1-2">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="53" name="ASHRAE 90.1-2004 EXTWALL MASS CLIMATEZONE 3-4">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0365394788793099" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="54" name="ASHRAE 90.1-2004 EXTWALL MASS CLIMATEZONE 5">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0495494599433394" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="55" name="ASHRAE 90.1-2004 EXTWALL MASS CLIMATEZONE 6">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0623673293364368" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="56" name="ASHRAE 90.1-2004 EXTWALL MASS CLIMATEZONE 7">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0752751486901879" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="57" name="ASHRAE 90.1-2004 EXTWALL MASS CLIMATEZONE 8">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0872609809472425" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="58" name="ASHRAE 90.1-2004 EXTWALL MASS CLIMATEZONE ALT-RES 1-2">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0365394788793099" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="59" name="ASHRAE 90.1-2004 EXTWALL MASS CLIMATEZONE ALT-RES 3">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0495494599433394" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="60" name="ASHRAE 90.1-2004 EXTWALL MASS CLIMATEZONE ALT-RES 4">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0623673293364368" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="61" name="ASHRAE 90.1-2004 EXTWALL MASS CLIMATEZONE ALT-RES 5-6">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0752751486901879" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="62" name="ASHRAE 90.1-2004 EXTWALL MASS CLIMATEZONE ALT-RES 7">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0872609809472425" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="63" name="ASHRAE 90.1-2004 EXTWALL MASS CLIMATEZONE ALT-RES 8">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.100934958592615" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="64" name="ASHRAE 90.1-2004 EXTWALL METAL CLIMATEZONE 1">
+<Layer Thickness="0.0015" Conductivity="44.9599999999999" Cp="410" Density="7688.86"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="65" name="ASHRAE 90.1-2004 EXTWALL METAL CLIMATEZONE 2-3">
+<Layer Thickness="0.0015" Conductivity="44.9599999999999" Cp="410" Density="7688.86"/>
+<Layer Thickness="0.0262895733787478" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="66" name="ASHRAE 90.1-2004 EXTWALL METAL CLIMATEZONE 4">
+<Layer Thickness="0.0015" Conductivity="44.9599999999999" Cp="410" Density="7688.86"/>
+<Layer Thickness="0.0437899773880745" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="67" name="ASHRAE 90.1-2004 EXTWALL METAL CLIMATEZONE 5">
+<Layer Thickness="0.0015" Conductivity="44.9599999999999" Cp="410" Density="7688.86"/>
+<Layer Thickness="0.0495494599433394" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="68" name="ASHRAE 90.1-2004 EXTWALL METAL CLIMATEZONE 6-8">
+<Layer Thickness="0.0015" Conductivity="44.9599999999999" Cp="410" Density="7688.86"/>
+<Layer Thickness="0.0557583952804708" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="69" name="ASHRAE 90.1-2004 EXTWALL STEELFRAME CLIMATEZONE 1-4">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.0539159052000001" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="70" name="ASHRAE 90.1-2004 EXTWALL STEELFRAME CLIMATEZONE 5-6">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.0870564552646046" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="71" name="ASHRAE 90.1-2004 EXTWALL STEELFRAME CLIMATEZONE 7-8">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.119161363096001" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="72" name="ASHRAE 90.1-2004 EXTWALL STEELFRAME CLIMATEZONE ALT-RES 3">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.0870564552646046" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="73" name="ASHRAE 90.1-2004 EXTWALL STEELFRAME CLIMATEZONE ALT-RES 4-6">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.119161363096001" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="74" name="ASHRAE 90.1-2004 EXTWALL STEELFRAME CLIMATEZONE ALT-RES 8">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.14122619066012" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="75" name="ASHRAE 90.1-2004 EXTWALL WOODFRAME CLIMATEZONE 1-7">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.0812847864409826" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="76" name="ASHRAE 90.1-2004 EXTWALL WOODFRAME CLIMATEZONE 8">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.153532499715495" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="90" name="ASHRAE 90.1-2007 ATTICFLOOR CLIMATEZONE 1">
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+<Layer Thickness="0.2367936460206" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="91" name="ASHRAE 90.1-2007 ATTICFLOOR CLIMATEZONE 1-2 SEMIHEATED">
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+<Layer Thickness="0.0895235831983389" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="92" name="ASHRAE 90.1-2007 ATTICFLOOR CLIMATEZONE 2-7">
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+<Layer Thickness="0.302595163414" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="93" name="ASHRAE 90.1-2007 ATTICFLOOR CLIMATEZONE 3-5 SEMIHEATED">
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+<Layer Thickness="0.14580664213431" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="94" name="ASHRAE 90.1-2007 ATTICFLOOR CLIMATEZONE 6-8 SEMIHEATED">
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+<Layer Thickness="0.2367936460206" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="95" name="ASHRAE 90.1-2007 ATTICFLOOR CLIMATEZONE 8">
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+<Layer Thickness="0.393911555076" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="96" name="ASHRAE 90.1-2007 EXTROOF IEAD CLIMATEZONE 1">
+<Layer Thickness="0.0095" Conductivity="0.16" Cp="1460" Density="1121.29"/>
+<Layer Thickness="0.127332647972538" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="97" name="ASHRAE 90.1-2007 EXTROOF IEAD CLIMATEZONE 1-2 SEMIHEATED">
+<Layer Thickness="0.0095" Conductivity="0.16" Cp="1460" Density="1121.29"/>
+<Layer Thickness="0.0299424597486326" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="98" name="ASHRAE 90.1-2007 EXTROOF IEAD CLIMATEZONE 2-8">
+<Layer Thickness="0.0095" Conductivity="0.16" Cp="1460" Density="1121.29"/>
+<Layer Thickness="0.170137206506431" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="99" name="ASHRAE 90.1-2007 EXTROOF IEAD CLIMATEZONE 3-4 SEMIHEATED">
+<Layer Thickness="0.0095" Conductivity="0.16" Cp="1460" Density="1121.29"/>
+<Layer Thickness="0.0402389797417249" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="100" name="ASHRAE 90.1-2007 EXTROOF IEAD CLIMATEZONE 5 SEMIHEATED">
+<Layer Thickness="0.0095" Conductivity="0.16" Cp="1460" Density="1121.29"/>
+<Layer Thickness="0.0628740186509094" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="101" name="ASHRAE 90.1-2007 EXTROOF IEAD CLIMATEZONE 6-7 SEMIHEATED">
+<Layer Thickness="0.0095" Conductivity="0.16" Cp="1460" Density="1121.29"/>
+<Layer Thickness="0.0831472972278731" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="102" name="ASHRAE 90.1-2007 EXTROOF IEAD CLIMATEZONE 8 SEMIHEATED">
+<Layer Thickness="0.0095" Conductivity="0.16" Cp="1460" Density="1121.29"/>
+<Layer Thickness="0.127332647972538" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="103" name="ASHRAE 90.1-2007 EXTROOF METAL CLIMATEZONE 1 SEMIHEATED">
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="104" name="ASHRAE 90.1-2007 EXTROOF METAL CLIMATEZONE 1-7">
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+<Layer Thickness="0.1260257871656" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="105" name="ASHRAE 90.1-2007 EXTROOF METAL CLIMATEZONE 2 SEMIHEATED">
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+<Layer Thickness="0.0449388504574" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="106" name="ASHRAE 90.1-2007 EXTROOF METAL CLIMATEZONE 3-7 SEMIHEATED">
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+<Layer Thickness="0.0822286788494" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="107" name="ASHRAE 90.1-2007 EXTROOF METAL CLIMATEZONE 8">
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+<Layer Thickness="0.169375986241" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="108" name="ASHRAE 90.1-2007 EXTROOF METAL CLIMATEZONE 8 SEMIHEATED">
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+<Layer Thickness="0.1131185664472" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="109" name="ASHRAE 90.1-2007 EXTWALL MASS CLIMATEZONE 1">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="110" name="ASHRAE 90.1-2007 EXTWALL MASS CLIMATEZONE 1-4 SEMIHEATED">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="111" name="ASHRAE 90.1-2007 EXTWALL MASS CLIMATEZONE 2">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0365371685816" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="112" name="ASHRAE 90.1-2007 EXTWALL MASS CLIMATEZONE 3">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0495465462712" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="113" name="ASHRAE 90.1-2007 EXTWALL MASS CLIMATEZONE 4">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0623638212208" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="114" name="ASHRAE 90.1-2007 EXTWALL MASS CLIMATEZONE 5">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0752710419392" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="115" name="ASHRAE 90.1-2007 EXTWALL MASS CLIMATEZONE 5-6 SEMIHEATED">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0365371685816" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="116" name="ASHRAE 90.1-2007 EXTWALL MASS CLIMATEZONE 6">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0872563183242" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="117" name="ASHRAE 90.1-2007 EXTWALL MASS CLIMATEZONE 7 SEMIHEATED">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0495465462712" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="118" name="ASHRAE 90.1-2007 EXTWALL MASS CLIMATEZONE 7-8">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.1009296618182" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="119" name="ASHRAE 90.1-2007 EXTWALL MASS CLIMATEZONE 8 SEMIHEATED">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0623638212208" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="120" name="ASHRAE 90.1-2007 EXTWALL MASS CLIMATEZONE ALT-RES 1">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0365371685816" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="121" name="ASHRAE 90.1-2007 EXTWALL MASS CLIMATEZONE ALT-RES 2">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0495465462712" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="122" name="ASHRAE 90.1-2007 EXTWALL MASS CLIMATEZONE ALT-RES 3">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0623638212208" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="123" name="ASHRAE 90.1-2007 EXTWALL MASS CLIMATEZONE ALT-RES 4">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0752710419392" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="124" name="ASHRAE 90.1-2007 EXTWALL MASS CLIMATEZONE ALT-RES 5">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0872563183242" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="125" name="ASHRAE 90.1-2007 EXTWALL MASS CLIMATEZONE ALT-RES 6-7">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.1009296618182" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="126" name="ASHRAE 90.1-2007 EXTWALL MASS CLIMATEZONE ALT-RES 8">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.145338811602258" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="127" name="ASHRAE 90.1-2007 EXTWALL METAL CLIMATEZONE 1 SEMIHEATED">
+<Layer Thickness="0.0015" Conductivity="44.9599999999999" Cp="410" Density="7688.86"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="128" name="ASHRAE 90.1-2007 EXTWALL METAL CLIMATEZONE 1-6">
+<Layer Thickness="0.0015" Conductivity="44.9599999999999" Cp="410" Density="7688.86"/>
+<Layer Thickness="0.0651403639024" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="129" name="ASHRAE 90.1-2007 EXTWALL METAL CLIMATEZONE 2-3 SEMIHEATED">
+<Layer Thickness="0.0015" Conductivity="44.9599999999999" Cp="410" Density="7688.86"/>
+<Layer Thickness="0.0356729086642" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="130" name="ASHRAE 90.1-2007 EXTWALL METAL CLIMATEZONE 4 SEMIHEATED">
+<Layer Thickness="0.0015" Conductivity="44.9599999999999" Cp="410" Density="7688.86"/>
+<Layer Thickness="0.0531725010716" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="131" name="ASHRAE 90.1-2007 EXTWALL METAL CLIMATEZONE 5 SEMIHEATED">
+<Layer Thickness="0.0015" Conductivity="44.9599999999999" Cp="410" Density="7688.86"/>
+<Layer Thickness="0.0589317165026" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="132" name="ASHRAE 90.1-2007 EXTWALL METAL CLIMATEZONE 6-8 SEMIHEATED">
+<Layer Thickness="0.0015" Conductivity="44.9599999999999" Cp="410" Density="7688.86"/>
+<Layer Thickness="0.0651403639024" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="133" name="ASHRAE 90.1-2007 EXTWALL METAL CLIMATEZONE 7-8">
+<Layer Thickness="0.0015" Conductivity="44.9599999999999" Cp="410" Density="7688.86"/>
+<Layer Thickness="0.1401669659952" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="134" name="ASHRAE 90.1-2007 EXTWALL STEELFRAME CLIMATEZONE 1 SEMIHEATED">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="135" name="ASHRAE 90.1-2007 EXTWALL STEELFRAME CLIMATEZONE 1-2">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.0539130178278" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="136" name="ASHRAE 90.1-2007 EXTWALL STEELFRAME CLIMATEZONE 2-7 SEMIHEATED">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.0539130178278" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="137" name="ASHRAE 90.1-2007 EXTWALL STEELFRAME CLIMATEZONE 3">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.087052030874" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="138" name="ASHRAE 90.1-2007 EXTWALL STEELFRAME CLIMATEZONE 4-8">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.119155449776" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="139" name="ASHRAE 90.1-2007 EXTWALL STEELFRAME CLIMATEZONE 8 SEMIHEATED">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.087052030874" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="140" name="ASHRAE 90.1-2007 EXTWALL STEELFRAME CLIMATEZONE ALT-RES 1">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.0539130178278" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="141" name="ASHRAE 90.1-2007 EXTWALL STEELFRAME CLIMATEZONE ALT-RES 2-6">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.119155449776" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="142" name="ASHRAE 90.1-2007 EXTWALL STEELFRAME CLIMATEZONE ALT-RES 7">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.1897829713604" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="143" name="ASHRAE 90.1-2007 EXTWALL STEELFRAME CLIMATEZONE ALT-RES 8">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.2175480904046" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="144" name="ASHRAE 90.1-2007 EXTWALL WOODFRAME CLIMATEZONE 1 SEMIHEATED">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="145" name="ASHRAE 90.1-2007 EXTWALL WOODFRAME CLIMATEZONE 1-4">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.0812806297422" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="146" name="ASHRAE 90.1-2007 EXTWALL WOODFRAME CLIMATEZONE 2-8 SEMIHEATED">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.0812806297422" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="147" name="ASHRAE 90.1-2007 EXTWALL WOODFRAME CLIMATEZONE 5">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.119155449776" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="148" name="ASHRAE 90.1-2007 EXTWALL WOODFRAME CLIMATEZONE 6-7">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.1535249923652" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="149" name="ASHRAE 90.1-2007 EXTWALL WOODFRAME CLIMATEZONE 8">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.2240266181892" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="165" name="ASHRAE 90.1-2010 ATTICFLOOR CLIMATEZONE 1">
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+<Layer Thickness="0.2367936460206" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="166" name="ASHRAE 90.1-2010 ATTICFLOOR CLIMATEZONE 1-2 SEMIHEATED">
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+<Layer Thickness="0.0895235831983389" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="167" name="ASHRAE 90.1-2010 ATTICFLOOR CLIMATEZONE 2-7">
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+<Layer Thickness="0.302595163414" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="168" name="ASHRAE 90.1-2010 ATTICFLOOR CLIMATEZONE 3-5 SEMIHEATED">
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+<Layer Thickness="0.14580664213431" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="169" name="ASHRAE 90.1-2010 ATTICFLOOR CLIMATEZONE 6-8 SEMIHEATED">
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+<Layer Thickness="0.2367936460206" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="170" name="ASHRAE 90.1-2010 ATTICFLOOR CLIMATEZONE 8">
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+<Layer Thickness="0.393911555076" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="171" name="ASHRAE 90.1-2010 EXTROOF IEAD CLIMATEZONE 1">
+<Layer Thickness="0.0095" Conductivity="0.16" Cp="1460" Density="1121.29"/>
+<Layer Thickness="0.127332647972538" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="172" name="ASHRAE 90.1-2010 EXTROOF IEAD CLIMATEZONE 1-2 SEMIHEATED">
+<Layer Thickness="0.0095" Conductivity="0.16" Cp="1460" Density="1121.29"/>
+<Layer Thickness="0.0299424597486326" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="173" name="ASHRAE 90.1-2010 EXTROOF IEAD CLIMATEZONE 2-8">
+<Layer Thickness="0.0095" Conductivity="0.16" Cp="1460" Density="1121.29"/>
+<Layer Thickness="0.170137206506431" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="174" name="ASHRAE 90.1-2010 EXTROOF IEAD CLIMATEZONE 3-4 SEMIHEATED">
+<Layer Thickness="0.0095" Conductivity="0.16" Cp="1460" Density="1121.29"/>
+<Layer Thickness="0.0402389797417249" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="175" name="ASHRAE 90.1-2010 EXTROOF IEAD CLIMATEZONE 5 SEMIHEATED">
+<Layer Thickness="0.0095" Conductivity="0.16" Cp="1460" Density="1121.29"/>
+<Layer Thickness="0.0628740186509094" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="176" name="ASHRAE 90.1-2010 EXTROOF IEAD CLIMATEZONE 6-7 SEMIHEATED">
+<Layer Thickness="0.0095" Conductivity="0.16" Cp="1460" Density="1121.29"/>
+<Layer Thickness="0.0831472972278731" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="177" name="ASHRAE 90.1-2010 EXTROOF IEAD CLIMATEZONE 8 SEMIHEATED">
+<Layer Thickness="0.0095" Conductivity="0.16" Cp="1460" Density="1121.29"/>
+<Layer Thickness="0.127332647972538" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="178" name="ASHRAE 90.1-2010 EXTROOF METAL CLIMATEZONE 1">
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+<Layer Thickness="0.1260257871656" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="179" name="ASHRAE 90.1-2010 EXTROOF METAL CLIMATEZONE 1 SEMIHEATED">
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+<Layer Thickness="0.0449388504574" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="180" name="ASHRAE 90.1-2010 EXTROOF METAL CLIMATEZONE 2-4 SEMIHEATED">
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+<Layer Thickness="0.0822286788494" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="181" name="ASHRAE 90.1-2010 EXTROOF METAL CLIMATEZONE 2-5">
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+<Layer Thickness="0.1501639661942" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="182" name="ASHRAE 90.1-2010 EXTROOF METAL CLIMATEZONE 5 SEMIHEATED">
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+<Layer Thickness="0.0972344651954" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="183" name="ASHRAE 90.1-2010 EXTROOF METAL CLIMATEZONE 6-7">
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+<Layer Thickness="0.169375986241" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="184" name="ASHRAE 90.1-2010 EXTROOF METAL CLIMATEZONE 6-7 SEMIHEATED">
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+<Layer Thickness="0.1131185664472" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="185" name="ASHRAE 90.1-2010 EXTROOF METAL CLIMATEZONE 8">
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+<Layer Thickness="0.2398200597036" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="186" name="ASHRAE 90.1-2010 EXTROOF METAL CLIMATEZONE 8 SEMIHEATED">
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+<Layer Thickness="0.1260257871656" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="187" name="ASHRAE 90.1-2010 EXTWALL MASS CLIMATEZONE 1">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="188" name="ASHRAE 90.1-2010 EXTWALL MASS CLIMATEZONE 1-4 SEMIHEATED">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="189" name="ASHRAE 90.1-2010 EXTWALL MASS CLIMATEZONE 2">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0365371685816" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="190" name="ASHRAE 90.1-2010 EXTWALL MASS CLIMATEZONE 3">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0495465462712" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="191" name="ASHRAE 90.1-2010 EXTWALL MASS CLIMATEZONE 4">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0623638212208" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="192" name="ASHRAE 90.1-2010 EXTWALL MASS CLIMATEZONE 5">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0752710419392" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="193" name="ASHRAE 90.1-2010 EXTWALL MASS CLIMATEZONE 5-6 SEMIHEATED">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0365371685816" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="194" name="ASHRAE 90.1-2010 EXTWALL MASS CLIMATEZONE 6">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0872563183242" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="195" name="ASHRAE 90.1-2010 EXTWALL MASS CLIMATEZONE 7 SEMIHEATED">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0495465462712" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="196" name="ASHRAE 90.1-2010 EXTWALL MASS CLIMATEZONE 7-8">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.145338811602258" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="197" name="ASHRAE 90.1-2010 EXTWALL MASS CLIMATEZONE 8 SEMIHEATED">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0623638212208" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="198" name="ASHRAE 90.1-2010 EXTWALL MASS CLIMATEZONE ALT-RES 1">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0365371685816" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="199" name="ASHRAE 90.1-2010 EXTWALL MASS CLIMATEZONE ALT-RES 2">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0495465462712" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="200" name="ASHRAE 90.1-2010 EXTWALL MASS CLIMATEZONE ALT-RES 3">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0623638212208" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="201" name="ASHRAE 90.1-2010 EXTWALL MASS CLIMATEZONE ALT-RES 4">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0752710419392" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="202" name="ASHRAE 90.1-2010 EXTWALL MASS CLIMATEZONE ALT-RES 5">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0872563183242" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="203" name="ASHRAE 90.1-2010 EXTWALL MASS CLIMATEZONE ALT-RES 6-7">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.1009296618182" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="204" name="ASHRAE 90.1-2010 EXTWALL MASS CLIMATEZONE ALT-RES 8">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.145338811602258" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="205" name="ASHRAE 90.1-2010 EXTWALL METAL CLIMATEZONE 1-2">
+<Layer Thickness="0.0015" Conductivity="44.9599999999999" Cp="410" Density="7688.86"/>
+<Layer Thickness="0.0815632376352" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="206" name="ASHRAE 90.1-2010 EXTWALL METAL CLIMATEZONE 1-8 SEMIHEATED">
+<Layer Thickness="0.0015" Conductivity="44.9599999999999" Cp="410" Density="7688.86"/>
+<Layer Thickness="0.0651403639024" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="207" name="ASHRAE 90.1-2010 EXTWALL METAL CLIMATEZONE 3-4">
+<Layer Thickness="0.0015" Conductivity="44.9599999999999" Cp="410" Density="7688.86"/>
+<Layer Thickness="0.0915049415516" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="208" name="ASHRAE 90.1-2010 EXTWALL METAL CLIMATEZONE 5-6">
+<Layer Thickness="0.0015" Conductivity="44.9599999999999" Cp="410" Density="7688.86"/>
+<Layer Thickness="0.1138377546964" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="209" name="ASHRAE 90.1-2010 EXTWALL METAL CLIMATEZONE 7-8">
+<Layer Thickness="0.0015" Conductivity="44.9599999999999" Cp="410" Density="7688.86"/>
+<Layer Thickness="0.1401669659952" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="210" name="ASHRAE 90.1-2010 EXTWALL STEELFRAME CLIMATEZONE 1 SEMIHEATED">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="211" name="ASHRAE 90.1-2010 EXTWALL STEELFRAME CLIMATEZONE 1-2">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.0539130178278" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="212" name="ASHRAE 90.1-2010 EXTWALL STEELFRAME CLIMATEZONE 2-7 SEMIHEATED">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.0539130178278" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="213" name="ASHRAE 90.1-2010 EXTWALL STEELFRAME CLIMATEZONE 3">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.087052030874" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="214" name="ASHRAE 90.1-2010 EXTWALL STEELFRAME CLIMATEZONE 4-8">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.119155449776" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="215" name="ASHRAE 90.1-2010 EXTWALL STEELFRAME CLIMATEZONE 8 SEMIHEATED">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.087052030874" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="216" name="ASHRAE 90.1-2010 EXTWALL STEELFRAME CLIMATEZONE ALT-RES 1">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.0539130178278" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="217" name="ASHRAE 90.1-2010 EXTWALL STEELFRAME CLIMATEZONE ALT-RES 2-6">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.119155449776" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="218" name="ASHRAE 90.1-2010 EXTWALL STEELFRAME CLIMATEZONE ALT-RES 7">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.1897829713604" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="219" name="ASHRAE 90.1-2010 EXTWALL STEELFRAME CLIMATEZONE ALT-RES 8">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.2175480904046" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="220" name="ASHRAE 90.1-2010 EXTWALL WOODFRAME CLIMATEZONE 1 SEMIHEATED">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="221" name="ASHRAE 90.1-2010 EXTWALL WOODFRAME CLIMATEZONE 1-4">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.0812806297422" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="222" name="ASHRAE 90.1-2010 EXTWALL WOODFRAME CLIMATEZONE 2-8 SEMIHEATED">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.0812806297422" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="223" name="ASHRAE 90.1-2010 EXTWALL WOODFRAME CLIMATEZONE 5">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.119155449776" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="224" name="ASHRAE 90.1-2010 EXTWALL WOODFRAME CLIMATEZONE 6-7">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.1535249923652" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="225" name="ASHRAE 90.1-2010 EXTWALL WOODFRAME CLIMATEZONE 8">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.2240266181892" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="241" name="ATTICROOF CLIMATEZONE 1-8">
+<Layer Thickness="0.0095" Conductivity="0.16" Cp="1460" Density="1121.29"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="242" name="CBECS 1980-2004 EXTROOF ATTICFLOOR CLIMATEZONE 1">
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+<Layer Thickness="0.0969310355164076" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="243" name="CBECS 1980-2004 EXTROOF ATTICFLOOR CLIMATEZONE 2A">
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+<Layer Thickness="0.111066660782713" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="244" name="CBECS 1980-2004 EXTROOF ATTICFLOOR CLIMATEZONE 2B">
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+<Layer Thickness="0.167916458049374" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="245" name="CBECS 1980-2004 EXTROOF ATTICFLOOR CLIMATEZONE 3A">
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+<Layer Thickness="0.100170449639936" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="246" name="CBECS 1980-2004 EXTROOF ATTICFLOOR CLIMATEZONE 3B LAS">
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+<Layer Thickness="0.160099610925208" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="247" name="CBECS 1980-2004 EXTROOF ATTICFLOOR CLIMATEZONE 3B LAX">
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+<Layer Thickness="0.0666101193201833" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="248" name="CBECS 1980-2004 EXTROOF ATTICFLOOR CLIMATEZONE 4A">
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+<Layer Thickness="0.129101768881102" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="249" name="CBECS 1980-2004 EXTROOF ATTICFLOOR CLIMATEZONE 4B">
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+<Layer Thickness="0.12657991054531" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="250" name="CBECS 1980-2004 EXTROOF ATTICFLOOR CLIMATEZONE 4C">
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+<Layer Thickness="0.115152739961254" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="251" name="CBECS 1980-2004 EXTROOF ATTICFLOOR CLIMATEZONE 5A">
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+<Layer Thickness="0.145813765302359" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="252" name="CBECS 1980-2004 EXTROOF ATTICFLOOR CLIMATEZONE 5B">
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+<Layer Thickness="0.152199114340523" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="253" name="CBECS 1980-2004 EXTROOF ATTICFLOOR CLIMATEZONE 6A">
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+<Layer Thickness="0.174760680942037" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="254" name="CBECS 1980-2004 EXTROOF ATTICFLOOR CLIMATEZONE 6B">
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+<Layer Thickness="0.159105716361395" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="255" name="CBECS 1980-2004 EXTROOF ATTICFLOOR CLIMATEZONE 7">
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+<Layer Thickness="0.196057107696372" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="256" name="CBECS 1980-2004 EXTROOF ATTICFLOOR CLIMATEZONE 8">
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+<Layer Thickness="0.261367984993012" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="257" name="CBECS 1980-2004 EXTROOF IEAD CLIMATEZONE 1">
+<Layer Thickness="0.0095" Conductivity="0.16" Cp="1460" Density="1121.29"/>
+<Layer Thickness="0.1043014191761" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="258" name="CBECS 1980-2004 EXTROOF IEAD CLIMATEZONE 2A">
+<Layer Thickness="0.0095" Conductivity="0.16" Cp="1460" Density="1121.29"/>
+<Layer Thickness="0.118437044442401" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="259" name="CBECS 1980-2004 EXTROOF IEAD CLIMATEZONE 2B">
+<Layer Thickness="0.0095" Conductivity="0.16" Cp="1460" Density="1121.29"/>
+<Layer Thickness="0.175286841709063" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="260" name="CBECS 1980-2004 EXTROOF IEAD CLIMATEZONE 3A">
+<Layer Thickness="0.0095" Conductivity="0.16" Cp="1460" Density="1121.29"/>
+<Layer Thickness="0.107540833299624" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="261" name="CBECS 1980-2004 EXTROOF IEAD CLIMATEZONE 3B LAS">
+<Layer Thickness="0.0095" Conductivity="0.16" Cp="1460" Density="1121.29"/>
+<Layer Thickness="0.167469994584897" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="262" name="CBECS 1980-2004 EXTROOF IEAD CLIMATEZONE 3B LAX">
+<Layer Thickness="0.0095" Conductivity="0.16" Cp="1460" Density="1121.29"/>
+<Layer Thickness="0.0739805029798716" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="263" name="CBECS 1980-2004 EXTROOF IEAD CLIMATEZONE 3C">
+<Layer Thickness="0.0095" Conductivity="0.16" Cp="1460" Density="1121.29"/>
+<Layer Thickness="0.0857484110140704" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="264" name="CBECS 1980-2004 EXTROOF IEAD CLIMATEZONE 4A">
+<Layer Thickness="0.0095" Conductivity="0.16" Cp="1460" Density="1121.29"/>
+<Layer Thickness="0.13647215254079" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="265" name="CBECS 1980-2004 EXTROOF IEAD CLIMATEZONE 4B">
+<Layer Thickness="0.0095" Conductivity="0.16" Cp="1460" Density="1121.29"/>
+<Layer Thickness="0.133950294204999" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="266" name="CBECS 1980-2004 EXTROOF IEAD CLIMATEZONE 4C">
+<Layer Thickness="0.0095" Conductivity="0.16" Cp="1460" Density="1121.29"/>
+<Layer Thickness="0.122523123620942" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="267" name="CBECS 1980-2004 EXTROOF IEAD CLIMATEZONE 5A">
+<Layer Thickness="0.0095" Conductivity="0.16" Cp="1460" Density="1121.29"/>
+<Layer Thickness="0.153184148962047" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="268" name="CBECS 1980-2004 EXTROOF IEAD CLIMATEZONE 5B">
+<Layer Thickness="0.0095" Conductivity="0.16" Cp="1460" Density="1121.29"/>
+<Layer Thickness="0.159569498000212" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="269" name="CBECS 1980-2004 EXTROOF IEAD CLIMATEZONE 5B 1">
+<Layer Thickness="0.0095" Conductivity="0.16" Cp="1460" Density="1121.29"/>
+<Layer Thickness="0.159569498000212" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="270" name="CBECS 1980-2004 EXTROOF IEAD CLIMATEZONE 6A">
+<Layer Thickness="0.0095" Conductivity="0.16" Cp="1460" Density="1121.29"/>
+<Layer Thickness="0.182131064601726" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="271" name="CBECS 1980-2004 EXTROOF IEAD CLIMATEZONE 6B">
+<Layer Thickness="0.0095" Conductivity="0.16" Cp="1460" Density="1121.29"/>
+<Layer Thickness="0.166476100021083" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="272" name="CBECS 1980-2004 EXTROOF IEAD CLIMATEZONE 7">
+<Layer Thickness="0.0095" Conductivity="0.16" Cp="1460" Density="1121.29"/>
+<Layer Thickness="0.20342749135606" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="273" name="CBECS 1980-2004 EXTROOF IEAD CLIMATEZONE 8">
+<Layer Thickness="0.0095" Conductivity="0.16" Cp="1460" Density="1121.29"/>
+<Layer Thickness="0.268738368652701" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="274" name="CBECS 1980-2004 EXTROOF METAL CLIMATEZONE 1">
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+<Layer Thickness="0.107210794176096" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="275" name="CBECS 1980-2004 EXTROOF METAL CLIMATEZONE 2A">
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+<Layer Thickness="0.121346419442401" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="276" name="CBECS 1980-2004 EXTROOF METAL CLIMATEZONE 2B">
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+<Layer Thickness="0.178196216709063" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="277" name="CBECS 1980-2004 EXTROOF METAL CLIMATEZONE 3A">
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+<Layer Thickness="0.110450208299624" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="278" name="CBECS 1980-2004 EXTROOF METAL CLIMATEZONE 3B LAS">
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+<Layer Thickness="0.170379369584897" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="279" name="CBECS 1980-2004 EXTROOF METAL CLIMATEZONE 3B LAX">
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+<Layer Thickness="0.0768898779798717" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="280" name="CBECS 1980-2004 EXTROOF METAL CLIMATEZONE 3C">
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+<Layer Thickness="0.0886577860140706" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="281" name="CBECS 1980-2004 EXTROOF METAL CLIMATEZONE 4A">
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+<Layer Thickness="0.13938152754079" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="282" name="CBECS 1980-2004 EXTROOF METAL CLIMATEZONE 4B">
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+<Layer Thickness="0.136859669204999" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="283" name="CBECS 1980-2004 EXTROOF METAL CLIMATEZONE 4C">
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+<Layer Thickness="0.125432498620942" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="284" name="CBECS 1980-2004 EXTROOF METAL CLIMATEZONE 5A">
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+<Layer Thickness="0.156093523962047" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="285" name="CBECS 1980-2004 EXTROOF METAL CLIMATEZONE 5B">
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+<Layer Thickness="0.156093523962047" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="286" name="CBECS 1980-2004 EXTROOF METAL CLIMATEZONE 6A">
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+<Layer Thickness="0.185040439601726" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="287" name="CBECS 1980-2004 EXTROOF METAL CLIMATEZONE 6B">
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+<Layer Thickness="0.169385475021083" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="288" name="CBECS 1980-2004 EXTROOF METAL CLIMATEZONE 7">
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+<Layer Thickness="0.20633686635606" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="289" name="CBECS 1980-2004 EXTROOF METAL CLIMATEZONE 8">
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+<Layer Thickness="0.271647743652702" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="290" name="CBECS 1980-2004 EXTWALL MASS CLIMATEZONE 1">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="291" name="CBECS 1980-2004 EXTWALL MASS CLIMATEZONE 2A">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.00477025306045549" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="292" name="CBECS 1980-2004 EXTWALL MASS CLIMATEZONE 2B">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.000436781426628044" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="293" name="CBECS 1980-2004 EXTWALL MASS CLIMATEZONE 3A">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.00914641899609408" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="294" name="CBECS 1980-2004 EXTWALL MASS CLIMATEZONE 3B LAS">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="295" name="CBECS 1980-2004 EXTWALL MASS CLIMATEZONE 3B LAX">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.00914641899609408" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="296" name="CBECS 1980-2004 EXTWALL MASS CLIMATEZONE 3C">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="297" name="CBECS 1980-2004 EXTWALL MASS CLIMATEZONE 4A">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0513034841760789" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="298" name="CBECS 1980-2004 EXTWALL MASS CLIMATEZONE 4B">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0248084865552216" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="299" name="CBECS 1980-2004 EXTWALL MASS CLIMATEZONE 4C-5A">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0656864828845444" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="300" name="CBECS 1980-2004 EXTWALL MASS CLIMATEZONE 5B">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0410299136700322" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="301" name="CBECS 1980-2004 EXTWALL MASS CLIMATEZONE 6A">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.100934958592615" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="302" name="CBECS 1980-2004 EXTWALL MASS CLIMATEZONE 6B">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0886264555081726" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="303" name="CBECS 1980-2004 EXTWALL MASS CLIMATEZONE 7">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.120860609077674" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="304" name="CBECS 1980-2004 EXTWALL MASS CLIMATEZONE 8">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.163001240103523" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="305" name="CBECS 1980-2004 EXTWALL METAL CLIMATEZONE 1">
+<Layer Thickness="0.0015" Conductivity="44.9599999999999" Cp="410" Density="7688.86"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="306" name="CBECS 1980-2004 EXTWALL METAL CLIMATEZONE 2A">
+<Layer Thickness="0.0015" Conductivity="44.9599999999999" Cp="410" Density="7688.86"/>
+<Layer Thickness="0.0369204854676134" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="307" name="CBECS 1980-2004 EXTWALL METAL CLIMATEZONE 2B">
+<Layer Thickness="0.0015" Conductivity="44.9599999999999" Cp="410" Density="7688.86"/>
+<Layer Thickness="0.0153459874049154" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="308" name="CBECS 1980-2004 EXTWALL METAL CLIMATEZONE 3A">
+<Layer Thickness="0.0015" Conductivity="44.9599999999999" Cp="410" Density="7688.86"/>
+<Layer Thickness="0.0457715615959" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="309" name="CBECS 1980-2004 EXTWALL METAL CLIMATEZONE 3B LAS">
+<Layer Thickness="0.0015" Conductivity="44.9599999999999" Cp="410" Density="7688.86"/>
+<Layer Thickness="0.0333247357904972" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="310" name="CBECS 1980-2004 EXTWALL METAL CLIMATEZONE 3B LAX">
+<Layer Thickness="0.0015" Conductivity="44.9599999999999" Cp="410" Density="7688.86"/>
+<Layer Thickness="0.0186148507477484" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="311" name="CBECS 1980-2004 EXTWALL METAL CLIMATEZONE 3C">
+<Layer Thickness="0.0015" Conductivity="44.9599999999999" Cp="410" Density="7688.86"/>
+<Layer Thickness="0.0457715615959" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="312" name="CBECS 1980-2004 EXTWALL METAL CLIMATEZONE 4A">
+<Layer Thickness="0.0015" Conductivity="44.9599999999999" Cp="410" Density="7688.86"/>
+<Layer Thickness="0.0763525268705974" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="313" name="CBECS 1980-2004 EXTWALL METAL CLIMATEZONE 4B">
+<Layer Thickness="0.0015" Conductivity="44.9599999999999" Cp="410" Density="7688.86"/>
+<Layer Thickness="0.0656864828845444" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="314" name="CBECS 1980-2004 EXTWALL METAL CLIMATEZONE 4C">
+<Layer Thickness="0.0015" Conductivity="44.9599999999999" Cp="410" Density="7688.86"/>
+<Layer Thickness="0.0731906561237437" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="315" name="CBECS 1980-2004 EXTWALL METAL CLIMATEZONE 5">
+<Layer Thickness="0.0015" Conductivity="44.9599999999999" Cp="410" Density="7688.86"/>
+<Layer Thickness="0.084629944598133" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="316" name="CBECS 1980-2004 EXTWALL METAL CLIMATEZONE 6A">
+<Layer Thickness="0.0015" Conductivity="44.9599999999999" Cp="410" Density="7688.86"/>
+<Layer Thickness="0.112154632558048" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="317" name="CBECS 1980-2004 EXTWALL METAL CLIMATEZONE 6B">
+<Layer Thickness="0.0015" Conductivity="44.9599999999999" Cp="410" Density="7688.86"/>
+<Layer Thickness="0.0992468132042969" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="318" name="CBECS 1980-2004 EXTWALL METAL CLIMATEZONE 7">
+<Layer Thickness="0.0015" Conductivity="44.9599999999999" Cp="410" Density="7688.86"/>
+<Layer Thickness="0.128178132445463" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="319" name="CBECS 1980-2004 EXTWALL METAL CLIMATEZONE 8">
+<Layer Thickness="0.0015" Conductivity="44.9599999999999" Cp="410" Density="7688.86"/>
+<Layer Thickness="0.171161806746624" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="320" name="CBECS 1980-2004 EXTWALL STEELFRAME CLIMATEZONE 1">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="321" name="CBECS 1980-2004 EXTWALL STEELFRAME CLIMATEZONE 2A">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.0418527450379989" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="322" name="CBECS 1980-2004 EXTWALL STEELFRAME CLIMATEZONE 2B">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.0202782469753007" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="323" name="CBECS 1980-2004 EXTWALL STEELFRAME CLIMATEZONE 2B 1">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.0202782469753007" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="324" name="CBECS 1980-2004 EXTWALL STEELFRAME CLIMATEZONE 3A">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.0507038211662854" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="325" name="CBECS 1980-2004 EXTWALL STEELFRAME CLIMATEZONE 3B LAS">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.0382569953608824" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="326" name="CBECS 1980-2004 EXTWALL STEELFRAME CLIMATEZONE 3B LAX">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.0235471103181338" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="327" name="CBECS 1980-2004 EXTWALL STEELFRAME CLIMATEZONE 3C">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.0507038211662854" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="328" name="CBECS 1980-2004 EXTWALL STEELFRAME CLIMATEZONE 4A">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.0812847864409826" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="329" name="CBECS 1980-2004 EXTWALL STEELFRAME CLIMATEZONE 4B">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.0706187424549296" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="330" name="CBECS 1980-2004 EXTWALL STEELFRAME CLIMATEZONE 4C">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.0781229156941292" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="331" name="CBECS 1980-2004 EXTWALL STEELFRAME CLIMATEZONE 5">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.0895622041685184" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="332" name="CBECS 1980-2004 EXTWALL STEELFRAME CLIMATEZONE 6A">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.117086892128433" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="333" name="CBECS 1980-2004 EXTWALL STEELFRAME CLIMATEZONE 6B">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.104179072774682" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="334" name="CBECS 1980-2004 EXTWALL STEELFRAME CLIMATEZONE 7">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.133110392015848" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="335" name="CBECS 1980-2004 EXTWALL STEELFRAME CLIMATEZONE 8">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.17609406631701" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="336" name="CBECS 1980-2004 EXTWALL WOODFRAME CLIMATEZONE 1">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="337" name="CBECS 1980-2004 EXTWALL WOODFRAME CLIMATEZONE 2A">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.0418527450379989" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="338" name="CBECS 1980-2004 EXTWALL WOODFRAME CLIMATEZONE 2B">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.0202782469753007" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="339" name="CBECS 1980-2004 EXTWALL WOODFRAME CLIMATEZONE 3A">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.0507038211662854" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="340" name="CBECS 1980-2004 EXTWALL WOODFRAME CLIMATEZONE 3B LAS">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.0382569953608824" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="341" name="CBECS 1980-2004 EXTWALL WOODFRAME CLIMATEZONE 3B LAX">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.0235471103181338" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="342" name="CBECS 1980-2004 EXTWALL WOODFRAME CLIMATEZONE 3C">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.0507038211662854" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="343" name="CBECS 1980-2004 EXTWALL WOODFRAME CLIMATEZONE 4A">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.0812847864409826" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="344" name="CBECS 1980-2004 EXTWALL WOODFRAME CLIMATEZONE 4B">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.0706187424549296" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="345" name="CBECS 1980-2004 EXTWALL WOODFRAME CLIMATEZONE 4C">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.0781229156941292" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="346" name="CBECS 1980-2004 EXTWALL WOODFRAME CLIMATEZONE 5">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.0895622041685184" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="347" name="CBECS 1980-2004 EXTWALL WOODFRAME CLIMATEZONE 6A">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.117086892128433" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="348" name="CBECS 1980-2004 EXTWALL WOODFRAME CLIMATEZONE 6B">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.104179072774682" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="349" name="CBECS 1980-2004 EXTWALL WOODFRAME CLIMATEZONE 7">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.133110392015848" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="350" name="CBECS 1980-2004 EXTWALL WOODFRAME CLIMATEZONE 8">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.17609406631701" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="364" name="CBECS BEFORE-1980 EXTROOF ATTICFLOOR CLIMATEZONE 1-3">
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+<Layer Thickness="0.0666101193201833" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="365" name="CBECS BEFORE-1980 EXTROOF ATTICFLOOR CLIMATEZONE 4A">
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+<Layer Thickness="0.0806586296865912" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="366" name="CBECS BEFORE-1980 EXTROOF ATTICFLOOR CLIMATEZONE 4B">
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+<Layer Thickness="0.0846465469659246" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="367" name="CBECS BEFORE-1980 EXTROOF ATTICFLOOR CLIMATEZONE 4C">
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+<Layer Thickness="0.0892095604358939" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="368" name="CBECS BEFORE-1980 EXTROOF ATTICFLOOR CLIMATEZONE 5A">
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+<Layer Thickness="0.110216071059399" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="369" name="CBECS BEFORE-1980 EXTROOF ATTICFLOOR CLIMATEZONE 5B">
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+<Layer Thickness="0.0965373546328396" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="370" name="CBECS BEFORE-1980 EXTROOF ATTICFLOOR CLIMATEZONE 6">
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+<Layer Thickness="0.12657991054531" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="371" name="CBECS BEFORE-1980 EXTROOF ATTICFLOOR CLIMATEZONE 7">
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+<Layer Thickness="0.124142114154045" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="372" name="CBECS BEFORE-1980 EXTROOF ATTICFLOOR CLIMATEZONE 8">
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+<Layer Thickness="0.12657991054531" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="373" name="CBECS BEFORE-1980 EXTROOF IEAD CLIMATEZONE 1-3">
+<Layer Thickness="0.0095" Conductivity="0.16" Cp="1460" Density="1121.29"/>
+<Layer Thickness="0.0739805029798716" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="374" name="CBECS BEFORE-1980 EXTROOF IEAD CLIMATEZONE 4A">
+<Layer Thickness="0.0095" Conductivity="0.16" Cp="1460" Density="1121.29"/>
+<Layer Thickness="0.0880290133462796" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="375" name="CBECS BEFORE-1980 EXTROOF IEAD CLIMATEZONE 4B">
+<Layer Thickness="0.0095" Conductivity="0.16" Cp="1460" Density="1121.29"/>
+<Layer Thickness="0.0846465469659246" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="376" name="CBECS BEFORE-1980 EXTROOF IEAD CLIMATEZONE 4C">
+<Layer Thickness="0.0095" Conductivity="0.16" Cp="1460" Density="1121.29"/>
+<Layer Thickness="0.0892095604358939" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="377" name="CBECS BEFORE-1980 EXTROOF IEAD CLIMATEZONE 5A">
+<Layer Thickness="0.0095" Conductivity="0.16" Cp="1460" Density="1121.29"/>
+<Layer Thickness="0.110216071059399" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="378" name="CBECS BEFORE-1980 EXTROOF IEAD CLIMATEZONE 5B">
+<Layer Thickness="0.0095" Conductivity="0.16" Cp="1460" Density="1121.29"/>
+<Layer Thickness="0.103907738292528" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="379" name="CBECS BEFORE-1980 EXTROOF IEAD CLIMATEZONE 6">
+<Layer Thickness="0.0095" Conductivity="0.16" Cp="1460" Density="1121.29"/>
+<Layer Thickness="0.133950294204999" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="380" name="CBECS BEFORE-1980 EXTROOF IEAD CLIMATEZONE 7">
+<Layer Thickness="0.0095" Conductivity="0.16" Cp="1460" Density="1121.29"/>
+<Layer Thickness="0.131512497813733" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="381" name="CBECS BEFORE-1980 EXTROOF IEAD CLIMATEZONE 7 1">
+<Layer Thickness="0.0095" Conductivity="0.16" Cp="1460" Density="1121.29"/>
+<Layer Thickness="0.131512497813733" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="382" name="CBECS BEFORE-1980 EXTROOF IEAD CLIMATEZONE 8">
+<Layer Thickness="0.0095" Conductivity="0.16" Cp="1460" Density="1121.29"/>
+<Layer Thickness="0.133950294204999" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0015" Conductivity="45.006" Cp="418.4" Density="7680"/>
+</Composite>
+<Composite id="383" name="CBECS BEFORE-1980 EXTWALL MASS CLIMATEZONE 1-2">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0169093568297486" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="384" name="CBECS BEFORE-1980 EXTWALL MASS CLIMATEZONE 3A">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0177431538563263" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="385" name="CBECS BEFORE-1980 EXTWALL MASS CLIMATEZONE 3B">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0169093568297486" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="386" name="CBECS BEFORE-1980 EXTWALL MASS CLIMATEZONE 3C">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0179143800314271" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="387" name="CBECS BEFORE-1980 EXTWALL MASS CLIMATEZONE 4A">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0278705087521745" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="388" name="CBECS BEFORE-1980 EXTWALL MASS CLIMATEZONE 4B">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0262895733787478" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="389" name="CBECS BEFORE-1980 EXTWALL MASS CLIMATEZONE 4C">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0287016290627762" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="390" name="CBECS BEFORE-1980 EXTWALL MASS CLIMATEZONE 5A">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0347077164355418" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="391" name="CBECS BEFORE-1980 EXTWALL MASS CLIMATEZONE 5B">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0329897280566042" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="392" name="CBECS BEFORE-1980 EXTWALL MASS CLIMATEZONE 6">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0389043473584362" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="393" name="CBECS BEFORE-1980 EXTWALL MASS CLIMATEZONE 7">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.042842896700511" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="394" name="CBECS BEFORE-1980 EXTWALL MASS CLIMATEZONE 8">
+<Layer Thickness="0.0253" Conductivity="0.691799999999999" Cp="836.999999999999" Density="1858"/>
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+<Layer Thickness="0.0484268844343859" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="395" name="CBECS BEFORE-1980 EXTWALL METAL CLIMATEZONE 1-2">
+<Layer Thickness="0.0015" Conductivity="44.9599999999999" Cp="410" Density="7688.86"/>
+<Layer Thickness="0.0169093568297486" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="396" name="CBECS BEFORE-1980 EXTWALL METAL CLIMATEZONE 3A">
+<Layer Thickness="0.0015" Conductivity="44.9599999999999" Cp="410" Density="7688.86"/>
+<Layer Thickness="0.0177431538563263" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="397" name="CBECS BEFORE-1980 EXTWALL METAL CLIMATEZONE 3B">
+<Layer Thickness="0.0015" Conductivity="44.9599999999999" Cp="410" Density="7688.86"/>
+<Layer Thickness="0.0169093568297486" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="398" name="CBECS BEFORE-1980 EXTWALL METAL CLIMATEZONE 3C">
+<Layer Thickness="0.0015" Conductivity="44.9599999999999" Cp="410" Density="7688.86"/>
+<Layer Thickness="0.0177431538563263" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="399" name="CBECS BEFORE-1980 EXTWALL METAL CLIMATEZONE 4A">
+<Layer Thickness="0.0015" Conductivity="44.9599999999999" Cp="410" Density="7688.86"/>
+<Layer Thickness="0.0278705087521745" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="400" name="CBECS BEFORE-1980 EXTWALL METAL CLIMATEZONE 4B">
+<Layer Thickness="0.0015" Conductivity="44.9599999999999" Cp="410" Density="7688.86"/>
+<Layer Thickness="0.0262895733787478" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="401" name="CBECS BEFORE-1980 EXTWALL METAL CLIMATEZONE 4C">
+<Layer Thickness="0.0015" Conductivity="44.9599999999999" Cp="410" Density="7688.86"/>
+<Layer Thickness="0.0287016290627762" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="402" name="CBECS BEFORE-1980 EXTWALL METAL CLIMATEZONE 5A">
+<Layer Thickness="0.0015" Conductivity="44.9599999999999" Cp="410" Density="7688.86"/>
+<Layer Thickness="0.0347077164355418" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="403" name="CBECS BEFORE-1980 EXTWALL METAL CLIMATEZONE 5B">
+<Layer Thickness="0.0015" Conductivity="44.9599999999999" Cp="410" Density="7688.86"/>
+<Layer Thickness="0.0329897280566042" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="404" name="CBECS BEFORE-1980 EXTWALL METAL CLIMATEZONE 6">
+<Layer Thickness="0.0015" Conductivity="44.9599999999999" Cp="410" Density="7688.86"/>
+<Layer Thickness="0.0389043473584362" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="405" name="CBECS BEFORE-1980 EXTWALL METAL CLIMATEZONE 7">
+<Layer Thickness="0.0015" Conductivity="44.9599999999999" Cp="410" Density="7688.86"/>
+<Layer Thickness="0.042842896700511" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="406" name="CBECS BEFORE-1980 EXTWALL METAL CLIMATEZONE 8">
+<Layer Thickness="0.0015" Conductivity="44.9599999999999" Cp="410" Density="7688.86"/>
+<Layer Thickness="0.0484268844343859" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="407" name="CBECS BEFORE-1980 EXTWALL STEELFRAME CLIMATEZONE 1-3B">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.0218416164001339" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="408" name="CBECS BEFORE-1980 EXTWALL STEELFRAME CLIMATEZONE 3C">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.0228466396018124" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="409" name="CBECS BEFORE-1980 EXTWALL STEELFRAME CLIMATEZONE 4A">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.03280276832256" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="410" name="CBECS BEFORE-1980 EXTWALL STEELFRAME CLIMATEZONE 4B">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.031221832949133" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="411" name="CBECS BEFORE-1980 EXTWALL STEELFRAME CLIMATEZONE 4C">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.0336338886331616" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="412" name="CBECS BEFORE-1980 EXTWALL STEELFRAME CLIMATEZONE 5A">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.0396399760059273" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="413" name="CBECS BEFORE-1980 EXTWALL STEELFRAME CLIMATEZONE 5B">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.0379219876269896" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="414" name="CBECS BEFORE-1980 EXTWALL STEELFRAME CLIMATEZONE 6">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.0438366069288216" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="415" name="CBECS BEFORE-1980 EXTWALL STEELFRAME CLIMATEZONE 7">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.0477751562708964" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="416" name="CBECS BEFORE-1980 EXTWALL STEELFRAME CLIMATEZONE 8">
+<Layer Thickness="0.01" Conductivity="0.11" Cp="1210" Density="544.62"/>
+<Layer Thickness="0.0533591440047711" Conductivity="0.049" Cp="836.800000000001" Density="265"/>
+<Layer Thickness="0.0127" Conductivity="0.16" Cp="830.000000000001" Density="784.9"/>
+</Composite>
+<Composite id="420" name="EXTERIOR DOOR">
+<Layer Thickness="0.0008" Conductivity="45.2800000000001" Cp="500" Density="7823.99999999999"/>
+<Layer Thickness="0.0254" Conductivity="0.03" Cp="1210" Density="43"/>
+</Composite>
+<Composite id="421" name="EXTERIOR FLOOR">
+<Layer Thickness="0.0508" Conductivity="0.03" Cp="1210" Density="43"/>
+<Layer Thickness="0.2032" Conductivity="1.95" Cp="900" Density="2240"/>
+</Composite>
+<Composite id="422" name="EXTERIOR ROOF">
+<Layer Thickness="0.1016" Conductivity="0.53" Cp="840.000000000002" Density="1280"/>
+<Layer Thickness="0.0191" Conductivity="0.06" Cp="590.000000000002" Density="368"/>
+</Composite>
+<Composite id="423" name="EXTERIOR WALL">
+<Layer Thickness="0.1016" Conductivity="0.89" Cp="790" Density="1920"/>
+<Layer Thickness="0.2032" Conductivity="1.95" Cp="900" Density="2240"/>
+<Layer Thickness="0.0508" Conductivity="0.03" Cp="1210" Density="43"/>
+<Layer Thickness="0.019" Conductivity="0.16" Cp="1090" Density="800"/>
+</Composite>
+<Composite id="425" name="EXTSLAB 4IN CLIMATEZONE 1-8">
+<Layer Thickness="0.1016" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+</Composite>
+<Composite id="426" name="EXTSLAB 8IN CLIMATEZONE 1-8">
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+</Composite>
+<Composite id="427" name="EXTSLABCARPET 4IN CLIMATEZONE 1-8">
+<Layer Thickness="0.1016" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+</Composite>
+<Composite id="428" name="EXTSLABCARPET 8IN CLIMATEZONE 1-8">
+<Layer Thickness="0.2032" Conductivity="1.311" Cp="836.800000000001" Density="2240"/>
+</Composite>
+<Composite id="429" name="INTERIOR CEILING">
+<Layer Thickness="0.1016" Conductivity="0.53" Cp="840.000000000002" Density="1280"/>
+<Layer Thickness="0.0191" Conductivity="0.06" Cp="590.000000000002" Density="368"/>
+</Composite>
+<Composite id="430" name="INTERIOR DOOR">
+<Layer Thickness="0.0254" Conductivity="0.15" Cp="1630" Density="608"/>
+</Composite>
+<Composite id="431" name="INTERIOR FLOOR">
+<Layer Thickness="0.0191" Conductivity="0.06" Cp="590.000000000002" Density="368"/>
+<Layer Thickness="0.1016" Conductivity="0.53" Cp="840.000000000002" Density="1280"/>
+</Composite>
+<Composite id="432" name="INTERIOR PARTITION">
+<Layer Thickness="0.0254" Conductivity="0.15" Cp="1630" Density="608"/>
+</Composite>
+<Composite id="433" name="INTERIOR WALL">
+<Layer Thickness="0.019" Conductivity="0.16" Cp="1090" Density="800"/>
+<Layer Thickness="0.019" Conductivity="0.16" Cp="1090" Density="800"/>
+</Composite>
+<Composite id="435" name="SIA380-EXPOSED">
+<Layer Thickness="0.21" Conductivity="0.036" Cp="1450.0" Density="35.0"/>
+<Layer Thickness="0.2" Conductivity="1.95" Cp="900.0" Density="2240.0"/>
+</Composite>
+<Composite id="436" name="SIA380-EXPOSED-NOMASS" Uvalue="0.17">
+</Composite>
+<Composite id="437" name="SIA380-GROUND">
+<Layer Thickness="0.14" Conductivity="0.036" Cp="1450.0" Density="35.0"/>
+<Layer Thickness="0.2" Conductivity="1.95" Cp="900.0" Density="2240.0"/>
+</Composite>
+<Composite id="438" name="SIA380-GROUND-NOMASS" Uvalue="0.25">
+</Composite>
+<Building Name="GROUP_1" id="0" key="1" Vi="1123.5" Ninf="0.15" BlindsLambda="0.2" BlindsIrradianceCutOff="100" Simulate="true">
+                <HeatTank V="0.01" phi="20" rho="1000" Cp="4180" Tmin="20" Tmax="35"/>
+			    <CoolTank V="0.01" phi="20" rho="1000" Cp="4180" Tmin="5" Tmax="20"/>
+			    <HeatSource beginDay="1" endDay="365">
+				    <HeatPump Pmax="1000" eta_tech="0.3" Ttarget="55" Tsource="ground" depth="5" alpha="0.0700000003" position="vertical" z1="10" />
+			    </HeatSource>
+			    <CoolSource beginDay="1" endDay="365">
+				    <HeatPump Pmax="10000000" eta_tech="0.3" Ttarget="5" Tsource="ground" depth="5" alpha="0.0700000003" position="vertical" z1="10" />
+			    </CoolSource>
+<Zone id="1" volume="970.4136" psi="0.2" Tmin="20" Tmax="26" groundFloor="True" ><Occupants n="5" type="0"/>
+<Roof id="0" type="435" ShortWaveReflectance="0.2" GlazingRatio="0" GlazingGValue="0" GlazingUValue="0" OpenableRatio="0">
+<V0 x="-8.0" y="16.8810072794" z="19.5247228456"/> 
+<V1 x="-1.01842467601" y="16.8810072794" z="19.5247228456"/> 
+<V2 x="-1.01842467601" y="24.0" z="19.5247228456"/> 
+<V3 x="-8.0" y="24.0" z="19.5247228456"/> 
+<V4 x="-8.0" y="16.8810072794" z="19.5247228456"/> 
+</Roof><Floor id="1" type="437" ShortWaveReflectance="0.2" GlazingRatio="0" GlazingGValue="0" GlazingUValue="0" OpenableRatio="0">
+<V0 x="-1.01842467601" y="16.8810072794" z="0.0"/> 
+<V1 x="-8.0" y="16.8810072794" z="0.0"/> 
+<V2 x="-8.0" y="24.0" z="0.0"/> 
+<V3 x="-1.01842467601" y="24.0" z="0.0"/> 
+<V4 x="-1.01842467601" y="16.8810072794" z="0.0"/> 
+</Floor><Wall id="2" type="435" ShortWaveReflectance="0.2" GlazingRatio="0.4" GlazingGValue="0.5" GlazingUValue="1.0" OpenableRatio="0.0">
+<V0 x="-8.0" y="16.8810072794" z="0.0"/> 
+<V1 x="-1.01842467601" y="16.8810072794" z="0.0"/> 
+<V2 x="-1.01842467601" y="16.8810072794" z="19.5247228456"/> 
+<V3 x="-8.0" y="16.8810072794" z="19.5247228456"/> 
+<V4 x="-8.0" y="16.8810072794" z="0.0"/> 
+</Wall><Wall id="3" type="435" ShortWaveReflectance="0.2" GlazingRatio="0.4" GlazingGValue="0.5" GlazingUValue="1.0" OpenableRatio="0.0">
+<V0 x="-1.01842467601" y="16.8810072794" z="19.5247228456"/> 
+<V1 x="-1.01842467601" y="16.8810072794" z="0.0"/> 
+<V2 x="-1.01842467601" y="24.0" z="0.0"/> 
+<V3 x="-1.01842467601" y="24.0" z="19.5247228456"/> 
+<V4 x="-1.01842467601" y="16.8810072794" z="19.5247228456"/> 
+</Wall><Wall id="4" type="435" ShortWaveReflectance="0.2" GlazingRatio="0.4" GlazingGValue="0.5" GlazingUValue="1.0" OpenableRatio="0.0">
+<V0 x="-1.01842467601" y="24.0" z="19.5247228456"/> 
+<V1 x="-1.01842467601" y="24.0" z="0.0"/> 
+<V2 x="-8.0" y="24.0" z="0.0"/> 
+<V3 x="-8.0" y="24.0" z="19.5247228456"/> 
+<V4 x="-1.01842467601" y="24.0" z="19.5247228456"/> 
+</Wall><Wall id="5" type="435" ShortWaveReflectance="0.2" GlazingRatio="0.4" GlazingGValue="0.5" GlazingUValue="1.0" OpenableRatio="0.0">
+<V0 x="-8.0" y="16.8810072794" z="0.0"/> 
+<V1 x="-8.0" y="16.8810072794" z="19.5247228456"/> 
+<V2 x="-8.0" y="24.0" z="19.5247228456"/> 
+<V3 x="-8.0" y="24.0" z="0.0"/> 
+<V4 x="-8.0" y="16.8810072794" z="0.0"/> 
+</Wall>   </Zone>
+                </Building><Building Name="GROUP_1" id="1" key="1" Vi="1123.5" Ninf="0.15" BlindsLambda="0.2" BlindsIrradianceCutOff="100" Simulate="true">
+                <HeatTank V="0.01" phi="20" rho="1000" Cp="4180" Tmin="20" Tmax="35"/>
+			    <CoolTank V="0.01" phi="20" rho="1000" Cp="4180" Tmin="5" Tmax="20"/>
+			    <HeatSource beginDay="1" endDay="365">
+				    <HeatPump Pmax="1000" eta_tech="0.3" Ttarget="55" Tsource="ground" depth="5" alpha="0.0700000003" position="vertical" z1="10" />
+			    </HeatSource>
+			    <CoolSource beginDay="1" endDay="365">
+				    <HeatPump Pmax="10000000" eta_tech="0.3" Ttarget="5" Tsource="ground" depth="5" alpha="0.0700000003" position="vertical" z1="10" />
+			    </CoolSource>
+<Zone id="1" volume="1436.5674" psi="0.2" Tmin="20" Tmax="26" groundFloor="True" ><Occupants n="5" type="0"/>
+<Roof id="0" type="435" ShortWaveReflectance="0.2" GlazingRatio="0" GlazingGValue="0" GlazingUValue="0" OpenableRatio="0">
+<V0 x="-15.0" y="28.0" z="7.20125747013"/> 
+<V1 x="9.76006966179" y="28.0" z="7.20125747013"/> 
+<V2 x="9.76006966179" y="36.0568600432" z="7.20125747013"/> 
+<V3 x="-15.0" y="36.0568600432" z="7.20125747013"/> 
+<V4 x="-15.0" y="28.0" z="7.20125747013"/> 
+</Roof><Floor id="1" type="437" ShortWaveReflectance="0.2" GlazingRatio="0" GlazingGValue="0" GlazingUValue="0" OpenableRatio="0">
+<V0 x="9.76006966179" y="28.0" z="0.0"/> 
+<V1 x="-15.0" y="28.0" z="0.0"/> 
+<V2 x="-15.0" y="36.0568600432" z="0.0"/> 
+<V3 x="-12.0" y="36.0568600432" z="0.0"/> 
+<V4 x="-2.0" y="36.0568600432" z="0.0"/> 
+<V5 x="9.76006966179" y="36.0568600432" z="0.0"/> 
+<V6 x="9.76006966179" y="28.0" z="0.0"/> 
+</Floor><Wall id="2" type="435" ShortWaveReflectance="0.2" GlazingRatio="0.4" GlazingGValue="0.5" GlazingUValue="1.0" OpenableRatio="0.0">
+<V0 x="-15.0" y="28.0" z="0.0"/> 
+<V1 x="9.76006966179" y="28.0" z="0.0"/> 
+<V2 x="9.76006966179" y="28.0" z="7.20125747013"/> 
+<V3 x="-15.0" y="28.0" z="7.20125747013"/> 
+<V4 x="-15.0" y="28.0" z="0.0"/> 
+</Wall><Wall id="3" type="435" ShortWaveReflectance="0.2" GlazingRatio="0.4" GlazingGValue="0.5" GlazingUValue="1.0" OpenableRatio="0.0">
+<V0 x="9.76006966179" y="28.0" z="7.20125747013"/> 
+<V1 x="9.76006966179" y="28.0" z="0.0"/> 
+<V2 x="9.76006966179" y="36.0568600432" z="0.0"/> 
+<V3 x="9.76006966179" y="36.0568600432" z="7.20125747013"/> 
+<V4 x="9.76006966179" y="28.0" z="7.20125747013"/> 
+</Wall><Wall id="4" type="435" ShortWaveReflectance="0.2" GlazingRatio="0.4" GlazingGValue="0.5" GlazingUValue="1.0" OpenableRatio="0.0">
+<V0 x="9.76006966179" y="36.0568600432" z="7.20125747013"/> 
+<V1 x="9.76006966179" y="36.0568600432" z="0.0"/> 
+<V2 x="-2.0" y="36.0568600432" z="0.0"/> 
+<V3 x="-2.0" y="36.0568600432" z="4.0"/> 
+<V4 x="-12.0" y="36.0568600432" z="4.0"/> 
+<V5 x="-12.0" y="36.0568600432" z="0.0"/> 
+<V6 x="-15.0" y="36.0568600432" z="0.0"/> 
+<V7 x="-15.0" y="36.0568600432" z="7.20125747013"/> 
+<V8 x="9.76006966179" y="36.0568600432" z="7.20125747013"/> 
+</Wall><Wall id="5" type="435" ShortWaveReflectance="0.2" GlazingRatio="0.4" GlazingGValue="0.5" GlazingUValue="1.0" OpenableRatio="0.0">
+<V0 x="-15.0" y="28.0" z="0.0"/> 
+<V1 x="-15.0" y="28.0" z="7.20125747013"/> 
+<V2 x="-15.0" y="36.0568600432" z="7.20125747013"/> 
+<V3 x="-15.0" y="36.0568600432" z="0.0"/> 
+<V4 x="-15.0" y="28.0" z="0.0"/> 
+</Wall>   </Zone>
+                </Building><Building Name="GROUP_1" id="2" key="1" Vi="1123.5" Ninf="0.15" BlindsLambda="0.2" BlindsIrradianceCutOff="100" Simulate="true">
+                <HeatTank V="0.01" phi="20" rho="1000" Cp="4180" Tmin="20" Tmax="35"/>
+			    <CoolTank V="0.01" phi="20" rho="1000" Cp="4180" Tmin="5" Tmax="20"/>
+			    <HeatSource beginDay="1" endDay="365">
+				    <HeatPump Pmax="1000" eta_tech="0.3" Ttarget="55" Tsource="ground" depth="5" alpha="0.0700000003" position="vertical" z1="10" />
+			    </HeatSource>
+			    <CoolSource beginDay="1" endDay="365">
+				    <HeatPump Pmax="10000000" eta_tech="0.3" Ttarget="5" Tsource="ground" depth="5" alpha="0.0700000003" position="vertical" z1="10" />
+			    </CoolSource>
+<Zone id="1" volume="437.7256" psi="0.2" Tmin="20" Tmax="26" groundFloor="True" ><Occupants n="5" type="0"/>
+<Roof id="0" type="435" ShortWaveReflectance="0.2" GlazingRatio="0" GlazingGValue="0" GlazingUValue="0" OpenableRatio="0">
+<V0 x="-12.0" y="36.0568600432" z="4.0"/> 
+<V1 x="-2.0" y="36.0568600432" z="4.0"/> 
+<V2 x="-2.0" y="47.0" z="4.0"/> 
+<V3 x="-12.0" y="47.0" z="4.0"/> 
+<V4 x="-12.0" y="36.0568600432" z="4.0"/> 
+</Roof><Floor id="1" type="437" ShortWaveReflectance="0.2" GlazingRatio="0" GlazingGValue="0" GlazingUValue="0" OpenableRatio="0">
+<V0 x="-2.0" y="36.0568600432" z="0.0"/> 
+<V1 x="-12.0" y="36.0568600432" z="0.0"/> 
+<V2 x="-12.0" y="47.0" z="0.0"/> 
+<V3 x="-2.0" y="47.0" z="0.0"/> 
+<V4 x="-2.0" y="36.0568600432" z="0.0"/> 
+</Floor><Wall id="3" type="435" ShortWaveReflectance="0.2" GlazingRatio="0.4" GlazingGValue="0.5" GlazingUValue="1.0" OpenableRatio="0.0">
+<V0 x="-2.0" y="36.0568600432" z="4.0"/> 
+<V1 x="-2.0" y="36.0568600432" z="0.0"/> 
+<V2 x="-2.0" y="47.0" z="0.0"/> 
+<V3 x="-2.0" y="47.0" z="4.0"/> 
+<V4 x="-2.0" y="36.0568600432" z="4.0"/> 
+</Wall><Wall id="4" type="435" ShortWaveReflectance="0.2" GlazingRatio="0.4" GlazingGValue="0.5" GlazingUValue="1.0" OpenableRatio="0.0">
+<V0 x="-2.0" y="47.0" z="4.0"/> 
+<V1 x="-2.0" y="47.0" z="0.0"/> 
+<V2 x="-12.0" y="47.0" z="0.0"/> 
+<V3 x="-12.0" y="47.0" z="4.0"/> 
+<V4 x="-2.0" y="47.0" z="4.0"/> 
+</Wall><Wall id="5" type="435" ShortWaveReflectance="0.2" GlazingRatio="0.4" GlazingGValue="0.5" GlazingUValue="1.0" OpenableRatio="0.0">
+<V0 x="-12.0" y="36.0568600432" z="0.0"/> 
+<V1 x="-12.0" y="36.0568600432" z="4.0"/> 
+<V2 x="-12.0" y="47.0" z="4.0"/> 
+<V3 x="-12.0" y="47.0" z="0.0"/> 
+<V4 x="-12.0" y="36.0568600432" z="0.0"/> 
+</Wall>   </Zone>
+                </Building></District>
+		   </CitySim> 

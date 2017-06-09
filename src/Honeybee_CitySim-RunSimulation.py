@@ -1,7 +1,7 @@
 ﻿# GH-CitySim: an interface to CitySim started by Giuseppe Peronato
 #
 # © All rights reserved. Ecole polytechnique fédérale de Lausanne (EPFL), Switzerland,
-# Laboratory of Integrated Performance in Design (LIPID), 2016-2017
+# Interdisciplinary Laboratory of Performance-Integrated Design (LIPID), 2016-2017
 # Author: Giuseppe Peronato, <giuseppe.peronato@epfl.ch>
 #
 # CitySim is a software developed and distributed by the
@@ -87,8 +87,13 @@ thermalZonesPyClasses = hb_hive.callFromHoneybeeHive(_HBZones)
 EPConstructions.sort()
 EPMaterials.sort()
 EPWindowMaterials.sort()
-ThermMaterials.sort()      
+ThermMaterials.sort()
+
+
 def EPConstructionStr(constructionName):
+        #This function has been copied (with some adaptations)
+        #from Honeybee's "Run Energy Simulation" component, version 0.0.59 FEB_03_2016'
+        #All credits to the authors.
         constructionData = None
         if constructionName in sc.sticky ["honeybee_constructionLib"].keys():
             constructionData = sc.sticky ["honeybee_constructionLib"][constructionName]
@@ -115,6 +120,9 @@ def EPConstructionStr(constructionName):
             return None, None
             
 def getMaterialProperties(matName):
+    #This function has been copied (with some adaptations)
+    #from Honeybee's "Decompose EnergyPlus Material" component, version 0.0.59 FEB_03_2016
+    #All credits to the authors.
     if not sc.sticky["honeybee_release"]:
         print "You should first let Honeybee to fly..."
         w = gh.GH_RuntimeMessageLevel.Warning

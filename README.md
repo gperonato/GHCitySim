@@ -13,7 +13,8 @@ In the resources folder you will find:
 * a sample weather file in CitySim format *.cli;
 * a reference XML file in CitySim format.
 
-* Warning *
+**Warning
+
 At this stage, GHCitySim works only with v. 0.0.59 of LadyBug and Honeybee and is not compatible with their more recent versions. Legacy components are available in this repository and can be used to run GHCitySim.
 
 

@@ -4,7 +4,7 @@
 # 
 # This file is part of Ladybug.
 # 
-# Copyright (c) 2013-2017, Mostapha Sadeghipour Roudsari <mostapha@ladybug.tools> 
+# Copyright (c) 2013-2018, Mostapha Sadeghipour Roudsari <mostapha@ladybug.tools> 
 # Ladybug is free software; you can redistribute it and/or modify 
 # it under the terms of the GNU General Public License as published 
 # by the Free Software Foundation; either version 3 of the License, 
@@ -31,7 +31,7 @@ along with Ladybug; If not, see <http://www.gnu.org/licenses/>.
 @license GPL-3.0+ <http://spdx.org/licenses/GPL-3.0+>
 Source code is available at: https://github.com/mostaphaRoudsari/ladybug
 -
-Provided by Ladybug 0.0.64
+Provided by Ladybug 0.0.67
     Args:
         defaultFolder_: Optional input for Ladybug default folder.
                        If empty default folder will be set to C:\ladybug or C:\Users\%USERNAME%\AppData\Roaming\Ladybug\
@@ -41,7 +41,7 @@ Provided by Ladybug 0.0.64
 
 ghenv.Component.Name = "Ladybug_Ladybug"
 ghenv.Component.NickName = 'Ladybug'
-ghenv.Component.Message = 'VER 0.0.64\nMAR_27_2017'
+ghenv.Component.Message = 'VER 0.0.67\nNOV_20_2018'
 ghenv.Component.IconDisplayMode = ghenv.Component.IconDisplayMode.icon
 ghenv.Component.Category = "Ladybug"
 ghenv.Component.SubCategory = "0 | Ladybug"
@@ -63,6 +63,12 @@ import System
 import time
 from itertools import chain
 import datetime
+
+try:
+    System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12
+except AttributeError:
+    # TLS 1.2 not provided by MacOS .NET Core; revert to using TLS 1.0
+    System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls
 
 PI = math.pi
 rc.Runtime.HostUtils.DisplayOleAlerts(False)
@@ -844,7 +850,7 @@ class Preparation(object):
             lngt+',     !Longitude\n' + \
             timeZone+',     !Time Zone\n' + \
             elev + ';       !Elevation'
-        epwfile.close
+        epwfile.close()
         return locName, lat, lngt, timeZone, elev, locationString
 
     def decomposeLocation(self, location):
@@ -1492,7 +1498,7 @@ class Sunpath(object):
     
     #This part is written by Trygve Wastvedt (Trygve.Wastvedt@gmail.com).
     def solInitOutput(self, month, day, hour, solarTime = False):
-        year = 2016
+        year = 2018
         self.time = hour
         
         a = 1 if (month < 3) else 0
@@ -2385,7 +2391,7 @@ class RunAnalysisInsideGH(object):
         vecImportance = []
         if viewType == 0:
             for vec in viewPoints:
-                vecImportance.append(1)
+                vecImportance.append(100/len(viewPoints))
         else:
             totalArea = sum(patchAreas)
             for area in patchAreas:
@@ -2480,7 +2486,7 @@ class RunAnalysisInsideGH(object):
         
         # Calculate average view
         averageView = sum(viewResult)/len(viewResult)
-            
+        
         return viewResult, averageView, ptVisibility
 
 class ExportAnalysis2Radiance(object):
@@ -2924,6 +2930,16 @@ class ResultVisualization(object):
         # Thanks to Giulio Piacentino for his version of text to curve
         textCrvs = []
         textJustification = self.textJustificationEnumeration(justificationIndex)
+        try:
+            # exposed only in Rhino 6
+            scale = rc.RhinoDoc.ActiveDoc.DimStyles.CurrentDimensionStyle.DimensionScale
+        except AttributeError:
+            # Rhino 5
+            pass
+        else:
+            scale = scale or 1  # ensure it is not 0
+            textHeight = textHeight / scale
+
         for n in range(len(text)):
             plane = rc.Geometry.Plane(textPt[n], rc.Geometry.Vector3d(0,0,1))
             if type(text[n]) is not str:
@@ -2943,6 +2959,17 @@ class ResultVisualization(object):
         textSrfs = []
         textJustification = self.textJustificationEnumeration(justificationIndex)
         planeCheck = False
+
+        try:
+            # exposed only in Rhino 6
+            scale = rc.RhinoDoc.ActiveDoc.DimStyles.CurrentDimensionStyle.DimensionScale
+        except AttributeError:
+            # Rhino 5
+            pass
+        else:
+            scale = scale or 1  # ensure it is not 0
+            textHeight = textHeight / scale
+
         for n in range(len(text)):
             if plane == None or planeCheck == True:
                 plane = rc.Geometry.Plane(textPt[n], rc.Geometry.Vector3d(0,0,1))
@@ -2981,9 +3008,14 @@ class ResultVisualization(object):
                 meshSrfs = []
                 for srf in srfs:
                     srf.Flip()
-                    meshSrf = rc.Geometry.Mesh.CreateFromBrep(srf, rc.Geometry.MeshingParameters.Coarse)[0]
-                    meshSrf.VertexColors.CreateMonotoneMesh(System.Drawing.Color.Black)
-                    meshSrfs.append(meshSrf)
+                    try:
+                        meshSrf = rc.Geometry.Mesh.CreateFromBrep(srf, rc.Geometry.MeshingParameters.Coarse)[0]
+                    except TypeError:
+                        # pass very small surfaces
+                        continue
+                    else:
+                        meshSrf.VertexColors.CreateMonotoneMesh(System.Drawing.Color.Black)
+                        meshSrfs.append(meshSrf)
                 
                 textSrfs.append(meshSrfs)
             
@@ -2993,7 +3025,11 @@ class ResultVisualization(object):
     
     def createTitle(self, listInfo, boundingBoxPar, legendScale = 1, Heading = None, shortVersion = False, font = None, fontSize = None, fontBold = False):
         #Define a function to create surfaces from input curves.
-        if Heading==None: Heading = listInfo[0][2] + ' (' + listInfo[0][3] + ')' + ' - ' + listInfo[0][4]
+        if Heading==None:
+            if listInfo[0][3].startswith('(') or listInfo[0][3].startswith('['):
+                Heading = listInfo[0][2] + ' ' + listInfo[0][3] + ' - ' + listInfo[0][4]
+            else:
+                Heading = listInfo[0][2] + ' (' + listInfo[0][3] + ')' + ' - ' + listInfo[0][4]
         stMonth, stDay, stHour, endMonth, endDay, endHour = self.readRunPeriod((listInfo[0][5], listInfo[0][6]), False)
         period = `stDay`+ ' ' + self.monthList[stMonth-1] + ' ' + `stHour` + ':00' + \
                  " - " + `endDay`+ ' ' + self.monthList[endMonth-1] + ' ' + `endHour` + ':00'
@@ -3087,10 +3123,10 @@ class ResultVisualization(object):
             intPt = rc.Geometry.Intersect.Intersection.LineCircle(ns,angleCircle)
             try:
                 angleTextPts.append(intPt[-1])
-                if projection == 1:
-                    angleText.append(str(angle))
+                if projection == 1 or projection == 2:
+                    angleText.append(str(angle) + "")
                 else:
-                    angleText.append(str(90-angle))
+                    angleText.append(str(90-angle) + "" )
             except:
                 pass
         
@@ -3334,6 +3370,16 @@ class ResultVisualization(object):
         
         #Write the text into the document
         formatString = "%." + str(decimalPlaces) + "f"
+        try:
+            # exposed only in Rhino 6
+            scale = rc.RhinoDoc.ActiveDoc.DimStyles.CurrentDimensionStyle.DimensionScale
+        except AttributeError:
+            # Rhino 5
+            pass
+        else:
+            scale = scale or 1  # ensure it is not 0
+            textSize = textSize / scale
+
         for text in range(len(legendText)):
             plane = rc.Geometry.Plane(textPt[text], rc.Geometry.Vector3d(0,0,1))
             if type(legendText[text]) is not str: legendText[text] = (formatString % legendText[text])
@@ -3787,9 +3833,7 @@ class ComfortModels(object):
         return balTemper
     
     
-    def calcComfRange(self, initialGuessUp, initialGuessDown, radTemp, windSpeed, relHumid, metRate, cloLevel, exWork, targetPPD, opTemp=False):
-        upTemper = initialGuessUp
-        upDelta = 3
+    def calcComfRange(self, radTemp, windSpeed, relHumid, metRate, cloLevel, exWork, targetPPD, opTemp=False):
         if targetPPD == 10.0: targetPMV = 0.5
         elif targetPPD == 6.0: targetPMV = 0.220
         elif targetPPD == 15.0: targetPMV = 0.690
@@ -3810,25 +3854,64 @@ class ComfortModels(object):
             intersectPts = rc.Geometry.Intersect.Intersection.CurveCurve(distribCrv, testLine, sc.doc.ModelAbsoluteTolerance, sc.doc.ModelAbsoluteTolerance)
             targetPMV = intersectPts[0].PointA.X
         
-        while abs(upDelta) > 0.01:
-            if opTemp == True:
-                pmv, ppd, set, taAdj, coolingEffect = self.comfPMVElevatedAirspeed(upTemper, upTemper, windSpeed, relHumid, metRate, cloLevel, exWork)
+        #This function is taken from the util.js script of the CBE comfort tool page and has been modified to include the fn inside the utilSecant function definition.
+        def utilSecant(a, b, epsilon, target):
+            # root-finding only
+            res = []
+            def fn(upTemper):
+                if opTemp == True:
+                    return self.comfPMVElevatedAirspeed(upTemper, upTemper, windSpeed, relHumid, metRate, cloLevel, exWork)[0] - target
+                else:
+                    return self.comfPMVElevatedAirspeed(upTemper, radTemp, windSpeed, relHumid, metRate, cloLevel, exWork)[0] - target
+            f1 = fn(a)
+            if abs(f1) <= epsilon: res.append(a)
             else:
-                pmv, ppd, set, taAdj, coolingEffect = self.comfPMVElevatedAirspeed(upTemper, radTemp, windSpeed, relHumid, metRate, cloLevel, exWork)
-            upDelta = targetPMV - pmv
-            upTemper = upTemper + upDelta
+                f2 = fn(b)
+                if abs(f2) <= epsilon: res.append(b)
+                else:
+                    count = range(100)
+                    for i in count:
+                        if (b - a) != 0 and (f2 - f1) != 0:
+                            slope = (f2 - f1) / (b - a)
+                            c = b - f2/slope
+                            f3 = fn(c)
+                            if abs(f3) < epsilon:
+                                res.append(c)
+                            a = b
+                            b = c
+                            f1 = f2
+                            f2 = f3
+                res.append('NaN')
+            
+            return res[0]
         
-        if initialGuessDown == None:
-            downTemper = upTemper - 6
-        else: downTemper = initialGuessDown
-        downDelta = 3
-        while abs(downDelta) > 0.01:
-            if opTemp == True:
-                pmv, ppd, set, taAdj, coolingEffect = self.comfPMVElevatedAirspeed(downTemper, downTemper, windSpeed, relHumid, metRate, cloLevel, exWork)
-            else:
-                pmv, ppd, set, taAdj, coolingEffect = self.comfPMVElevatedAirspeed(downTemper, radTemp, windSpeed, relHumid, metRate, cloLevel, exWork)
-            downDelta = -targetPMV - pmv
-            downTemper = downTemper + downDelta
+        #This function is taken from the util.js script of the CBE comfort tool page and has been modified to include the fn inside the utilBisect function definition.
+        def utilBisect(a, b, epsilon, target):
+            def fn(t):
+                if opTemp == True:
+                    return self.comfPMVElevatedAirspeed(upTemper, upTemper, windSpeed, relHumid, metRate, cloLevel, exWork)[0] - target
+                else:
+                    return self.comfPMVElevatedAirspeed(upTemper, radTemp, windSpeed, relHumid, metRate, cloLevel, exWork)[0] - target
+            while abs(b - a) > (2 * epsilon):
+                midpoint = (b + a) / 2
+                a_T = fn(a)
+                b_T = fn(b)
+                midpoint_T = fn(midpoint)
+                if (a_T - target) * (midpoint_T - target) < 0: b = midpoint
+                elif (b_T - target) * (midpoint_T - target) < 0: a = midpoint
+                else: return -999
+            return midpoint
+        
+        # Calculate the lower limit of comfort.
+        epsilon = 0.001
+        a = -50
+        b = 50
+        upTemper = utilSecant(a, b, epsilon, targetPMV)
+        if upTemper == 'NaN':
+            upTemper = utilBisect(a, b, epsilon, targetPMV)
+        downTemper = utilSecant(a, b, epsilon, -targetPMV)
+        if downTemper == 'NaN':
+            downTemper = utilBisect(a, b, epsilon, -targetPMV)
         
         return upTemper, downTemper
     
@@ -5686,8 +5769,37 @@ class Photovoltaics(object):
             
             return moduleModelName, moduleName, material, moduleMountType, moduleAreaM, moduleActiveAreaPercent, nameplateDCpowerRating_m, moduleEfficiency, Vmp_ref, Imp_ref, Voc_ref, Isc_ref, alpha_sc_ref, beta_oc_ref, beta_mp_ref, mu_betamp, s, n, Fd, a0, a1, a2, a3, a4, b0, b1, b2, b3, b4, b5, C0, C1, C2, C3, a, b, deltaT
         
+        elif (len(PVmoduleSettings) == 23):
+            # "PVmoduleSettings" generated by "Import CEC Photovoltaics Module" component
+            moduleModelName = "CEC"
+            moduleName = PVmoduleSettings[0]
+            material = PVmoduleSettings[1]
+            moduleMountType = PVmoduleSettings[2]
+            moduleAreaM = PVmoduleSettings[3]
+            moduleActiveAreaPercent = PVmoduleSettings[4]
+            nameplateDCpowerRating_m = PVmoduleSettings[5]
+            moduleEfficiency = PVmoduleSettings[6]
+            Vmp_ref = PVmoduleSettings[7]
+            Imp_ref = PVmoduleSettings[8]
+            Voc_ref = PVmoduleSettings[9]
+            Isc_ref = PVmoduleSettings[10]
+            alpha_sc_ref = PVmoduleSettings[11]
+            beta_oc_ref = PVmoduleSettings[12]
+            IL_ref = PVmoduleSettings[13]
+            Io_ref = PVmoduleSettings[14]
+            Rs_ref = PVmoduleSettings[15]
+            Rsh_ref = PVmoduleSettings[16]
+            A_ref = PVmoduleSettings[17]
+            n_s = PVmoduleSettings[18]
+            adjust = PVmoduleSettings[19]
+            gamma_r_ref = PVmoduleSettings[20]
+            ws_adjusted_factor = PVmoduleSettings[21]
+            Tnoct_adj = PVmoduleSettings[22]
+            
+            return moduleModelName, moduleName, material, moduleMountType, moduleAreaM, moduleActiveAreaPercent, nameplateDCpowerRating_m, moduleEfficiency, Vmp_ref, Imp_ref, Voc_ref, Isc_ref, alpha_sc_ref, beta_oc_ref, IL_ref, Io_ref, Rs_ref, Rsh_ref, A_ref, n_s, adjust, gamma_r_ref, ws_adjusted_factor, Tnoct_adj
+        
         elif (len(PVmoduleSettings) == 9):
-            # "PVmoduleSettings" generated by "Photovoltaics Module" component
+            # "PVmoduleSettings" generated by "Simplified Photovoltaics Module" component
             moduleModelName = "PVFORM"
             mountTypeName = PVmoduleSettings[0]
             moduleMaterial = PVmoduleSettings[1]
@@ -5719,6 +5831,16 @@ class Photovoltaics(object):
             deltaT = 1
             
             return moduleModelName, mountTypeName, moduleMaterial, mountType, moduleActiveAreaPercent, moduleEfficiency, temperatureCoefficientFraction, a, b, deltaT
+    
+    def w0(self, z):
+        # Lambert W function using Newton's method
+        w = z
+        while True:
+            ew = math.exp(w)
+            wNew = w - (w * math.exp(w) - z) / (ew + (w * ew))
+            if abs(w - wNew) <= 0.00000001: break
+            w = wNew
+        return w
     
     def noLeavesPeriod(self, criteria, latitude, sunWindowQuadrantIndex, leaflessStartHOY=None, leaflessEndHOY=None):
         if criteria == "perQuadrant":
@@ -5993,7 +6115,7 @@ class Photovoltaics(object):
         
         return correctedSrfAzimuthD, northDeg, validNorth, printMsg
     
-    def NRELsunPosition(self, latitude , longitude, timeZone, year, month, day, hour):
+    def NRELsunPosition(self, latitude, longitude, timeZone, year, month, day, hour):
         # sunZenith, sunAzimuth, sunAltitude angles
         # based on Michalsky (1988), modified to calculate sun azimuth angles for locations south of the equator using the approach described in (Iqbal, 1983)
         min = 30
@@ -6023,7 +6145,7 @@ class Photovoltaics(object):
         
         julian = 32916.5 + 365*(year-1949) + int((year-1949)/4) + jdoy + (tutc/24) - 51545
         
-        mnlong = 280.46 + 0.9856474*julian   # in degrees
+        mnlong = 280.46 + 0.9856474*julian  # in degrees
         mnlong = mnlong - 360*int(mnlong/360)
         
         if (mnlong < 0):
@@ -6034,7 +6156,7 @@ class Photovoltaics(object):
         
         if (mnanom < 0):
             mnanom = (mnanom+360)
-        mnanom = mnanom*(math.pi/180)   # in radians
+        mnanom = mnanom*(math.pi/180)  # in radians
         
         eclong = (mnlong + 1.915*math.sin(mnanom) + 0.02 * math.sin(2*mnanom))
         eclong = eclong - 360*int(eclong/360)
@@ -6054,6 +6176,35 @@ class Photovoltaics(object):
         
         beta = math.asin(math.sin(obleq)*math.sin(eclong))   # in radians
         
+        
+        # perform check and adjustment for sunrise or sunset
+        sunrise_a = -math.tan((math.pi/180)*latitude)*math.tan(beta)
+        if sunrise_a >= 1:
+            sunrise_HAR = 0
+        elif sunrise_a <=-1:
+            sunrise_HAR = math.pi
+        else:
+            sunrise_HAR = math.acos(sunrise_a)
+        
+        sunrise_a = (1/15.0)*(mnlong - (180/math.pi)*ra)
+        if sunrise_a < -0.33:
+            sunrise_EOT = sunrise_a+24
+        elif sunrise_a > 0.33:
+            sunrise_EOT = sunrise_a-24
+        else:
+            sunrise_EOT = sunrise_a
+        
+        t_sunrise = 12 - (1/15.0)*(180/math.pi)*sunrise_HAR - (longitude/15 - timeZone) - sunrise_EOT
+        t_sunset = 12 + (1/15.0)*(180/math.pi)*sunrise_HAR - (longitude/15 - timeZone) - sunrise_EOT
+        
+        if int(t_sunrise) == hour:
+            min=(((t_sunrise - int(t_sunrise))*60)+60)/2
+            tutc = hour + min/60.0 - timeZone
+        elif int(t_sunset) == hour:
+            min=((t_sunset - int(t_sunset))*60)/2
+            tutc = hour + min/60.0 - timeZone
+        
+        
         gmst = 6.697375 + 0.0657098242*julian + tutc
         gmst = gmst - 24*int(gmst/24)
         
@@ -6069,9 +6220,9 @@ class Photovoltaics(object):
         b = 15*(math.pi/180) * lmst - ra
         
         if (b < -math.pi):
-            HA = b + 2*math.pi   # in radians
+            HA = b + 2*math.pi  # in radians
         elif (b > math.pi):
-            HA = b - 2*math.pi   # in radians
+            HA = b - 2*math.pi  # in radians
         else:
             HA = b
         
@@ -6189,6 +6340,8 @@ class Photovoltaics(object):
         
         # Eb beam irradiance
         Eb = DNIshaded * math.cos(AOI_R)
+        if Eb < 0:
+            Eb = 0
         
         # Ed_sky (Perez 1990 modified model diffuse sky irradiance)
         a = max(0, math.cos(AOI_R))
@@ -6286,25 +6439,25 @@ class Photovoltaics(object):
         Ed_sky = Di + Dc + Dh
         
         # Eg ground reflected irradiance by Liu, Jordan, (1963).
-        Eground = ((DNIshaded * math.cos(sunZenithR)) + Ed_sky) * albedo * ((1-math.cos(srfTiltR))/2)
+        Eground = ((DNIshaded * math.cos(sunZenithR)) + DHI) * albedo * ((1-math.cos(srfTiltR))/2)
         
         Epoa = Eb + Eground + Ed_sky  # in Wh/m2
+        if Epoa < 0:
+           Epoa = 0
         
-        if Eb < 0: Eb = 0
-        if Eground < 0: Eground = 0
-        if Ed_sky < 0: Ed_sky = 0
-        
-        if Epoa < 0 or ((DNIshaded<=0) and (DHI<=0)):
-            Epoa = Eb = Ed_sky = Eground = 0
+        if ((DNI<=0) and (DHI<=0))  or  (sunZenithD > 90):
+            Epoa = 0; Eb = 0; Ed_sky = 0; Eground = 0
         
         return Epoa, Eb, Ed_sky, Eground, AOI_R
     
-    def pvwatts(self, nameplateDCpowerRating, DCtoACderateFactor, sunZenithD, AOI_R, Epoa, Eb, Ed_sky, Eground, Ta, ws10, DNI, DHI, PVmoduleSettings, elevationM):
+    def pvwatts(self, nameplateDCpowerRating, DCtoACderateFactor, srfTiltD, sunZenithD, AOI_R, Epoa, Eb, Ed_sky, Eground, Ta, ws10, DNI, DHI, PVmoduleSettings, elevationM):
         # PVWatts v1 Thermal, Module Temperature, Cell Temperature Module and Inverter models
         
         # deconstruct PVmoduleSettings
         if (len(PVmoduleSettings) == 36):
             moduleModelName, moduleName, material, moduleMountType, moduleAreaM, moduleActiveAreaPercent, nameplateDCpowerRating_m, moduleEfficiency, Vmp_ref, Imp_ref, Voc_ref, Isc_ref, alpha_sc_ref, beta_oc_ref, beta_mp_ref, mu_betamp, s, n, Fd, a0, a1, a2, a3, a4, b0, b1, b2, b3, b4, b5, C0, C1, C2, C3, a, b, deltaT = self.deconstruct_PVmoduleSettings(PVmoduleSettings)
+        elif (len(PVmoduleSettings) == 23):
+            moduleModelName, moduleName, material, moduleMountType, moduleAreaM, moduleActiveAreaPercent, nameplateDCpowerRating_m, moduleEfficiency, Vmp_ref, Imp_ref, Voc_ref, Isc_ref, alpha_sc_ref, beta_oc_ref, IL_ref, Io_ref, Rs_ref, Rsh_ref, A_ref, n_s, adjust, gamma_r_ref, ws_adjusted_factor, Tnoct_adj = self.deconstruct_PVmoduleSettings(PVmoduleSettings)
         elif (len(PVmoduleSettings) == 9):
             moduleModelName, mountTypeName, moduleMaterial, mountType, moduleActiveAreaPercent, moduleEfficiency, gamma, a, b, deltaT = self.deconstruct_PVmoduleSettings(PVmoduleSettings)
         
@@ -6320,15 +6473,16 @@ class Photovoltaics(object):
         f = b0 + b1*AOI_R + b2*(AOI_R**2) + b3*(AOI_R**3) + b4*(AOI_R**4) + b5*(AOI_R**5)
         Etr = Epoa - (1-f)*Eb*math.cos(AOI_R)
         
-        # module back temperature
-        Tm = Epoa * (math.exp(a+(b*ws10))) + Ta  # in C degrees
-        
-        # cell temperature
-        Tcell = Tm + (Epoa/1000)*deltaT  # in C degrees
-        
-        if ((DNI<=0) and (DHI<=0)):
-            Pdc_ = Pac = 0
-            return Tm, Tcell, Pdc_, Pac
+        if (moduleModelName == "PVFORM") or (moduleModelName == "Sandia"):
+            # module back temperature
+            Tm = Epoa * (math.exp(a+(b*ws10))) + Ta  # in C degrees
+            
+            # cell temperature
+            Tcell = Tm + (Epoa/1000)*deltaT  # in C degrees
+            
+            if ((DNI<=0) and (DHI<=0)):
+                Pdc_ = Pac = 0
+                return Tcell, Pdc_, Pac
         
         Pdc0 = nameplateDCpowerRating   # in kWatts
         if (moduleModelName == "PVFORM"):
@@ -6338,8 +6492,197 @@ class Photovoltaics(object):
             if Etr <= 125:
                 Pdc = ((0.008*(Etr**2))/1000)*Pdc0*(1+gamma*(Tcell-25))  # in KWatts
         
-        if (moduleModelName == "Sandia"):
-            # b) Sandia Module Model
+        elif (moduleModelName == "CEC"):
+            # b) CEC Module Model
+            # temperature coefficient of short circuit current, corrected using adjust parameter.
+            mu_i_sc = alpha_sc_ref*(1-adjust/100)
+            
+            # temperature coefficient of open circuit voltage, corrected using adjust parameter
+            beta_v_oc = beta_oc_ref*(1+adjust/100)
+            
+            # global effective irradiance
+            G = Eb + Ed_sky + Eground
+            
+            # constants
+            n = 1.526  # refractive index of glass
+            L = 0.002  # thickness of glass cover in meters
+            K = 4  # proportionality constant in meters ^-1
+            
+            # incidence angle for the sky diffuse component of the effective irradiance
+            AOId_D = 59.7 - 0.1388*srfTiltD + 0.001497*(srfTiltD**2)
+            # incidence angle for the ground-reflected component of the effective irradiance
+            AOIg_D = 90 - 0.5788*srfTiltD + 0.002693*(srfTiltD**2)
+            
+            # transmittance
+            theta_i_L = [1*math.pi/180, AOI_R, AOId_D*math.pi/180, AOIg_D*math.pi/180]  # in radians
+            
+            transmittanceL = []
+            for theta_i in theta_i_L:
+                theta_r = math.asin((1/n)*math.sin(theta_i)) # angle of refraction calculated for each incidence angle of interest
+                transmittance = (math.e**(-K*L/math.cos(theta_r))) * (1-0.5*( (((math.sin(theta_r-theta_i))**2)/((math.sin(theta_r+theta_i))**2)) + (((math.tan(theta_r-theta_i))**2)/((math.tan(theta_r+theta_i))**2)) ))
+                transmittanceL.append(transmittance)
+            transmittance_n, transmittance_b, transmittance_d, transmittance_g  =  transmittanceL[0], transmittanceL[1], transmittanceL[2], transmittanceL[3]
+            
+            # incidence angle modifier
+            AOIM_b = transmittance_b/transmittance_n
+            AOIM_d = transmittance_d/transmittance_n
+            AOIM_g = transmittance_g/transmittance_n
+            
+            # irradiance absorbed by the photovoltaic cell
+            G0 = Eb*AOIM_b + Ed_sky*AOIM_d + Eground*AOIM_g
+            
+            # correcting sun zenith angle
+            if sunZenithD < 0:
+                sunZenithD = 0
+                sunZenithR = 0
+            elif sunZenithD > 86:
+                sunZenithD = 86
+                sunZenithR = math.radians(86)
+            else:
+                sunZenithR = math.radians(sunZenithD)
+            
+            # air mass
+            AM = (math.e**(-0.0001184*elevationM))  /  (math.cos(sunZenithR) + ( 0.5057*((96.08 -sunZenithD)**(-1.634)) ))
+            
+            # air mass coefficients for crystalline silicon modules
+            a0 = 0.918093
+            a1 = 0.086257
+            a2 = -0.024459
+            a3 = 0.002816
+            a4 = -0.000126
+            
+            # air mass modifier M
+            M = a0 +a1*AM +a2*(AM**2) +a3*(AM**3) +a4*(AM**4)
+            
+            # air mass adjusted transmittance-absorptance product
+            if G == 0:  # fix when G == 0:
+                transmittance_absorptance = 0
+            else:
+                transmittance_absorptance = 0.9 * (M*G0 / G)
+            
+            # NOCT thermal model, if G > 0
+            nu_ref = Imp_ref * Vmp_ref / (1000 * moduleAreaM)
+            
+            # wind speed adjusted for height above the ground
+            ws_adj = ws_adjusted_factor * ws10                                           
+            
+            # fix when G == 0:
+            if G == 0:
+                Tcell = Ta + (G/800) * (Tnoct_adj - 20) * (1 - 0) * (9.5/(5.7+3.8*ws_adj))
+            else:
+                Tcell = Ta + (G/800) * (Tnoct_adj - 20) * (1 - nu_ref/transmittance_absorptance) * (9.5/(5.7+3.8*ws_adj))
+            
+            if G <= 1:
+                Pdc_m = 0
+            else:
+                # cell temperature in kelvins
+                Tcell_K = Tcell + 273.15
+                
+                # temp and irradiance adjusted light current Il
+                Il = M*G0/1000*(IL_ref + mu_i_sc * (Tcell_K - 298.15)) # Jason fixed
+                
+                # Boltzmann constant
+                k = 8.618 *(10**(-5))
+                
+                # cell material band-gap energy
+                Tcell_ref = 25  # in degrees, Tcell in STC
+                Tcell_ref_K = Tcell_ref + 273.15
+                Ebg = 1.12 * (1 - 0.0002677*(Tcell_K - Tcell_ref_K))
+                
+                # temp adjusted diode reverse saturation current Io
+                Io = Io_ref * ((Tcell_K/Tcell_ref_K)**3) * math.exp((1/k) * ((1.12/Tcell_ref_K) - (Ebg/Tcell_K)))
+                
+                # temp adjusted ideality factor a
+                a = A_ref * Tcell_K/Tcell_ref_K
+                
+                # irradiance adjusted Rsh
+                Rsh = Rsh_ref*1000/(G0*M)
+                # Rs is not adjusted from reference value
+                Rs = Rs_ref
+                
+                # short circuit current
+                Isc = Il / (1+(Rs_ref / Rsh))
+                
+                # equation to solve for Voc
+                # 0 = Il - Io *(math.exp(Voc/a)-1) - Voc/Rsh
+                # solve for Voc using bisection method
+                
+                iterations = 0 
+                solved = 0
+                
+                Voc = Voc_ref
+                bisect_a = Voc_ref * 1.5
+                bisect_b = 0
+                bisect_c = 0
+                
+                f_a = Il - Io *(math.exp(bisect_a/a)-1) - bisect_a/Rsh
+                f_b = Il - Io *(math.exp(bisect_b/a)-1) - bisect_b/Rsh
+                
+                if ((f_a > 0 and f_b < 0) or (f_a < 0 and f_b > 0)):    
+                    while ((iterations <= 50) and (solved == 0)):
+                        bisect_c = (bisect_a+bisect_b)/2
+                        f_c = Il - Io *(math.exp(bisect_c/a)-1) - bisect_c/Rsh
+                        iterations += 1
+                        if ((f_c == 0) or ((abs(bisect_b-bisect_a)/2) < 0.0001)):
+                            solved = 1
+                        elif ((f_c>0 and f_a>0) or (f_c<0 and f_a<0)):
+                            bisect_a = bisect_c
+                            f_a = Il - Io *(math.exp(bisect_a/a)-1) - bisect_a/Rsh
+                        else:
+                            bisect_b = bisect_c
+                            f_b = Il - Io *(math.exp(bisect_b/a)-1) - bisect_b/Rsh
+                
+                Voc = bisect_c
+                
+                # Vmp and Imp are found together, by maximizing Pmp
+                # Pmp = Vmp * Imp. Guess Vmp. Calculate Imp using Lambert W function. Use golden section search to improve guess of Vmp, iterate until Pmp is found.
+                
+                phi = (1 + math.sqrt(5))/2
+                VH = 1.5 * Voc
+                VL = 0
+                
+                err = VH - VL
+                solved = 0
+                iterations = 0
+                
+                while ((iterations <= 50) and (solved == 0)):
+                    V1 = VL + err / phi
+                    V2 = VH - err / phi
+                    # calculate I for V1 Eqn. 4 in Jain and Kapoor, 2004
+                    argW = (Rs*Io*Rsh * math.exp(Rsh*(Rs*(Il+Io)+V1) / (a*(Rs+Rsh))) /(a*(Rs + Rsh)))
+                    lambertwterm = self.w0(argW)     
+                    I_V1 = -V1/(Rs + Rsh) - (a/Rs)*lambertwterm + Rsh*(Il + Io)/(Rs + Rsh)
+                    # calculate P for V1
+                    P_V1 = V1 * I_V1
+                    # calculate I for V2 Eqn. 4 in Jain and Kapoor, 2004
+                    argW = (Rs*Io*Rsh * math.exp(Rsh*(Rs*(Il+Io)+V2) / (a*(Rs+Rsh))) /(a*(Rs + Rsh)))
+                    lambertwterm = self.w0(argW)
+                    I_V2 = -V2/(Rs + Rsh) - (a/Rs)*lambertwterm + Rsh*(Il + Io)/(Rs + Rsh)
+                    # calculate P for V1
+                    P_V2 = V2 * I_V2
+                    # check for convergence on maximum
+                    if (P_V1 < P_V2):
+                        VH = V1
+                    else:
+                        VL = V2
+                    err = abs(VH-VL)
+                    if err < 0.0001:
+                        solved = 1
+                    iterations += 1
+                
+                Vmp = V1
+                Imp = I_V1
+                Pmp = P_V1
+                
+                # module's DC power output at the maximum power point
+                Pdc_m = Vmp * Imp  # in Watts
+            
+            Pdc_array = (Pdc_m/1000) * nameplateDCpowerRating/(nameplateDCpowerRating_m/1000)  # in KWatts
+            if (Pdc_array < 0) or (Pdc_array == -0.0): Pdc_array = 0
+            Pdc = Pdc_array
+        
+        elif (moduleModelName == "Sandia"):
+            # c) Sandia Module Model
             # air mass
             sunZenithR = math.radians(sunZenithD)
             AM = ( (math.e**(-0.0001184*elevationM))  /  math.cos(sunZenithR) )  + ( 0.5057*((96.08-sunZenithD)**(-1.634)) )
@@ -6393,7 +6736,7 @@ class Photovoltaics(object):
         
         if Pac < 0: Pac = 0
         
-        return Tm, Tcell, Pdc_, Pac
+        return Tcell, Pdc_, Pac
     
     def inletWaterTemperature(self, dryBulbTemperature_C, method=0, minimalTemperature_C=1, depth_m=2, soilThermalDiffusivity_m2_s=2.5):
         # calculate cold (inlet) water temperature
@@ -6983,24 +7326,46 @@ if checkIn.letItFly:
     sc.sticky["ladybug_Photovoltaics"] = Photovoltaics
         
     if sc.sticky.has_key("ladybug_release") and sc.sticky["ladybug_release"]:
-        greeting = "Hi{}!\n" \
-                   "Ladybug is Flying! Vviiiiiiizzz...\n\n" \
-                   "Default path is set to: " + sc.sticky["Ladybug_DefaultFolder"]
-        # Try to infer the username
-        # If windows
-        username = ''
-        if os.name == 'nt':
-            try:
-                username = ' ' + os.getenv('USERNAME')
-            except:
-                pass
-        elif os.name == 'posix':
-            try:
-                username = ' ' + os.path.basename(os.path.basename(os.path.expanduser('~')))
-            except:
-                pass           
-        
-        print greeting.format(username)
+        now = time.localtime()
+        hour = now[3]
+        day = time.strftime("%A")
+        if hour in range(0,6):
+            comment = "Looks like you're burning the midnight oil. Be sure to reset your circadian rhythm later!"
+            greeting = "Hi {}! \n\n" + "{} \n\n" + \
+                "The default path is set to: {} \n\n" + \
+                "Ladybug is Flying! Vviiiiiiizzz..."
+            # Try to infer the username
+            # If windows
+            username = ''
+            if os.name == 'nt':
+                try:
+                    username = ' ' + os.getenv('USERNAME')
+                except:
+                    pass
+            elif os.name == 'posix':
+                try:
+                    username = ' ' + os.path.basename(os.path.basename(os.path.expanduser('~')))
+                except:
+                    pass           
+            print greeting.format(username, comment ,sc.sticky["Ladybug_DefaultFolder"] )
+        else:
+            greeting = "Hi {}! \n\n" + \
+                "The default path is set to: {} \n\n" + \
+                "Ladybug is Flying! Vviiiiiiizzz..."
+            # Try to infer the username
+            # If windows
+            username = ''
+            if os.name == 'nt':
+                try:
+                    username = ' ' + os.getenv('USERNAME')
+                except:
+                    pass
+            elif os.name == 'posix':
+                try:
+                    username = ' ' + os.path.basename(os.path.basename(os.path.expanduser('~')))
+                except:
+                    pass           
+            print greeting.format(username,sc.sticky["Ladybug_DefaultFolder"] )
             
         # push ladybug component to back
         ghenv.Component.OnPingDocument().SelectAll()

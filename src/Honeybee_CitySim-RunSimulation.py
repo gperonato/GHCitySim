@@ -1,8 +1,12 @@
 ﻿# GH-CitySim: an interface to CitySim started by Giuseppe Peronato
 #
 # © All rights reserved. Ecole polytechnique fédérale de Lausanne (EPFL), Switzerland,
-# Interdisciplinary Laboratory of Performance-Integrated Design (LIPID), 2016-2017
-# Author: Giuseppe Peronato, <giuseppe.peronato@epfl.ch>
+# Laboratory of Integrated Performance in Design (LIPID), 2016-2018
+# Developer: Giuseppe Peronato <giuseppe.peronato@alumni.epfl.ch>
+
+# Further development conducted at Uppsala University, Sweden.
+# Division of Construction Engineering, 2019
+# Developer: Giuseppe Peronato <giuseppe.peronato@angstrom.uu.se>
 #
 # CitySim is a software developed and distributed by the
 # Laboratory of Solar Energy and Building Physics (LESO-PB)
@@ -38,12 +42,12 @@ Ladybug: A Plugin for Environmental Analysis (GPL) started by Mostapha Sadeghipo
 
 ghenv.Component.Name = "Honeybee_CitySim-RunSimulation"
 ghenv.Component.NickName = 'CitySim-RunSimulation'
-ghenv.Component.Message = 'VER 0.2.2\nAVR_01_2017'
+ghenv.Component.Message = 'VER 0.2.3\nFEB_26_2019'
 ghenv.Component.IconDisplayMode = ghenv.Component.IconDisplayMode.application
 ghenv.Component.Category = "Honeybee"
 ghenv.Component.SubCategory = "14 | CitySim"
-#compatibleHBVersion = VER 0.0.56\nNOV_04_2016
-#compatibleLBVersion = VER 0.0.59\nFEB_01_2015
+#compatibleHBVersion = VER 0.0.67\nNOV_20_2018
+#compatibleLBVersion = VER 0.0.64\nDEC_04_2018
 try: ghenv.Component.AdditionalHelpFromDocStrings = "3"
 except: pass
 
@@ -153,7 +157,7 @@ def getSurfaces(HBZones):
     HBO = hb_hive.callFromHoneybeeHive(HBZones)
     for b in HBO:
         crvs = []
-        HBSurfaces  = hb_hive.addToHoneybeeHive(b.surfaces, ghenv.Component.InstanceGuid.ToString())
+        HBSurfaces  = hb_hive.addToHoneybeeHive(b.surfaces, ghenv.Component)
         for s in HBSurfaces:
             edges = rs.DuplicateEdgeCurves(s)
             crvs.append(rs.JoinCurves(edges))
@@ -399,9 +403,9 @@ if Write:
 if Run:
     #Create simulation command
     if type == "F": 
-        simulation = Solver + ' ' + xmlpath
+        simulation = '"{}" {}'.format(Solver, xmlpath)
     elif type =="I":
-        simulation = Solver + ' -I ' + xmlpath
+        simulation = '"{}" -I {}'.format(Solver, xmlpath)
     #Run the simulation
     os.chdir(dir)
     os.system(join)

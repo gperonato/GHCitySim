@@ -11,7 +11,6 @@ To install, just drag and drop the files in the /UserObjects directory onto the 
 In the resources folder you will find:
 * two *.ghx files containing sample Grasshopper definitions where the components are used; the *_solar.ghx file contains an alternative workflow for solar simulations only, which does not rely on Ladybug/Honeybee libraries.
 * a sample weather file in EnergyPlus format *.epw converted in CitySim format *.cli;
-* a reference XML file in CitySim format.
 
 The simulation output files for the two sample workflows (*test* and *test_solar*) are saved in the /simulation directory.
 

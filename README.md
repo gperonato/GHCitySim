@@ -40,10 +40,11 @@ Please cite the following paper ([PDF](https://infoscience.epfl.ch/record/228832
 License
 ---------------------
 GHCitySim: set of Grasshopper components for interfacing with CitySim, started by Giuseppe Peronato  
-Copyright (c) 2016-2017, Ecole polytechnique fédérale de Lausanne (EPFL)  
+Copyright (c) 2016-2018, Ecole polytechnique fédérale de Lausanne (EPFL)  
 Laboratory of Integrated Performance in Design (LIPID)  
 
-Furtther
+Further development conducted at Uppsala University, Sweden
+Division of Construction Engineering, 2019
 Developer: Giuseppe Peronato, giuseppe.peronato@angrom.uu.se
 
 GHCitySim is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version. 

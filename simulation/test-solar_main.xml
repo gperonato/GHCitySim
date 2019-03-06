@@ -1,0 +1,605 @@
+
+		    <Composite id="21" name="Simple wall" category="Wall">
+			    <Layer Thickness="0.1500" Conductivity="200.0000" Cp="418" Density="8900" nre="0" gwp="0" ubp="0"/>
+		    </Composite>
+    <Building Name="GROUP_1" id="0" key="1" Vi="1123.5" Ninf="0.15" BlindsLambda="0.2" BlindsIrradianceCutOff="100" Simulate="true">
+                <HeatTank V="0.01" phi="20" rho="1000" Cp="4180" Tmin="20" Tmax="35"/>
+			    <CoolTank V="0.01" phi="20" rho="1000" Cp="4180" Tmin="5" Tmax="20"/>
+			    <HeatSource beginDay="1" endDay="365">
+				    <HeatPump Pmax="1000" eta_tech="0.3" Ttarget="55" Tsource="ground" depth="5" alpha="0.0700000003" position="vertical" z1="10" />
+			    </HeatSource>
+			    <CoolSource beginDay="1" endDay="365">
+				    <HeatPump Pmax="10000000" eta_tech="0.3" Ttarget="5" Tsource="ground" depth="5" alpha="0.0700000003" position="vertical" z1="10" />
+			    </CoolSource>
+			    <Zone id="1" volume="1123.5" psi="0.2" Tmin="21" Tmax="27" groundFloor="true" >
+				    <Occupants n="9" d="0.06" type="2"/><Wall id="0" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-1.01842463017" y="16.8810081482" z="4.88118076324"/> 
+<V1 x="-8.0" y="16.8810081482" z="4.88118076324"/> 
+<V2 x="-8.0" y="16.8810081482" z="0.0"/> 
+<V3 x="-1.01842463017" y="16.8810081482" z="0.0"/> 
+<V4 x="-1.01842463017" y="16.8810081482" z="4.88118076324"/> 
+</Wall><Wall id="1" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-1.01842463017" y="16.8810081482" z="9.76236152649"/> 
+<V1 x="-8.0" y="16.8810081482" z="9.76236152649"/> 
+<V2 x="-8.0" y="16.8810081482" z="4.88118076324"/> 
+<V3 x="-1.01842463017" y="16.8810081482" z="4.88118076324"/> 
+<V4 x="-1.01842463017" y="16.8810081482" z="9.76236152649"/> 
+</Wall><Wall id="2" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-1.01842463017" y="16.8810081482" z="14.6435422897"/> 
+<V1 x="-8.0" y="16.8810081482" z="14.6435422897"/> 
+<V2 x="-8.0" y="16.8810081482" z="9.76236152649"/> 
+<V3 x="-1.01842463017" y="16.8810081482" z="9.76236152649"/> 
+<V4 x="-1.01842463017" y="16.8810081482" z="14.6435422897"/> 
+</Wall><Wall id="3" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-1.01842463017" y="16.8810081482" z="19.5247230530"/> 
+<V1 x="-8.0" y="16.8810081482" z="19.5247230530"/> 
+<V2 x="-8.0" y="16.8810081482" z="14.6435422897"/> 
+<V3 x="-1.01842463017" y="16.8810081482" z="14.6435422897"/> 
+<V4 x="-1.01842463017" y="16.8810081482" z="19.5247230530"/> 
+</Wall><Wall id="4" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-1.01842463017" y="24.0" z="4.88118076324"/> 
+<V1 x="-1.01842463017" y="16.8810081482" z="4.88118076324"/> 
+<V2 x="-1.01842463017" y="16.8810081482" z="0.0"/> 
+<V3 x="-1.01842463017" y="24.0" z="0.0"/> 
+<V4 x="-1.01842463017" y="24.0" z="4.88118076324"/> 
+</Wall><Wall id="5" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-1.01842463017" y="24.0" z="9.76236152649"/> 
+<V1 x="-1.01842463017" y="16.8810081482" z="9.76236152649"/> 
+<V2 x="-1.01842463017" y="16.8810081482" z="4.88118076324"/> 
+<V3 x="-1.01842463017" y="24.0" z="4.88118076324"/> 
+<V4 x="-1.01842463017" y="24.0" z="9.76236152649"/> 
+</Wall><Wall id="6" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-1.01842463017" y="24.0" z="14.6435422897"/> 
+<V1 x="-1.01842463017" y="16.8810081482" z="14.6435422897"/> 
+<V2 x="-1.01842463017" y="16.8810081482" z="9.76236152649"/> 
+<V3 x="-1.01842463017" y="24.0" z="9.76236152649"/> 
+<V4 x="-1.01842463017" y="24.0" z="14.6435422897"/> 
+</Wall><Wall id="7" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-1.01842463017" y="24.0" z="19.5247230530"/> 
+<V1 x="-1.01842463017" y="16.8810081482" z="19.5247230530"/> 
+<V2 x="-1.01842463017" y="16.8810081482" z="14.6435422897"/> 
+<V3 x="-1.01842463017" y="24.0" z="14.6435422897"/> 
+<V4 x="-1.01842463017" y="24.0" z="19.5247230530"/> 
+</Wall><Wall id="8" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-8.0" y="24.0" z="4.88118076324"/> 
+<V1 x="-1.01842463017" y="24.0" z="4.88118076324"/> 
+<V2 x="-1.01842463017" y="24.0" z="0.0"/> 
+<V3 x="-8.0" y="24.0" z="0.0"/> 
+<V4 x="-8.0" y="24.0" z="4.88118076324"/> 
+</Wall><Wall id="9" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-8.0" y="24.0" z="9.76236152649"/> 
+<V1 x="-1.01842463017" y="24.0" z="9.76236152649"/> 
+<V2 x="-1.01842463017" y="24.0" z="4.88118076324"/> 
+<V3 x="-8.0" y="24.0" z="4.88118076324"/> 
+<V4 x="-8.0" y="24.0" z="9.76236152649"/> 
+</Wall><Wall id="10" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-8.0" y="24.0" z="14.6435422897"/> 
+<V1 x="-1.01842463017" y="24.0" z="14.6435422897"/> 
+<V2 x="-1.01842463017" y="24.0" z="9.76236152649"/> 
+<V3 x="-8.0" y="24.0" z="9.76236152649"/> 
+<V4 x="-8.0" y="24.0" z="14.6435422897"/> 
+</Wall><Wall id="11" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-8.0" y="24.0" z="19.5247230530"/> 
+<V1 x="-1.01842463017" y="24.0" z="19.5247230530"/> 
+<V2 x="-1.01842463017" y="24.0" z="14.6435422897"/> 
+<V3 x="-8.0" y="24.0" z="14.6435422897"/> 
+<V4 x="-8.0" y="24.0" z="19.5247230530"/> 
+</Wall><Wall id="12" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-8.0" y="16.8810081482" z="4.88118076324"/> 
+<V1 x="-8.0" y="24.0" z="4.88118076324"/> 
+<V2 x="-8.0" y="24.0" z="0.0"/> 
+<V3 x="-8.0" y="16.8810081482" z="0.0"/> 
+<V4 x="-8.0" y="16.8810081482" z="4.88118076324"/> 
+</Wall><Wall id="13" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-8.0" y="16.8810081482" z="9.76236152649"/> 
+<V1 x="-8.0" y="24.0" z="9.76236152649"/> 
+<V2 x="-8.0" y="24.0" z="4.88118076324"/> 
+<V3 x="-8.0" y="16.8810081482" z="4.88118076324"/> 
+<V4 x="-8.0" y="16.8810081482" z="9.76236152649"/> 
+</Wall><Wall id="14" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-8.0" y="16.8810081482" z="14.6435422897"/> 
+<V1 x="-8.0" y="24.0" z="14.6435422897"/> 
+<V2 x="-8.0" y="24.0" z="9.76236152649"/> 
+<V3 x="-8.0" y="16.8810081482" z="9.76236152649"/> 
+<V4 x="-8.0" y="16.8810081482" z="14.6435422897"/> 
+</Wall><Wall id="15" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-8.0" y="16.8810081482" z="19.5247230530"/> 
+<V1 x="-8.0" y="24.0" z="19.5247230530"/> 
+<V2 x="-8.0" y="24.0" z="14.6435422897"/> 
+<V3 x="-8.0" y="16.8810081482" z="14.6435422897"/> 
+<V4 x="-8.0" y="16.8810081482" z="19.5247230530"/> 
+</Wall><Wall id="16" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-1.01842463017" y="24.0" z="0.0"/> 
+<V1 x="-1.01842463017" y="16.8810081482" z="0.0"/> 
+<V2 x="-8.0" y="16.8810081482" z="0.0"/> 
+<V3 x="-8.0" y="24.0" z="0.0"/> 
+<V4 x="-1.01842463017" y="24.0" z="0.0"/> 
+</Wall><Wall id="17" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-1.01842463017" y="24.0" z="19.5247230530"/> 
+<V1 x="-8.0" y="24.0" z="19.5247230530"/> 
+<V2 x="-8.0" y="16.8810081482" z="19.5247230530"/> 
+<V3 x="-1.01842463017" y="16.8810081482" z="19.5247230530"/> 
+<V4 x="-1.01842463017" y="24.0" z="19.5247230530"/> 
+</Wall>   </Zone>
+                </Building><Building Name="GROUP_1" id="1" key="1" Vi="1123.5" Ninf="0.15" BlindsLambda="0.2" BlindsIrradianceCutOff="100" Simulate="true">
+                <HeatTank V="0.01" phi="20" rho="1000" Cp="4180" Tmin="20" Tmax="35"/>
+			    <CoolTank V="0.01" phi="20" rho="1000" Cp="4180" Tmin="5" Tmax="20"/>
+			    <HeatSource beginDay="1" endDay="365">
+				    <HeatPump Pmax="1000" eta_tech="0.3" Ttarget="55" Tsource="ground" depth="5" alpha="0.0700000003" position="vertical" z1="10" />
+			    </HeatSource>
+			    <CoolSource beginDay="1" endDay="365">
+				    <HeatPump Pmax="10000000" eta_tech="0.3" Ttarget="5" Tsource="ground" depth="5" alpha="0.0700000003" position="vertical" z1="10" />
+			    </CoolSource>
+			    <Zone id="1" volume="1123.5" psi="0.2" Tmin="21" Tmax="27" groundFloor="true" >
+				    <Occupants n="9" d="0.06" type="2"/><Wall id="0" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-10.8733215332" y="28.0" z="7.20125770569"/> 
+<V1 x="-15.0" y="28.0" z="7.20125770569"/> 
+<V2 x="-15.0" y="28.0" z="0.0"/> 
+<V3 x="-10.8733215332" y="28.0" z="0.0"/> 
+<V4 x="-10.8733215332" y="28.0" z="7.20125770569"/> 
+</Wall><Wall id="1" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-6.74664354324" y="28.0" z="7.20125770569"/> 
+<V1 x="-10.8733215332" y="28.0" z="7.20125770569"/> 
+<V2 x="-10.8733215332" y="28.0" z="0.0"/> 
+<V3 x="-6.74664354324" y="28.0" z="0.0"/> 
+<V4 x="-6.74664354324" y="28.0" z="7.20125770569"/> 
+</Wall><Wall id="2" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-2.61996507645" y="28.0" z="7.20125770569"/> 
+<V1 x="-6.74664354324" y="28.0" z="7.20125770569"/> 
+<V2 x="-6.74664354324" y="28.0" z="0.0"/> 
+<V3 x="-2.61996507645" y="28.0" z="0.0"/> 
+<V4 x="-2.61996507645" y="28.0" z="7.20125770569"/> 
+</Wall><Wall id="3" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="1.50671315193" y="28.0" z="7.20125770569"/> 
+<V1 x="-2.61996507645" y="28.0" z="7.20125770569"/> 
+<V2 x="-2.61996507645" y="28.0" z="0.0"/> 
+<V3 x="1.50671315193" y="28.0" z="0.0"/> 
+<V4 x="1.50671315193" y="28.0" z="7.20125770569"/> 
+</Wall><Wall id="4" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="5.63339138031" y="28.0" z="7.20125770569"/> 
+<V1 x="1.50671315193" y="28.0" z="7.20125770569"/> 
+<V2 x="1.50671315193" y="28.0" z="0.0"/> 
+<V3 x="5.63339138031" y="28.0" z="0.0"/> 
+<V4 x="5.63339138031" y="28.0" z="7.20125770569"/> 
+</Wall><Wall id="5" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="9.76006984711" y="28.0" z="7.20125770569"/> 
+<V1 x="5.63339138031" y="28.0" z="7.20125770569"/> 
+<V2 x="5.63339138031" y="28.0" z="0.0"/> 
+<V3 x="9.76006984711" y="28.0" z="0.0"/> 
+<V4 x="9.76006984711" y="28.0" z="7.20125770569"/> 
+</Wall><Wall id="6" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="9.76006984711" y="32.0284309387" z="7.20125770569"/> 
+<V1 x="9.76006984711" y="28.0" z="7.20125770569"/> 
+<V2 x="9.76006984711" y="28.0" z="0.0"/> 
+<V3 x="9.76006984711" y="32.0284309387" z="0.0"/> 
+<V4 x="9.76006984711" y="32.0284309387" z="7.20125770569"/> 
+</Wall><Wall id="7" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="9.76006984711" y="36.0568618774" z="7.20125770569"/> 
+<V1 x="9.76006984711" y="32.0284309387" z="7.20125770569"/> 
+<V2 x="9.76006984711" y="32.0284309387" z="0.0"/> 
+<V3 x="9.76006984711" y="36.0568618774" z="0.0"/> 
+<V4 x="9.76006984711" y="36.0568618774" z="7.20125770569"/> 
+</Wall><Wall id="8" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="5.63339138031" y="36.0568618774" z="7.20125770569"/> 
+<V1 x="9.76006984711" y="36.0568618774" z="7.20125770569"/> 
+<V2 x="9.76006984711" y="36.0568618774" z="0.0"/> 
+<V3 x="5.63339138031" y="36.0568618774" z="0.0"/> 
+<V4 x="5.63339138031" y="36.0568618774" z="7.20125770569"/> 
+</Wall><Wall id="9" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="1.50671315193" y="36.0568618774" z="7.20125770569"/> 
+<V1 x="5.63339138031" y="36.0568618774" z="7.20125770569"/> 
+<V2 x="5.63339138031" y="36.0568618774" z="0.0"/> 
+<V3 x="1.50671315193" y="36.0568618774" z="0.0"/> 
+<V4 x="1.50671315193" y="36.0568618774" z="7.20125770569"/> 
+</Wall><Wall id="10" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-2.0" y="36.0568618774" z="4.0"/> 
+<V1 x="1.50671315193" y="36.0568618774" z="0.0"/> 
+<V2 x="-2.0" y="36.0568618774" z="0.0"/> 
+<V3 x="-2.0" y="36.0568618774" z="4.0"/> 
+</Wall><Wall id="11" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="1.50671315193" y="36.0568618774" z="7.20125770569"/> 
+<V1 x="1.50671315193" y="36.0568618774" z="0.0"/> 
+<V2 x="-2.0" y="36.0568618774" z="4.0"/> 
+<V3 x="1.50671315193" y="36.0568618774" z="7.20125770569"/> 
+</Wall><Wall id="12" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="1.50671315193" y="36.0568618774" z="7.20125770569"/> 
+<V1 x="-2.0" y="36.0568618774" z="4.0"/> 
+<V2 x="-2.61996507645" y="36.0568618774" z="7.20125770569"/> 
+<V3 x="1.50671315193" y="36.0568618774" z="7.20125770569"/> 
+</Wall><Wall id="13" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-2.0" y="36.0568618774" z="4.0"/> 
+<V1 x="-5.33333349228" y="36.0568618774" z="4.0"/> 
+<V2 x="-6.74664354324" y="36.0568618774" z="7.20125770569"/> 
+<V3 x="-2.61996507645" y="36.0568618774" z="7.20125770569"/> 
+<V4 x="-2.0" y="36.0568618774" z="4.0"/> 
+</Wall><Wall id="14" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-15.0" y="36.0568618774" z="0.0"/> 
+<V1 x="-12.0" y="36.0568618774" z="4.0"/> 
+<V2 x="-12.0" y="36.0568618774" z="0.0"/> 
+<V3 x="-15.0" y="36.0568618774" z="0.0"/> 
+</Wall><Wall id="15" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-5.33333349228" y="36.0568618774" z="4.0"/> 
+<V1 x="-12.0" y="36.0568618774" z="4.0"/> 
+<V2 x="-10.8733215332" y="36.0568618774" z="7.20125770569"/> 
+<V3 x="-6.74664354324" y="36.0568618774" z="7.20125770569"/> 
+<V4 x="-5.33333349228" y="36.0568618774" z="4.0"/> 
+</Wall><Wall id="16" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-15.0" y="36.0568618774" z="7.20125770569"/> 
+<V1 x="-12.0" y="36.0568618774" z="4.0"/> 
+<V2 x="-15.0" y="36.0568618774" z="0.0"/> 
+<V3 x="-15.0" y="36.0568618774" z="7.20125770569"/> 
+</Wall><Wall id="17" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-12.0" y="36.0568618774" z="4.0"/> 
+<V1 x="-15.0" y="36.0568618774" z="7.20125770569"/> 
+<V2 x="-10.8733215332" y="36.0568618774" z="7.20125770569"/> 
+<V3 x="-12.0" y="36.0568618774" z="4.0"/> 
+</Wall><Wall id="18" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-15.0" y="32.0284309387" z="7.20125770569"/> 
+<V1 x="-15.0" y="36.0568618774" z="7.20125770569"/> 
+<V2 x="-15.0" y="36.0568618774" z="0.0"/> 
+<V3 x="-15.0" y="32.0284309387" z="0.0"/> 
+<V4 x="-15.0" y="32.0284309387" z="7.20125770569"/> 
+</Wall><Wall id="19" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-15.0" y="28.0" z="7.20125770569"/> 
+<V1 x="-15.0" y="32.0284309387" z="7.20125770569"/> 
+<V2 x="-15.0" y="32.0284309387" z="0.0"/> 
+<V3 x="-15.0" y="28.0" z="0.0"/> 
+<V4 x="-15.0" y="28.0" z="7.20125770569"/> 
+</Wall><Wall id="20" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-10.8733215332" y="32.0284309387" z="0.0"/> 
+<V1 x="-10.8733215332" y="28.0" z="0.0"/> 
+<V2 x="-15.0" y="28.0" z="0.0"/> 
+<V3 x="-15.0" y="32.0284309387" z="0.0"/> 
+<V4 x="-10.8733215332" y="32.0284309387" z="0.0"/> 
+</Wall><Wall id="21" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-10.8733215332" y="36.0568618774" z="0.0"/> 
+<V1 x="-10.8733215332" y="32.0284309387" z="0.0"/> 
+<V2 x="-15.0" y="32.0284309387" z="0.0"/> 
+<V3 x="-15.0" y="36.0568618774" z="0.0"/> 
+<V4 x="-10.8733215332" y="36.0568618774" z="0.0"/> 
+</Wall><Wall id="22" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-6.74664354324" y="32.0284309387" z="0.0"/> 
+<V1 x="-6.74664354324" y="28.0" z="0.0"/> 
+<V2 x="-10.8733215332" y="28.0" z="0.0"/> 
+<V3 x="-10.8733215332" y="32.0284309387" z="0.0"/> 
+<V4 x="-6.74664354324" y="32.0284309387" z="0.0"/> 
+</Wall><Wall id="23" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-6.74664354324" y="36.0568618774" z="0.0"/> 
+<V1 x="-6.74664354324" y="32.0284309387" z="0.0"/> 
+<V2 x="-10.8733215332" y="32.0284309387" z="0.0"/> 
+<V3 x="-10.8733215332" y="36.0568618774" z="0.0"/> 
+<V4 x="-6.74664354324" y="36.0568618774" z="0.0"/> 
+</Wall><Wall id="24" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-2.61996507645" y="32.0284309387" z="0.0"/> 
+<V1 x="-2.61996507645" y="28.0" z="0.0"/> 
+<V2 x="-6.74664354324" y="28.0" z="0.0"/> 
+<V3 x="-6.74664354324" y="32.0284309387" z="0.0"/> 
+<V4 x="-2.61996507645" y="32.0284309387" z="0.0"/> 
+</Wall><Wall id="25" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-2.61996507645" y="36.0568618774" z="0.0"/> 
+<V1 x="-2.61996507645" y="32.0284309387" z="0.0"/> 
+<V2 x="-6.74664354324" y="32.0284309387" z="0.0"/> 
+<V3 x="-6.74664354324" y="36.0568618774" z="0.0"/> 
+<V4 x="-2.61996507645" y="36.0568618774" z="0.0"/> 
+</Wall><Wall id="26" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="1.50671315193" y="32.0284309387" z="0.0"/> 
+<V1 x="1.50671315193" y="28.0" z="0.0"/> 
+<V2 x="-2.61996507645" y="28.0" z="0.0"/> 
+<V3 x="-2.61996507645" y="32.0284309387" z="0.0"/> 
+<V4 x="1.50671315193" y="32.0284309387" z="0.0"/> 
+</Wall><Wall id="27" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="1.50671315193" y="36.0568618774" z="0.0"/> 
+<V1 x="1.50671315193" y="32.0284309387" z="0.0"/> 
+<V2 x="-2.61996507645" y="32.0284309387" z="0.0"/> 
+<V3 x="-2.61996507645" y="36.0568618774" z="0.0"/> 
+<V4 x="1.50671315193" y="36.0568618774" z="0.0"/> 
+</Wall><Wall id="28" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="5.63339138031" y="32.0284309387" z="0.0"/> 
+<V1 x="5.63339138031" y="28.0" z="0.0"/> 
+<V2 x="1.50671315193" y="28.0" z="0.0"/> 
+<V3 x="1.50671315193" y="32.0284309387" z="0.0"/> 
+<V4 x="5.63339138031" y="32.0284309387" z="0.0"/> 
+</Wall><Wall id="29" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="5.63339138031" y="36.0568618774" z="0.0"/> 
+<V1 x="5.63339138031" y="32.0284309387" z="0.0"/> 
+<V2 x="1.50671315193" y="32.0284309387" z="0.0"/> 
+<V3 x="1.50671315193" y="36.0568618774" z="0.0"/> 
+<V4 x="5.63339138031" y="36.0568618774" z="0.0"/> 
+</Wall><Wall id="30" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="9.76006984711" y="32.0284309387" z="0.0"/> 
+<V1 x="9.76006984711" y="28.0" z="0.0"/> 
+<V2 x="5.63339138031" y="28.0" z="0.0"/> 
+<V3 x="5.63339138031" y="32.0284309387" z="0.0"/> 
+<V4 x="9.76006984711" y="32.0284309387" z="0.0"/> 
+</Wall><Wall id="31" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="9.76006984711" y="36.0568618774" z="0.0"/> 
+<V1 x="9.76006984711" y="32.0284309387" z="0.0"/> 
+<V2 x="5.63339138031" y="32.0284309387" z="0.0"/> 
+<V3 x="5.63339138031" y="36.0568618774" z="0.0"/> 
+<V4 x="9.76006984711" y="36.0568618774" z="0.0"/> 
+</Wall><Wall id="32" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-10.8733215332" y="32.0284309387" z="7.20125770569"/> 
+<V1 x="-15.0" y="32.0284309387" z="7.20125770569"/> 
+<V2 x="-15.0" y="28.0" z="7.20125770569"/> 
+<V3 x="-10.8733215332" y="28.0" z="7.20125770569"/> 
+<V4 x="-10.8733215332" y="32.0284309387" z="7.20125770569"/> 
+</Wall><Wall id="33" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-10.8733215332" y="36.0568618774" z="7.20125770569"/> 
+<V1 x="-15.0" y="36.0568618774" z="7.20125770569"/> 
+<V2 x="-15.0" y="32.0284309387" z="7.20125770569"/> 
+<V3 x="-10.8733215332" y="32.0284309387" z="7.20125770569"/> 
+<V4 x="-10.8733215332" y="36.0568618774" z="7.20125770569"/> 
+</Wall><Wall id="34" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-6.74664354324" y="32.0284309387" z="7.20125770569"/> 
+<V1 x="-10.8733215332" y="32.0284309387" z="7.20125770569"/> 
+<V2 x="-10.8733215332" y="28.0" z="7.20125770569"/> 
+<V3 x="-6.74664354324" y="28.0" z="7.20125770569"/> 
+<V4 x="-6.74664354324" y="32.0284309387" z="7.20125770569"/> 
+</Wall><Wall id="35" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-6.74664354324" y="36.0568618774" z="7.20125770569"/> 
+<V1 x="-10.8733215332" y="36.0568618774" z="7.20125770569"/> 
+<V2 x="-10.8733215332" y="32.0284309387" z="7.20125770569"/> 
+<V3 x="-6.74664354324" y="32.0284309387" z="7.20125770569"/> 
+<V4 x="-6.74664354324" y="36.0568618774" z="7.20125770569"/> 
+</Wall><Wall id="36" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-2.61996507645" y="32.0284309387" z="7.20125770569"/> 
+<V1 x="-6.74664354324" y="32.0284309387" z="7.20125770569"/> 
+<V2 x="-6.74664354324" y="28.0" z="7.20125770569"/> 
+<V3 x="-2.61996507645" y="28.0" z="7.20125770569"/> 
+<V4 x="-2.61996507645" y="32.0284309387" z="7.20125770569"/> 
+</Wall><Wall id="37" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-2.61996507645" y="36.0568618774" z="7.20125770569"/> 
+<V1 x="-6.74664354324" y="36.0568618774" z="7.20125770569"/> 
+<V2 x="-6.74664354324" y="32.0284309387" z="7.20125770569"/> 
+<V3 x="-2.61996507645" y="32.0284309387" z="7.20125770569"/> 
+<V4 x="-2.61996507645" y="36.0568618774" z="7.20125770569"/> 
+</Wall><Wall id="38" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="1.50671315193" y="32.0284309387" z="7.20125770569"/> 
+<V1 x="-2.61996507645" y="32.0284309387" z="7.20125770569"/> 
+<V2 x="-2.61996507645" y="28.0" z="7.20125770569"/> 
+<V3 x="1.50671315193" y="28.0" z="7.20125770569"/> 
+<V4 x="1.50671315193" y="32.0284309387" z="7.20125770569"/> 
+</Wall><Wall id="39" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="1.50671315193" y="36.0568618774" z="7.20125770569"/> 
+<V1 x="-2.61996507645" y="36.0568618774" z="7.20125770569"/> 
+<V2 x="-2.61996507645" y="32.0284309387" z="7.20125770569"/> 
+<V3 x="1.50671315193" y="32.0284309387" z="7.20125770569"/> 
+<V4 x="1.50671315193" y="36.0568618774" z="7.20125770569"/> 
+</Wall><Wall id="40" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="5.63339138031" y="32.0284309387" z="7.20125770569"/> 
+<V1 x="1.50671315193" y="32.0284309387" z="7.20125770569"/> 
+<V2 x="1.50671315193" y="28.0" z="7.20125770569"/> 
+<V3 x="5.63339138031" y="28.0" z="7.20125770569"/> 
+<V4 x="5.63339138031" y="32.0284309387" z="7.20125770569"/> 
+</Wall><Wall id="41" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="5.63339138031" y="36.0568618774" z="7.20125770569"/> 
+<V1 x="1.50671315193" y="36.0568618774" z="7.20125770569"/> 
+<V2 x="1.50671315193" y="32.0284309387" z="7.20125770569"/> 
+<V3 x="5.63339138031" y="32.0284309387" z="7.20125770569"/> 
+<V4 x="5.63339138031" y="36.0568618774" z="7.20125770569"/> 
+</Wall><Wall id="42" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="9.76006984711" y="32.0284309387" z="7.20125770569"/> 
+<V1 x="5.63339138031" y="32.0284309387" z="7.20125770569"/> 
+<V2 x="5.63339138031" y="28.0" z="7.20125770569"/> 
+<V3 x="9.76006984711" y="28.0" z="7.20125770569"/> 
+<V4 x="9.76006984711" y="32.0284309387" z="7.20125770569"/> 
+</Wall><Wall id="43" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="9.76006984711" y="36.0568618774" z="7.20125770569"/> 
+<V1 x="5.63339138031" y="36.0568618774" z="7.20125770569"/> 
+<V2 x="5.63339138031" y="32.0284309387" z="7.20125770569"/> 
+<V3 x="9.76006984711" y="32.0284309387" z="7.20125770569"/> 
+<V4 x="9.76006984711" y="36.0568618774" z="7.20125770569"/> 
+</Wall><Wall id="44" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-5.33333349228" y="36.0568618774" z="4.0"/> 
+<V1 x="-2.0" y="36.0568618774" z="4.0"/> 
+<V2 x="-2.0" y="36.0568618774" z="0.0"/> 
+<V3 x="-7.0" y="36.0568618774" z="0.0"/> 
+<V4 x="-5.33333349228" y="36.0568618774" z="4.0"/> 
+</Wall><Wall id="45" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-7.0" y="36.0568618774" z="0.0"/> 
+<V1 x="-12.0" y="36.0568618774" z="0.0"/> 
+<V2 x="-12.0" y="36.0568618774" z="4.0"/> 
+<V3 x="-5.33333349228" y="36.0568618774" z="4.0"/> 
+<V4 x="-7.0" y="36.0568618774" z="0.0"/> 
+</Wall>   </Zone>
+                </Building><Building Name="GROUP_1" id="2" key="1" Vi="1123.5" Ninf="0.15" BlindsLambda="0.2" BlindsIrradianceCutOff="100" Simulate="true">
+                <HeatTank V="0.01" phi="20" rho="1000" Cp="4180" Tmin="20" Tmax="35"/>
+			    <CoolTank V="0.01" phi="20" rho="1000" Cp="4180" Tmin="5" Tmax="20"/>
+			    <HeatSource beginDay="1" endDay="365">
+				    <HeatPump Pmax="1000" eta_tech="0.3" Ttarget="55" Tsource="ground" depth="5" alpha="0.0700000003" position="vertical" z1="10" />
+			    </HeatSource>
+			    <CoolSource beginDay="1" endDay="365">
+				    <HeatPump Pmax="10000000" eta_tech="0.3" Ttarget="5" Tsource="ground" depth="5" alpha="0.0700000003" position="vertical" z1="10" />
+			    </CoolSource>
+			    <Zone id="1" volume="1123.5" psi="0.2" Tmin="21" Tmax="27" groundFloor="true" >
+				    <Occupants n="9" d="0.06" type="2"/><Wall id="0" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-7.0" y="36.0568618774" z="4.0"/> 
+<V1 x="-12.0" y="36.0568618774" z="4.0"/> 
+<V2 x="-12.0" y="36.0568618774" z="0.0"/> 
+<V3 x="-7.0" y="36.0568618774" z="0.0"/> 
+<V4 x="-7.0" y="36.0568618774" z="4.0"/> 
+</Wall><Wall id="1" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-2.0" y="36.0568618774" z="4.0"/> 
+<V1 x="-7.0" y="36.0568618774" z="4.0"/> 
+<V2 x="-7.0" y="36.0568618774" z="0.0"/> 
+<V3 x="-2.0" y="36.0568618774" z="0.0"/> 
+<V4 x="-2.0" y="36.0568618774" z="4.0"/> 
+</Wall><Wall id="2" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-2.0" y="41.5284309387" z="4.0"/> 
+<V1 x="-2.0" y="36.0568618774" z="4.0"/> 
+<V2 x="-2.0" y="36.0568618774" z="0.0"/> 
+<V3 x="-2.0" y="41.5284309387" z="0.0"/> 
+<V4 x="-2.0" y="41.5284309387" z="4.0"/> 
+</Wall><Wall id="3" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-2.0" y="47.0" z="4.0"/> 
+<V1 x="-2.0" y="41.5284309387" z="4.0"/> 
+<V2 x="-2.0" y="41.5284309387" z="0.0"/> 
+<V3 x="-2.0" y="47.0" z="0.0"/> 
+<V4 x="-2.0" y="47.0" z="4.0"/> 
+</Wall><Wall id="4" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-7.0" y="47.0" z="4.0"/> 
+<V1 x="-2.0" y="47.0" z="4.0"/> 
+<V2 x="-2.0" y="47.0" z="0.0"/> 
+<V3 x="-7.0" y="47.0" z="0.0"/> 
+<V4 x="-7.0" y="47.0" z="4.0"/> 
+</Wall><Wall id="5" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-12.0" y="47.0" z="4.0"/> 
+<V1 x="-7.0" y="47.0" z="4.0"/> 
+<V2 x="-7.0" y="47.0" z="0.0"/> 
+<V3 x="-12.0" y="47.0" z="0.0"/> 
+<V4 x="-12.0" y="47.0" z="4.0"/> 
+</Wall><Wall id="6" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-12.0" y="41.5284309387" z="4.0"/> 
+<V1 x="-12.0" y="47.0" z="4.0"/> 
+<V2 x="-12.0" y="47.0" z="0.0"/> 
+<V3 x="-12.0" y="41.5284309387" z="0.0"/> 
+<V4 x="-12.0" y="41.5284309387" z="4.0"/> 
+</Wall><Wall id="7" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-12.0" y="36.0568618774" z="4.0"/> 
+<V1 x="-12.0" y="41.5284309387" z="4.0"/> 
+<V2 x="-12.0" y="41.5284309387" z="0.0"/> 
+<V3 x="-12.0" y="36.0568618774" z="0.0"/> 
+<V4 x="-12.0" y="36.0568618774" z="4.0"/> 
+</Wall><Wall id="8" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-7.0" y="41.5284309387" z="0.0"/> 
+<V1 x="-7.0" y="36.0568618774" z="0.0"/> 
+<V2 x="-12.0" y="36.0568618774" z="0.0"/> 
+<V3 x="-12.0" y="41.5284309387" z="0.0"/> 
+<V4 x="-7.0" y="41.5284309387" z="0.0"/> 
+</Wall><Wall id="9" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-7.0" y="47.0" z="0.0"/> 
+<V1 x="-7.0" y="41.5284309387" z="0.0"/> 
+<V2 x="-12.0" y="41.5284309387" z="0.0"/> 
+<V3 x="-12.0" y="47.0" z="0.0"/> 
+<V4 x="-7.0" y="47.0" z="0.0"/> 
+</Wall><Wall id="10" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-2.0" y="41.5284309387" z="0.0"/> 
+<V1 x="-2.0" y="36.0568618774" z="0.0"/> 
+<V2 x="-7.0" y="36.0568618774" z="0.0"/> 
+<V3 x="-7.0" y="41.5284309387" z="0.0"/> 
+<V4 x="-2.0" y="41.5284309387" z="0.0"/> 
+</Wall><Wall id="11" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-2.0" y="47.0" z="0.0"/> 
+<V1 x="-2.0" y="41.5284309387" z="0.0"/> 
+<V2 x="-7.0" y="41.5284309387" z="0.0"/> 
+<V3 x="-7.0" y="47.0" z="0.0"/> 
+<V4 x="-2.0" y="47.0" z="0.0"/> 
+</Wall><Wall id="12" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-7.0" y="41.5284309387" z="4.0"/> 
+<V1 x="-12.0" y="41.5284309387" z="4.0"/> 
+<V2 x="-12.0" y="36.0568618774" z="4.0"/> 
+<V3 x="-7.0" y="36.0568618774" z="4.0"/> 
+<V4 x="-7.0" y="41.5284309387" z="4.0"/> 
+</Wall><Wall id="13" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-7.0" y="47.0" z="4.0"/> 
+<V1 x="-12.0" y="47.0" z="4.0"/> 
+<V2 x="-12.0" y="41.5284309387" z="4.0"/> 
+<V3 x="-7.0" y="41.5284309387" z="4.0"/> 
+<V4 x="-7.0" y="47.0" z="4.0"/> 
+</Wall><Wall id="14" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-2.0" y="41.5284309387" z="4.0"/> 
+<V1 x="-7.0" y="41.5284309387" z="4.0"/> 
+<V2 x="-7.0" y="36.0568618774" z="4.0"/> 
+<V3 x="-2.0" y="36.0568618774" z="4.0"/> 
+<V4 x="-2.0" y="41.5284309387" z="4.0"/> 
+</Wall><Wall id="15" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="-2.0" y="47.0" z="4.0"/> 
+<V1 x="-7.0" y="47.0" z="4.0"/> 
+<V2 x="-7.0" y="41.5284309387" z="4.0"/> 
+<V3 x="-2.0" y="41.5284309387" z="4.0"/> 
+<V4 x="-2.0" y="47.0" z="4.0"/> 
+</Wall>   </Zone>
+                </Building><Building Name="GROUP_1" id="3" key="1" Vi="1123.5" Ninf="0.15" BlindsLambda="0.2" BlindsIrradianceCutOff="100" Simulate="true">
+                <HeatTank V="0.01" phi="20" rho="1000" Cp="4180" Tmin="20" Tmax="35"/>
+			    <CoolTank V="0.01" phi="20" rho="1000" Cp="4180" Tmin="5" Tmax="20"/>
+			    <HeatSource beginDay="1" endDay="365">
+				    <HeatPump Pmax="1000" eta_tech="0.3" Ttarget="55" Tsource="ground" depth="5" alpha="0.0700000003" position="vertical" z1="10" />
+			    </HeatSource>
+			    <CoolSource beginDay="1" endDay="365">
+				    <HeatPump Pmax="10000000" eta_tech="0.3" Ttarget="5" Tsource="ground" depth="5" alpha="0.0700000003" position="vertical" z1="10" />
+			    </CoolSource>
+			    <Zone id="1" volume="1123.5" psi="0.2" Tmin="21" Tmax="27" groundFloor="true" >
+				    <Occupants n="9" d="0.06" type="2"/><Wall id="0" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="9.93222332001" y="20.9642581940" z="9.90251445770"/> 
+<V1 x="9.93222332001" y="25.5743389130" z="5.77646636963"/> 
+<V2 x="4.54184103012" y="25.5743389130" z="5.77646636963"/> 
+<V3 x="4.54184103012" y="20.9642581940" z="9.90251445770"/> 
+<V4 x="9.93222332001" y="20.9642581940" z="9.90251445770"/> 
+</Wall><Wall id="1" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="15.3226051331" y="20.9642581940" z="9.90251445770"/> 
+<V1 x="15.3226051331" y="25.5743389130" z="5.77646636963"/> 
+<V2 x="9.93222332001" y="25.5743389130" z="5.77646636963"/> 
+<V3 x="9.93222332001" y="20.9642581940" z="9.90251445770"/> 
+<V4 x="15.3226051331" y="20.9642581940" z="9.90251445770"/> 
+</Wall><Wall id="2" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="9.93222332001" y="16.3541755676" z="5.77646636963"/> 
+<V1 x="9.93222332001" y="20.9642581940" z="9.90251445770"/> 
+<V2 x="4.54184103012" y="20.9642581940" z="9.90251445770"/> 
+<V3 x="4.54184103012" y="16.3541755676" z="5.77646636963"/> 
+<V4 x="9.93222332001" y="16.3541755676" z="5.77646636963"/> 
+</Wall><Wall id="3" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="15.3226051331" y="16.3541755676" z="5.77646636963"/> 
+<V1 x="15.3226051331" y="20.9642581940" z="9.90251445770"/> 
+<V2 x="9.93222332001" y="20.9642581940" z="9.90251445770"/> 
+<V3 x="9.93222332001" y="16.3541755676" z="5.77646636963"/> 
+<V4 x="15.3226051331" y="16.3541755676" z="5.77646636963"/> 
+</Wall><Wall id="4" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="9.93222332001" y="17.2761917114" z="6.60167598724"/> 
+<V1 x="4.54184103012" y="17.2761917114" z="6.60167598724"/> 
+<V2 x="4.54184103012" y="17.2761917114" z="0.0"/> 
+<V3 x="9.93222332001" y="17.2761917114" z="0.0"/> 
+<V4 x="9.93222332001" y="17.2761917114" z="6.60167598724"/> 
+</Wall><Wall id="5" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="15.3226051331" y="17.2761917114" z="6.60167598724"/> 
+<V1 x="9.93222332001" y="17.2761917114" z="6.60167598724"/> 
+<V2 x="9.93222332001" y="17.2761917114" z="0.0"/> 
+<V3 x="15.3226051331" y="17.2761917114" z="0.0"/> 
+<V4 x="15.3226051331" y="17.2761917114" z="6.60167598724"/> 
+</Wall><Wall id="6" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="15.3226051331" y="24.6523227692" z="6.60167598724"/> 
+<V1 x="15.3226051331" y="17.2761917114" z="6.60167598724"/> 
+<V2 x="15.3226051331" y="17.2761917114" z="0.0"/> 
+<V3 x="15.3226051331" y="24.6523227692" z="0.0"/> 
+<V4 x="15.3226051331" y="24.6523227692" z="6.60167598724"/> 
+</Wall><Wall id="7" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="9.93222332001" y="24.6523227692" z="6.60167598724"/> 
+<V1 x="15.3226051331" y="24.6523227692" z="6.60167598724"/> 
+<V2 x="15.3226051331" y="24.6523227692" z="0.0"/> 
+<V3 x="9.93222332001" y="24.6523227692" z="0.0"/> 
+<V4 x="9.93222332001" y="24.6523227692" z="6.60167598724"/> 
+</Wall><Wall id="8" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="4.54184103012" y="24.6523227692" z="6.60167598724"/> 
+<V1 x="9.93222332001" y="24.6523227692" z="6.60167598724"/> 
+<V2 x="9.93222332001" y="24.6523227692" z="0.0"/> 
+<V3 x="4.54184103012" y="24.6523227692" z="0.0"/> 
+<V4 x="4.54184103012" y="24.6523227692" z="6.60167598724"/> 
+</Wall><Wall id="9" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="4.54184103012" y="17.2761917114" z="6.60167598724"/> 
+<V1 x="4.54184103012" y="24.6523227692" z="6.60167598724"/> 
+<V2 x="4.54184103012" y="24.6523227692" z="0.0"/> 
+<V3 x="4.54184103012" y="17.2761917114" z="0.0"/> 
+<V4 x="4.54184103012" y="17.2761917114" z="6.60167598724"/> 
+</Wall><Wall id="10" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="9.93222332001" y="24.6523227692" z="0.0"/> 
+<V1 x="9.93222332001" y="17.2761917114" z="0.0"/> 
+<V2 x="4.54184103012" y="17.2761917114" z="0.0"/> 
+<V3 x="4.54184103012" y="24.6523227692" z="0.0"/> 
+<V4 x="9.93222332001" y="24.6523227692" z="0.0"/> 
+</Wall><Wall id="11" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="15.3226051331" y="24.6523227692" z="0.0"/> 
+<V1 x="15.3226051331" y="17.2761917114" z="0.0"/> 
+<V2 x="9.93222332001" y="17.2761917114" z="0.0"/> 
+<V3 x="9.93222332001" y="24.6523227692" z="0.0"/> 
+<V4 x="15.3226051331" y="24.6523227692" z="0.0"/> 
+</Wall><Wall id="12" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="15.3226051331" y="20.9642581940" z="9.90251445770"/> 
+<V1 x="15.3226051331" y="17.2761917114" z="6.60167598724"/> 
+<V2 x="15.3226051331" y="24.6523227692" z="6.60167598724"/> 
+<V3 x="15.3226051331" y="20.9642581940" z="9.90251445770"/> 
+</Wall><Wall id="13" type="21" ShortWaveReflectance="0.2" GlazingRatio="0.25" GlazingGValue="0.7" GlazingUValue="1.1" OpenableRatio="0">
+<V0 x="4.54184103012" y="20.9642581940" z="9.90251445770"/> 
+<V1 x="4.54184103012" y="24.6523227692" z="6.60167598724"/> 
+<V2 x="4.54184103012" y="17.2761917114" z="6.60167598724"/> 
+<V3 x="4.54184103012" y="20.9642581940" z="9.90251445770"/> 
+</Wall>   </Zone>
+                </Building>

@@ -1,0 +1,7 @@
+<FarFieldObstructions>
+<Point phi="0" theta="10"/>
+<Point phi="90" theta="10"/>
+<Point phi="180" theta="10"/>
+<Point phi="270" theta="10"/>
+<Point phi="360" theta="10"/>
+</FarFieldObstructions>

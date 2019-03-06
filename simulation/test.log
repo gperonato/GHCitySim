@@ -1,0 +1,1109 @@
+XML description file: test.xml
+Reading XML file...
+climate file = C:\Users\giupe250\Documents\GitHub\GHCitySim\simulation\geneva_che.cli 
+readClimate: C:\Users\giupe250\Documents\GitHub\GHCitySim\simulation\geneva_che.cli 
+Climate file opening
+G_Dh and G_Bn provided.
+reading of the data
+No .cli2 weather file.
+No .cli3 weather file.
+Location: GENEVA_CHE	(Latitude: 46.25 N, Longitude: 6.13 E, Altitude: 416 m, Meridian: 1 h)
+sprng seed: 26041978
+begin day: 1	end day: 365
+Added day profile with name empty day profile
+Added year profile with name empty year profile
+Added day profile with name empty day profile
+Added year profile with name empty year profile
+Loading Far Field Obstruction profile: 5 loaded.
+Loading composite(s):
+Walltype 0, Uvalue = 5.50459
+Walltype 1, Uvalue = 0.193093
+Walltype 2, Uvalue = 0.271775
+Walltype 3, Uvalue = 0.221223
+Walltype 4, Uvalue = 0.180748
+Walltype 5, Uvalue = 0.160605
+Walltype 6, Uvalue = 0.251426
+Walltype 7, Uvalue = 0.200912
+Walltype 8, Uvalue = 0.180753
+Walltype 9, Uvalue = 0.160609
+Walltype 10, Uvalue = 0.848478
+Walltype 11, Uvalue = 0.692145
+Walltype 12, Uvalue = 0.585249
+Walltype 13, Uvalue = 0.506361
+Walltype 14, Uvalue = 0.447137
+Walltype 15, Uvalue = 0.397736
+Walltype 16, Uvalue = 0.338519
+Walltype 17, Uvalue = 0.692145
+Walltype 18, Uvalue = 0.585249
+Walltype 19, Uvalue = 0.506361
+Walltype 20, Uvalue = 0.447137
+Walltype 21, Uvalue = 0.397736
+Walltype 22, Uvalue = 0.338519
+Walltype 23, Uvalue = 0.338519
+Walltype 24, Uvalue = 0.239183
+Walltype 25, Uvalue = 0.446879
+Walltype 26, Uvalue = 0.298808
+Walltype 27, Uvalue = 10
+Walltype 28, Uvalue = 10
+Walltype 29, Uvalue = 0.358601
+Walltype 30, Uvalue = 0.289226
+Walltype 31, Uvalue = 0.259534
+Walltype 39, Uvalue = 0.153859
+Walltype 40, Uvalue = 0.153859
+Walltype 41, Uvalue = 0.361199
+Walltype 42, Uvalue = 0.354213
+Walltype 43, Uvalue = 0.354213
+Walltype 44, Uvalue = 0.361199
+Walltype 45, Uvalue = 0.270507
+Walltype 46, Uvalue = 6.05938
+Walltype 47, Uvalue = 0.97308
+Walltype 48, Uvalue = 0.55906
+Walltype 49, Uvalue = 0.542501
+Walltype 50, Uvalue = 0.55906
+Walltype 51, Uvalue = 0.404245
+Walltype 52, Uvalue = 2.29388
+Walltype 53, Uvalue = 0.846277
+Walltype 54, Uvalue = 0.691011
+Walltype 55, Uvalue = 0.585225
+Walltype 56, Uvalue = 0.507056
+Walltype 57, Uvalue = 0.451105
+Walltype 58, Uvalue = 0.846277
+Walltype 59, Uvalue = 0.691011
+Walltype 60, Uvalue = 0.585225
+Walltype 61, Uvalue = 0.507056
+Walltype 62, Uvalue = 0.451105
+Walltype 63, Uvalue = 0.400667
+Walltype 64, Uvalue = 4.09151
+Walltype 65, Uvalue = 1.28052
+Walltype 66, Uvalue = 0.878672
+Walltype 67, Uvalue = 0.796418
+Walltype 68, Uvalue = 0.723414
+Walltype 69, Uvalue = 0.696569
+Walltype 70, Uvalue = 0.473497
+Walltype 71, Uvalue = 0.361383
+Walltype 72, Uvalue = 0.473497
+Walltype 73, Uvalue = 0.361383
+Walltype 74, Uvalue = 0.310805
+Walltype 75, Uvalue = 0.501465
+Walltype 76, Uvalue = 0.288301
+Walltype 90, Uvalue = 0.193939
+Walltype 91, Uvalue = 0.464951
+Walltype 92, Uvalue = 0.153866
+Walltype 93, Uvalue = 0.303086
+Walltype 94, Uvalue = 0.193939
+Walltype 95, Uvalue = 0.119578
+Walltype 96, Uvalue = 0.354229
+Walltype 97, Uvalue = 1.19692
+Walltype 98, Uvalue = 0.270519
+Walltype 99, Uvalue = 0.956378
+Walltype 100, Uvalue = 0.663327
+Walltype 101, Uvalue = 0.520483
+Walltype 102, Uvalue = 0.354229
+Walltype 103, Uvalue = 6.05938
+Walltype 104, Uvalue = 0.365361
+Walltype 105, Uvalue = 0.924056
+Walltype 106, Uvalue = 0.542534
+Walltype 107, Uvalue = 0.276112
+Walltype 108, Uvalue = 0.404268
+Walltype 109, Uvalue = 2.29388
+Walltype 110, Uvalue = 2.29388
+Walltype 111, Uvalue = 0.846311
+Walltype 112, Uvalue = 0.691039
+Walltype 113, Uvalue = 0.585249
+Walltype 114, Uvalue = 0.507077
+Walltype 115, Uvalue = 0.846311
+Walltype 116, Uvalue = 0.451124
+Walltype 117, Uvalue = 0.691039
+Walltype 118, Uvalue = 0.400684
+Walltype 119, Uvalue = 0.585249
+Walltype 120, Uvalue = 0.846311
+Walltype 121, Uvalue = 0.691039
+Walltype 122, Uvalue = 0.585249
+Walltype 123, Uvalue = 0.507077
+Walltype 124, Uvalue = 0.451124
+Walltype 125, Uvalue = 0.400684
+Walltype 126, Uvalue = 0.293941
+Walltype 127, Uvalue = 4.09151
+Walltype 128, Uvalue = 0.635403
+Walltype 129, Uvalue = 1.02835
+Walltype 130, Uvalue = 0.752128
+Walltype 131, Uvalue = 0.691039
+Walltype 132, Uvalue = 0.635403
+Walltype 133, Uvalue = 0.322065
+Walltype 134, Uvalue = 2.98255
+Walltype 135, Uvalue = 0.696597
+Walltype 136, Uvalue = 0.696597
+Walltype 137, Uvalue = 0.473517
+Walltype 138, Uvalue = 0.361399
+Walltype 139, Uvalue = 0.473517
+Walltype 140, Uvalue = 0.696597
+Walltype 141, Uvalue = 0.361399
+Walltype 142, Uvalue = 0.23762
+Walltype 143, Uvalue = 0.209422
+Walltype 144, Uvalue = 2.98255
+Walltype 145, Uvalue = 0.501486
+Walltype 146, Uvalue = 0.501486
+Walltype 147, Uvalue = 0.361399
+Walltype 148, Uvalue = 0.288313
+Walltype 149, Uvalue = 0.20378
+Walltype 165, Uvalue = 0.193939
+Walltype 166, Uvalue = 0.464951
+Walltype 167, Uvalue = 0.153866
+Walltype 168, Uvalue = 0.303086
+Walltype 169, Uvalue = 0.193939
+Walltype 170, Uvalue = 0.119578
+Walltype 171, Uvalue = 0.354229
+Walltype 172, Uvalue = 1.19692
+Walltype 173, Uvalue = 0.270519
+Walltype 174, Uvalue = 0.956378
+Walltype 175, Uvalue = 0.663327
+Walltype 176, Uvalue = 0.520483
+Walltype 177, Uvalue = 0.354229
+Walltype 178, Uvalue = 0.365361
+Walltype 179, Uvalue = 0.924056
+Walltype 180, Uvalue = 0.542534
+Walltype 181, Uvalue = 0.309632
+Walltype 182, Uvalue = 0.465237
+Walltype 183, Uvalue = 0.276112
+Walltype 184, Uvalue = 0.404268
+Walltype 185, Uvalue = 0.197654
+Walltype 186, Uvalue = 0.365361
+Walltype 187, Uvalue = 2.29388
+Walltype 188, Uvalue = 2.29388
+Walltype 189, Uvalue = 0.846311
+Walltype 190, Uvalue = 0.691039
+Walltype 191, Uvalue = 0.585249
+Walltype 192, Uvalue = 0.507077
+Walltype 193, Uvalue = 0.846311
+Walltype 194, Uvalue = 0.451124
+Walltype 195, Uvalue = 0.691039
+Walltype 196, Uvalue = 0.293941
+Walltype 197, Uvalue = 0.585249
+Walltype 198, Uvalue = 0.846311
+Walltype 199, Uvalue = 0.691039
+Walltype 200, Uvalue = 0.585249
+Walltype 201, Uvalue = 0.507077
+Walltype 202, Uvalue = 0.451124
+Walltype 203, Uvalue = 0.400684
+Walltype 204, Uvalue = 0.293941
+Walltype 205, Uvalue = 0.523844
+Walltype 206, Uvalue = 0.635403
+Walltype 207, Uvalue = 0.473517
+Walltype 208, Uvalue = 0.389465
+Walltype 209, Uvalue = 0.322065
+Walltype 210, Uvalue = 2.98255
+Walltype 211, Uvalue = 0.696597
+Walltype 212, Uvalue = 0.696597
+Walltype 213, Uvalue = 0.473517
+Walltype 214, Uvalue = 0.361399
+Walltype 215, Uvalue = 0.473517
+Walltype 216, Uvalue = 0.696597
+Walltype 217, Uvalue = 0.361399
+Walltype 218, Uvalue = 0.23762
+Walltype 219, Uvalue = 0.209422
+Walltype 220, Uvalue = 2.98255
+Walltype 221, Uvalue = 0.501486
+Walltype 222, Uvalue = 0.501486
+Walltype 223, Uvalue = 0.361399
+Walltype 224, Uvalue = 0.288313
+Walltype 225, Uvalue = 0.20378
+Walltype 241, Uvalue = 4.45616
+Walltype 242, Uvalue = 0.434417
+Walltype 243, Uvalue = 0.386038
+Walltype 244, Uvalue = 0.266623
+Walltype 245, Uvalue = 0.422289
+Walltype 246, Uvalue = 0.278467
+Walltype 247, Uvalue = 0.594128
+Walltype 248, Uvalue = 0.338011
+Walltype 249, Uvalue = 0.343996
+Walltype 250, Uvalue = 0.373999
+Walltype 251, Uvalue = 0.303072
+Walltype 252, Uvalue = 0.291558
+Walltype 253, Uvalue = 0.25705
+Walltype 254, Uvalue = 0.280049
+Walltype 255, Uvalue = 0.231218
+Walltype 256, Uvalue = 0.176747
+Walltype 257, Uvalue = 0.424988
+Walltype 258, Uvalue = 0.378574
+Walltype 259, Uvalue = 0.263041
+Walltype 260, Uvalue = 0.413374
+Walltype 261, Uvalue = 0.274562
+Walltype 262, Uvalue = 0.57663
+Walltype 263, Uvalue = 0.506489
+Walltype 264, Uvalue = 0.332275
+Walltype 265, Uvalue = 0.338056
+Walltype 266, Uvalue = 0.366989
+Walltype 267, Uvalue = 0.298453
+Walltype 268, Uvalue = 0.28728
+Walltype 269, Uvalue = 0.28728
+Walltype 270, Uvalue = 0.253719
+Walltype 271, Uvalue = 0.2761
+Walltype 272, Uvalue = 0.22852
+Walltype 273, Uvalue = 0.175166
+Walltype 274, Uvalue = 0.424982
+Walltype 275, Uvalue = 0.378569
+Walltype 276, Uvalue = 0.263039
+Walltype 277, Uvalue = 0.413368
+Walltype 278, Uvalue = 0.27456
+Walltype 279, Uvalue = 0.576619
+Walltype 280, Uvalue = 0.506481
+Walltype 281, Uvalue = 0.332271
+Walltype 282, Uvalue = 0.338052
+Walltype 283, Uvalue = 0.366984
+Walltype 284, Uvalue = 0.29845
+Walltype 285, Uvalue = 0.29845
+Walltype 286, Uvalue = 0.253717
+Walltype 287, Uvalue = 0.276097
+Walltype 288, Uvalue = 0.228518
+Walltype 289, Uvalue = 0.175165
+Walltype 290, Uvalue = 2.29388
+Walltype 291, Uvalue = 1.87514
+Walltype 292, Uvalue = 2.24792
+Walltype 293, Uvalue = 1.60616
+Walltype 294, Uvalue = 2.29388
+Walltype 295, Uvalue = 1.60616
+Walltype 296, Uvalue = 2.29388
+Walltype 297, Uvalue = 0.67433
+Walltype 298, Uvalue = 1.0613
+Walltype 299, Uvalue = 0.56291
+Walltype 300, Uvalue = 0.785369
+Walltype 301, Uvalue = 0.400667
+Walltype 302, Uvalue = 0.445505
+Walltype 303, Uvalue = 0.344532
+Walltype 304, Uvalue = 0.265781
+Walltype 305, Uvalue = 4.09151
+Walltype 306, Uvalue = 1.00212
+Walltype 307, Uvalue = 1.79343
+Walltype 308, Uvalue = 0.848521
+Walltype 309, Uvalue = 1.08166
+Walltype 310, Uvalue = 1.60179
+Walltype 311, Uvalue = 0.848521
+Walltype 312, Uvalue = 0.554747
+Walltype 313, Uvalue = 0.630935
+Walltype 314, Uvalue = 0.575342
+Walltype 315, Uvalue = 0.507215
+Walltype 316, Uvalue = 0.394745
+Walltype 317, Uvalue = 0.440557
+Walltype 318, Uvalue = 0.349615
+Walltype 319, Uvalue = 0.267558
+Walltype 320, Uvalue = 2.98255
+Walltype 321, Uvalue = 0.840745
+Walltype 322, Uvalue = 1.33489
+Walltype 323, Uvalue = 1.33489
+Walltype 324, Uvalue = 0.729897
+Walltype 325, Uvalue = 0.896026
+Walltype 326, Uvalue = 1.22573
+Walltype 327, Uvalue = 0.729897
+Walltype 328, Uvalue = 0.501465
+Walltype 329, Uvalue = 0.56291
+Walltype 330, Uvalue = 0.518234
+Walltype 331, Uvalue = 0.462303
+Walltype 332, Uvalue = 0.366998
+Walltype 333, Uvalue = 0.406275
+Walltype 334, Uvalue = 0.327673
+Walltype 335, Uvalue = 0.254515
+Walltype 336, Uvalue = 2.98255
+Walltype 337, Uvalue = 0.840745
+Walltype 338, Uvalue = 1.33489
+Walltype 339, Uvalue = 0.729897
+Walltype 340, Uvalue = 0.896026
+Walltype 341, Uvalue = 1.22573
+Walltype 342, Uvalue = 0.729897
+Walltype 343, Uvalue = 0.501465
+Walltype 344, Uvalue = 0.56291
+Walltype 345, Uvalue = 0.518234
+Walltype 346, Uvalue = 0.462303
+Walltype 347, Uvalue = 0.366998
+Walltype 348, Uvalue = 0.406275
+Walltype 349, Uvalue = 0.327673
+Walltype 350, Uvalue = 0.254515
+Walltype 364, Uvalue = 0.594128
+Walltype 365, Uvalue = 0.507654
+Walltype 366, Uvalue = 0.487512
+Walltype 367, Uvalue = 0.466341
+Walltype 368, Uvalue = 0.388643
+Walltype 369, Uvalue = 0.435939
+Walltype 370, Uvalue = 0.343996
+Walltype 371, Uvalue = 0.349985
+Walltype 372, Uvalue = 0.343996
+Walltype 373, Uvalue = 0.57663
+Walltype 374, Uvalue = 0.494824
+Walltype 375, Uvalue = 0.512324
+Walltype 376, Uvalue = 0.488995
+Walltype 377, Uvalue = 0.40425
+Walltype 378, Uvalue = 0.426444
+Walltype 379, Uvalue = 0.338056
+Walltype 380, Uvalue = 0.343839
+Walltype 381, Uvalue = 0.343839
+Walltype 382, Uvalue = 0.338056
+Walltype 383, Uvalue = 1.28036
+Walltype 384, Uvalue = 1.25306
+Walltype 385, Uvalue = 1.28036
+Walltype 386, Uvalue = 1.2476
+Walltype 387, Uvalue = 0.995294
+Walltype 388, Uvalue = 1.02832
+Walltype 389, Uvalue = 0.97877
+Walltype 390, Uvalue = 0.873925
+Walltype 391, Uvalue = 0.901549
+Walltype 392, Uvalue = 0.813068
+Walltype 393, Uvalue = 0.763191
+Walltype 394, Uvalue = 0.702126
+Walltype 395, Uvalue = 1.69636
+Walltype 396, Uvalue = 1.64877
+Walltype 397, Uvalue = 1.69636
+Walltype 398, Uvalue = 1.64877
+Walltype 399, Uvalue = 1.22972
+Walltype 400, Uvalue = 1.28052
+Walltype 401, Uvalue = 1.20459
+Walltype 402, Uvalue = 1.04962
+Walltype 403, Uvalue = 1.08972
+Walltype 404, Uvalue = 0.963044
+Walltype 405, Uvalue = 0.893852
+Walltype 406, Uvalue = 0.811219
+Walltype 407, Uvalue = 1.28036
+Walltype 408, Uvalue = 1.2476
+Walltype 409, Uvalue = 0.995294
+Walltype 410, Uvalue = 1.02832
+Walltype 411, Uvalue = 0.978771
+Walltype 412, Uvalue = 0.873925
+Walltype 413, Uvalue = 0.901549
+Walltype 414, Uvalue = 0.813068
+Walltype 415, Uvalue = 0.763191
+Walltype 416, Uvalue = 0.702126
+Walltype 420, Uvalue = 0.988451
+Walltype 421, Uvalue = 0.509544
+Walltype 422, Uvalue = 1.48141
+Walltype 423, Uvalue = 0.455488
+Walltype 425, Uvalue = 4.12374
+Walltype 426, Uvalue = 3.12504
+Walltype 427, Uvalue = 4.12374
+Walltype 428, Uvalue = 3.12504
+Walltype 429, Uvalue = 1.48141
+Walltype 430, Uvalue = 2.99103
+Walltype 431, Uvalue = 1.48141
+Walltype 432, Uvalue = 2.99103
+Walltype 433, Uvalue = 2.48447
+Walltype 435, Uvalue = 0.16391
+Walltype 436, Uvalue = 0.17
+Walltype 437, Uvalue = 0.246677
+Walltype 438, Uvalue = 0.25
+371 loaded.
+Day id= 0: 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0 
+Added day profile with name Day profile 0
+Occupancy DAY profiles: 1 loaded.
+Loading occupancy YEAR profiles
+Year id= 0: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Added year profile with name Year profile 0
+Occupancy YEAR profiles: 1 loaded.
+Loading Domestic Hot Water (DHW) DAY profiles
+DHW DAY profiles: 0 loaded.
+Loading Domestic Hot Water (DHW) YEAR profiles
+DHW YEAR profiles: 0 loaded.
+Loading geometry of building(s).
+Building: 0	with key: 1
+Heat Pump, COP (2C/55C): 1.85745, COP (35C/55C): 4.92225
+Ground source.
+Heat Pump, COP (2C/5C): 27.815, COP (35C/5C): 2.7815
+Ground source.
+Zone: 0	Walls: 16	Roofs: 1	Surfaces: 0	Floors: 1
+Occupants defined: 5
+Zone creator.
+Wall #0 Glazing Ratio: 0.4	Area: 34.0783
+Wall #1 Glazing Ratio: 0.4	Area: 34.0783
+Wall #2 Glazing Ratio: 0.4	Area: 34.0783
+Wall #3 Glazing Ratio: 0.4	Area: 34.0783
+Wall #4 Glazing Ratio: 0.4	Area: 34.7491
+Wall #5 Glazing Ratio: 0.4	Area: 34.7491
+Wall #6 Glazing Ratio: 0.4	Area: 34.7491
+Wall #7 Glazing Ratio: 0.4	Area: 34.7491
+Wall #8 Glazing Ratio: 0.4	Area: 34.0783
+Wall #9 Glazing Ratio: 0.4	Area: 34.0783
+Wall #10 Glazing Ratio: 0.4	Area: 34.0783
+Wall #11 Glazing Ratio: 0.4	Area: 34.0783
+Wall #12 Glazing Ratio: 0.4	Area: 34.7491
+Wall #13 Glazing Ratio: 0.4	Area: 34.7491
+Wall #14 Glazing Ratio: 0.4	Area: 34.7491
+Wall #15 Glazing Ratio: 0.4	Area: 34.7491
+Roof #0 Glazing Ratio: 0	Area: 49.7018
+Total wall surface (m^2): 330.372	Total window surface (m^2): 220.248	Total roof surface (m^2): 49.7018
+Total window conductance (W/K): 220.248	Total roof conductance (W/K): 8.14663
+Vi: 970.413
+Zone occupants
+Occupants Year id=0
+Occupants number: 5	sensible heat convective: 0 W /radiative: 0 W
+	latent heat: 0 W
+NRE: 1.15929e+006 MJ	GWP: 0 kgCO2	UBP: 0 pts
+Wall #0 Glazing Ratio: 0.4	Area: 34.0783
+Wall #1 Glazing Ratio: 0.4	Area: 34.0783
+Wall #2 Glazing Ratio: 0.4	Area: 34.0783
+Wall #3 Glazing Ratio: 0.4	Area: 34.0783
+Wall #4 Glazing Ratio: 0.4	Area: 34.7491
+Wall #5 Glazing Ratio: 0.4	Area: 34.7491
+Wall #6 Glazing Ratio: 0.4	Area: 34.7491
+Wall #7 Glazing Ratio: 0.4	Area: 34.7491
+Wall #8 Glazing Ratio: 0.4	Area: 34.0783
+Wall #9 Glazing Ratio: 0.4	Area: 34.0783
+Wall #10 Glazing Ratio: 0.4	Area: 34.0783
+Wall #11 Glazing Ratio: 0.4	Area: 34.0783
+Wall #12 Glazing Ratio: 0.4	Area: 34.7491
+Wall #13 Glazing Ratio: 0.4	Area: 34.7491
+Wall #14 Glazing Ratio: 0.4	Area: 34.7491
+Wall #15 Glazing Ratio: 0.4	Area: 34.7491
+Roof #0 Glazing Ratio: 0	Area: 49.7018
+Total wall surface (m^2): 330.372	Total window surface (m^2): 220.248	Total roof surface (m^2): 49.7018
+Total window conductance (W/K): 220.248	Total roof conductance (W/K): 8.14663
+Vi: 970.413
+Zones loaded: 1
+Building: 1	with key: 1
+Heat Pump, COP (2C/55C): 1.85745, COP (35C/55C): 4.92225
+Ground source.
+Heat Pump, COP (2C/5C): 27.815, COP (35C/5C): 2.7815
+Ground source.
+Zone: 0	Walls: 20	Roofs: 12	Surfaces: 0	Floors: 12
+Occupants defined: 5
+Zone creator.
+Wall #0 Glazing Ratio: 0.4	Area: 29.7173
+Wall #1 Glazing Ratio: 0.4	Area: 29.7173
+Wall #2 Glazing Ratio: 0.4	Area: 29.7173
+Wall #3 Glazing Ratio: 0.4	Area: 29.7173
+Wall #4 Glazing Ratio: 0.4	Area: 29.7173
+Wall #5 Glazing Ratio: 0.4	Area: 29.7173
+Wall #6 Glazing Ratio: 0.4	Area: 29.0098
+Wall #7 Glazing Ratio: 0.4	Area: 29.0098
+Wall #8 Glazing Ratio: 0.4	Area: 29.7173
+Wall #9 Glazing Ratio: 0.4	Area: 29.7173
+Wall #10 Glazing Ratio: 0.4	Area: 7.01343
+Wall #11 Glazing Ratio: 0.4	Area: 12.6264
+Wall #12 Glazing Ratio: 0.4	Area: 6.60528
+Wall #13 Glazing Ratio: 0.4	Area: 11.9407
+Wall #14 Glazing Ratio: 0.4	Area: 6
+Wall #15 Glazing Ratio: 0.4	Area: 17.2761
+Wall #16 Glazing Ratio: 0.4	Area: 10.8019
+Wall #17 Glazing Ratio: 0.4	Area: 6.60528
+Wall #18 Glazing Ratio: 0.4	Area: 29.0098
+Wall #19 Glazing Ratio: 0.4	Area: 29.0098
+Roof #0 Glazing Ratio: 0	Area: 16.624
+Roof #1 Glazing Ratio: 0	Area: 16.624
+Roof #2 Glazing Ratio: 0	Area: 16.624
+Roof #3 Glazing Ratio: 0	Area: 16.624
+Roof #4 Glazing Ratio: 0	Area: 16.624
+Roof #5 Glazing Ratio: 0	Area: 16.624
+Roof #6 Glazing Ratio: 0	Area: 16.624
+Roof #7 Glazing Ratio: 0	Area: 16.624
+Roof #8 Glazing Ratio: 0	Area: 16.624
+Roof #9 Glazing Ratio: 0	Area: 16.624
+Roof #10 Glazing Ratio: 0	Area: 16.624
+Roof #11 Glazing Ratio: 0	Area: 16.624
+Total wall surface (m^2): 259.588	Total window surface (m^2): 173.059	Total roof surface (m^2): 199.488
+Total window conductance (W/K): 173.059	Total roof conductance (W/K): 32.6982
+Vi: 1436.57
+Zone occupants
+Occupants Year id=0
+Occupants number: 5	sensible heat convective: 0 W /radiative: 0 W
+	latent heat: 0 W
+NRE: 910906 MJ	GWP: 0 kgCO2	UBP: 0 pts
+Wall #0 Glazing Ratio: 0.4	Area: 29.7173
+Wall #1 Glazing Ratio: 0.4	Area: 29.7173
+Wall #2 Glazing Ratio: 0.4	Area: 29.7173
+Wall #3 Glazing Ratio: 0.4	Area: 29.7173
+Wall #4 Glazing Ratio: 0.4	Area: 29.7173
+Wall #5 Glazing Ratio: 0.4	Area: 29.7173
+Wall #6 Glazing Ratio: 0.4	Area: 29.0098
+Wall #7 Glazing Ratio: 0.4	Area: 29.0098
+Wall #8 Glazing Ratio: 0.4	Area: 29.7173
+Wall #9 Glazing Ratio: 0.4	Area: 29.7173
+Wall #10 Glazing Ratio: 0.4	Area: 7.01343
+Wall #11 Glazing Ratio: 0.4	Area: 12.6264
+Wall #12 Glazing Ratio: 0.4	Area: 6.60528
+Wall #13 Glazing Ratio: 0.4	Area: 11.9407
+Wall #14 Glazing Ratio: 0.4	Area: 6
+Wall #15 Glazing Ratio: 0.4	Area: 17.2761
+Wall #16 Glazing Ratio: 0.4	Area: 10.8019
+Wall #17 Glazing Ratio: 0.4	Area: 6.60528
+Wall #18 Glazing Ratio: 0.4	Area: 29.0098
+Wall #19 Glazing Ratio: 0.4	Area: 29.0098
+Roof #0 Glazing Ratio: 0	Area: 16.624
+Roof #1 Glazing Ratio: 0	Area: 16.624
+Roof #2 Glazing Ratio: 0	Area: 16.624
+Roof #3 Glazing Ratio: 0	Area: 16.624
+Roof #4 Glazing Ratio: 0	Area: 16.624
+Roof #5 Glazing Ratio: 0	Area: 16.624
+Roof #6 Glazing Ratio: 0	Area: 16.624
+Roof #7 Glazing Ratio: 0	Area: 16.624
+Roof #8 Glazing Ratio: 0	Area: 16.624
+Roof #9 Glazing Ratio: 0	Area: 16.624
+Roof #10 Glazing Ratio: 0	Area: 16.624
+Roof #11 Glazing Ratio: 0	Area: 16.624
+Total wall surface (m^2): 259.588	Total window surface (m^2): 173.059	Total roof surface (m^2): 199.488
+Total window conductance (W/K): 173.059	Total roof conductance (W/K): 32.6982
+Vi: 1436.57
+Zones loaded: 1
+Building: 2	with key: 1
+Heat Pump, COP (2C/55C): 1.85745, COP (35C/55C): 4.92225
+Ground source.
+Heat Pump, COP (2C/5C): 27.815, COP (35C/5C): 2.7815
+Ground source.
+Zone: 0	Walls: 6	Roofs: 4	Surfaces: 0	Floors: 4
+Occupants defined: 5
+Zone creator.
+Wall #0 Glazing Ratio: 0.4	Area: 21.8863
+Wall #1 Glazing Ratio: 0.4	Area: 21.8863
+Wall #2 Glazing Ratio: 0.4	Area: 20
+Wall #3 Glazing Ratio: 0.4	Area: 20
+Wall #4 Glazing Ratio: 0.4	Area: 21.8863
+Wall #5 Glazing Ratio: 0.4	Area: 21.8863
+Roof #0 Glazing Ratio: 0	Area: 27.3578
+Roof #1 Glazing Ratio: 0	Area: 27.3578
+Roof #2 Glazing Ratio: 0	Area: 27.3578
+Roof #3 Glazing Ratio: 0	Area: 27.3578
+Total wall surface (m^2): 76.5271	Total window surface (m^2): 51.018	Total roof surface (m^2): 109.431
+Total window conductance (W/K): 51.018	Total roof conductance (W/K): 17.9369
+Vi: 437.726
+Zone occupants
+Occupants Year id=0
+Occupants number: 5	sensible heat convective: 0 W /radiative: 0 W
+	latent heat: 0 W
+NRE: 268537 MJ	GWP: 0 kgCO2	UBP: 0 pts
+Wall #0 Glazing Ratio: 0.4	Area: 21.8863
+Wall #1 Glazing Ratio: 0.4	Area: 21.8863
+Wall #2 Glazing Ratio: 0.4	Area: 20
+Wall #3 Glazing Ratio: 0.4	Area: 20
+Wall #4 Glazing Ratio: 0.4	Area: 21.8863
+Wall #5 Glazing Ratio: 0.4	Area: 21.8863
+Roof #0 Glazing Ratio: 0	Area: 27.3578
+Roof #1 Glazing Ratio: 0	Area: 27.3578
+Roof #2 Glazing Ratio: 0	Area: 27.3578
+Roof #3 Glazing Ratio: 0	Area: 27.3578
+Total wall surface (m^2): 76.5271	Total window surface (m^2): 51.018	Total roof surface (m^2): 109.431
+Total window conductance (W/K): 51.018	Total roof conductance (W/K): 17.9369
+Vi: 437.726
+Zones loaded: 1
+3 loaded.
+Loading district energy center(s) : 
+There is no district energy center tag
+Loading wind turbine(s): 0 loaded.
+Loading shading surface(s): 64 loaded.
+Loading tree(s): 0 loaded.
+Loading ground surface(s): 1 loaded.
+District created.
+Building 0	Zone: 0	Wall 0
+Building 0	Zone: 0	Wall 1
+Building 0	Zone: 0	Wall 2
+Building 0	Zone: 0	Wall 3
+Building 0	Zone: 0	Wall 4
+Building 0	Zone: 0	Wall 5
+Building 0	Zone: 0	Wall 6
+Building 0	Zone: 0	Wall 7
+Building 0	Zone: 0	Wall 8
+Building 0	Zone: 0	Wall 9
+Building 0	Zone: 0	Wall 10
+Building 0	Zone: 0	Wall 11
+Building 0	Zone: 0	Wall 12
+Building 0	Zone: 0	Wall 13
+Building 0	Zone: 0	Wall 14
+Building 0	Zone: 0	Wall 15
+Building 0	Zone: 0	Roof 0
+Building 1	Zone: 0	Wall 0
+Building 1	Zone: 0	Wall 1
+Building 1	Zone: 0	Wall 2
+Building 1	Zone: 0	Wall 3
+Building 1	Zone: 0	Wall 4
+Building 1	Zone: 0	Wall 5
+Building 1	Zone: 0	Wall 6
+Building 1	Zone: 0	Wall 7
+Building 1	Zone: 0	Wall 8
+Building 1	Zone: 0	Wall 9
+Building 1	Zone: 0	Wall 10
+Building 1	Zone: 0	Wall 11
+Building 1	Zone: 0	Wall 12
+Building 1	Zone: 0	Wall 13
+Building 1	Zone: 0	Wall 14
+Building 1	Zone: 0	Wall 15
+Building 1	Zone: 0	Wall 16
+Building 1	Zone: 0	Wall 17
+Building 1	Zone: 0	Wall 18
+Building 1	Zone: 0	Wall 19
+Building 1	Zone: 0	Roof 0
+Building 1	Zone: 0	Roof 1
+Building 1	Zone: 0	Roof 2
+Building 1	Zone: 0	Roof 3
+Building 1	Zone: 0	Roof 4
+Building 1	Zone: 0	Roof 5
+Building 1	Zone: 0	Roof 6
+Building 1	Zone: 0	Roof 7
+Building 1	Zone: 0	Roof 8
+Building 1	Zone: 0	Roof 9
+Building 1	Zone: 0	Roof 10
+Building 1	Zone: 0	Roof 11
+Building 2	Zone: 0	Wall 0
+Building 2	Zone: 0	Wall 1
+Building 2	Zone: 0	Wall 2
+Building 2	Zone: 0	Wall 3
+Building 2	Zone: 0	Wall 4
+Building 2	Zone: 0	Wall 5
+Building 2	Zone: 0	Roof 0
+Building 2	Zone: 0	Roof 1
+Building 2	Zone: 0	Roof 2
+Building 2	Zone: 0	Roof 3
+Buildings' surfaces added to the scene.
+Obstructing surfaces added to the scene.
+Trees surfaces added to the scene.
+Ground surfaces added to the scene.
+Scene bounding sphere centre: (1.00455,30.9243,0) radius: 37.0189
+Smallest surface radius: 0.460626
+Pixels per metre: 26.0515
+Direct renderer window dimension: 512
+View factors calculated.
+Building inter-reflection matrix.
+Number of surfaces: 124
+Number of reflections: 2
+Compressed Row Storage inter-reflections Sparse Matrix ready.
+Surfaces: 124	Non-zero elements: 1227	Average non-zero elements / surface: 9.89516
+OpenMP max threads: 8
+Wall #0 Glazing Ratio: 0.4	Area: 34.0783
+Wall #1 Glazing Ratio: 0.4	Area: 34.0783
+Wall #2 Glazing Ratio: 0.4	Area: 34.0783
+Wall #3 Glazing Ratio: 0.4	Area: 34.0783
+Wall #4 Glazing Ratio: 0.4	Area: 34.7491
+Wall #5 Glazing Ratio: 0.4	Area: 34.7491
+Wall #6 Glazing Ratio: 0.4	Area: 34.7491
+Wall #7 Glazing Ratio: 0.4	Area: 34.7491
+Wall #8 Glazing Ratio: 0.4	Area: 34.0783
+Wall #9 Glazing Ratio: 0.4	Area: 34.0783
+Wall #10 Glazing Ratio: 0.4	Area: 34.0783
+Wall #11 Glazing Ratio: 0.4	Area: 34.0783
+Wall #12 Glazing Ratio: 0.4	Area: 34.7491
+Wall #13 Glazing Ratio: 0.4	Area: 34.7491
+Wall #14 Glazing Ratio: 0.4	Area: 34.7491
+Wall #15 Glazing Ratio: 0.4	Area: 34.7491
+Roof #0 Glazing Ratio: 0	Area: 49.7018
+Total wall surface (m^2): 330.372	Total window surface (m^2): 220.248	Total roof surface (m^2): 49.7018
+Total window conductance (W/K): 220.248	Total roof conductance (W/K): 8.14663
+Vi: 970.413
+Zones loaded: 1
+Wall #0 Glazing Ratio: 0.4	Area: 29.7173
+Wall #1 Glazing Ratio: 0.4	Area: 29.7173
+Wall #2 Glazing Ratio: 0.4	Area: 29.7173
+Wall #3 Glazing Ratio: 0.4	Area: 29.7173
+Wall #4 Glazing Ratio: 0.4	Area: 29.7173
+Wall #5 Glazing Ratio: 0.4	Area: 29.7173
+Wall #6 Glazing Ratio: 0.4	Area: 29.0098
+Wall #7 Glazing Ratio: 0.4	Area: 29.0098
+Wall #8 Glazing Ratio: 0.4	Area: 29.7173
+Wall #9 Glazing Ratio: 0.4	Area: 29.7173
+Wall #10 Glazing Ratio: 0.4	Area: 7.01343
+Wall #11 Glazing Ratio: 0.4	Area: 12.6264
+Wall #12 Glazing Ratio: 0.4	Area: 6.60528
+Wall #13 Glazing Ratio: 0.4	Area: 11.9407
+Wall #14 Glazing Ratio: 0.4	Area: 6
+Wall #15 Glazing Ratio: 0.4	Area: 17.2761
+Wall #16 Glazing Ratio: 0.4	Area: 10.8019
+Wall #17 Glazing Ratio: 0.4	Area: 6.60528
+Wall #18 Glazing Ratio: 0.4	Area: 29.0098
+Wall #19 Glazing Ratio: 0.4	Area: 29.0098
+Roof #0 Glazing Ratio: 0	Area: 16.624
+Roof #1 Glazing Ratio: 0	Area: 16.624
+Roof #2 Glazing Ratio: 0	Area: 16.624
+Roof #3 Glazing Ratio: 0	Area: 16.624
+Roof #4 Glazing Ratio: 0	Area: 16.624
+Roof #5 Glazing Ratio: 0	Area: 16.624
+Roof #6 Glazing Ratio: 0	Area: 16.624
+Roof #7 Glazing Ratio: 0	Area: 16.624
+Roof #8 Glazing Ratio: 0	Area: 16.624
+Roof #9 Glazing Ratio: 0	Area: 16.624
+Roof #10 Glazing Ratio: 0	Area: 16.624
+Roof #11 Glazing Ratio: 0	Area: 16.624
+Total wall surface (m^2): 259.588	Total window surface (m^2): 173.059	Total roof surface (m^2): 199.488
+Total window conductance (W/K): 173.059	Total roof conductance (W/K): 32.6982
+Vi: 1436.57
+Zones loaded: 1
+Wall #0 Glazing Ratio: 0.4	Area: 21.8863
+Wall #1 Glazing Ratio: 0.4	Area: 21.8863
+Wall #2 Glazing Ratio: 0.4	Area: 20
+Wall #3 Glazing Ratio: 0.4	Area: 20
+Wall #4 Glazing Ratio: 0.4	Area: 21.8863
+Wall #5 Glazing Ratio: 0.4	Area: 21.8863
+Roof #0 Glazing Ratio: 0	Area: 27.3578
+Roof #1 Glazing Ratio: 0	Area: 27.3578
+Roof #2 Glazing Ratio: 0	Area: 27.3578
+Roof #3 Glazing Ratio: 0	Area: 27.3578
+Total wall surface (m^2): 76.5271	Total window surface (m^2): 51.018	Total roof surface (m^2): 109.431
+Total window conductance (W/K): 51.018	Total roof conductance (W/K): 17.9369
+Vi: 437.726
+Zones loaded: 1
+Pre-conditioning period: 9 days
+Pre-conditioning period - day: 357
+Pre-conditioning period - day: 358
+Pre-conditioning period - day: 359
+Pre-conditioning period - day: 360
+Pre-conditioning period - day: 361
+Pre-conditioning period - day: 362
+Pre-conditioning period - day: 363
+Pre-conditioning period - day: 364
+Pre-conditioning period - day: 365
+Day: 1	Memory usage: 0.05164 Mb
+Day: 2	Memory usage: 0.09983 Mb
+Day: 3	Memory usage: 0.148 Mb
+Day: 4	Memory usage: 0.1962 Mb
+Day: 5	Memory usage: 0.2444 Mb
+Day: 6	Memory usage: 0.2926 Mb
+Day: 7	Memory usage: 0.3408 Mb
+Day: 8	Memory usage: 0.389 Mb
+Day: 9	Memory usage: 0.4372 Mb
+Day: 10	Memory usage: 0.4854 Mb
+Day: 11	Memory usage: 0.5336 Mb
+Day: 12	Memory usage: 0.5818 Mb
+Day: 13	Memory usage: 0.6299 Mb
+Day: 14	Memory usage: 0.6781 Mb
+Day: 15	Memory usage: 0.7263 Mb
+Day: 16	Memory usage: 0.7745 Mb
+Day: 17	Memory usage: 0.8227 Mb
+Day: 18	Memory usage: 0.8709 Mb
+Day: 19	Memory usage: 0.9191 Mb
+Day: 20	Memory usage: 0.9673 Mb
+Day: 21	Memory usage: 1.015 Mb
+Day: 22	Memory usage: 1.064 Mb
+Day: 23	Memory usage: 1.112 Mb
+Day: 24	Memory usage: 1.16 Mb
+Day: 25	Memory usage: 1.208 Mb
+Day: 26	Memory usage: 1.256 Mb
+Day: 27	Memory usage: 1.305 Mb
+Day: 28	Memory usage: 1.353 Mb
+Day: 29	Memory usage: 1.401 Mb
+Day: 30	Memory usage: 1.449 Mb
+Day: 31	Memory usage: 1.497 Mb
+Day: 32	Memory usage: 1.546 Mb
+Day: 33	Memory usage: 1.594 Mb
+Day: 34	Memory usage: 1.642 Mb
+Day: 35	Memory usage: 1.69 Mb
+Day: 36	Memory usage: 1.738 Mb
+Day: 37	Memory usage: 1.787 Mb
+Day: 38	Memory usage: 1.835 Mb
+Day: 39	Memory usage: 1.883 Mb
+Day: 40	Memory usage: 1.931 Mb
+Day: 41	Memory usage: 1.979 Mb
+Day: 42	Memory usage: 2.028 Mb
+Day: 43	Memory usage: 2.076 Mb
+Day: 44	Memory usage: 2.124 Mb
+Day: 45	Memory usage: 2.172 Mb
+Day: 46	Memory usage: 2.22 Mb
+Day: 47	Memory usage: 2.268 Mb
+Day: 48	Memory usage: 2.317 Mb
+Day: 49	Memory usage: 2.365 Mb
+Day: 50	Memory usage: 2.413 Mb
+Day: 51	Memory usage: 2.461 Mb
+Day: 52	Memory usage: 2.509 Mb
+Day: 53	Memory usage: 2.558 Mb
+Day: 54	Memory usage: 2.606 Mb
+Day: 55	Memory usage: 2.654 Mb
+Day: 56	Memory usage: 2.702 Mb
+Day: 57	Memory usage: 2.75 Mb
+Day: 58	Memory usage: 2.799 Mb
+Day: 59	Memory usage: 2.847 Mb
+Day: 60	Memory usage: 2.895 Mb
+Day: 61	Memory usage: 2.943 Mb
+Day: 62	Memory usage: 2.991 Mb
+Day: 63	Memory usage: 3.04 Mb
+Day: 64	Memory usage: 3.088 Mb
+Day: 65	Memory usage: 3.136 Mb
+Day: 66	Memory usage: 3.184 Mb
+Day: 67	Memory usage: 3.232 Mb
+Day: 68	Memory usage: 3.281 Mb
+Day: 69	Memory usage: 3.329 Mb
+Day: 70	Memory usage: 3.377 Mb
+Day: 71	Memory usage: 3.425 Mb
+Day: 72	Memory usage: 3.473 Mb
+Day: 73	Memory usage: 3.521 Mb
+Day: 74	Memory usage: 3.57 Mb
+Day: 75	Memory usage: 3.618 Mb
+Day: 76	Memory usage: 3.666 Mb
+Day: 77	Memory usage: 3.714 Mb
+Day: 78	Memory usage: 3.762 Mb
+Day: 79	Memory usage: 3.811 Mb
+Day: 80	Memory usage: 3.859 Mb
+Day: 81	Memory usage: 3.907 Mb
+Day: 82	Memory usage: 3.955 Mb
+Day: 83	Memory usage: 4.003 Mb
+Day: 84	Memory usage: 4.052 Mb
+Day: 85	Memory usage: 4.1 Mb
+Day: 86	Memory usage: 4.148 Mb
+Day: 87	Memory usage: 4.196 Mb
+Day: 88	Memory usage: 4.244 Mb
+Day: 89	Memory usage: 4.293 Mb
+Day: 90	Memory usage: 4.341 Mb
+Day: 91	Memory usage: 4.389 Mb
+Day: 92	Memory usage: 4.437 Mb
+Day: 93	Memory usage: 4.485 Mb
+Day: 94	Memory usage: 4.533 Mb
+Day: 95	Memory usage: 4.582 Mb
+Day: 96	Memory usage: 4.63 Mb
+Day: 97	Memory usage: 4.678 Mb
+Day: 98	Memory usage: 4.726 Mb
+Day: 99	Memory usage: 4.774 Mb
+Day: 100	Memory usage: 4.823 Mb
+Day: 101	Memory usage: 4.871 Mb
+Day: 102	Memory usage: 4.919 Mb
+Day: 103	Memory usage: 4.967 Mb
+Day: 104	Memory usage: 5.015 Mb
+Day: 105	Memory usage: 5.064 Mb
+Day: 106	Memory usage: 5.112 Mb
+Day: 107	Memory usage: 5.16 Mb
+Day: 108	Memory usage: 5.208 Mb
+Day: 109	Memory usage: 5.256 Mb
+Day: 110	Memory usage: 5.305 Mb
+Day: 111	Memory usage: 5.353 Mb
+Day: 112	Memory usage: 5.401 Mb
+Day: 113	Memory usage: 5.449 Mb
+Day: 114	Memory usage: 5.497 Mb
+Day: 115	Memory usage: 5.546 Mb
+Day: 116	Memory usage: 5.594 Mb
+Day: 117	Memory usage: 5.642 Mb
+Day: 118	Memory usage: 5.69 Mb
+Day: 119	Memory usage: 5.738 Mb
+Day: 120	Memory usage: 5.786 Mb
+Day: 121	Memory usage: 5.835 Mb
+Day: 122	Memory usage: 5.883 Mb
+Day: 123	Memory usage: 5.931 Mb
+Day: 124	Memory usage: 5.979 Mb
+Day: 125	Memory usage: 6.027 Mb
+Day: 126	Memory usage: 6.076 Mb
+Day: 127	Memory usage: 6.124 Mb
+Day: 128	Memory usage: 6.172 Mb
+Day: 129	Memory usage: 6.22 Mb
+Day: 130	Memory usage: 6.268 Mb
+Day: 131	Memory usage: 6.317 Mb
+Day: 132	Memory usage: 6.365 Mb
+Day: 133	Memory usage: 6.413 Mb
+Day: 134	Memory usage: 6.461 Mb
+Day: 135	Memory usage: 6.509 Mb
+Day: 136	Memory usage: 6.558 Mb
+Day: 137	Memory usage: 6.606 Mb
+Day: 138	Memory usage: 6.654 Mb
+Day: 139	Memory usage: 6.702 Mb
+Day: 140	Memory usage: 6.75 Mb
+Day: 141	Memory usage: 6.799 Mb
+Day: 142	Memory usage: 6.847 Mb
+Day: 143	Memory usage: 6.895 Mb
+Day: 144	Memory usage: 6.943 Mb
+Day: 145	Memory usage: 6.991 Mb
+Day: 146	Memory usage: 7.039 Mb
+Day: 147	Memory usage: 7.088 Mb
+Day: 148	Memory usage: 7.136 Mb
+Day: 149	Memory usage: 7.184 Mb
+Day: 150	Memory usage: 7.232 Mb
+Day: 151	Memory usage: 7.28 Mb
+Day: 152	Memory usage: 7.329 Mb
+Day: 153	Memory usage: 7.377 Mb
+Day: 154	Memory usage: 7.425 Mb
+Day: 155	Memory usage: 7.473 Mb
+Day: 156	Memory usage: 7.521 Mb
+Day: 157	Memory usage: 7.57 Mb
+Day: 158	Memory usage: 7.618 Mb
+Day: 159	Memory usage: 7.666 Mb
+Day: 160	Memory usage: 7.714 Mb
+Day: 161	Memory usage: 7.762 Mb
+Day: 162	Memory usage: 7.811 Mb
+Day: 163	Memory usage: 7.859 Mb
+Day: 164	Memory usage: 7.907 Mb
+Day: 165	Memory usage: 7.955 Mb
+Day: 166	Memory usage: 8.003 Mb
+Day: 167	Memory usage: 8.052 Mb
+Day: 168	Memory usage: 8.1 Mb
+Day: 169	Memory usage: 8.148 Mb
+Day: 170	Memory usage: 8.196 Mb
+Day: 171	Memory usage: 8.244 Mb
+Day: 172	Memory usage: 8.292 Mb
+Day: 173	Memory usage: 8.341 Mb
+Day: 174	Memory usage: 8.389 Mb
+Day: 175	Memory usage: 8.437 Mb
+Day: 176	Memory usage: 8.485 Mb
+Day: 177	Memory usage: 8.533 Mb
+Day: 178	Memory usage: 8.582 Mb
+Day: 179	Memory usage: 8.63 Mb
+Day: 180	Memory usage: 8.678 Mb
+Day: 181	Memory usage: 8.726 Mb
+Day: 182	Memory usage: 8.774 Mb
+Day: 183	Memory usage: 8.823 Mb
+Day: 184	Memory usage: 8.871 Mb
+Day: 185	Memory usage: 8.919 Mb
+Day: 186	Memory usage: 8.967 Mb
+Day: 187	Memory usage: 9.015 Mb
+Day: 188	Memory usage: 9.064 Mb
+Day: 189	Memory usage: 9.112 Mb
+Day: 190	Memory usage: 9.16 Mb
+Day: 191	Memory usage: 9.208 Mb
+Day: 192	Memory usage: 9.256 Mb
+Day: 193	Memory usage: 9.305 Mb
+Day: 194	Memory usage: 9.353 Mb
+Day: 195	Memory usage: 9.401 Mb
+Day: 196	Memory usage: 9.449 Mb
+Day: 197	Memory usage: 9.497 Mb
+Day: 198	Memory usage: 9.545 Mb
+Day: 199	Memory usage: 9.594 Mb
+Day: 200	Memory usage: 9.642 Mb
+Day: 201	Memory usage: 9.69 Mb
+Day: 202	Memory usage: 9.738 Mb
+Day: 203	Memory usage: 9.786 Mb
+Day: 204	Memory usage: 9.835 Mb
+Day: 205	Memory usage: 9.883 Mb
+Day: 206	Memory usage: 9.931 Mb
+Day: 207	Memory usage: 9.979 Mb
+Day: 208	Memory usage: 10.03 Mb
+Day: 209	Memory usage: 10.08 Mb
+Day: 210	Memory usage: 10.12 Mb
+Day: 211	Memory usage: 10.17 Mb
+Day: 212	Memory usage: 10.22 Mb
+Day: 213	Memory usage: 10.27 Mb
+Day: 214	Memory usage: 10.32 Mb
+Day: 215	Memory usage: 10.36 Mb
+Day: 216	Memory usage: 10.41 Mb
+Day: 217	Memory usage: 10.46 Mb
+Day: 218	Memory usage: 10.51 Mb
+Day: 219	Memory usage: 10.56 Mb
+Day: 220	Memory usage: 10.61 Mb
+Day: 221	Memory usage: 10.65 Mb
+Day: 222	Memory usage: 10.7 Mb
+Day: 223	Memory usage: 10.75 Mb
+Day: 224	Memory usage: 10.8 Mb
+Day: 225	Memory usage: 10.85 Mb
+Day: 226	Memory usage: 10.89 Mb
+Day: 227	Memory usage: 10.94 Mb
+Day: 228	Memory usage: 10.99 Mb
+Day: 229	Memory usage: 11.04 Mb
+Day: 230	Memory usage: 11.09 Mb
+Day: 231	Memory usage: 11.14 Mb
+Day: 232	Memory usage: 11.18 Mb
+Day: 233	Memory usage: 11.23 Mb
+Day: 234	Memory usage: 11.28 Mb
+Day: 235	Memory usage: 11.33 Mb
+Day: 236	Memory usage: 11.38 Mb
+Day: 237	Memory usage: 11.42 Mb
+Day: 238	Memory usage: 11.47 Mb
+Day: 239	Memory usage: 11.52 Mb
+Day: 240	Memory usage: 11.57 Mb
+Day: 241	Memory usage: 11.62 Mb
+Day: 242	Memory usage: 11.67 Mb
+Day: 243	Memory usage: 11.71 Mb
+Day: 244	Memory usage: 11.76 Mb
+Day: 245	Memory usage: 11.81 Mb
+Day: 246	Memory usage: 11.86 Mb
+Day: 247	Memory usage: 11.91 Mb
+Day: 248	Memory usage: 11.96 Mb
+Day: 249	Memory usage: 12 Mb
+Day: 250	Memory usage: 12.05 Mb
+Day: 251	Memory usage: 12.1 Mb
+Day: 252	Memory usage: 12.15 Mb
+Day: 253	Memory usage: 12.2 Mb
+Day: 254	Memory usage: 12.24 Mb
+Day: 255	Memory usage: 12.29 Mb
+Day: 256	Memory usage: 12.34 Mb
+Day: 257	Memory usage: 12.39 Mb
+Day: 258	Memory usage: 12.44 Mb
+Day: 259	Memory usage: 12.49 Mb
+Day: 260	Memory usage: 12.53 Mb
+Day: 261	Memory usage: 12.58 Mb
+Day: 262	Memory usage: 12.63 Mb
+Day: 263	Memory usage: 12.68 Mb
+Day: 264	Memory usage: 12.73 Mb
+Day: 265	Memory usage: 12.77 Mb
+Day: 266	Memory usage: 12.82 Mb
+Day: 267	Memory usage: 12.87 Mb
+Day: 268	Memory usage: 12.92 Mb
+Day: 269	Memory usage: 12.97 Mb
+Day: 270	Memory usage: 13.02 Mb
+Day: 271	Memory usage: 13.06 Mb
+Day: 272	Memory usage: 13.11 Mb
+Day: 273	Memory usage: 13.16 Mb
+Day: 274	Memory usage: 13.21 Mb
+Day: 275	Memory usage: 13.26 Mb
+Day: 276	Memory usage: 13.3 Mb
+Day: 277	Memory usage: 13.35 Mb
+Day: 278	Memory usage: 13.4 Mb
+Day: 279	Memory usage: 13.45 Mb
+Day: 280	Memory usage: 13.5 Mb
+Day: 281	Memory usage: 13.55 Mb
+Day: 282	Memory usage: 13.59 Mb
+Day: 283	Memory usage: 13.64 Mb
+Day: 284	Memory usage: 13.69 Mb
+Day: 285	Memory usage: 13.74 Mb
+Day: 286	Memory usage: 13.79 Mb
+Day: 287	Memory usage: 13.83 Mb
+Day: 288	Memory usage: 13.88 Mb
+Day: 289	Memory usage: 13.93 Mb
+Day: 290	Memory usage: 13.98 Mb
+Day: 291	Memory usage: 14.03 Mb
+Day: 292	Memory usage: 14.08 Mb
+Day: 293	Memory usage: 14.12 Mb
+Day: 294	Memory usage: 14.17 Mb
+Day: 295	Memory usage: 14.22 Mb
+Day: 296	Memory usage: 14.27 Mb
+Day: 297	Memory usage: 14.32 Mb
+Day: 298	Memory usage: 14.36 Mb
+Day: 299	Memory usage: 14.41 Mb
+Day: 300	Memory usage: 14.46 Mb
+Day: 301	Memory usage: 14.51 Mb
+Day: 302	Memory usage: 14.56 Mb
+Day: 303	Memory usage: 14.61 Mb
+Day: 304	Memory usage: 14.65 Mb
+Day: 305	Memory usage: 14.7 Mb
+Day: 306	Memory usage: 14.75 Mb
+Day: 307	Memory usage: 14.8 Mb
+Day: 308	Memory usage: 14.85 Mb
+Day: 309	Memory usage: 14.89 Mb
+Day: 310	Memory usage: 14.94 Mb
+Day: 311	Memory usage: 14.99 Mb
+Day: 312	Memory usage: 15.04 Mb
+Day: 313	Memory usage: 15.09 Mb
+Day: 314	Memory usage: 15.14 Mb
+Day: 315	Memory usage: 15.18 Mb
+Day: 316	Memory usage: 15.23 Mb
+Day: 317	Memory usage: 15.28 Mb
+Day: 318	Memory usage: 15.33 Mb
+Day: 319	Memory usage: 15.38 Mb
+Day: 320	Memory usage: 15.42 Mb
+Day: 321	Memory usage: 15.47 Mb
+Day: 322	Memory usage: 15.52 Mb
+Day: 323	Memory usage: 15.57 Mb
+Day: 324	Memory usage: 15.62 Mb
+Day: 325	Memory usage: 15.67 Mb
+Day: 326	Memory usage: 15.71 Mb
+Day: 327	Memory usage: 15.76 Mb
+Day: 328	Memory usage: 15.81 Mb
+Day: 329	Memory usage: 15.86 Mb
+Day: 330	Memory usage: 15.91 Mb
+Day: 331	Memory usage: 15.95 Mb
+Day: 332	Memory usage: 16 Mb
+Day: 333	Memory usage: 16.05 Mb
+Day: 334	Memory usage: 16.1 Mb
+Day: 335	Memory usage: 16.15 Mb
+Day: 336	Memory usage: 16.2 Mb
+Day: 337	Memory usage: 16.24 Mb
+Day: 338	Memory usage: 16.29 Mb
+Day: 339	Memory usage: 16.34 Mb
+Day: 340	Memory usage: 16.39 Mb
+Day: 341	Memory usage: 16.44 Mb
+Day: 342	Memory usage: 16.49 Mb
+Day: 343	Memory usage: 16.53 Mb
+Day: 344	Memory usage: 16.58 Mb
+Day: 345	Memory usage: 16.63 Mb
+Day: 346	Memory usage: 16.68 Mb
+Day: 347	Memory usage: 16.73 Mb
+Day: 348	Memory usage: 16.77 Mb
+Day: 349	Memory usage: 16.82 Mb
+Day: 350	Memory usage: 16.87 Mb
+Day: 351	Memory usage: 16.92 Mb
+Day: 352	Memory usage: 16.97 Mb
+Day: 353	Memory usage: 17.02 Mb
+Day: 354	Memory usage: 17.06 Mb
+Day: 355	Memory usage: 17.11 Mb
+Day: 356	Memory usage: 17.16 Mb
+Day: 357	Memory usage: 17.21 Mb
+Day: 358	Memory usage: 17.26 Mb
+Day: 359	Memory usage: 17.3 Mb
+Day: 360	Memory usage: 17.35 Mb
+Day: 361	Memory usage: 17.4 Mb
+Day: 362	Memory usage: 17.45 Mb
+Day: 363	Memory usage: 17.5 Mb
+Day: 364	Memory usage: 17.55 Mb
+Day: 365	Memory usage: 17.59 Mb
+Simulation ended.

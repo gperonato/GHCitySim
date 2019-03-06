@@ -9,11 +9,11 @@ The GHCitySim components are saved both as compiled GH components (/userObjects)
 To install, just drag and drop the files in the /UserObjects directory onto the Grasshopper canvas.
 
 In the resources folder you will find:
-* a *.ghx file containing a sample Grasshopper definition where the components are used;
-* a sample weather file in CitySim format *.cli;
+* two *.ghx files containing sample Grasshopper definitions where the components are used; the *_solar.ghx file contains an alternative workflow for solar simulations only, which does not rely on Ladybug/Honeybee libraries.
+* a sample weather file in EnergyPlus format *.epw converted in CitySim format *.cli;
 * a reference XML file in CitySim format.
 
-
+The simulation output files for the two sample workflows (*test* and *test_solar*) are saved in the /simulation directory.
 
 About CitySim
 ---------------------
@@ -40,12 +40,11 @@ Please cite the following paper ([PDF](https://infoscience.epfl.ch/record/228832
 License
 ---------------------
 GHCitySim: set of Grasshopper components for interfacing with CitySim, started by Giuseppe Peronato  
-Copyright (c) 2016-2018, Ecole polytechnique fédérale de Lausanne (EPFL)  
+Copyright (c) 2016-2017, Ecole polytechnique fédérale de Lausanne (EPFL)  
 Laboratory of Integrated Performance in Design (LIPID)  
 
-Further development conducted at Uppsala University, Sweden.
-Division of Construction Engineering, 2019
-Developer: Giuseppe Peronato <giuseppe.peronato@angstrom.uu.se>
+Furtther
+Developer: Giuseppe Peronato, giuseppe.peronato@angrom.uu.se
 
 GHCitySim is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version. 
  

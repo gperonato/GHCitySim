@@ -2,7 +2,7 @@ GHCitySim
 ========================================
 Set of Grasshopper components for interfacing with CitySim, an urban-scale building energy simulation tool.
 
-GHCitySim requires [GHPython](http://www.food4rhino.com/app/ghpython "GhPython"), [Ladybug and Honeybee](http://www.food4rhino.com/app/ladybug-honeybee "Ladybug + Honeybee") to be installed.
+GHCitySim requires [Ladybug and Honeybee](http://www.food4rhino.com/app/ladybug-honeybee "Ladybug + Honeybee") (as well as [GHPython](http://www.food4rhino.com/app/ghpython "GhPython") if you are using Rhino 5) to be installed.
 A copy of the components from Ladybug and Honeybee needed to run GHCitySim is contained in this repository.
 
 The GHCitySim components are saved both as compiled GH components (/userObjects) and source code (/src).
@@ -42,9 +42,9 @@ GHCitySim: set of Grasshopper components for interfacing with CitySim, started b
 Copyright (c) 2016-2018, Ecole polytechnique fédérale de Lausanne (EPFL)  
 Laboratory of Integrated Performance in Design (LIPID)  
 
-Further development conducted at Uppsala University, Sweden
-Division of Construction Engineering, 2019
-Developer: Giuseppe Peronato, giuseppe.peronato@angrom.uu.se
+Further development conducted at Uppsala University, Sweden  
+Division of Construction Engineering, 2019  
+Developer: Giuseppe Peronato, giuseppe.peronato[at]angstrom.uu.se  
 
 GHCitySim is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version. 
  

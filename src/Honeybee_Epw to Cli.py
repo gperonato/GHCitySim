@@ -2,7 +2,11 @@
 #
 # © All rights reserved. Ecole polytechnique fédérale de Lausanne (EPFL), Switzerland,
 # Interdisciplinary Laboratory of Performance-Integrated Design (LIPID), 2016-2017
-# Author: Giuseppe Peronato, <giuseppe.peronato@epfl.ch
+# Developer: Giuseppe Peronato, <giuseppe.peronato@alumni.epfl.ch
+#
+# Further development conducted at Uppsala University, Sweden.
+# Division of Construction Engineering, 2019
+# Developer: Giuseppe Peronato <giuseppe.peronato@angstrom.uu.se>
 #
 # CitySim is a software developed and distributed by the
 # Laboratory of Solar Energy and Building Physics (LESO-PB)
@@ -41,9 +45,9 @@ from clr import AddReference
 AddReference('Grasshopper')
 import Grasshopper.Kernel as gh
 
-ghenv.Component.Name = "Honeybee_Epw to Clim"
-ghenv.Component.NickName = 'EPW-to-Clim'
-ghenv.Component.Message = 'VER 0.0.3\nAVR_12_2017'
+ghenv.Component.Name = "Honeybee_Epw to Cli"
+ghenv.Component.NickName = 'EPW-to-Cli'
+ghenv.Component.Message = 'VER 0.0.4\nMAR_07_2019'
 #compatibleLBVersion = VER 0.0.59\nJUN_07_2015
 ghenv.Component.IconDisplayMode = ghenv.Component.IconDisplayMode.application
 ghenv.Component.Category = "Honeybee"
@@ -169,6 +173,8 @@ nebulosity = 0 #clear sky
 
 
 dir += "\\" #Add \ in case is missing
+filename = _epwFile.replace("\\","/")
+filename = filename.split("/")[-1].split(".")[0]
 
 if Run:
     data = ""
@@ -177,11 +183,11 @@ if Run:
 
 
     #Write CLI file
-    clipath = dir+locName+".cli"
+    clipath = dir+filename+".cli"
     out_file = open(clipath,"w")
     out_file.write(header + data)
     out_file.close()
 
 
 #Retrieve the name of the climate file  
-CSobj = dir+locName.lower()+".cli"
+CSobj = dir+filename+".cli"

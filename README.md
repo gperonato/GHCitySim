@@ -2,7 +2,7 @@ GHCitySim
 ========================================
 Set of Grasshopper components for interfacing with CitySim, an urban-scale building energy simulation tool.
 
-GHCitySim requires [Ladybug and Honeybee](http://www.food4rhino.com/app/ladybug-honeybee "Ladybug + Honeybee") (as well as [GHPython](http://www.food4rhino.com/app/ghpython "GhPython") if you are using Rhino 5) to be installed.
+GHCitySim requires [Ladybug and Honeybee legacy plugins](https://www.food4rhino.com/app/ladybug-tools "Ladybug + Honeybee") (as well as [GHPython](http://www.food4rhino.com/app/ghpython "GhPython") if you are using Rhino 5) to be installed.
 A copy of the components from Ladybug and Honeybee needed to run GHCitySim is contained in this repository.
 
 The GHCitySim components are saved both as compiled GH components (/userObjects) and source code (/src).

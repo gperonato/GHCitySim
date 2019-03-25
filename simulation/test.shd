@@ -1,10 +1,10 @@
 <ShadingSurface>
-<Surface id="s0-0" ShortWaveReflectance="0.2">
+<Surface id="s0-0"  ShortWaveReflectance="0.2">
 <V0 x ="-1.01842463017" y="16.8810081482" z ="5.0"/>
 <V1 x ="-1.01842463017" y="13.9957714081" z ="5.0"/>
 <V2 x ="-8.0" y="13.9957714081" z ="5.0"/>
 <V3 x ="-8.0" y="16.8810081482" z ="5.0"/>
-</Surface><Surface id="s0-0-verso" ShortWaveReflectance="0.2">
+</Surface><Surface id="s0-0-verso"  ShortWaveReflectance="0.2">
 <V3 x ="-8.0" y="16.8810081482" z ="5.0"/>
 <V0 x ="-8.0" y="13.9957714081" z ="5.0"/>
 <V1 x ="-1.01842463017" y="13.9957714081" z ="5.0"/>

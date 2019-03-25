@@ -1,5 +1,5 @@
 <GroundSurface>
-<Ground id="s0-0" ShortWaveReflectance="0.1">
+<Ground id="s0-0" type="337" ShortWaveReflectance="0.1">
 <V0 x ="-21.4756908417" y="4.89894437790" z ="0.0"/>
 <V1 x ="27.3309040070" y="4.89894437790" z ="0.0"/>
 <V2 x ="27.3309040070" y="56.9496841431" z ="0.0"/>
